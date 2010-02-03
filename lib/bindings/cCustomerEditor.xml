@@ -1,0 +1,599 @@
+<?xml version="1.0"?>
+<bindings xmlns="http://www.mozilla.org/xbl" xmlns:xbl="http://www.mozilla.org/xbl" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<!-- Order resume sections -->
+
+	<binding id="cResumeOrderSection" extends="layout.cDocumentEditor#cResumeSection">
+		<implementation>
+			<method name="setValues">
+				<parameter name="values" />
+				<body><![CDATA[
+					var sectionValues = values[this.name];
+					if (sectionValues && sectionValues.length > 0)
+					{
+						var section;
+						for (var i = 0; i < sectionValues.length; i++)
+						{
+							valuesForCatalog = sectionValues[i];
+							section = this.childNodes[i];
+							if (section == null)
+							{
+								section = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'xul:cresumesection');
+								section.className = 'orderproperties';
+								this.appendChild(section);
+							}
+							else
+							{
+								section.removeAttribute('collapsed');
+							}
+							
+							if (i == 0)
+							{
+								(sectionValues.length == 1) ? section.setAttribute('hidecatalog', 'true') : section.removeAttribute('hidecatalog');
+							}
+							section.setAttribute('shop', sectionValues[i]['shop']);
+							section.setAttribute('count', sectionValues[i]['count']);
+							section.setAttribute('amounttotal', sectionValues[i]['amounttotal']);
+							section.setAttribute('amountaverage', sectionValues[i]['amountaverage']);
+						}
+						while (section = this.childNodes[i])
+						{
+							section.setAttribute('collapsed', 'true');
+							i++;
+						}
+						this.removeAttribute("hidden");
+					}
+					else
+					{
+						//this.setAttribute("hidden", true);
+					}		
+				]]></body>
+			</method>		
+		</implementation>
+	</binding>
+	
+	<binding id="cResumeOrderPropertiesSection">
+		<content>
+			<xul:vbox anonid="content" class="content" flex="1">
+				<xul:cproperty name="catalog" label="&amp;modules.customer.bo.doceditor.property.Catalog;" xbl:inherits="value=catalog,collapsed=hidecatalog" />
+				<xul:cproperty name="count" label="&amp;modules.customer.bo.doceditor.property.Order-count;" xbl:inherits="value=count" />
+				<xul:cproperty name="amounttotal" label="&amp;modules.customer.bo.doceditor.property.Order-amount-total;" xbl:inherits="value=amounttotal" />
+				<xul:cproperty name="amountaverage" label="&amp;modules.customer.bo.doceditor.property.Order-amount-average;" xbl:inherits="value=amountaverage" />
+			</xul:vbox>
+		</content>
+	</binding>
+	
+	<!-- Cart resume sections -->
+	
+	<binding id="cResumeCartSection" extends="layout.cDocumentEditor#cResumeSection">
+		<implementation>
+			<method name="setValues">
+				<parameter name="values" />
+				<body><![CDATA[
+					var sectionValues = values[this.name];
+					if (sectionValues && sectionValues.length > 0)
+					{
+						var section;
+						for (var i = 0; i < sectionValues.length; i++)
+						{
+							valuesForCatalog = sectionValues[i];
+							section = this.childNodes[i];
+							if (section == null)
+							{
+								section = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'xul:cresumesection');
+								section.className = 'cartproperties';
+								this.appendChild(section);
+							}
+							else
+							{
+								section.removeAttribute('collapsed');
+							}
+							
+							if (i == 0)
+							{
+								(sectionValues.length == 1) ? section.setAttribute('hidecatalog', 'true') : section.removeAttribute('hidecatalog');
+							}
+							section.setAttribute('catalog', sectionValues[i]['catalog']);
+							section.setAttribute('lineCount', sectionValues[i]['lineCount']);
+							section.setAttribute('totalTax', sectionValues[i]['totalTax']);
+							section.setAttribute('totalAmount', sectionValues[i]['totalAmount']);
+						}
+						while (section = this.childNodes[i])
+						{
+							section.setAttribute('collapsed', 'true');
+							i++;
+						}
+						this.removeAttribute("hidden");
+					}
+					else
+					{
+						//this.setAttribute("hidden", true);
+					}		
+				]]></body>
+			</method>		
+		</implementation>
+	</binding>
+	
+	<binding id="cResumeCartPropertiesSection">
+		<content>
+			<xul:vbox anonid="content" class="content" flex="1">
+				<xul:cproperty name="catalog" label="&amp;modules.customer.bo.doceditor.property.Catalog;" xbl:inherits="value=catalog,collapsed=hidecatalog" />
+				<xul:cproperty name="lineCount" label="&amp;modules.customer.bo.doceditor.property.Cart-line-count;" xbl:inherits="value=lineCount" />
+				<xul:cproperty name="totalTax" label="&amp;modules.customer.bo.doceditor.property.Cart-total-tax;" xbl:inherits="value=totalTax" />
+				<xul:cproperty name="totalAmount" label="&amp;modules.customer.bo.doceditor.property.Cart-total-amount;" xbl:inherits="value=totalAmount" />
+			</xul:vbox>
+		</content>
+	</binding>
+	
+	<!-- Properties panel -->
+	
+	<binding id="addressSection">
+		<resources>
+			<stylesheet src="modules.uixul.cFieldsGroup" />
+		</resources>
+		<content>
+			<xul:groupbox flex="1">
+				<xul:caption xbl:inherits="label" />
+				<xul:grid flex="1">
+					<xul:columns>
+						<xul:column />
+						<xul:column flex="1" />
+					</xul:columns>
+					<xul:rows>
+						<xul:row xbl:inherits="hidden=titlehidden">
+							<xul:label value="&amp;modules.customer.document.address.Title;" />
+							<xul:label xbl:inherits="value=title" />
+						</xul:row>
+						<xul:row xbl:inherits="hidden=firstnamehidden">
+							<xul:label value="&amp;modules.customer.document.address.Firstname;" />
+							<xul:label xbl:inherits="value=firstname" />
+						</xul:row>
+						<xul:row xbl:inherits="hidden=lastnamehidden">
+							<xul:label value="&amp;modules.customer.document.address.Lastname;" />
+							<xul:label xbl:inherits="value=lastname" />
+						</xul:row>
+						<xul:row>
+							<xul:label value="&amp;modules.customer.document.address.Addressline1;" />
+							<xul:label xbl:inherits="value=addressline1" />
+						</xul:row>
+						<xul:row xbl:inherits="hidden=addressline2hidden">
+							<xul:label value="&amp;modules.customer.document.address.Addressline2;" />
+							<xul:label xbl:inherits="value=addressline2" />
+						</xul:row>
+						<xul:row xbl:inherits="hidden=addressline3hidden">
+							<xul:label value="&amp;modules.customer.document.address.Addressline3;" />
+							<xul:label xbl:inherits="value=addressline3" />
+						</xul:row>
+						<xul:row>
+							<xul:label value="&amp;modules.customer.document.address.Zipcode;" />
+							<xul:label xbl:inherits="value=zipcode" />
+						</xul:row>
+						<xul:row>
+							<xul:label value="&amp;modules.customer.document.address.City;" />
+							<xul:label xbl:inherits="value=city" />
+						</xul:row>
+						<xul:row>
+							<xul:label value="&amp;modules.customer.document.address.Country;" />
+							<xul:label xbl:inherits="value=country" />
+						</xul:row>
+						<xul:row xbl:inherits="hidden=emailhidden">
+							<xul:label value="&amp;modules.customer.document.address.Email;" />
+							<xul:label xbl:inherits="value=email" />
+						</xul:row>
+						<xul:row xbl:inherits="hidden=phonehidden">
+							<xul:label value="&amp;modules.customer.document.address.Phone;" />
+							<xul:label xbl:inherits="value=phone" />
+						</xul:row>
+						<xul:row>
+							<xul:label value="&amp;modules.customer.document.address.Creationdate;" />
+							<xul:label xbl:inherits="value=creationdate" />
+						</xul:row>
+					</xul:rows>
+				</xul:grid>
+			</xul:groupbox>
+		</content>
+	</binding>
+	
+	<!-- Carts pannel -->
+	
+	<binding id="cCartsPanel" extends="layout.cDocumentEditor#cDocumentEditorPanel">
+		<resources>
+			<stylesheet src="modules.customer.cCustomerEditor" />
+		</resources>
+		<content>
+			<xul:vbox flex="1">
+				<xul:cmessageinfo anonid="message" />
+				<xul:scrollbox anonid="scrollctrl" flex="1" class="editordatacontainer" orient="vertical">
+					<xul:vbox anonid="carts" />
+					<xul:spacer flex="1" />
+				</xul:scrollbox>					
+			</xul:vbox>
+		</content>
+		<implementation>
+			<method name="getInitializeParameters">
+				<body><![CDATA[
+					return {
+						action: "LoadCustomerCarts", 
+						cmpref: this.documentEditor.documentid, 
+						lang : Context.W_LANG
+					};
+				]]></body>
+			</method>
+						
+			<method name="fireInitializeComplete">
+				<parameter name="result" />
+				<body><![CDATA[
+					if (result.status != "OK")
+					{
+						this.showErrorMessage(result.contents.errorMessage);
+					}
+					else
+					{									
+						var carts = result.contents;
+						if (carts.length == 0)
+						{
+							this.documentEditor.disableTab('carts');
+						}
+						else
+						{
+							this.documentEditor.enableTab('carts');
+						}						
+						var cart;
+						var section;
+						var cartsNode = document.getAnonymousElementByAttribute(this, "anonid", 'carts');
+						for (var i = 0; i < carts.length; i++)
+						{
+							cart = carts[i];
+							section = cartsNode.childNodes[i];
+							if (section == null)
+							{
+								section = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'section');
+								section.className = 'cart';
+								cartsNode.appendChild(section);
+								
+								row = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'xul:row');
+								row.setAttribute('linetype', 'grid-header');
+								section.appendChild(row);
+							}
+							else
+							{
+								section.removeAttribute('collapsed');
+							}
+							
+							for (var name in cart)
+							{
+								section.setAttribute(name, cart[name]);
+								if (cart[name] && cart[name] != '')
+								{
+									section.removeAttribute(name+'hidden');
+								}
+								else
+								{
+									section.setAttribute(name+'hidden', true);
+								}
+							}
+							
+							// Lines handling.
+							var lines = cart['lines'];
+							var line;
+							var row;
+							for (var j = 0; j < lines.length; j++)
+							{
+								line = lines[j];
+								row = section.childNodes[j+1];
+								if (row == null)
+								{
+									row = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'xul:row');
+									section.appendChild(row);
+								}
+								else
+								{
+									row.removeAttribute('collapsed');
+								}
+								
+								for (var name in line)
+								{
+									row.setAttribute(name, line[name]);
+									if (line[name] && line[name] != '')
+									{
+										row.removeAttribute(name+'hidden');
+									}
+									else
+									{
+										row.setAttribute(name+'hidden', true);
+									}
+								}
+							}
+							while (row = section.childNodes[j+1])
+							{
+								row.setAttribute('collapsed', 'true');
+								j++;
+							}
+						}
+						while (section = cartsNode.childNodes[i])
+						{
+							section.setAttribute('collapsed', 'true');
+							i++;
+						}
+					}
+					this.mInitialized = true;
+					this.gotoTop();
+				]]></body>
+			</method>
+		</implementation>
+	</binding>
+	
+	<binding id="cartSection">
+		<resources>
+			<stylesheet src="modules.uixul.cFieldsGroup" />
+			<stylesheet src="modules.customer.cCustomerEditor" />
+		</resources>
+		<content>
+			<xul:groupbox flex="1">
+				<xul:caption xbl:inherits="label" />
+				<xul:grid flex="1">
+					<xul:columns>
+						<xul:column />
+						<xul:column flex="1" />
+					</xul:columns>
+					<xul:rows>
+						<xul:row>
+							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Last-update;" />
+							<xul:label xbl:inherits="value=lastupdate" />
+						</xul:row>
+						<xul:groupbox flex="1">
+							<xul:caption label="&amp;modules.customer.bo.doceditor.panel.carts.Lines;" />
+							<xul:grid class="cart-lines">
+								<xul:columns>
+									<xul:column flex="1" />
+									<xul:column />
+									<xul:column />
+									<xul:column />
+									<xul:column />
+								</xul:columns>
+								<xul:rows>
+									<xbl:children />
+								</xul:rows>
+							</xul:grid>
+						</xul:groupbox>
+						<xul:row xbl:inherits="hidden=couponLabelhidden">
+							<xul:label value="&amp;modules.order.frontoffice.Coupon-name;" />
+							<xul:label xbl:inherits="value=couponLabel" />
+						</xul:row>
+						<xul:row xbl:inherits="hidden=couponLabelhidden">
+							<xul:label value="&amp;modules.order.frontoffice.Coupon-code;" />
+							<xul:label xbl:inherits="value=couponCode" />
+						</xul:row>
+						<xul:row xbl:inherits="hidden=couponLabelhidden">
+							<xul:label value="&amp;modules.order.frontoffice.Coupon-value;" />
+							<xul:label xbl:inherits="value=couponValue" />
+						</xul:row>
+						<xul:row xbl:inherits="hidden=couponLabelhidden">
+							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Modified-sub-total-without-tax;" />
+							<xul:label xbl:inherits="value=subTotalWithCartModificatorsWithoutTax" />
+						</xul:row>
+						<xul:row xbl:inherits="hidden=couponLabelhidden">
+							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Modified-sub-total-with-tax;" />
+							<xul:label xbl:inherits="value=subTotalWithCartModificatorsWithTax" />
+						</xul:row>
+						<xul:row xbl:inherits="hidden=shippingLabelhidden">
+							<xul:label value="&amp;modules.order.frontoffice.Shipping-mode;" />
+							<xul:label xbl:inherits="value=shippingLabel" />
+						</xul:row>
+						<xul:row xbl:inherits="hidden=shippingLabelhidden">
+							<xul:label value="&amp;modules.order.frontoffice.Shipping-fees;" />
+							<xul:label xbl:inherits="value=shippingPrice" />
+						</xul:row>
+						<xul:row xbl:inherits="hidden=billingLabelhidden">
+							<xul:label value="&amp;modules.order.frontoffice.Billing-mode;" />
+							<xul:label xbl:inherits="value=billingLabel" />
+						</xul:row>
+						<xul:row>
+							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Total-without-tax;" />
+							<xul:label xbl:inherits="value=totalWithoutTax" />
+						</xul:row>
+						<xul:row>
+							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Tva-amount;" />
+							<xul:label xbl:inherits="value=tvaAmount" />
+						</xul:row>
+						<xul:row>
+							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Total-with-tax;" />
+							<xul:label xbl:inherits="value=totalWithTax" />
+						</xul:row>
+					</xul:rows>
+				</xul:grid>
+			</xul:groupbox>
+		</content>
+	</binding>
+	
+	<binding id="headRow">
+		<content>
+			<xul:label value="&amp;modules.order.frontoffice.Designation;" />
+			<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Unit-price;" />
+			<xul:label value="&amp;modules.order.frontoffice.Availability;" />
+			<xul:label value="&amp;modules.order.frontoffice.Quantity;" />
+			<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Total-price;" />
+		</content>
+	</binding>	
+	
+	<binding id="lineRow">
+		<content>
+			<xul:vbox>
+				<xul:label xbl:inherits="value=productLabel" />
+			</xul:vbox>
+			<xul:vbox>
+				<xul:label xbl:inherits="value=unitPriceWithoutTax" />
+				<xul:label xbl:inherits="value=unitPriceWithTax" />
+			</xul:vbox>
+			<xul:label xbl:inherits="value=availability" />
+			<xul:label xbl:inherits="value=quantity" />
+			<xul:vbox>
+				<xul:label xbl:inherits="value=totalPriceWithoutTax" />
+				<xul:label xbl:inherits="value=totalPriceWithTax" />
+			</xul:vbox>
+		</content>
+	</binding>	
+	
+	<binding id="discountLineRow">
+		<content>
+			<xul:label xbl:inherits="value=discountLabel" />
+			<xul:vbox>
+				<xul:label xbl:inherits="value=unitPriceWithoutTax" />
+				<xul:label xbl:inherits="value=unitPriceWithTax" />
+			</xul:vbox>
+			<xul:label xbl:inherits="value=availability" />
+			<xul:label xbl:inherits="value=quantity" />
+			<xul:vbox>
+				<xul:label xbl:inherits="value=totalPriceWithoutTax" />
+				<xul:label xbl:inherits="value=totalPriceWithTax" />
+			</xul:vbox>
+		</content>
+	</binding>
+	
+	<!-- Orders panel -->
+	
+	<binding id="cOrdersPanel" extends="layout.cDocumentEditor#cDocumentEditorPanel">
+		<content>
+			<xul:vbox flex="1">
+				<xul:cmessageinfo anonid="message" />
+				<xul:scrollbox anonid="scrollctrl" flex="1" class="editordatacontainer" orient="vertical">
+					<xul:vbox anonid="orders" />
+					<xul:spacer flex="1" />
+				</xul:scrollbox>					
+			</xul:vbox>
+		</content>
+		<implementation>
+			<method name="getInitializeParameters">
+				<body><![CDATA[
+					return {
+						action: "LoadCustomerOrders", 
+						cmpref: this.documentEditor.documentid, 
+						lang : Context.W_LANG
+					};
+				]]></body>
+			</method>
+						
+			<method name="fireInitializeComplete">
+				<parameter name="result" />
+				<body><![CDATA[
+					if (result.status != "OK")
+					{
+						this.showErrorMessage(result.contents.errorMessage);
+					}
+					else
+					{									
+						var orders = result.contents;
+						if (orders.length == 0)
+						{
+							this.documentEditor.disableTab('orders');
+						}
+						else
+						{
+							this.documentEditor.enableTab('orders');
+						}						
+						var order;
+						var section;
+						var ordersNode = document.getAnonymousElementByAttribute(this, "anonid", 'orders');
+						for (var i = 0; i < orders.length; i++)
+						{
+							order = orders[i];
+							section = ordersNode.childNodes[i];
+							if (section == null)
+							{
+								section = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'section');
+								section.className = 'order';
+								ordersNode.appendChild(section);
+							}
+							else
+							{
+								section.removeAttribute('collapsed');
+								section.removeChild(section.firstChild);
+							}
+							
+							
+							section.setAttribute('customerid', this.documentEditor.documentid);							
+							for (var name in order)
+							{
+								section.setAttribute(name, order[name]);
+								if (order[name] && order[name] != '')
+								{
+									section.removeAttribute(name+'hidden');
+								}
+								else
+								{
+									section.setAttribute(name+'hidden', true);
+								}
+							}
+							
+							// Comment admin.
+							section.appendChild(document.createTextNode(order['commentadmin']));
+						}
+						while (section = ordersNode.childNodes[i])
+						{
+							section.setAttribute('collapsed', 'true');
+							i++;
+						}
+					}
+					this.mInitialized = true;
+					this.gotoTop();
+				]]></body>
+			</method>
+		</implementation>
+	</binding>	
+
+	<binding id="orderSection">
+		<resources>
+			<stylesheet src="modules.uixul.cFieldsGroup" />
+			<stylesheet src="modules.customer.cCustomerEditor" />
+		</resources>
+		<content>
+			<xul:groupbox flex="1">
+				<xul:caption xbl:inherits="label" />
+				<xul:grid flex="1">
+					<xul:columns>
+						<xul:column />
+						<xul:column flex="1" />
+					</xul:columns>
+					<xul:rows>
+						<xul:row>
+							<xul:label value="&amp;modules.order.document.order.Reference;" />
+							<xul:label class="text-link" xbl:inherits="value=ordernumber" onclick="openOrder();"/>
+						</xul:row>
+						<xul:row>
+							<xul:label value="&amp;modules.order.document.order.Creationdate;" />
+							<xul:label xbl:inherits="value=creationdate" />
+						</xul:row>
+						<xul:row>
+							<xul:label value="&amp;modules.order.document.order.OrderStatus;" />
+							<xul:label anonid="order-status" xbl:inherits="value=status,class=statusClass" />
+						</xul:row>
+						<xul:row>
+							<xul:label value="&amp;modules.order.document.order.TotalAmountWithoutTax;" />
+							<xul:label xbl:inherits="value=totalamountwithouttax" />
+						</xul:row>
+						<xul:row>
+							<xul:label value="&amp;modules.order.document.order.TotalAmountWithTax;" />
+							<xul:label xbl:inherits="value=totalamountwithtax" />
+						</xul:row>
+						<xul:row xbl:inherits="hidden=commentadminhidden">
+							<xul:label value="&amp;modules.order.document.order.Commentadmin;" />
+							<xul:hbox flex="1">
+								<html:div flex="1" anonid="commentadmin" xmlns="http://www.w3.org/1999/xhtml"><xbl:children /></html:div>
+							</xul:hbox>
+						</xul:row>
+					</xul:rows>
+				</xul:grid>
+			</xul:groupbox>
+		</content>
+		<implementation>
+			<method name="openOrder">
+				<body><![CDATA[
+					var uri = ['order', 'openDocument', 'modules_order_order', this.id, 'properties'].join(',');
+					var from = ['customer', 'openDocument', 'modules_customer_customer', this.getAttribute('customerid'), 'orders'].join(',');
+					openActionUri(uri, from);					
+				]]></body>
+			</method>			
+		</implementation>
+	</binding>
+</bindings>

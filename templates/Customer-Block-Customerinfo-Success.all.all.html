@@ -1,0 +1,6 @@
+<p>
+	<a tal:condition="not: customer" change:link="tag contextual_website_website_modules_customer_new-account" change:translate="&modules.customer.frontoffice.Customer-create;" />
+	<a tal:condition="customer" change:link="tag contextual_website_website_modules_customer_my-account" tal:content="user/getFullname" />
+	<a tal:condition="not: user" change:link="tag contextual_website_website_modules_customer_my-account" change:translate="&modules.customer.frontoffice.Customer-connect;" />
+	<a tal:condition="user" change:link="module users; action FrontendLogout" change:translate="&modules.customer.frontoffice.Customer-disconnect;" />
+</p>

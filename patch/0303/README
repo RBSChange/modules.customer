@@ -1,0 +1,4 @@
+Version: 3.0.0
+
+- migrate customers to new structure.
+- delete obsolete lists, forms and notifications.

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization>
+	<entity id="property.full-name">
+		<locale lang="fr">nom complet</locale>
+		<locale lang="en">full name</locale>
+	</entity>
+	<entity id="property.code">
+		<locale lang="fr">code client</locale>
+		<locale lang="en">customer code</locale>
+	</entity>
+	
+	<!-- Properties -->
+	
+	<entity id="section.identification">
+		<locale lang="fr">identification du client</locale>
+	</entity>	
+	<entity id="section.addresses">
+		<locale lang="fr">adresses</locale>
+		<locale lang="en">addresses</locale>
+	</entity>	
+	
+	<!-- Orders -->
+	<entity id="tab.orders">
+		<locale lang="fr">commandes</locale>
+		<locale lang="en">orders</locale>
+	</entity>
+	
+	<entity id="section.orders">
+		<locale lang="fr">commandes</locale>
+		<locale lang="en">orders</locale>
+	</entity>	
+	
+	<entity id="property.catalog">
+		<locale lang="fr">catalogue</locale>
+		<locale lang="en">catalog</locale>
+	</entity>
+	
+	<entity id="property.order-count">
+		<locale lang="fr">nombre de commandes (payées ou en attente de paiement)</locale>
+		<locale lang="en">order count (paid or waiting for payment)</locale>
+	</entity>	
+	<entity id="property.order-amount-total">
+		<locale lang="fr">motant total des commandes (payées ou en attente de paiement)</locale>
+		<locale lang="en">order amount total (paid or waiting for payment)</locale>
+	</entity>	
+	<entity id="property.order-amount-average">
+		<locale lang="fr">motant moyen des commandes (payées ou en attente de paiement)</locale>
+		<locale lang="en">order amount average (paid or waiting for payment)</locale>
+	</entity>
+	
+	<entity id="property.cart-line-count">
+		<locale lang="fr">nombre de lignes</locale>
+		<locale lang="en">line count</locale>
+	</entity>
+	<entity id="property.cart-total-tax">
+		<locale lang="fr">montant total des taxes</locale>
+		<locale lang="en">total tax amount</locale>
+	</entity>
+	<entity id="property.cart-total-amount">
+		<locale lang="fr">montant total TTC</locale>
+		<locale lang="en">total amount with tax</locale>
+	</entity>
+	
+	<!-- Carts -->
+	<entity id="tab.carts">
+		<locale lang="fr">panier en cours</locale>
+		<locale lang="en">cart</locale>
+	</entity>
+	
+	<entity id="section.carts">
+		<locale lang="fr">panier en cours</locale>
+		<locale lang="en">cart</locale>
+	</entity>
+	
+	<entity id="panel.carts.title">
+		<locale lang="fr">panier pour la boutique "{shop}"</locale>
+		<locale lang="en">cart for the shop "{shop}"</locale>
+	</entity>
+	<entity id="panel.carts.unknown">
+		<locale lang="fr">inconnue</locale>
+		<locale lang="en">unknown</locale>
+	</entity>
+	<entity id="panel.carts.unexisting-product">
+		<locale lang="fr">ce produit n'existe plus !</locale>
+		<locale lang="en">unexisting product!</locale>
+	</entity>
+	<entity id="panel.carts.lines">
+		<locale lang="fr">lignes</locale>
+		<locale lang="en">lines</locale>
+	</entity>
+	<entity id="panel.carts.last-update">
+		<locale lang="fr">dernière mise à jour</locale>
+		<locale lang="en">la update</locale>
+	</entity>
+	<entity id="panel.carts.tva-amount">
+		<locale lang="fr">TVA</locale>
+		<locale lang="en">tax</locale>
+	</entity>
+	<entity id="panel.carts.sub-total-without-tax">
+		<locale lang="fr">sous-total hors taxes</locale>
+		<locale lang="en">sub-total without tax</locale>
+	</entity>
+	<entity id="panel.carts.sub-total-with-tax">
+		<locale lang="fr">sous-total TTC</locale>
+		<locale lang="en">sub-total with tax</locale>
+	</entity>
+	<entity id="panel.carts.modified-sub-total-without-tax">
+		<locale lang="fr">sous-total réduit hors taxes</locale>
+		<locale lang="en">reducted sub-total without tax</locale>
+	</entity>
+	<entity id="panel.carts.modified-sub-total-with-tax">
+		<locale lang="fr">sous-total réduit TTC</locale>
+		<locale lang="en">reducted sub-total with tax</locale>
+	</entity>
+	<entity id="panel.carts.total-without-tax">
+		<locale lang="fr">total hors taxes</locale>
+		<locale lang="en">total without tax</locale>
+	</entity>
+	<entity id="panel.carts.total-with-tax">
+		<locale lang="fr">total TTC</locale>
+		<locale lang="en">total with tax</locale>
+	</entity>
+	<entity id="panel.carts.unit-price">
+		<locale lang="fr">prix unitaire</locale>
+		<locale lang="en">unit price</locale>
+	</entity>
+	<entity id="panel.carts.total-price">
+		<locale lang="fr">prix total</locale>
+		<locale lang="en">total price</locale>
+	</entity>
+</localization>

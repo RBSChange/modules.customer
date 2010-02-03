@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization>
+  <entity id="edition-form-title">
+    <locale lang="fr">edition-form-title</locale>
+    <locale lang="en">edition-form-title</locale>
+  </entity>
+  <entity id="document-name">
+    <locale lang="fr">customergroup</locale>
+    <locale lang="en">customergroup</locale>
+  </entity>
+  <entity id="label">
+    <locale lang="fr">label</locale>
+    <locale lang="en">label</locale>
+  </entity>
+  <entity id="label-help">
+    <locale lang="fr">label</locale>
+    <locale lang="en">label</locale>
+  </entity>
+  <entity id="description">
+    <locale lang="fr">description</locale>
+    <locale lang="en">description</locale>
+  </entity>
+  <entity id="description-help">
+    <locale lang="fr">description</locale>
+    <locale lang="en">description</locale>
+  </entity>
+  <entity id="query">
+    <locale lang="fr">query</locale>
+    <locale lang="en">query</locale>
+  </entity>
+  <entity id="query-help">
+    <locale lang="fr">query</locale>
+    <locale lang="en">query</locale>
+  </entity>
+</localization>

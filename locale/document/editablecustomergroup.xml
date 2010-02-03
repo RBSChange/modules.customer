@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization>
+	<entity id="edition-form-title">
+		<locale lang="fr">propriétés d'un groupe de clients éditable</locale>
+		<locale lang="en">editable customer group properties</locale>
+	</entity>
+	<entity id="document-name">
+		<locale lang="fr">groupes de clients éditable</locale>
+		<locale lang="en">editable customer group</locale>
+	</entity>
+	<entity id="label">
+		<locale lang="fr">libellé</locale>
+		<locale lang="en">label</locale>
+	</entity>
+	<entity id="description">
+		<locale lang="fr">description</locale>
+		<locale lang="en">description</locale>
+	</entity>
+	<entity id="members">
+		<locale lang="fr">membres</locale>
+		<locale lang="en">members</locale>
+	</entity>
+</localization>

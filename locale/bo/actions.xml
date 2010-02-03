@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization>
+  <entity id="create_">
+    <locale lang="fr">créer</locale>
+    <locale lang="en">create</locale>
+    <locale lang="de">Neu</locale>
+  </entity>
+  <entity id="createTarif_">
+    <locale lang="fr">créer</locale>
+    <locale lang="en">create</locale>
+    <locale lang="de">Neu</locale>
+  </entity>
+  <entity id="Create-Dynamiccustomergroup">
+    <locale lang="fr">créer un groupe de clients dynamique</locale>
+    <locale lang="en">create a dynamic customer group</locale>
+  </entity>
+  <entity id="Create-Editablecustomergroup">
+    <locale lang="fr">créer un groupe de clients éditable</locale>
+    <locale lang="en">create an editable customer group</locale>
+  </entity>
+  <entity id="Create-Tarifcustomergroup">
+    <locale lang="fr">créer un groupe tarifaire</locale>
+  </entity>
+  <entity id="create-dynamic-mailing-list">
+    <locale lang="fr">créer une liste de diffusion à partir de ce groupe</locale>
+    <locale lang="en">create a mailing list from this group</locale>
+  </entity>
+  <entity id="creating-group-mailing-list">
+    <locale lang="fr">création de la liste d'abonnés</locale>
+    <locale lang="en">mailing list creation</locale>
+  </entity>
+  <entity id="Create-Tarifcustomergroupfolder">
+    <locale lang="fr">Créer tarifcustomergroupfolder</locale>
+    <locale lang="en">Create tarifcustomergroupfolder</locale>
+  </entity>
+</localization>

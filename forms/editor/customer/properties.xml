@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel>
+	<section labeli18n="modules.customer.bo.doceditor.section.Identification">
+		<sectionrow labeli18n="modules.customer.document.customer.Website" id="website" />
+		<sectionrow labeli18n="modules.users.document.user.Title" id="title" />
+		<sectionrow labeli18n="modules.users.document.user.Firstname" id="firstname" />
+		<sectionrow labeli18n="modules.users.document.user.Lastname" id="lastname" />
+		<sectionrow labeli18n="modules.users.document.user.Email" id="email" />
+		<sectionrow labeli18n="modules.customer.document.customer.Creationdate" id="creationdate" />
+		<field name="canBeTrusted" />
+		<field name="tarifGroup" />
+	</section>
+	<vbox class="adresses" />
+	<xul>
+		<javascript>
+			<field name="mPropIds">['website', 'title', 'firstname', 'lastname', 'email', 'creationdate']</field>
+		
+			<constructor><![CDATA[
+				this.extendMethod("fireInitializeComplete", this.fireInitializeCompleteExtend);
+			]]></constructor>
+
+			<method name="fireInitializeCompleteExtend">
+				<parameter name="result" />
+				<body><![CDATA[
+					// Activate trust?
+					var trustRow = document.getAnonymousElementByAttribute(this, 'anonid', 'row_canBeTrusted');
+					if (result.contents.activateTrust)
+					{
+						trustRow.removeAttribute('hidden');
+					}
+					else
+					{
+						trustRow.setAttribute('hidden', true);
+					}
+					
+					// Indentification.
+					var identification = result.contents.identification;
+					var node;
+					for each (var name in this.mPropIds)
+					{
+						node = document.getAnonymousElementByAttribute(this, 'anonid', name);
+						if (identification[name])
+						{
+							node.setAttribute('value', identification[name]);
+							node.parentNode.removeAttribute('collapsed');
+						}
+						else
+						{
+							node.parentNode.setAttribute('collapsed', 'true');
+						}
+					}
+					
+					// Addresses.
+					var addresses = result.contents.addresses;
+					var address;
+					var section;
+					var addressesNode = document.getAnonymousElementByAttribute(this, 'class', 'adresses');
+					for (var i = 0; i < addresses.length; i++)
+					{
+						address = addresses[i];
+						section = addressesNode.childNodes[i];
+						if (section == null)
+						{
+							section = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'section');
+							section.className = 'address';
+							addressesNode.appendChild(section);
+						}
+						else
+						{
+							addressesNode.removeAttribute('collapsed');
+						}
+						
+						for (var name in address)
+						{
+							section.setAttribute(name, address[name]);
+							if (address[name] && address[name] != '')
+							{
+								section.removeAttribute(name+'hidden');
+							}
+							else
+							{
+								section.setAttribute(name+'hidden', true);
+							}
+						}
+					}
+					while (section = addressesNode.childNodes[i])
+					{
+						section.setAttribute('collapsed', 'true');
+						i++;
+					}
+				]]></body>
+			</method>
+		</javascript>
+	</xul>	 		
+</panel>

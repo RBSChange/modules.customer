@@ -1,0 +1,17 @@
+<p class="success" tal:condition="successMessage" tal:content="successMessage" />
+<p class="error" tal:condition="errorMessage" tal:content="errorMessage" />
+<tal tal:condition="message" tal:omit-tag="">
+	<p change:translate="&modules.customer.frontoffice.Unpublished-general-message;" class="normal" />
+	<p tal:replace="message" class="normal" />
+	<ul class="normal">
+		<li tal:condition="display/resendLink">
+			<a change:link="tag contextual_website_website_modules_customer_resend-confirmation-email" change:translate="&modules.customer.frontoffice.Resend-email-link;" />
+		</li>
+		<li tal:condition="display/completeFormLink">
+			<a change:link="tag contextual_website_website_modules_customer_my-account-info" change:translate="&modules.customer.frontoffice.Complete-information-link;" />
+		</li>
+		<li tal:condition="display/contactLink">
+			<a change:link="tag contextual_website_website_modules_customer_contact-form" change:translate="&modules.customer.frontoffice.Contact-us-link;" />
+		</li>
+	</ul>
+</tal>

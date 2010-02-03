@@ -1,0 +1,36 @@
+cdocumenteditor#edt_customer_customer section[class="address"]{
+	-moz-binding: url(binding:modules.customer.cCustomerEditor#addressSection);
+}
+cdocumenteditor#edt_customer_customer section[class="order"]{
+	-moz-binding: url(binding:modules.customer.cCustomerEditor#orderSection);
+}
+cdocumenteditor#edt_customer_customer section[class="cart"]{
+	-moz-binding: url(binding:modules.customer.cCustomerEditor#cartSection);
+}
+cdocumenteditor#edt_customer_customer row[linetype="cart-line"],cdocumenteditor#edt_customer_customer row[linetype="sub-cart-line"]{
+	-moz-binding: url(binding:modules.customer.cCustomerEditor#lineRow);
+}
+cdocumenteditor#edt_customer_customer row[linetype="discount-cart-line"]{
+	-moz-binding: url(binding:modules.customer.cCustomerEditor#discountLineRow);
+}
+cdocumenteditor#edt_customer_customer row[linetype="grid-header"]{
+	-moz-binding: url(binding:modules.customer.cCustomerEditor#headRow);
+}
+cdocumenteditor#edt_customer_customer cresumesection[sectionname="orders"]{
+	-moz-binding: url(binding:modules.customer.cCustomerEditor#cResumeOrderSection);
+}
+cdocumenteditor#edt_customer_customer cresumesection[sectionname="carts"]{
+	-moz-binding: url(binding:modules.customer.cCustomerEditor#cResumeCartSection);
+}
+cdocumenteditor#edt_customer_customer cresumesection[class="orderproperties"]{
+	-moz-binding: url(binding:modules.customer.cCustomerEditor#cResumeOrderPropertiesSection);
+}
+cdocumenteditor#edt_customer_customer cresumesection[class="cartproperties"]{
+	-moz-binding: url(binding:modules.customer.cCustomerEditor#cResumeCartPropertiesSection);
+}
+cdocumenteditor#edt_customer_customer corderspanel{
+	-moz-binding: url(binding:modules.customer.cCustomerEditor#cOrdersPanel);
+}
+cdocumenteditor#edt_customer_customer ccartspanel{
+	-moz-binding: url(binding:modules.customer.cCustomerEditor#cCartsPanel);
+}

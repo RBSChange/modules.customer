@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization>
+	<entity id="insert-dynamiccustomergroup">
+		<locale lang="fr">création du groupe dynamique {documentlabel}</locale>
+	</entity>
+	<entity id="log-insert-dynamiccustomergroup">
+		<locale lang="fr">création du groupe dynamique</locale>
+	</entity>
+	<entity id="add-product-to-cart">
+		<locale lang="fr">Ajout au panier du produit ${product} </locale>
+		<locale lang="en">Product  ${product} added to cart</locale>
+	</entity>
+<entity id="update-dynamiccustomergroup"><locale lang="fr">update.dynamiccustomergroup {documentlabel}</locale></entity><entity id="log-update-dynamiccustomergroup"><locale lang="fr">log-update-dynamiccustomergroup</locale></entity><entity id="update-customer"><locale lang="fr">update.customer {documentlabel}</locale></entity><entity id="log-update-customer"><locale lang="fr">log-update-customer</locale></entity></localization>

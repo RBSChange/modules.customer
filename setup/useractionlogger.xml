@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <binding fileName="modules/useractionlogger/persistentdocument/import/useractionlogger_binding.xml"/>
+  <actiondef modulename="customer" actionname="reactivate.customer" label="Réactivation du compte client ${documentlabel} "/>
+  <actiondef modulename="customer" actionname="deactivated.customer" label="Désactivation du compte client ${documentlabel} "/>
+  <actiondef modulename="customer" actionname="add-product-to-cart" label="Ajout au panier du produit ${product} avec l'article ${article}"/>
+  <actiondef modulename="customer" actionname="add-cartrule-to-cart" label="Ajout au panier de la règle ${cartrule}"/>
+  <actiondef modulename="customer" actionname="order-process-start" label="Démarrage du processus de commande"/>
+  <actiondef modulename="customer" actionname="order-process-cancel" label="Annulation du processus de commande"/>
+  <actiondef modulename="customer" actionname="order-process-end" label="Validation de la commande n°${orderNumber}"/>
+  <actiondef modulename="customer" actionname="update.dynamiccustomergroup" label="modules.customer.bo.useractionlogger.update-dynamiccustomergroup"/>
+  <actiondef modulename="customer" actionname="update.customer" label="modules.customer.bo.useractionlogger.update-customer"/>
+</script>

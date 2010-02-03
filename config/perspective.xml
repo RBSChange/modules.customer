@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<perspective>
+	<models>
+		<model name="modules_generic/rootfolder">
+			<children>
+				<child model="modules_customer/dynamiccustomergroup" />
+				<child model="modules_customer/editablecustomergroup" />
+				<child model="modules_customer/tarifcustomergroupfolder" />
+			</children>
+			<drops>
+				<drop model="modules_customer/dynamiccustomergroup" action="move" />
+				<drop model="modules_customer/editablecustomergroup" action="move" />
+				<drop model="modules_customer/tarifcustomergroupfolder" action="move" />
+			</drops>
+			<columns>
+				<column name="description" flex="3" />
+			</columns>
+			<contextactions>
+				<contextaction name="edit" />
+				<groupactions name="create_">
+					<contextaction name="createDynamiccustomergroup" />
+					<contextaction name="createEditablecustomergroup" />
+				</groupactions>
+			</contextactions>
+		</model>
+		<model name="modules_customer/tarifcustomergroupfolder">
+			<children>
+				<child model="modules_customer/tarifcustomergroup" />
+			</children>
+			<drops>
+				<drop model="modules_customer/tarifcustomergroup" action="move" />
+			</drops>
+			<columns>
+				<column name="description" flex="3" />
+			</columns>
+			<contextactions>
+				<contextaction name="edit" />
+				<groupactions name="createTarif_">
+					<contextaction name="createTarifcustomergroup" />
+				</groupactions>
+			</contextactions>
+		</model>
+		<model name="modules_customer/dynamiccustomergroup">
+			<children>
+				<child model="modules_customer/customer" from="allMembers" />
+			</children>
+			<columns>
+				<column name="email" flex="2" />
+				<column name="date" flex="1" />
+				<column name="activation" flex="4" />
+				<column name="website" flex="2" />
+			</columns>
+			<contextactions>
+				<contextaction name="edit" />
+				<contextaction name="delete" />
+				<contextaction name="createGroupMailingList" />
+			</contextactions>
+		</model>
+		<model name="modules_customer/editablecustomergroup">
+			<children>
+				<child model="modules_customer/customer" from="allMembers" />
+			</children>
+			<columns>
+				<column name="email" flex="2" />
+				<column name="date" flex="1" />
+				<column name="activation" flex="4" />
+				<column name="website" flex="2" />
+			</columns>
+			<contextactions>
+				<contextaction name="edit" />
+				<contextaction name="delete" />
+				<contextaction name="createGroupMailingList" />
+			</contextactions>
+		</model>
+		<model name="modules_customer/tarifcustomergroup">
+			<children>
+				<child model="modules_customer/customer" from="allMembers" />
+			</children>
+			<columns>
+				<column name="email" flex="2" />
+				<column name="date" flex="1" />
+				<column name="activation" flex="4" />
+				<column name="website" flex="2" />
+			</columns>
+			<contextactions>
+				<contextaction name="edit" />
+				<contextaction name="delete" />
+				<contextaction name="createGroupMailingList" />
+			</contextactions>
+		</model>
+		<model name="modules_customer/customer">
+			<contextactions>
+				<contextaction name="edit" />
+				<contextaction name="deactivated" />
+				<contextaction name="reactivate" />
+			</contextactions>
+		</model>
+	</models>
+	<toolbar>
+		<toolbarbutton name="edit" />
+		<toolbarbutton name="delete" />
+		<toolbarbutton name="deactivated" />
+		<toolbarbutton name="reactivate" />
+	</toolbar>
+	<actions>
+		<action name="refresh" single="true" icon="refresh" label="&amp;modules.uixul.bo.actions.Refresh;" />
+		<action name="edit" single="true" permission="Load" icon="edit" label="&amp;modules.uixul.bo.actions.Edit;" />
+		<action name="deactivated" permission="Deactivated" icon="deactivated" label="&amp;modules.uixul.bo.actions.Deactivate;" />
+		<action name="reactivate" permission="ReActivate" icon="reactivate" label="&amp;modules.uixul.bo.actions.ReActivate;" />
+		<action name="delete" permission="Delete" icon="delete" label="&amp;modules.uixul.bo.actions.Delete;" />
+		<action name="createGroupMailingList" permission="CreateGroupMailingList" icon="mail_server" label="&amp;modules.customer.bo.actions.Create-dynamic-mailing-list;" />
+		<action name="create_" actions="createDynamiccustomergroup,createEditablecustomergroup" icon="add" />
+		<action name="createDynamiccustomergroup" permission="Insert_dynamiccustomergroup" group="create_" icon="add" label="&amp;modules.customer.bo.actions.Create-Dynamiccustomergroup;" />
+		<action name="createEditablecustomergroup" permission="Insert_editablecustomergroup" group="create_" icon="add" label="&amp;modules.customer.bo.actions.Create-Editablecustomergroup;" />
+		<action name="createTarif_" actions="createTarifcustomergroup" icon="add" />
+		<action name="createTarifcustomergroup" permission="Insert_tarifcustomergroup" group="createTarif_" icon="add" label="&amp;modules.customer.bo.actions.Create-Tarifcustomergroup;" />
+	</actions>
+</perspective>

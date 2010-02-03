@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<rights>
+	<actions>
+		<document name="rootfolder" />
+		<document name="customer" />
+		<document name="dynamiccustomergroup">
+			<action name="CreateGroupMailingList" />
+		</document>
+		<document name="editablecustomergroup">
+			<action name="CreateGroupMailingList" />
+		</document>
+		<document name="tarifcustomergroup" />
+		<document name="tarifcustomergroupfolder" />
+	</actions>
+	<roles>
+		<role name="Admin">
+			<permission name="*" />
+			<permission name="LoadPermissions.*" />
+			<permission name="SavePermissions.*" />
+			<permission name="GetPreferencesDocument" />
+			<permission name="LoadForTranslation.*" />
+			<permission name="UpdateTranslation.*" />
+			<permission name="Delete.*" />
+			<permission name="Save.*" />
+			<permission name="Insert.*" />
+			<permission name="Update.*" />
+			<permission name="Load.*" />			
+			<permission name="LoadTags" />
+			<permission name="ReActivate.*" />
+			<permission name="Deactivated.*" />
+			<permission name="CreateGroupMailingList.dynamiccustomergroup" />
+			<permission name="CreateGroupMailingList.editablecustomergroup" />
+			<permission name="EditLocale" />
+		</role>
+		<role name="User" extend="User">
+			<permission name="Enabled" />
+			<permission name="List.*" />
+		</role>
+	</roles>
+</rights>

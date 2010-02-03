@@ -1,0 +1,25 @@
+<h2 change:h="" change:translate="&modules.customer.frontoffice.Addresses-title;" />
+<form change:form="beanClass customer_persistentdocument_address; beanName address">
+	<input change:field="name beanId" hidden="true" />
+	<ul change:errors="" />
+	<ol>
+		<li><label for="customer_manageaddress_label" change:translate="&modules.customer.document.address.LabelLabel;" /> <input change:field="name label" labeled="false"/></li>
+		<li><input change:field="name title" /></li>
+		<li><input change:field="name firstname" /></li>
+		<li><input change:field="name lastname" /></li>
+		<li><input change:field="name email" /></li>
+		<li><input change:field="name company" /></li>
+		<li><input change:field="name addressLine1" /></li>
+		<li><input change:field="name addressLine2" /></li>
+		<li><input change:field="name addressLine3" /></li>
+		<li><input change:field="name zipCode" /></li>
+		<li><input change:field="name city" /></li>
+		<li><input change:field="name province" /></li>
+		<li><input change:field="name country" /></li>
+		<li><input change:field="name phone" /></li>
+		<li><input change:field="name fax" /></li>
+	</ol>
+	<p>
+		<input class="button" change:submit="name save" label="&modules.customer.frontoffice.Save;" /> <input class="button" change:submit="name cancel" label="&modules.customer.frontoffice.Cancel;" />
+	</p>
+</form>

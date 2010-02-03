@@ -1,0 +1,40 @@
+row[linetype="grid-header"]{
+	font-weight: bold;
+}
+row[linetype="cart-line"]:nth-child(even){
+	background: whitesmoke;
+}
+row[linetype="discount-cart-line"]{
+	background: #aca;
+}
+row[linetype="sub-cart-line"]:nth-child(even){
+	background: #ded;
+}
+row[linetype="sub-cart-line"]:nth-child(odd){
+	background: #efe;
+}
+div[anonid="commentadmin"]{
+	margin-left: 6px;
+	white-space: pre;
+}
+label[anonid="order-status"].payment-waiting{
+	color: orange;
+}
+label[anonid="order-status"].payment-success{
+	color: green;
+}
+label[anonid="order-status"].payment-failed{
+	color: red;
+}
+label[anonid="order-status"].canceled{
+	color: grey;
+}
+label[anonid="order-status"].shipped{
+	color: blue;
+}
+
+section.order label.text-link{
+	color: blue;
+	cursor: pointer;
+}
+

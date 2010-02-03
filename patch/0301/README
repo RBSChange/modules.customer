@@ -1,0 +1,10 @@
+Version: 3.0.0
+
+Remove the subscriberid column from m_customer_doc_customer.
+
+Replace the following blocks by their equivalent in module users :
+- Passwordchange
+- Passwordlost
+
+Remove the following blocks :
+- Mailinglist 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization>
+	<entity id="password">
+		<locale lang="fr">mot de passe</locale>
+		<locale lang="en">Password</locale>
+		<locale lang="de">Passwort</locale>
+	</entity>
+	<entity id="passwordconfirm">
+		<locale lang="fr">confirmation du mot de passe</locale>
+		<locale lang="en">Confirmation password</locale>
+		<locale lang="de">Bestätigung Passwort</locale>
+	</entity>
+	<entity id="passwordconfirm-error">
+		<locale lang="fr">votre mot de passe n'est pas confirmé</locale>
+		<locale lang="en">your password is not confirmed</locale>
+		<locale lang="de">Ihr Passwort ist nicht bestätigt</locale>
+	</entity>
+	<entity id="invalid-login-error">
+		<locale lang="fr">il existe déjà un compte utilisant cette adresse email.</locale>
+		<locale lang="en">there is already an account using this email address.</locale>
+		<locale lang="de">gibt es bereits ein Konto mit dieser E-Mail-Adresse.</locale>
+	</entity>
+	<entity id="create-account">
+		<locale lang="fr">créer mon compte</locale>
+		<locale lang="en">create an account</locale>
+		<locale lang="de">ein Kundenkonto eröffnen</locale>
+	</entity>
+</localization>
