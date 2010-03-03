@@ -256,8 +256,8 @@
     <locale lang="de">Ihr Konto erstellen um von den Diensten und Angeboten profitieren zu können</locale>
   </entity>
   <entity id="new-account-link">
-    <locale lang="fr">je crée mon compte</locale>
-    <locale lang="en">i created my account</locale>
+    <locale lang="fr">je crée mon compte client</locale>
+    <locale lang="en">I creat my customer account</locale>
     <locale lang="de">Ich erstelle mein Konto</locale>
   </entity>
   <entity id="cartlist-title">
