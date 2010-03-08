@@ -12,17 +12,4 @@
 		<parameter name="listWidget" />
 		<body><![CDATA[this.createDocumentEditor('modules_customer_tarifcustomergroup', listWidget.getSelectedItems()[0].id);]]></body>
 	</action>
-	<action name="createGroupMailingList">
-		<parameter name="listWidget" />
-		<body><![CDATA[
-			var ids = listWidget.getSelectedIds();
-			this.execute("CreateGroupMailinglist", "CreateGroupMailinglist", { cmpref: ids[0] });
-		]]></body>
-	</action>
-	<action name="createGroupMailingListIsActive">
-		<parameter name="itemData" />
-		<body><![CDATA[
-			return this.getController().checkModuleVersion('emailing', '3.0.0');
-		]]></body>
-	</action>
 </actions>

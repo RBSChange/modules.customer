@@ -53,7 +53,6 @@
 			<contextactions>
 				<contextaction name="edit" />
 				<contextaction name="delete" />
-				<contextaction name="createGroupMailingList" />
 			</contextactions>
 		</model>
 		<model name="modules_customer/editablecustomergroup">
@@ -69,7 +68,6 @@
 			<contextactions>
 				<contextaction name="edit" />
 				<contextaction name="delete" />
-				<contextaction name="createGroupMailingList" />
 			</contextactions>
 		</model>
 		<model name="modules_customer/tarifcustomergroup">
@@ -85,7 +83,6 @@
 			<contextactions>
 				<contextaction name="edit" />
 				<contextaction name="delete" />
-				<contextaction name="createGroupMailingList" />
 			</contextactions>
 		</model>
 		<model name="modules_customer/customer">
@@ -108,7 +105,6 @@
 		<action name="deactivated" permission="Deactivated" icon="deactivated" label="&amp;modules.uixul.bo.actions.Deactivate;" />
 		<action name="reactivate" permission="ReActivate" icon="reactivate" label="&amp;modules.uixul.bo.actions.ReActivate;" />
 		<action name="delete" permission="Delete" icon="delete" label="&amp;modules.uixul.bo.actions.Delete;" />
-		<action name="createGroupMailingList" permission="CreateGroupMailingList" icon="mail_server" label="&amp;modules.customer.bo.actions.Create-dynamic-mailing-list;" />
 		<action name="create_" actions="createDynamiccustomergroup,createEditablecustomergroup" icon="add" />
 		<action name="createDynamiccustomergroup" permission="Insert_dynamiccustomergroup" group="create_" icon="add" label="&amp;modules.customer.bo.actions.Create-Dynamiccustomergroup;" />
 		<action name="createEditablecustomergroup" permission="Insert_editablecustomergroup" group="create_" icon="add" label="&amp;modules.customer.bo.actions.Create-Editablecustomergroup;" />

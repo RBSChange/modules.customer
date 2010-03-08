@@ -21,10 +21,6 @@
   <entity id="Create-Tarifcustomergroup">
     <locale lang="fr">créer un groupe tarifaire</locale>
   </entity>
-  <entity id="create-dynamic-mailing-list">
-    <locale lang="fr">créer une liste de diffusion à partir de ce groupe</locale>
-    <locale lang="en">create a mailing list from this group</locale>
-  </entity>
   <entity id="creating-group-mailing-list">
     <locale lang="fr">création de la liste d'abonnés</locale>
     <locale lang="en">mailing list creation</locale>
