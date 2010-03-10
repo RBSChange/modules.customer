@@ -45,7 +45,6 @@
 	<customer id="c4" user-refid="joedoe" address-refids="bill4,ship4" />
 
 	<rootfolder module="customer">
-		<dynamiccustomergroup byLabel="Exemple de groupe client dynamique" description="Clients inscrits cette année." query='[{"class":"customer_CreationDatePeriodFilter","parameters":{"period":[null,null,"thisyear"]}}]' />
 		<editablecustomergroup byLabel="Exemple de groupe client éditable" description="Clients importés dans le fichier d'exemple." members-refids="c1,c2,c3,c4" />
 	</rootfolder>
 </script>
