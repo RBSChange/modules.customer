@@ -44,16 +44,16 @@ class customer_MailinglistGroupFeederService extends emailing_MailinglistFeederB
 	{
 		$fields = $this->getFields($list);
 		$customer = DocumentHelper::getDocumentInstance($id);
-		$billingAddress = $customer->getBillingAddress();
-		$email = $billingAddress->getEmail();
+		$user = $customer->getUser();
+		$email = $user->getEmail();
 		$subscriber = $this->getSubscriber($customer->getId(), $email, $list);				
 		$subscriber->setEmail($email);
 		$subscriber->setRelatedDocument($customer);
-		$subscriber->setExtendFieldValue($fields['firstname'], $billingAddress->getFirstname());
-		$subscriber->setExtendFieldValue($fields['lastname'], $billingAddress->getLastname());
-		if ($billingAddress->getTitle() !== null)
+		$subscriber->setExtendFieldValue($fields['firstname'], $user->getFirstname());
+		$subscriber->setExtendFieldValue($fields['lastname'], $user->getLastname());
+		if ($user->getTitle() !== null)
 		{
-			$subscriber->setExtendFieldValue($fields['title'], $billingAddress->getTitle()->getLabel());
+			$subscriber->setExtendFieldValue($fields['title'], $user->getTitle()->getLabel());
 		}
 		$subscriber->setDisable(false);
 		$subscriber->save();
