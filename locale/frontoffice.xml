@@ -346,9 +346,9 @@
     <locale lang="de">Es gibt noch keine Nachricht bezüglich dieser Bestellung.</locale>
   </entity>
   <entity id="localized-greetings">
-    <locale lang="fr">bonjour {title} {name}</locale>
-    <locale lang="en">hello {title} {name}</locale>
-    <locale lang="de">Guten Tag {title} {name}</locale>
+    <locale lang="fr">bonjour {firstname} {name}</locale>
+    <locale lang="en">hello {firstname} {name}</locale>
+    <locale lang="de">Guten Tag {firstname} {name}</locale>
   </entity>
   <entity id="cartitem-title">
     <locale lang="fr">mon compte - Détail d'un panier</locale>
