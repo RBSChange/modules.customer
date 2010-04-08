@@ -1,21 +1,27 @@
 treechildren::-moz-tree-image(modules_customer_customer){
-	list-style-image: url(/icons/small/customer.png) ;
+	list-style-image: url(/changeicons/small/customer.png) ;
 }
 treechildren::-moz-tree-image(modules_customer_preferences){
-	list-style-image: url(/icons/small/customer.png) ;
+	list-style-image: url(/changeicons/small/customer.png) ;
 }
 treechildren::-moz-tree-image(modules_customer_customergroup){
-	list-style-image: url(/icons/small/customer-group.png) ;
+	list-style-image: url(/changeicons/small/customer-group.png) ;
 }
 treechildren::-moz-tree-image(modules_customer_dynamiccustomergroup){
-	list-style-image: url(/icons/small/customer-group.png) ;
+	list-style-image: url(/changeicons/small/customer-group.png) ;
 }
 treechildren::-moz-tree-image(modules_customer_editablecustomergroup){
-	list-style-image: url(/icons/small/customer-group.png) ;
+	list-style-image: url(/changeicons/small/customer-group.png) ;
 }
 treechildren::-moz-tree-image(modules_customer_tarifcustomergroup){
-	list-style-image: url(/icons/small/customer-group.png);
+	list-style-image: url(/changeicons/small/customer-group.png);
 }
 treechildren::-moz-tree-image(modules_customer_tarifcustomergroupfolder){
-	list-style-image: url(/icons/small/folder.png);
+	list-style-image: url(/changeicons/small/folder.png);
+}
+treechildren::-moz-tree-image(modules_customer_address){
+	list-style-image: url(/changeicons/small/addressbook2.png);
+}
+treechildren::-moz-tree-image(modules_customer_coupon){
+	list-style-image: url(/changeicons/small/ticket_yellow.png);
 }
