@@ -74,12 +74,20 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 		if ($cart instanceof order_CartInfo) 
 		{
 			$this->setCartSerialized(serialize($cart));
+			if (!$cart->isEmpty())
+			{
+				$this->setLastCartUpdate(date_Calendar::getInstance()->toString());
+			}
+			else
+			{
+				$this->setLastCartUpdate(null);
+			}
 		}
 		else
 		{
 			$this->setCartSerialized(null);
+			$this->setLastCartUpdate(null);
 		}
-		$this->setMeta('modules.customer.lastCartUpdate', date_Calendar::getInstance()->toString());
 	}
 
 	/**
@@ -94,32 +102,7 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 		}
 		return unserialize($cart);
 	}
-	
-	/**
-	 * @return date_Calendar
-	 */
-	public function getLastCartUpdate()
-	{
-		$date = $this->getMeta('modules.customer.lastCartUpdate');
-		if ($date)
-		{
-			return date_Calendar::getInstance($date);
-		}
-		return null; 
-	}
-	
-	/**
-	 * @return date_Calendar
-	 */
-	public function getUILastCartUpdate()
-	{
-		$gmtDate = $this->getLastCartUpdate();
-		if ($gmtDate instanceof date_Calendar)
-		{
-			return date_Converter::convertDateToLocal($gmtDate);
-		}
-		return null;
-	}
+
 	
 	/**
 	 * @param string $moduleName

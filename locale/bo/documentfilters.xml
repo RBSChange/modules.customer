@@ -5,7 +5,7 @@
 		<locale lang="fr">les clients satisfaisant l'ensemble des critères suivants</locale>
 		<locale lang="en">customers mathcing all the following conditions</locale>
 	</entity>
-	
+
 	<entity id="addressfilter-label">
 		<locale lang="fr">propriété de l'adresse</locale>
 		<locale lang="en">filter on an address field</locale>
@@ -14,7 +14,7 @@
 		<locale lang="fr">les clients qui ont une adresse avec {field}</locale>
 		<locale lang="en">customer having an address with {field}</locale>
 	</entity>
-	
+
 	<entity id="creationdatefilter-label">
 		<locale lang="fr">inscription dans les N derniers jours/mois/années</locale>
 		<locale lang="en">clients having registered in the last N derniers days/month/years</locale>
@@ -23,7 +23,7 @@
 		<locale lang="fr">les clients qui ont une date d'inscription dans les {count} dernier(e)(s) {unit}</locale>
 		<locale lang="en">clients having registered within the last {count} {unit}</locale>
 	</entity>
-		
+
 	<entity id="loginfilter-label">
 		<locale lang="fr">identifiant de connexion</locale>
 		<locale lang="en">filter on the login</locale>
@@ -32,7 +32,7 @@
 		<locale lang="fr">les clients dont l'identifiant de connexion {mode} {code}</locale>
 		<locale lang="en">whose login {mode} {code}</locale>
 	</entity>
-	
+
 	<entity id="orderamountaveragefilter-label">
 		<locale lang="fr">le montant moyen des commandes</locale>
 		<locale lang="en">filter on the average order amount</locale>
@@ -41,7 +41,7 @@
 		<locale lang="fr">les clients dont les commandes {status} ont en moyenne un {average}</locale>
 		<locale lang="en">whose {status} orders have an average of {average}</locale>
 	</entity>
-	
+
 	<entity id="orderfilter-label">
 		<locale lang="fr">propriété d'une commande</locale>
 		<locale lang="en">filter on a property of the order</locale>
@@ -50,4 +50,14 @@
 		<locale lang="fr">les clients qui ont {count} commandes {status} avec {field}</locale>
 		<locale lang="en">having {count} {status} orders with</locale>
 	</entity>
+
+	<entity id="websitecustomerfilter-label">
+		<locale lang="fr">les clients des sites</locale>
+		<locale lang="en">customers of websites</locale>
+	</entity>
+	<entity id="websitecustomerfilter-text">
+		<locale lang="fr">les clients de {shop}</locale>
+		<locale lang="en">customers of {shop}</locale>
+	</entity>
+
 </localization>
