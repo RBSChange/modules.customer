@@ -21,7 +21,7 @@ class customer_patch_0303 extends patch_BasePatch
 					'modules_customer/editaddress');
 		foreach ($ids as $id)
 		{
-			$document = $service->getFormByFormId($id);
+			$document = $service->getByFormId($id);
 			if ($document !== null)
 			{
 				$pp->createQuery()->add(Restrictions::descendentOf($document->getId()))->delete();

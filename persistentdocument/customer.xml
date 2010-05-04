@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/1.0.xsd" model-version="3.0" icon="users1" publish-on-day-change="false" has-url="false">
-  <properties>
-    <add name="user" type="modules_users/websitefrontenduser" min-occurs="1" inverse="true"/>
-    <add name="tarifGroup" type="modules_customer/tarifcustomergroup" inverse="true"/>
-    <add name="address" type="modules_customer/address" max-occurs="-1" inverse="true"/>
-    <add name="notActivatedReason" type="Integer"/>
-    <add name="usedCoupon" type="modules_customer/coupon" max-occurs="-1"/>
-    <add name="canBeTrusted" type="Boolean" default-value="false"/>
-    <add name="cartSerialized" type="Lob"/>
-    <add name="synchroId" type="Integer"/>
-    <add name="lastCartUpdate" type="DateTime"/>
-  </properties>
-  <statuses default="ACTIVE"/>
+<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/1.0.xsd" model-version="3.0"
+	icon="users1" publish-on-day-change="false" has-url="false">
+	<properties>
+		<add name="user" type="modules_users/websitefrontenduser" min-occurs="1" inverse="true" />
+		<add name="tarifGroup" type="modules_customer/tarifcustomergroup" inverse="true" />
+		<add name="address" type="modules_customer/address" max-occurs="-1" inverse="true" />
+		<add name="notActivatedReason" type="Integer" />
+		<add name="usedCoupon" type="modules_customer/coupon" max-occurs="-1" />
+		<add name="canBeTrusted" type="Boolean" default-value="false" />
+		<add name="cartSerialized" type="Lob" />
+		<add name="synchroId" type="Integer" />
+		<add name="lastCartUpdate" type="DateTime" />
+	</properties>
+	<statuses default="ACTIVE" />
 </document>
