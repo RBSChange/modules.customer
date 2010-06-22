@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localization>
 	<entity id="password">
-		<locale lang="fr">mot de passe</locale>
+		<locale lang="fr">Mot de passe</locale>
 		<locale lang="en">Password</locale>
 		<locale lang="de">Passwort</locale>
 	</entity>
 	<entity id="passwordconfirm">
-		<locale lang="fr">confirmation du mot de passe</locale>
+		<locale lang="fr">Confirmation du mot de passe</locale>
 		<locale lang="en">Confirmation password</locale>
 		<locale lang="de">Bestätigung Passwort</locale>
 	</entity>
