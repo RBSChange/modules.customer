@@ -480,7 +480,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			$data['orders'] = array();
 			$query = order_OrderService::getInstance()->createQuery();
 			$query->add(Restrictions::eq('customer.id', $document->getId()));
-			$query->add(Restrictions::notin('orderStatus', array(order_OrderService::CANCELED, order_OrderService::PAYMENT_DELAYED, order_OrderService::PAYMENT_FAILED)));
+			$query->add(Restrictions::notin('orderStatus', array(order_OrderService::CANCELED)));
 			$query->setProjection(Projections::rowCount('count'), Projections::sum('totalAmountWithTax', 'amounttotal'), Projections::avg('totalAmountWithTax', 'amountaverage'), Projections::groupProperty('shopId'));
 			$rows = $query->find();
 			

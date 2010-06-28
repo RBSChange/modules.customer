@@ -2,6 +2,8 @@
 abstract class customer_OrderFilterBase extends f_persistentdocument_DocumentFilterImpl
 {
 	/**
+	 * @param f_persistentdocument_criteria_Query $query
+	 * @param string $statusValue
 	 * @return f_persistentdocument_criteria_Query
 	 */
 	protected function addStatusRestiction($query, $statusValue)
@@ -9,19 +11,14 @@ abstract class customer_OrderFilterBase extends f_persistentdocument_DocumentFil
 		switch ($statusValue)
 		{
 			case 'paid' :
-				$query->add(Restrictions::orExp(
-					Restrictions::eq('orderStatus', order_OrderService::PAYMENT_SUCCESS),
-					Restrictions::eq('orderStatus', order_OrderService::SHIPPED)
-				));
+				$query->createCriteria('bill')
+					->add(Restrictions::published())
+					->add(Restrictions::eq('status', order_BillService::SUCCESS));
 				break;
-				
 			case 'paid-or-waiting' :
-				$query->add(Restrictions::orExp(
-					Restrictions::eq('orderStatus', order_OrderService::PAYMENT_SUCCESS),
-					Restrictions::eq('orderStatus', order_OrderService::SHIPPED),
-					Restrictions::eq('orderStatus', order_OrderService::PAYMENT_WAITING),
-					Restrictions::eq('orderStatus', order_OrderService::PAYMENT_DELAYED)
-				));
+				$query->createCriteria('bill')
+					->add(Restrictions::published())
+					->add(Restrictions::in('status', array(order_BillService::SUCCESS, order_BillService::WAITING)));
 				break;
 			
 			case 'all' :
@@ -48,4 +45,3 @@ abstract class customer_OrderFilterBase extends f_persistentdocument_DocumentFil
 		return false;
 	}
 }
-?>
