@@ -81,4 +81,22 @@ class customer_DynamiccustomergroupService extends customer_CustomergroupService
 	{
 		return f_persistentdocument_DocumentFilterService::getInstance()->checkValueFromJson($group->getQuery(), $customer);
 	}
+	
+	/**
+	 * @param customer_persistentdocument_dynamiccustomergroup $document
+	 * @param string[] $subModelNames
+	 * @param integer $locateDocumentId null if use startindex
+	 * @param integer $pageSize
+	 * @param integer $startIndex
+	 * @param integer $totalCount
+	 * @return f_persistentdocument_PersistentDocument[]
+	 */
+	public function getVirtualChildrenAt($document, $subModelNames, $locateDocumentId, $pageSize, &$startIndex, &$totalCount)
+	{
+		Framework::info(__METHOD__);
+		
+		$queryIntersection = f_persistentdocument_DocumentFilterService::getInstance()->getQueryIntersectionFromJson($document->getQuery());
+		$result = $queryIntersection->findAtOffset($startIndex, $pageSize, $totalCount);
+		return $result;
+	}
 }
