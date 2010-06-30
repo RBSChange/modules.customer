@@ -15,10 +15,10 @@ abstract class customer_ListBaseCountryService extends BaseService
 	 */
 	public final function getItems()
 	{
-		if ($this->zone !== null)
+		if ($this->zone instanceof zone_persistentdocument_zone)
 		{
 			$results = array();
-			foreach ($this->zone->getCountryArray() as $country)
+			foreach (zone_CountryService::getInstance()->getCountries($this->zone) as $country)
 			{
 				$results[$country->getId()] = new list_Item($country->getLabel(), $country->getId());
 			}

@@ -63,7 +63,8 @@ class customer_AddressService extends f_persistentdocument_DocumentService
 		{
 			$country = $address->getCountry();
 			$zipCode = $address->getZipCode();
-			if (zone_ZoneService::getInstance()->isCountryInZone($country, $zone) && zone_CountryService::getInstance()->isZipCodeValid($country->getId(), $zipCode))
+			if (zone_ZoneService::getInstance()->isCountryInZone($country, $zone) && 
+				zone_CountryService::getInstance()->isZipCodeValid($country->getId(), $zipCode))
 			{
 				$validAddressArray[] = $address;
 			}
