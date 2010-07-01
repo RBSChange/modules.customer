@@ -23,7 +23,7 @@ class customer_WebsiteCustomerFilter extends f_persistentdocument_DocumentFilter
 	 */
 	public function getQuery()
 	{
-		$websiteIds =  DocumentHelper::getIdArrayFromDocumentArray($this->getParameter('website')->getValueForQuery());
+		$websiteIds =  DocumentHelper::getIdArrayFromDocumentArray($this->getParameter('shop')->getValueForQuery());
 		return customer_CustomerService::getInstance()->createQuery()->add(Restrictions::in('user.websiteid', $websiteIds));
 	}
 	
@@ -34,7 +34,7 @@ class customer_WebsiteCustomerFilter extends f_persistentdocument_DocumentFilter
 	{
 		if ($value instanceof customer_persistentdocument_customer)
 		{
-			$websiteIds =  DocumentHelper::getIdArrayFromDocumentArray($this->getParameter('website')->getValueForQuery());
+			$websiteIds =  DocumentHelper::getIdArrayFromDocumentArray($this->getParameter('shop')->getValueForQuery());
 			return in_array($value->getUser()->getWebsiteid(), $websiteIds);
 		}
 		return false;

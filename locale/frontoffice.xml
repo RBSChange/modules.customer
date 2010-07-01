@@ -395,6 +395,10 @@
     <locale lang="en">my account - My address</locale>
     <locale lang="de">Mein Konto - Meine Lieferadressen</locale>
   </entity>
+  <entity id="addresses-instructions">
+  	<locale lang="fr">cette page vous permet de gérer une liste d'adresses que vous pourrez alors utiliser comme adresse de livraison ou de facturation. Pour rajouter une nouvelle adresse, cliquez sur "Ajouter une nouvelle adresse". Pour modifier une adresse existante cliquer sur "Modifier".</locale>
+  	
+  </entity>
   <entity id="new-billing-address">
     <locale lang="fr">nouvelle adresse de livraison</locale>
     <locale lang="en">new delivery address</locale>

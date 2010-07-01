@@ -1,12 +1,12 @@
 <h2 change:h="" change:translate="&modules.customer.frontoffice.Addresses-title;" />
-
+<p change:translate="&modules.customer.frontoffice.Addresses-instructions;" />
 <ul change:messages="" />
+<br />
 
 <tal:block tal:define="address customer/getDefaultAddress" tal:condition="address">
-	<h3 change:h="" change:translate="&modules.customer.frontoffice.Primary-address;" />
 	<ul tal:define="isDefault php: true" metal:use-macro="address" />
 </tal:block>
-
+<br />
 <tal:block tal:define="addresses customer/getSecondaryAddresses" tal:condition="addresses">
 	<h3 change:h="" change:translate="&modules.customer.frontoffice.Secondary-addresses;" />
 	<ol class="delivery">

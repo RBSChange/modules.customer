@@ -7,8 +7,8 @@
     <locale lang="fr">création du groupe dynamique</locale>
   </entity>
   <entity id="add-product-to-cart">
-    <locale lang="fr">Ajout au panier du produit ${product} </locale>
-    <locale lang="en">Product  ${product} added to cart</locale>
+    <locale lang="fr">Ajout au panier du produit {product} </locale>
+    <locale lang="en">Product  {product} added to cart</locale>
   </entity>
   <entity id="update-dynamiccustomergroup">
     <locale lang="fr">update.dynamiccustomergroup {documentlabel}</locale>
@@ -23,25 +23,25 @@
     <locale lang="fr">log-update-customer</locale>
   </entity>
   <entity id="reactivate-customer">
-    <locale lang="fr">Réactivation du compte client ${documentlabel} </locale>
+    <locale lang="fr">Réactivation du compte client {documentlabel} </locale>
   </entity>
   <entity id="log-reactivate-customer">
     <locale lang="fr">log-reactivate-customer</locale>
   </entity>
   <entity id="deactivated-customer">
-    <locale lang="fr">Désactivation du compte client ${documentlabel} </locale>
+    <locale lang="fr">Désactivation du compte client {documentlabel} </locale>
   </entity>
   <entity id="log-deactivated-customer">
     <locale lang="fr">log-deactivated-customer</locale>
   </entity>
   <entity id="add-product-to-cart">
-    <locale lang="fr">Ajout au panier du produit ${product} avec l'article ${article}</locale>
+    <locale lang="fr">Ajout au panier du produit {product} avec l'article {article}</locale>
   </entity>
   <entity id="log-add-product-to-cart">
     <locale lang="fr">log-add-product-to-cart</locale>
   </entity>
   <entity id="add-cartrule-to-cart">
-    <locale lang="fr">Ajout au panier de la règle ${cartrule}</locale>
+    <locale lang="fr">Ajout au panier de la règle {cartrule}</locale>
   </entity>
   <entity id="log-add-cartrule-to-cart">
     <locale lang="fr">log-add-cartrule-to-cart</locale>
@@ -59,9 +59,9 @@
     <locale lang="fr">log-order-process-cancel</locale>
   </entity>
   <entity id="order-process-end">
-    <locale lang="fr">Validation de la commande n°${orderNumber}</locale>
+    <locale lang="fr">Validation de la commande n°{orderNumber}</locale>
   </entity>
   <entity id="log-order-process-end">
     <locale lang="fr">log-order-process-end</locale>
   </entity>
-</localization>
+<entity id="insert-dynamiccustomergroup"><locale lang="fr">insert.dynamiccustomergroup {documentlabel}</locale></entity><entity id="log-insert-dynamiccustomergroup"><locale lang="fr">log-insert-dynamiccustomergroup</locale></entity></localization>
