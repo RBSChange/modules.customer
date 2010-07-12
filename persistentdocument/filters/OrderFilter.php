@@ -41,7 +41,7 @@ class customer_OrderFilter extends customer_OrderFilterBase
 	 */
 	public function getQuery()
 	{
-		$query = customer_CustomerService::getInstance()->createQuery()->setFetchColumn('this');
+		$query = customer_CustomerService::getInstance()->createQuery();
 		$subQuery = $query->createCriteria('order');
 		$subQuery->add($this->getParameter('field')->getValueForQuery());
 		$subQuery->setProjection(Projections::rowCount('count'));
@@ -50,4 +50,3 @@ class customer_OrderFilter extends customer_OrderFilterBase
 		return $query;
 	}
 }
-?>

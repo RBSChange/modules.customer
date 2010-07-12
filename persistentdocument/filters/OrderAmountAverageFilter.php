@@ -34,7 +34,7 @@ class customer_OrderAmountAverageFilter extends customer_OrderFilterBase
 	 */
 	public function getQuery()
 	{
-		$query = customer_CustomerService::getInstance()->createQuery()->setFetchColumn('this');
+		$query = customer_CustomerService::getInstance()->createQuery();
 		$subQuery = $query->createCriteria('order');
 		$subQuery->setProjection(Projections::avg($this->getParameter('average')->getPropertyInfo()->getName(), 'average'));
 		$this->addStatusRestiction($subQuery, $this->getParameter('status')->getValue());
@@ -53,4 +53,3 @@ class customer_OrderAmountAverageFilter extends customer_OrderFilterBase
 		return f_util_ClassUtils::callMethodArgs('HavingRestrictions', $param->getRestriction(), $arguments);
 	}
 }
-?>
