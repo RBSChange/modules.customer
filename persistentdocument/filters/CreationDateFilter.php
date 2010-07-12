@@ -51,4 +51,3 @@ class customer_CreationDateFilter extends f_persistentdocument_DocumentFilterImp
 		return false;
 	}
 }
-?>

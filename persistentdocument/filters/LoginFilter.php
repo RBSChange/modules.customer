@@ -66,4 +66,3 @@ class customer_LoginFilter extends f_persistentdocument_DocumentFilterImpl
 		return false;
 	}
 }
-?>

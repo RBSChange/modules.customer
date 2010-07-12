@@ -65,4 +65,3 @@ class customer_AddressFilter extends f_persistentdocument_DocumentFilterImpl
 		return false;
 	}
 }
-?>
