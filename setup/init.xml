@@ -25,7 +25,7 @@
 	
 	<systemfolder module="notification" relatedmodule="customer">
 		<notification label="Confirmation de l'adresse e-mail" codename="modules_customer/emailConfirmation"
-			template="default" senderUsername="email-confirmation" subject="Confirmation de votre adresse e-mail"
+			template="default" subject="Confirmation de votre adresse e-mail"
 			availableparameters="{confirmation-link}, {confirmation-url}, {title}, {firstname}, {lastname}, {fullname}, {company-name}, {website-url}"
 			body="&lt;p&gt;Cher {title} {lastname},&lt;/p&gt;
 &lt;p&gt;Pour confirmer votre adresse e-mail, cliquez sur le lien suivant :&lt;br /&gt;{confirmation-link}&lt;/p&gt;
