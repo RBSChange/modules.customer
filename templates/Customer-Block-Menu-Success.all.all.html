@@ -1,28 +1,33 @@
 <div tal:condition="displayMenuaccount" class="ecom-block">
-	<h3 class="title"><span i18n:translate="&modules.customer.frontoffice.Menu-mon;" tal:omit-tag=""></span><strong i18n:translate="&modules.customer.frontoffice.menu-account;" /></h3>
+	<h3 change:h="">
+		<tal:block change:translate="modules.customer.frontoffice.Menu-mon" />
+		<strong change:translate="modules.customer.frontoffice.menu-account"></strong>
+	</h3>
 	<div class="content">
 		<ul change:menu="menuObject menuaccount; itemName item; ulClass navlist%index;">
-			<a change:menuitem="item" />
+			<li change:menuitem="item"></li>
 		</ul>
 	</div>
 </div>
 <div tal:condition="displayMenuorders" class="ecom-block">
-	<h3 class="title">
-		<span i18n:translate="&modules.customer.frontoffice.Menu-mes;" tal:omit-tag=""></span><strong i18n:translate="&modules.customer.frontoffice.menu-orders;" />
+	<h3 change:h="">
+		<tal:block change:translate="modules.customer.frontoffice.Menu-mes" />
+		<strong change:translate="modules.customer.frontoffice.menu-orders"></strong>
 	</h3>
 	<div class="content">
 		<ul change:menu="menuObject menuorders; itemName item; ulClass navlist%index;">
-			<a change:menuitem="item" />
+			<li change:menuitem="item"></li>
 		</ul>
 	</div>
 </div>
 <div tal:condition="displayMenuservices" class="ecom-block">
-	<h3 class="title">
-		<span i18n:translate="&modules.customer.frontoffice.Menu-mes;" tal:omit-tag=""></span><strong i18n:translate="&modules.customer.frontoffice.menu-services;" />
+	<h3 change:h="">
+		<tal:block change:translate="modules.customer.frontoffice.Menu-mes" />
+		<strong change:translate="modules.customer.frontoffice.menu-services"></strong>
 	</h3>
 	<div class="content">
 		<ul change:menu="menuObject menuservices; itemName item; ulClass navlist%index;">
-			<a change:menuitem="item" />
+			<li change:menuitem="item"></li>
 		</ul>
 	</div>
 </div>

@@ -57,21 +57,9 @@ class customer_CustomerCodeGenerator
 	 */
 	public final function getStrategy()
 	{
-		if ( is_null($this->strategy) )
+		if ($this->strategy === null)
 		{
-			try
-			{
-				$className = Framework::getConfiguration('modules/customer/customerCodeStrategyClass');
-			}
-			catch (ConfigurationException $e)
-			{
-				// No strategy defined in the project's config file: use default one.
-				$className = 'customer_CustomerCodeDefaultStrategy';
-				if (Framework::isDebugEnabled())
-				{
-					Framework::debug("No strategy defined to build order numbers for this projet: using default one (".$className.").");
-				}
-			}
+			$className = Framework::getConfigurationValue('modules/customer/customerCodeStrategyClass', 'customer_CustomerCodeDefaultStrategy');
 			$this->strategy = new $className;
 		}
 		return $this->strategy;

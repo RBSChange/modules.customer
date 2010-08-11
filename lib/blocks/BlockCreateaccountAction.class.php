@@ -82,7 +82,8 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 		{
 			$user->save();
 			$customer->save();
-		}			
+		}
+		$request->setAttribute('customerWrapper', $customerWrapper);
 		return 'Save';
 	}
 }

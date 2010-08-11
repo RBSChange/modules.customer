@@ -5,13 +5,15 @@
 	</tal:block>
 
 	<tal:block tal:condition="not:forEdition">
-		<p><strong change:translate="modules.customer.bo.blocks.dashboardgeneralstatistics.Statistics-for-website" /> 
-		<select onchange="var widget = Dashboard.getWidgetByNode(this); widget.parameters['customerParam[websiteId]'] = this.options[this.selectedIndex].value; widget.refresh();">
-			<tal:block tal:repeat="website websites">
-				<option tal:condition="php: websiteId == website.getId()" selected="selected" value="${website/getId}">${website/getLabel}</option>
-				<option tal:condition="php: websiteId != website.getId()" value="${website/getId}">${website/getLabel}</option>
-			</tal:block>
-		</select></p>
+		<p>
+			<strong change:translate="modules.customer.bo.blocks.dashboardgeneralstatistics.Statistics-for-website"></strong> 
+			<select onchange="var widget = Dashboard.getWidgetByNode(this); widget.parameters['customerParam[websiteId]'] = this.options[this.selectedIndex].value; widget.refresh();">
+				<tal:block tal:repeat="website websites">
+					<option tal:condition="php: websiteId == website.getId()" selected="selected" value="${website/getId}">${website/getLabel}</option>
+					<option tal:condition="php: websiteId != website.getId()" value="${website/getId}">${website/getLabel}</option>
+				</tal:block>
+			</select>
+		</p>
 		
 		<table width="100%" tal:condition="widget/lines">
 			<thead>

@@ -1,58 +1,12 @@
 <li tal:condition="not: inBackoffice">
-	<h4 class="title"><span tal:replace="address/getLabel" /></h4>
+	<h4 change:h="">${address/getLabelAsHtml}</h4>
 </li>
-<li><span tal:replace="address/getTitle/getLabel" /> <span tal:replace="address/getFirstname" /> <span tal:replace="address/getLastname" /></li>
-<li tal:condition="address/getAddressLine1">
-	<span tal:replace="address/getAddressLine1" />
-</li>
-<li tal:condition="address/getAddressLine2">
-	<span tal:replace="address/getAddressline2" />
-</li>
-<li tal:condition="address/getAddressLine3">
-	<span tal:replace="address/getAddressline3" />
-</li>
-<li><span tal:replace="address/getZipcode" /> <span tal:replace="address/getCity" /></li>
-<li tal:condition="address/getProvince">
-	<span tal:replace="address/getProvince" />
-</li>
-<li tal:condition="address/getCountry/getLabel">
-	<span tal:replace="address/getCountry/getLabel" />
-</li>
-<li tal:condition="address/getPhone">
-	<span tal:replace="address/getPhone" />
-</li>
-<li tal:condition="address/getFax">
-	<span tal:replace="address/getFax" />
-</li>
-
-
-
-<!--<span tal:condition="not: inBackoffice" tal:replace="address/getLabel" /><br />
-<span tal:replace="address/getTitle/getLabel" /> <span tal:replace="address/getFirstname" /> <span tal:replace="address/getLastname" />
-<br />
-<span tal:replace="address/getAddressLine1" />
-<br />
-<tal tal:condition="address/getAddressLine2">
-	<span tal:replace="address/getAddressline2" />
-	<br />
-</tal>
-<tal tal:condition="address/getAddressLine3">
-	<span tal:replace="address/getAddressline3" />
-	<br />
-</tal>
-<span tal:replace="address/getZipcode" /> <span tal:replace="address/getCity" />
-<br />
-<tal tal:condition="address/getProvince">
-	<span tal:replace="address/getProvince" />
-	<br />
-</tal>
-<span tal:replace="address/getCountry/getLabel" />
-<br />
-<tal tal:condition="address/getPhone">
-	<span tal:replace="address/getPhone" />
-	<br />
-</tal>
-<tal tal:condition="address/getFax">
-	<span tal:replace="address/getFax" />
-	<br />
-</tal>-->
+<li>${address/getTitle/getLabelAsHtml} ${address/getFirstnameAsHtml} ${address/getLastnameAsHtml}</li>
+<li tal:condition="address/getAddressLine1">${address/getAddressLine1AsHtml}</li>
+<li tal:condition="address/getAddressLine2">${address/getAddressline2AsHtml}</li>
+<li tal:condition="address/getAddressLine3">${address/getAddressline3AsHtml}</li>
+<li>${address/getZipcodeAsHtml} ${address/getCityAsHtml}</li>
+<li tal:condition="address/getProvince">${address/getProvinceAsHtml}</li>
+<li tal:condition="address/getCountry">${address/getCountry/getLabelAsHtml}</li>
+<li tal:condition="address/getPhone">${address/getPhoneAsHtml}</li>
+<li tal:condition="address/getFax">${address/getFaxAsHtml}</li>

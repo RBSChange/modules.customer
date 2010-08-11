@@ -1,9 +1,12 @@
-<h2 change:h="" change:translate="&modules.customer.frontoffice.Addresses-title;" />
+<h2 change:h="" change:translate="modules.customer.frontoffice.Addresses-title"></h2>
 <form change:form="beanClass customer_persistentdocument_address; beanName address">
 	<input change:field="name beanId" hidden="true" />
-	<ul change:errors="" />
+	<ul change:errors=""></ul>
 	<ol>
-		<li><label for="customer_manageaddress_label" change:translate="&modules.customer.document.address.LabelLabel;" /> <input change:field="name label" labeled="false"/></li>
+		<li>
+			<label for="customer_manageaddress_label" change:translate="modules.customer.document.address.LabelLabel"></label>
+			<input change:field="name label" labeled="false"/>
+		</li>
 		<li><input change:field="name title" /></li>
 		<li><input change:field="name firstname" /></li>
 		<li><input change:field="name lastname" /></li>
@@ -20,6 +23,7 @@
 		<li><input change:field="name fax" /></li>
 	</ol>
 	<p>
-		<input class="button" change:submit="name save" label="&modules.customer.frontoffice.Save;" /> <input class="button" change:submit="name cancel" label="&modules.customer.frontoffice.Cancel;" />
+		<input class="button" change:submit="name save" label="&modules.customer.frontoffice.Save;" />
+		<input class="button" change:submit="name cancel" label="&modules.customer.frontoffice.Cancel;" />
 	</p>
 </form>

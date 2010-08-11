@@ -1,13 +1,7 @@
-<h2 change:h="" change:translate="&modules.customer.frontoffice.Create-account-title;" />
+<h2 change:h="" change:translate="modules.customer.frontoffice.Create-account-title"></h2>
+<p change:translate="modules.customer.frontoffice.Create-account-line1; name customerWrapper/customer/getUser/getFullnameAsHtml"></p>
+<p change:translate="modules.customer.frontoffice.Create-account-line2"></p>
+<p change:translate="modules.customer.frontoffice.Create-account-line3"></p>
 <p>
-	Félicitations <span tal:replace="customerWrapper/custoer/getFullname"></span> !<br />
-	La création de votre compte client s'est parfaitement déroulée.<br />
-	Vous allez recevoir un mail de confirmation.
-</p>
-<p>
-	La création de votre compte vous permet de suivre vos différentes commandes,
-	et de recevoir bien entendu toutes nos offres promotionnelles.
-</p>
-<p>
-	<a class="button" change:link="tag contextual_website_website_modules_customer_my-account" change:translate="&modules.customer.frontoffice.Go-to-my-account;" />
+	<a class="button" change:link="tag ctx_customer_my-account" change:translate="modules.customer.frontoffice.Go-to-my-account"></a>
 </p>
