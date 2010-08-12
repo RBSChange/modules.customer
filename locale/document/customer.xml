@@ -37,4 +37,7 @@
 		<locale lang="fr">date de dernière modification du panier</locale>
 		<locale lang="en">last cart modification date</locale>
 	</entity>
+	<entity id="lastabandonedorderdate">
+		<locale lang="fr">dernier abandon de commande</locale>
+	</entity>
 </localization>
