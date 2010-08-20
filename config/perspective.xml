@@ -59,6 +59,9 @@
 			<children>
 				<child model="modules_customer/customer" from="allMembers" />
 			</children>
+			<drops>
+				<drop model="modules_customer/customer" action="move" />
+			</drops>
 			<columns>
 				<column name="email" flex="2" />
 				<column name="date" flex="1" />
