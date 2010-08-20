@@ -9,11 +9,13 @@
 			<method name="setValues">
 				<parameter name="values" />
 				<body><![CDATA[
+					var section;
+					var i = 0;
 					var sectionValues = values[this.name];
 					if (sectionValues && sectionValues.length > 0)
 					{
 						var section;
-						for (var i = 0; i < sectionValues.length; i++)
+						for (i = 0; i < sectionValues.length; i++)
 						{
 							valuesForCatalog = sectionValues[i];
 							section = this.childNodes[i];
@@ -37,17 +39,12 @@
 							section.setAttribute('amounttotal', sectionValues[i]['amounttotal']);
 							section.setAttribute('amountaverage', sectionValues[i]['amountaverage']);
 						}
-						while (section = this.childNodes[i])
-						{
-							section.setAttribute('collapsed', 'true');
-							i++;
-						}
-						this.removeAttribute("hidden");
 					}
-					else
+					while (section = this.childNodes[i])
 					{
-						//this.setAttribute("hidden", true);
-					}		
+						section.setAttribute('collapsed', 'true');
+						i++;
+					}
 				]]></body>
 			</method>		
 		</implementation>
@@ -71,11 +68,12 @@
 			<method name="setValues">
 				<parameter name="values" />
 				<body><![CDATA[
+					var section;
+					var i = 0;
 					var sectionValues = values[this.name];
 					if (sectionValues && sectionValues.length > 0)
 					{
-						var section;
-						for (var i = 0; i < sectionValues.length; i++)
+						for (i = 0; i < sectionValues.length; i++)
 						{
 							valuesForCatalog = sectionValues[i];
 							section = this.childNodes[i];
@@ -99,17 +97,12 @@
 							section.setAttribute('totalTax', sectionValues[i]['totalTax']);
 							section.setAttribute('totalAmount', sectionValues[i]['totalAmount']);
 						}
-						while (section = this.childNodes[i])
-						{
-							section.setAttribute('collapsed', 'true');
-							i++;
-						}
-						this.removeAttribute("hidden");
 					}
-					else
+					while (section = this.childNodes[i])
 					{
-						//this.setAttribute("hidden", true);
-					}		
+						section.setAttribute('collapsed', 'true');
+						i++;
+					}
 				]]></body>
 			</method>		
 		</implementation>

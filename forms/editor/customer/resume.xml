@@ -22,11 +22,11 @@
 		
 	<section name="carts" linkedtab="carts" actiontexti18n="modules.uixul.bo.doceditor.section.action.View"
 		labeli18n="modules.customer.bo.doceditor.section.Carts" 
-		image="{IconsBase}/small/shadow/shoppingbasket.png">
+		image="{IconsBase}/small/cart.png">
 	</section>
 			
 	<section name="orders" linkedtab="orders" actiontexti18n="modules.uixul.bo.doceditor.section.action.View"
 		labeli18n="modules.customer.bo.doceditor.section.Orders" 
-		image="{IconsBase}/small/shadow/chest.png">
+		image="{IconsBase}/small/order.png">
 	</section>					
 </panel>

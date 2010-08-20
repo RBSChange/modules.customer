@@ -8,8 +8,8 @@
 	<xul>
 		<javascript>
 			<constructor><![CDATA[
-				this.addTab('carts', '&modules.customer.bo.doceditor.tab.Carts;', 'shoppingbasket');
-				this.addTab('orders', '&modules.customer.bo.doceditor.tab.Orders;', 'chest');
+				this.addTab('carts', '&modules.customer.bo.doceditor.tab.Carts;', 'cart');
+				this.addTab('orders', '&modules.customer.bo.doceditor.tab.Orders;', 'order');
 			]]></constructor>
 		</javascript>
 	</xul>	 
