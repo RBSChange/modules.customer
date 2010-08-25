@@ -22,10 +22,10 @@ cdocumenteditor#edt_customer_customer cresumesection[sectionname="orders"]{
 cdocumenteditor#edt_customer_customer cresumesection[sectionname="carts"]{
 	-moz-binding: url(binding:modules.customer.cCustomerEditor#cResumeCartSection);
 }
-cdocumenteditor#edt_customer_customer cresumesection[class="orderproperties"]{
+cdocumenteditor#edt_customer_customer subsection[class="orderproperties"]{
 	-moz-binding: url(binding:modules.customer.cCustomerEditor#cResumeOrderPropertiesSection);
 }
-cdocumenteditor#edt_customer_customer cresumesection[class="cartproperties"]{
+cdocumenteditor#edt_customer_customer subsection[class="cartproperties"]{
 	-moz-binding: url(binding:modules.customer.cCustomerEditor#cResumeCartPropertiesSection);
 }
 cdocumenteditor#edt_customer_customer corderspanel{

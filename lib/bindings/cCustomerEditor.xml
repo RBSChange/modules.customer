@@ -9,19 +9,23 @@
 			<method name="setValues">
 				<parameter name="values" />
 				<body><![CDATA[
-					var section;
+					if (this.childNodes.length < 1)
+					{
+						label = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'xul:label');
+						label.setAttribute('value', "&modules.customer.bo.general.No-order-for-this-customer;");
+						this.appendChild(label);
+					}
 					var i = 0;
 					var sectionValues = values[this.name];
 					if (sectionValues && sectionValues.length > 0)
 					{
-						var section;
+						this.childNodes[0].setAttribute('collapsed', 'true');
 						for (i = 0; i < sectionValues.length; i++)
 						{
-							valuesForCatalog = sectionValues[i];
-							section = this.childNodes[i];
+							var section = this.childNodes[i+1];
 							if (section == null)
 							{
-								section = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'xul:cresumesection');
+								section = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'xul:subsection');
 								section.className = 'orderproperties';
 								this.appendChild(section);
 							}
@@ -34,13 +38,17 @@
 							{
 								(sectionValues.length == 1) ? section.setAttribute('hidecatalog', 'true') : section.removeAttribute('hidecatalog');
 							}
-							section.setAttribute('shop', sectionValues[i]['shop']);
-							section.setAttribute('count', sectionValues[i]['count']);
-							section.setAttribute('amounttotal', sectionValues[i]['amounttotal']);
-							section.setAttribute('amountaverage', sectionValues[i]['amountaverage']);
+							section.setAttribute('shop', sectionValues[i].shop);
+							section.setAttribute('count', sectionValues[i].count);
+							section.setAttribute('amounttotal', sectionValues[i].amounttotal);
+							section.setAttribute('amountaverage', sectionValues[i].amountaverage);
 						}
 					}
-					while (section = this.childNodes[i])
+					else
+					{
+						this.childNodes[0].removeAttribute('collapsed');
+					}
+					while (section = this.childNodes[i+1])
 					{
 						section.setAttribute('collapsed', 'true');
 						i++;
@@ -68,18 +76,23 @@
 			<method name="setValues">
 				<parameter name="values" />
 				<body><![CDATA[
-					var section;
+					if (this.childNodes.length < 1)
+					{
+						label = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'xul:label');
+						label.setAttribute('value', "&modules.customer.bo.general.No-cart-for-this-customer;");
+						this.appendChild(label);
+					}
 					var i = 0;
 					var sectionValues = values[this.name];
 					if (sectionValues && sectionValues.length > 0)
 					{
+						this.childNodes[0].setAttribute('collapsed', 'true');
 						for (i = 0; i < sectionValues.length; i++)
 						{
-							valuesForCatalog = sectionValues[i];
-							section = this.childNodes[i];
+							var section = this.childNodes[i+1];
 							if (section == null)
 							{
-								section = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'xul:cresumesection');
+								section = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'xul:subsection');
 								section.className = 'cartproperties';
 								this.appendChild(section);
 							}
@@ -92,13 +105,17 @@
 							{
 								(sectionValues.length == 1) ? section.setAttribute('hidecatalog', 'true') : section.removeAttribute('hidecatalog');
 							}
-							section.setAttribute('catalog', sectionValues[i]['catalog']);
-							section.setAttribute('lineCount', sectionValues[i]['lineCount']);
-							section.setAttribute('totalTax', sectionValues[i]['totalTax']);
-							section.setAttribute('totalAmount', sectionValues[i]['totalAmount']);
+							section.setAttribute('catalog', sectionValues[i].catalog);
+							section.setAttribute('lineCount', sectionValues[i].lineCount);
+							section.setAttribute('totalTax', sectionValues[i].totalTax);
+							section.setAttribute('totalAmount', sectionValues[i].totalAmount);
 						}
 					}
-					while (section = this.childNodes[i])
+					else
+					{
+						this.childNodes[0].removeAttribute('collapsed');
+					}
+					while (section = this.childNodes[i+1])
 					{
 						section.setAttribute('collapsed', 'true');
 						i++;
@@ -226,11 +243,7 @@
 						var carts = result.contents;
 						if (carts.length == 0)
 						{
-							this.documentEditor.disableTab('carts');
-						}
-						else
-						{
-							this.documentEditor.enableTab('carts');
+							this.showWarningMessage("&modules.customer.bo.general.No-cart-for-this-customer;");
 						}						
 						var cart;
 						var section;
@@ -479,12 +492,8 @@
 						var orders = result.contents;
 						if (orders.length == 0)
 						{
-							this.documentEditor.disableTab('orders');
+							this.showWarningMessage("&modules.customer.bo.general.No-order-for-this-customer;");
 						}
-						else
-						{
-							this.documentEditor.enableTab('orders');
-						}						
 						var order;
 						var section;
 						var ordersNode = document.getAnonymousElementByAttribute(this, "anonid", 'orders');
