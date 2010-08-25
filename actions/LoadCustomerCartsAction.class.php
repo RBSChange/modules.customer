@@ -56,38 +56,18 @@ class customer_LoadCustomerCartsAction extends f_action_BaseJSONAction
 					$cartInfo['tvaAmount'] = $shop->formatPrice($cart->getTotalTax());
 					$cartInfo['totalWithTax'] = $shop->formatPrice($cart->getTotalWithTax());
 					
-					// Lines...
+					// Lines.
 					$cartInfo['lines'] = array();
 					foreach ($cart->getCartLineArray() as $line)
 					{
-						if ($line->isBasicLine())
+						$lineInfo = $this->getLineInfo($line, 'cart-line', $shop);
+						if ($lineInfo !== null)
 						{
-							$lineInfo = $this->getLineInfo($line, 'cart-line', $shop);
-							if ($lineInfo !== null)
-							{
-								$cartInfo['lines'][] = $lineInfo;
-							}
-						}
-						else
-						{
-							$lineInfo = $this->getDiscountLineInfo($line, $shop);
-							if ($lineInfo !== null)
-							{
-								$cartInfo['lines'][] = $lineInfo;
-							}
-							
-							foreach ($line->getCartruleConditionArray() as $subLine)
-							{
-								$cartInfo['lines'][] = $this->getLineInfo($subLine, 'sub-cart-line', $shop);
-							}
-							foreach ($line->getCartruleResultArray() as $subLine)
-							{
-								$cartInfo['lines'][] = $this->getLineInfo($subLine, 'sub-cart-line', $shop);
-							}
+							$cartInfo['lines'][] = $lineInfo;
 						}
 					}
+					
 					$result[] = $cartInfo;
-				
 				}
 				catch (Exception $e)
 				{
@@ -121,25 +101,6 @@ class customer_LoadCustomerCartsAction extends f_action_BaseJSONAction
 			$lineInfo['availability'] = $product->getAvailability();
 		}
 
-		$lineInfo['unitPriceWithoutTax'] = $shop->formatPrice($line->getValueWithoutTax());
-		$lineInfo['unitPriceWithTax'] = $shop->formatPrice($line->getValueWithTax());
-		$lineInfo['quantity'] = $line->getQuantity();
-		$lineInfo['totalPriceWithoutTax'] = $shop->formatPrice($line->getTotalValueWithoutTax());
-		$lineInfo['totalPriceWithTax'] = $shop->formatPrice($line->getTotalValueWithTax());
-		
-		return $lineInfo;
-	}
-	
-	/**
-	 * @param order_CartLineInfo $line
-	 * @param catalog_persistentdocument_shop $shop
-	 * @return Array<String => String>
-	 */
-	private function getDiscountLineInfo($line, $shop)
-	{
-		$lineInfo = array();
-		$lineInfo['linetype'] = 'discount-cart-line';
-		$lineInfo['discountLabel'] = $line->getLabel();
 		$lineInfo['unitPriceWithoutTax'] = $shop->formatPrice($line->getValueWithoutTax());
 		$lineInfo['unitPriceWithTax'] = $shop->formatPrice($line->getValueWithTax());
 		$lineInfo['quantity'] = $line->getQuantity();
