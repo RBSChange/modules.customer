@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <localization>
-  <entity id="click-here-to-conforirm">
-    <locale lang="fr">cliquez ici pour confirmer votre adresse e-mail</locale>
-    <locale lang="en"/>
-    <locale lang="de">Klicken Sie hier um Ihre E-mailadresse zu bestätigen</locale>
-  </entity>
+	<entity id="click-here-to-conforirm">
+		<locale lang="fr">cliquez ici pour confirmer votre adresse e-mail</locale>
+		<locale lang="de">Klicken Sie hier um Ihre E-mailadresse zu bestätigen</locale>
+	</entity>
 </localization>

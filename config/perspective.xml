@@ -108,10 +108,10 @@
 		<action name="deactivated" permission="Deactivated" icon="deactivated" label="&amp;modules.uixul.bo.actions.Deactivate;" />
 		<action name="reactivate" permission="ReActivate" icon="reactivate" label="&amp;modules.uixul.bo.actions.ReActivate;" />
 		<action name="delete" permission="Delete" icon="delete" label="&amp;modules.uixul.bo.actions.Delete;" />
-		<action name="create_" actions="createDynamiccustomergroup,createEditablecustomergroup" icon="add" />
-		<action name="createDynamiccustomergroup" permission="Insert_dynamiccustomergroup" group="create_" icon="add" label="&amp;modules.customer.bo.actions.Create-Dynamiccustomergroup;" />
-		<action name="createEditablecustomergroup" permission="Insert_editablecustomergroup" group="create_" icon="add" label="&amp;modules.customer.bo.actions.Create-Editablecustomergroup;" />
-		<action name="createTarif_" actions="createTarifcustomergroup" icon="add" />
-		<action name="createTarifcustomergroup" permission="Insert_tarifcustomergroup" group="createTarif_" icon="add" label="&amp;modules.customer.bo.actions.Create-Tarifcustomergroup;" />
+		<action name="create_" icon="add" />
+		<action name="createDynamiccustomergroup" permission="Insert_dynamiccustomergroup" icon="add" label="&amp;modules.customer.bo.actions.Create-Dynamiccustomergroup;" />
+		<action name="createEditablecustomergroup" permission="Insert_editablecustomergroup" icon="add"	label="&amp;modules.customer.bo.actions.Create-Editablecustomergroup;" />
+		<action name="createTarif_" icon="add" />
+		<action name="createTarifcustomergroup" permission="Insert_tarifcustomergroup" icon="add" label="&amp;modules.customer.bo.actions.Create-Tarifcustomergroup;" />
 	</actions>
 </perspective>

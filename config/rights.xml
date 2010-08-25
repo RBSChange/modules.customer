@@ -9,7 +9,9 @@
 		<document name="editablecustomergroup">
 			<action name="CreateGroupMailingList" />
 		</document>
-		<document name="tarifcustomergroup" />
+		<document name="tarifcustomergroup">
+			<action name="CreateGroupMailingList" />
+		</document>
 		<document name="tarifcustomergroupfolder" />
 	</actions>
 	<roles>
@@ -28,8 +30,7 @@
 			<permission name="LoadTags" />
 			<permission name="ReActivate.*" />
 			<permission name="Deactivated.*" />
-			<permission name="CreateGroupMailingList.dynamiccustomergroup" />
-			<permission name="CreateGroupMailingList.editablecustomergroup" />
+			<permission name="CreateGroupMailingList.*" />
 			<permission name="EditLocale" />
 		</role>
 		<role name="User" extend="User">

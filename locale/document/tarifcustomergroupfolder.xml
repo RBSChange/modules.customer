@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <localization>
-  <entity id="document-name">
-    <locale lang="fr">tarifcustomergroupfolder</locale>
-    <locale lang="en">tarifcustomergroupfolder</locale>
-  </entity>
-  <entity id="label">
-    <locale lang="fr">label</locale>
-    <locale lang="en">label</locale>
-  </entity>
-  <entity id="label-help">
-    <locale lang="fr">label-help</locale>
-    <locale lang="en">label-help</locale>
-  </entity>
-  <entity id="description">
-    <locale lang="fr">description</locale>
-    <locale lang="en">description</locale>
-  </entity>
-  <entity id="description-help">
-    <locale lang="fr">description-help</locale>
-    <locale lang="en">description-help</locale>
-  </entity>
+	<entity id="document-name">
+		<locale lang="fr">tarifcustomergroupfolder</locale>
+		<locale lang="en">tarifcustomergroupfolder</locale>
+	</entity>
+	<entity id="label">
+		<locale lang="fr">libellé</locale>
+		<locale lang="en">label</locale>
+	</entity>
+	<entity id="description">
+		<locale lang="fr">description</locale>
+		<locale lang="en">description</locale>
+	</entity>
 </localization>
