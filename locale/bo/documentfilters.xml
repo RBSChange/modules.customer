@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localization>
-
 	<entity id="query-on-customer">
 		<locale lang="fr">les clients satisfaisant l'ensemble des critères suivants</locale>
 		<locale lang="en">customers matching all the following conditions</locale>
@@ -26,6 +25,15 @@
 	<entity id="creationdatefilter-text">
 		<locale lang="fr">les clients qui ont une date d'inscription dans les {count} dernier(e)(s) {unit}</locale>
 		<locale lang="en">clients having registered within the last {count} {unit}</locale>
+	</entity>
+
+	<entity id="creationdatecomparisoncustomerfilter-label">
+		<locale lang="fr">date d'inscription</locale>
+		<locale lang="en">registration date</locale>
+	</entity>
+	<entity id="creationdatecomparisoncustomerfilter-text">
+		<locale lang="fr">les clients qui ont une {date}</locale>
+		<locale lang="en">clients having {date}</locale>
 	</entity>
 
 	<entity id="loginfilter-label">
@@ -63,5 +71,4 @@
 		<locale lang="fr">les clients de {shop}</locale>
 		<locale lang="en">customers of {shop}</locale>
 	</entity>
-
 </localization>
