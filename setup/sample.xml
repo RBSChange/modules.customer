@@ -4,7 +4,7 @@
 	<binding fileName="modules/zone/persistentdocument/import/zone_binding.xml" />
 	<binding fileName="modules/customer/persistentdocument/import/customer_binding.xml" />
 
-	<country byLabel="France" id="fr" />
+ 	<country byLabel="France" id="fr" />
 
 	<websitefrontendgroup for-default-website="true">
 		<websitefrontenduser id="johndoe1" login="johndoe1" firstname="John" lastname="Doe1" email="john.doe1@rbs.fr" password="abcd123" />
@@ -45,6 +45,7 @@
 	<customer id="c4" user-refid="joedoe" address-refids="bill4,ship4" />
 
 	<rootfolder module="customer">
-		<editablecustomergroup byLabel="Exemple de groupe client éditable" description="Clients importés dans le fichier d'exemple." members-refids="c1,c2,c3,c4" />
+ 		<editablecustomergroup byLabel="Exemple de groupe client éditable" description="Clients importés dans le fichier d'exemple." members-refids="c1,c2,c3,c4" />
+		<dynamiccustomergroup byLabel="Clients incrits cette année" query='{"operator":"and","elements":[{"class":"customer_CreationDateFilter","parameters":{"count":[null,null,"1"],"unit":[null,null,"year"]}}]}' />
 	</rootfolder>
 </script>
