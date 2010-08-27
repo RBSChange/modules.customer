@@ -153,51 +153,51 @@
 					<xul:rows>
 						<xul:row xbl:inherits="hidden=titlehidden">
 							<xul:label value="&amp;modules.customer.document.address.Title;" />
-							<xul:label xbl:inherits="value=title" />
+							<xul:label xbl:inherits="xbl:text=title" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=firstnamehidden">
 							<xul:label value="&amp;modules.customer.document.address.Firstname;" />
-							<xul:label xbl:inherits="value=firstname" />
+							<xul:label xbl:inherits="xbl:text=firstname" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=lastnamehidden">
 							<xul:label value="&amp;modules.customer.document.address.Lastname;" />
-							<xul:label xbl:inherits="value=lastname" />
+							<xul:label xbl:inherits="xbl:text=lastname" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
 							<xul:label value="&amp;modules.customer.document.address.Addressline1;" />
-							<xul:label xbl:inherits="value=addressline1" />
+							<xul:label xbl:inherits="xbl:text=addressline1" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=addressline2hidden">
 							<xul:label value="&amp;modules.customer.document.address.Addressline2;" />
-							<xul:label xbl:inherits="value=addressline2" />
+							<xul:label xbl:inherits="xbl:text=addressline2" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=addressline3hidden">
 							<xul:label value="&amp;modules.customer.document.address.Addressline3;" />
-							<xul:label xbl:inherits="value=addressline3" />
+							<xul:label xbl:inherits="xbl:text=addressline3" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
 							<xul:label value="&amp;modules.customer.document.address.Zipcode;" />
-							<xul:label xbl:inherits="value=zipcode" />
+							<xul:label xbl:inherits="xbl:text=zipcode" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
 							<xul:label value="&amp;modules.customer.document.address.City;" />
-							<xul:label xbl:inherits="value=city" />
+							<xul:label xbl:inherits="xbl:text=city" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
 							<xul:label value="&amp;modules.customer.document.address.Country;" />
-							<xul:label xbl:inherits="value=country" />
+							<xul:label xbl:inherits="xbl:text=country" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=emailhidden">
 							<xul:label value="&amp;modules.customer.document.address.Email;" />
-							<xul:label xbl:inherits="value=email" />
+							<xul:label xbl:inherits="xbl:text=email" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=phonehidden">
 							<xul:label value="&amp;modules.customer.document.address.Phone;" />
-							<xul:label xbl:inherits="value=phone" />
+							<xul:label xbl:inherits="xbl:text=phone" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
 							<xul:label value="&amp;modules.customer.document.address.Creationdate;" />
-							<xul:label xbl:inherits="value=creationdate" />
+							<xul:label xbl:inherits="xbl:text=creationdate" class="allow-text-selection" />
 						</xul:row>
 					</xul:rows>
 				</xul:grid>
@@ -365,47 +365,47 @@
 						</xul:groupbox>
 						<xul:row xbl:inherits="hidden=couponLabelhidden">
 							<xul:label value="&amp;modules.order.frontoffice.Coupon-name;" />
-							<xul:label xbl:inherits="value=couponLabel" />
+							<xul:label xbl:inherits="xbl:text=couponLabel" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=couponLabelhidden">
 							<xul:label value="&amp;modules.order.frontoffice.Coupon-code;" />
-							<xul:label xbl:inherits="value=couponCode" />
+							<xul:label xbl:inherits="xbl:text=couponCode" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=couponLabelhidden">
 							<xul:label value="&amp;modules.order.frontoffice.Coupon-value;" />
-							<xul:label xbl:inherits="value=couponValue" />
+							<xul:label xbl:inherits="xbl:text=couponValue" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=couponLabelhidden">
 							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Modified-sub-total-without-tax;" />
-							<xul:label xbl:inherits="value=subTotalWithCartModificatorsWithoutTax" />
+							<xul:label xbl:inherits="xbl:text=subTotalWithCartModificatorsWithoutTax" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=couponLabelhidden">
 							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Modified-sub-total-with-tax;" />
-							<xul:label xbl:inherits="value=subTotalWithCartModificatorsWithTax" />
+							<xul:label xbl:inherits="xbl:text=subTotalWithCartModificatorsWithTax" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=shippingLabelhidden">
 							<xul:label value="&amp;modules.order.frontoffice.Shipping-mode;" />
-							<xul:label xbl:inherits="value=shippingLabel" />
+							<xul:label xbl:inherits="xbl:text=shippingLabel" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=shippingLabelhidden">
 							<xul:label value="&amp;modules.order.frontoffice.Shipping-fees;" />
-							<xul:label xbl:inherits="value=shippingPrice" />
+							<xul:label xbl:inherits="xbl:text=shippingPrice" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=billingLabelhidden">
 							<xul:label value="&amp;modules.order.frontoffice.Billing-mode;" />
-							<xul:label xbl:inherits="value=billingLabel" />
+							<xul:label xbl:inherits="xbl:text=billingLabel" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
 							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Total-without-tax;" />
-							<xul:label xbl:inherits="value=totalWithoutTax" />
+							<xul:label xbl:inherits="xbl:text=totalWithoutTax" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
 							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Tva-amount;" />
-							<xul:label xbl:inherits="value=tvaAmount" />
+							<xul:label xbl:inherits="xbl:text=tvaAmount" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
 							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Total-with-tax;" />
-							<xul:label xbl:inherits="value=totalWithTax" />
+							<xul:label xbl:inherits="xbl:text=totalWithTax" class="allow-text-selection" />
 						</xul:row>
 					</xul:rows>
 				</xul:grid>
@@ -426,33 +426,17 @@
 	<binding id="lineRow">
 		<content>
 			<xul:vbox>
-				<xul:label xbl:inherits="value=productLabel" />
+				<xul:label xbl:inherits="xbl:text=productLabel" class="allow-text-selection" />
 			</xul:vbox>
 			<xul:vbox>
-				<xul:label xbl:inherits="value=unitPriceWithoutTax" />
-				<xul:label xbl:inherits="value=unitPriceWithTax" />
+				<xul:label xbl:inherits="xbl:text=unitPriceWithoutTax" class="allow-text-selection" />
+				<xul:label xbl:inherits="xbl:text=unitPriceWithTax" class="allow-text-selection" />
 			</xul:vbox>
-			<xul:label xbl:inherits="value=availability" />
-			<xul:label xbl:inherits="value=quantity" />
+			<xul:label xbl:inherits="xbl:text=availability" class="allow-text-selection" />
+			<xul:label xbl:inherits="xbl:text=quantity" class="allow-text-selection" />
 			<xul:vbox>
-				<xul:label xbl:inherits="value=totalPriceWithoutTax" />
-				<xul:label xbl:inherits="value=totalPriceWithTax" />
-			</xul:vbox>
-		</content>
-	</binding>	
-	
-	<binding id="discountLineRow">
-		<content>
-			<xul:label xbl:inherits="value=discountLabel" />
-			<xul:vbox>
-				<xul:label xbl:inherits="value=unitPriceWithoutTax" />
-				<xul:label xbl:inherits="value=unitPriceWithTax" />
-			</xul:vbox>
-			<xul:label xbl:inherits="value=availability" />
-			<xul:label xbl:inherits="value=quantity" />
-			<xul:vbox>
-				<xul:label xbl:inherits="value=totalPriceWithoutTax" />
-				<xul:label xbl:inherits="value=totalPriceWithTax" />
+				<xul:label xbl:inherits="xbl:text=totalPriceWithoutTax" class="allow-text-selection" />
+				<xul:label xbl:inherits="xbl:text=totalPriceWithTax" class="allow-text-selection" />
 			</xul:vbox>
 		</content>
 	</binding>

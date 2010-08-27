@@ -10,9 +10,6 @@ cdocumenteditor#edt_customer_customer section[class="cart"]{
 cdocumenteditor#edt_customer_customer row[linetype="cart-line"],cdocumenteditor#edt_customer_customer row[linetype="sub-cart-line"]{
 	-moz-binding: url(binding:modules.customer.cCustomerEditor#lineRow);
 }
-cdocumenteditor#edt_customer_customer row[linetype="discount-cart-line"]{
-	-moz-binding: url(binding:modules.customer.cCustomerEditor#discountLineRow);
-}
 cdocumenteditor#edt_customer_customer row[linetype="grid-header"]{
 	-moz-binding: url(binding:modules.customer.cCustomerEditor#headRow);
 }
