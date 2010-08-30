@@ -29,4 +29,21 @@
 			locateDocumentInModule(id, 'users');
 		]]></body>
 	</action>
+	<action name="anonymize">
+		<parameter name="listWidget" />
+		<body><![CDATA[
+			var id = listWidget.getSelectedIds()[0];
+			if (confirm("&modules.customer.bo.actions.Confirm-anonymize;"))
+			{
+				wCore.executeJSON('customer', 'Anonymize', { cmpref: id }, null, true);
+				this.refreshMainViewDeck();
+			}
+		]]></body>
+	</action>
+	<action name="anonymizeIsActive">
+		<parameter name="itemData"/>
+		<body><![CDATA[
+			return itemData.canBeAnonymized == true;
+		]]></body>
+	</action>
 </actions>

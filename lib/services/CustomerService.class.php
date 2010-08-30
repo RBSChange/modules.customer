@@ -242,7 +242,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		$frontendGroupService = users_FrontendgroupService::getInstance();
 		try 
 		{
-			$group = $frontendGroupService->getDocumentByExclusiveTag(self::GROUP_TAG);
+			return $frontendGroupService->getDocumentByExclusiveTag(self::GROUP_TAG);
 		}
 		catch (Exception $e)
 		{
@@ -271,8 +271,8 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		$user = $customer->getUser();
 
 		$url = LinkHelper::getUrl('customer', 'EmailConfirmation', array(
-			K::COMPONENT_ID_ACCESSOR => $customer->getId(),
-			K::LANG_ACCESSOR => $customer->getLang(),
+			'cmpref' => $customer->getId(),
+			'lang' => $customer->getLang(),
 			'mailref' => $user->getEmail()
 		));
 		$link = sprintf('<a class="link" href="%s" title="%s">%s</a>', $url, f_Locale::translate('&modules.customer.mail.Click-here-to-conforirm;'), $url);
@@ -338,6 +338,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		}
 		catch (TagException $e)
 		{
+			$e; // Avoid warning in Eclipse.
 			$page = $tagService->getDocumentByContextualTag('contextual_website_website_error404', $website);
 		}
 
@@ -474,7 +475,6 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 					Framework::exception($e);
 				}
 			}
-
 			
 			// Orders.
 			$data['orders'] = array();

@@ -139,6 +139,9 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 		{
 			$nodeAttributes['website'] = '-';
 		}
+		
+		$anonymizer = customer_AnonymizerService::getInstance();		
+		$nodeAttributes['canBeAnonymized'] = (!$anonymizer->isAnonymized($this) && $anonymizer->canBeAnonymized($this));	
 	}
 		
 	/**
@@ -212,6 +215,9 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 		$formProperties['addresses'] = $addresses;
 	}
 	
+	/**
+	 * @return string
+	 */
 	public function getCode()
 	{
 		if (!$this->hasMeta('customerCode'))

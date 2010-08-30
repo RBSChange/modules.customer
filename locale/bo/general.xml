@@ -138,4 +138,13 @@
 		<locale lang="fr">description</locale>
 		<locale lang="en">description</locale>
 	</entity>
+	<!-- Errors. -->
+	<entity id="already-anonymized">
+		<locale lang="fr">Ce client est déjà anonymisé !</locale>
+		<locale lang="en">This customer is already anonymized!</locale>
+	</entity>
+	<entity id="has-not-finished-order">
+		<locale lang="fr">Ce client a des commandes en cours.</locale>
+		<locale lang="en">This customer has not finished orders.</locale>
+	</entity>
 </localization>

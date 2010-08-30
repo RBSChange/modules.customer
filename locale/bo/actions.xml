@@ -32,4 +32,10 @@
 	<entity id="createfrontendgroup">
 		<locale lang="fr">créer un groupe d'utilisateurs dynamique à partir de ce groupe</locale>
 	</entity>
+	<entity id="anonymize">
+		<locale lang="fr">anonymiser ce client (irréversible)</locale>
+	</entity>
+	<entity id="confirm-anonymize">
+		<locale lang="fr">Attention : cette opération est irréversible. Êtes-vous sûr de vouloir continuer ?</locale>
+	</entity>
 </localization>

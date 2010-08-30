@@ -96,6 +96,7 @@
 				<contextaction name="edit" />
 				<contextaction name="deactivated" />
 				<contextaction name="reactivate" />
+				<contextaction name="anonymize" />
 			</contextactions>
 		</model>
 	</models>
@@ -117,5 +118,6 @@
 		<action name="createTarif_" icon="add" />
 		<action name="createTarifcustomergroup" permission="Insert_tarifcustomergroup" icon="add" label="&amp;modules.customer.bo.actions.Create-Tarifcustomergroup;" />
 		<action name="createFrontendgroup" permission="CreateFrontendgroup" icon="users-frontoffice-dynamic" />
+		<action name="anonymize" permission="Delete" icon="delete" />
 	</actions>
 </perspective>

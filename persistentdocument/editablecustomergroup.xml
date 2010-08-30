@@ -4,6 +4,6 @@
 	xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/1.0.xsd"
 	model-version="1.0" extend="modules_customer/customergroup" has-url="false">
 	<properties>
-		<add name="members" type="modules_customer/customer" max-occurs="-1" tree-node="true" />
+		<add name="members" type="modules_customer/customer" max-occurs="-1" inverse="true" tree-node="true" />
 	</properties>
 </document>
