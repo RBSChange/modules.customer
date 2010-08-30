@@ -53,6 +53,7 @@
 			<contextactions>
 				<contextaction name="edit" />
 				<contextaction name="delete" />
+				<contextaction name="createFrontendgroup" />
 			</contextactions>
 		</model>
 		<model name="modules_customer/editablecustomergroup">
@@ -71,6 +72,7 @@
 			<contextactions>
 				<contextaction name="edit" />
 				<contextaction name="delete" />
+				<contextaction name="createFrontendgroup" />
 			</contextactions>
 		</model>
 		<model name="modules_customer/tarifcustomergroup">
@@ -86,6 +88,7 @@
 			<contextactions>
 				<contextaction name="edit" />
 				<contextaction name="delete" />
+				<contextaction name="createFrontendgroup" />
 			</contextactions>
 		</model>
 		<model name="modules_customer/customer">
@@ -113,5 +116,6 @@
 		<action name="createEditablecustomergroup" permission="Insert_editablecustomergroup" icon="add"	label="&amp;modules.customer.bo.actions.Create-Editablecustomergroup;" />
 		<action name="createTarif_" icon="add" />
 		<action name="createTarifcustomergroup" permission="Insert_tarifcustomergroup" icon="add" label="&amp;modules.customer.bo.actions.Create-Tarifcustomergroup;" />
+		<action name="createFrontendgroup" permission="CreateFrontendgroup" icon="users-frontoffice-dynamic" />
 	</actions>
 </perspective>

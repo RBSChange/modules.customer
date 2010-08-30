@@ -5,12 +5,15 @@
 		<document name="customer" />
 		<document name="dynamiccustomergroup">
 			<action name="CreateGroupMailingList" />
+			<action name="CreateFrontendgroup" />
 		</document>
 		<document name="editablecustomergroup">
 			<action name="CreateGroupMailingList" />
+			<action name="CreateFrontendgroup" />
 		</document>
 		<document name="tarifcustomergroup">
 			<action name="CreateGroupMailingList" />
+			<action name="CreateFrontendgroup" />
 		</document>
 		<document name="tarifcustomergroupfolder" />
 	</actions>
@@ -31,6 +34,7 @@
 			<permission name="ReActivate.*" />
 			<permission name="Deactivated.*" />
 			<permission name="CreateGroupMailingList.*" />
+			<permission name="CreateFrontendgroup.*" />
 			<permission name="EditLocale" />
 		</role>
 		<role name="User" extend="User">

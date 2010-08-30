@@ -12,4 +12,21 @@
 		<parameter name="listWidget" />
 		<body><![CDATA[this.createDocumentEditor('modules_customer_tarifcustomergroup', listWidget.getSelectedItems()[0].id);]]></body>
 	</action>
+	<action name="createFrontendgroup">
+		<parameter name="listWidget" />
+		<body><![CDATA[
+			var id = listWidget.getSelectedIds()[0];
+			var me = this;
+			var callBack = function(result) { me.onExecuteJSON(result, 'onCreateFrontendgroup'); }
+			var parameters = { id: id, className: "customer_FrontendgroupFeederService", forModule: "customer" };
+			wCore.executeJSON('users', 'CreateDynamicfrontendgroup', parameters, callBack, true);
+		]]></body>
+	</action>	
+	<action name="onCreateFrontendgroupSuccess">
+		<parameter name="result" />
+		<body><![CDATA[
+			var id = result.contents.id;
+			locateDocumentInModule(id, 'users');
+		]]></body>
+	</action>
 </actions>
