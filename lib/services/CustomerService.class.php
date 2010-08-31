@@ -98,20 +98,27 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	}
 
 	/**
+	 * @var customer_persistentdocument_customer[]
+	 */
+	private $customerByUserId = array();
+	
+	/**
 	 * @param users_persistentdocument_websitefrontenduser $user
 	 * @return customer_persistentdocument_customer
 	 */
 	public function getByUser($user)
 	{
-		if ($user instanceof users_persistentdocument_websitefrontenduser)
+		if (!($user instanceof users_persistentdocument_websitefrontenduser))
+		{
+			return null;
+		}
+		$userId = $user->getId();
+		if (!isset($this->customerByUserId[$userId]))
 		{
 			$customerArray = $user->getCustomerArrayInverse(0, 1);
-			if (f_util_ArrayUtils::isNotEmpty($customerArray))
-			{
-				return f_util_ArrayUtils::firstElement($customerArray);
-			}
+			$this->customerByUserId[$userId] = f_util_ArrayUtils::firstElement($customerArray);
 		}
-		return null;
+		return $this->customerByUserId[$userId];
 	}
 	
 	/**
