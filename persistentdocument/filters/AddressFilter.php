@@ -3,10 +3,9 @@ class customer_AddressFilter extends f_persistentdocument_DocumentFilterImpl
 {
 	public function __construct()
 	{
-		$amountParameter = f_persistentdocument_DocumentFilterRestrictionParameter::getNewInstance();
-		$amountParameter->setAllowedPropertyNames(array(
+		$addressParameter = f_persistentdocument_DocumentFilterRestrictionParameter::getNewInstance();
+		$addressParameter->setAllowedPropertyNames(array(
 			'modules_customer/address.creationdate',
-			'modules_customer/address.title',
 			'modules_customer/address.firstname',
 			'modules_customer/address.lastname',
 			'modules_customer/address.email',
@@ -17,11 +16,18 @@ class customer_AddressFilter extends f_persistentdocument_DocumentFilterImpl
 			'modules_customer/address.zipCode',
 			'modules_customer/address.city',
 			'modules_customer/address.province',
-			'modules_customer/address.country',
 			'modules_customer/address.phone',
 			'modules_customer/address.fax',
 		));
-		$this->setParameters(array('field' => $amountParameter));
+		$countryInfo = new BeanPropertyInfoImpl('country', 'modules_zone/country');
+		$countryInfo->setListId('modules_zone/publishedcountries');
+		$countryInfo->setLabelKey('&modules.customer.document.address.Country;');
+		$addressParameter->addAllowedProperty('modules_customer/address.country', $countryInfo);
+		$titleInfo = new BeanPropertyInfoImpl('title', 'modules_list/item');
+		$titleInfo->setListId('modules_users/title');
+		$titleInfo->setLabelKey('&modules.customer.document.address.Title;');
+		$addressParameter->addAllowedProperty('modules_customer/address.title', $titleInfo);
+		$this->setParameters(array('field' => $addressParameter));
 	}
 	
 	/**
@@ -38,7 +44,24 @@ class customer_AddressFilter extends f_persistentdocument_DocumentFilterImpl
 	public function getQuery()
 	{
 		$query = customer_CustomerService::getInstance()->createQuery();
-		$query->createCriteria('address')->add($this->getParameter('field')->getValueForQuery());
+		$field = $this->getParameter('field');
+		$propName = $field->getPropertyName();
+		Framework::fatal($propName);
+		if ($propName == 'modules_customer/address.country')
+		{
+			$restriction = $field->getRestriction();
+			$ids = DocumentHelper::getIdArrayFromDocumentArray($field->getParameter()->getValueForQuery());
+			$query->createCriteria('address')->add(Restrictions::$restriction('countryid', $ids));
+		}
+		else if ($propName == 'modules_customer/address.title')
+		{
+			$restriction = $field->getRestriction();
+			$query->createCriteria('address')->add(Restrictions::$restriction('titleid', array($field->getParameter()->getValueForQuery()->getId())));
+		}
+		else 
+		{
+			$query->createCriteria('address')->add($this->getParameter('field')->getValueForQuery());
+		}
 		return $query;
 	}
 	

@@ -19,6 +19,11 @@
 		<locale lang="en">title</locale>
 		<locale lang="de">Anrede</locale>
 	</entity>
+	<entity id="titleid">
+		<locale lang="fr">civilité</locale>
+		<locale lang="en">title</locale>
+		<locale lang="de">Anrede</locale>
+	</entity>
 	<entity id="firstname">
 		<locale lang="fr">prénom</locale>
 		<locale lang="en">firstname</locale>
@@ -70,6 +75,11 @@
 		<locale lang="de">province</locale>
 	</entity>
 	<entity id="country">
+		<locale lang="fr">pays</locale>
+		<locale lang="en">country</locale>
+		<locale lang="de">Land</locale>
+	</entity>
+	<entity id="countryid">
 		<locale lang="fr">pays</locale>
 		<locale lang="en">country</locale>
 		<locale lang="de">Land</locale>
