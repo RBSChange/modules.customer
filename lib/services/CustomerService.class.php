@@ -112,11 +112,23 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		{
 			return null;
 		}
-		$userId = $user->getId();
+		return $this->getByUserId($user->getId());
+	}
+	
+	/**
+	 * @param integer $userId
+	 * @return customer_persistentdocument_customer
+	 */
+	public function getByUserId($userId)
+	{
+		if ($userId === null)
+		{
+			return null;
+		}
+
 		if (!isset($this->customerByUserId[$userId]))
 		{
-			$customerArray = $user->getCustomerArrayInverse(0, 1);
-			$this->customerByUserId[$userId] = f_util_ArrayUtils::firstElement($customerArray);
+			$this->customerByUserId[$userId] = $this->createQuery()->add(Restrictions::eq('user.id', $userId))->findUnique();
 		}
 		return $this->customerByUserId[$userId];
 	}
@@ -510,5 +522,55 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		}
 		
 		return $data;
+	}
+	
+	/**
+	 * @param customer_persistentdocument_customer $customer
+	 * @param customer_persistentdocument_coupon $coupon
+	 */
+	public function addUsedCoupon($customer, $coupon)
+	{
+		if (!in_array($coupon, $customer->getUsedCouponArray()))
+		{
+			try 
+			{
+				$this->tm->beginTransaction();
+				$customer->addUsedCoupon($coupon);
+				$this->pp->updateDocument($customer);
+				$this->tm->commit();
+			}
+			catch (Exception $e)
+			{
+				$this->tm->rollBack($e);
+				throw $e;
+			}
+			
+			f_event_EventManager::dispatchEvent('addUsedCouponOnCustomer', $this, array('customer' => $customer, 'coupon' => $coupon));
+		}
+	}
+	
+	/**
+	 * @param customer_persistentdocument_customer $customer
+	 * @param customer_persistentdocument_coupon $coupon
+	 */
+	public function removeUsedCoupon($customer, $coupon)
+	{
+		if (in_array($coupon, $customer->getUsedCouponArray()))
+		{
+			try 
+			{
+				$this->tm->beginTransaction();
+				$customer->removeUsedCoupon($coupon);
+				$this->pp->updateDocument($customer);
+				$this->tm->commit();
+			}
+			catch (Exception $e)
+			{
+				$this->tm->rollBack($e);
+				throw $e;
+			}
+			
+			f_event_EventManager::dispatchEvent('removeUsedCouponFromCustomer', $this, array('customer' => $customer, 'coupon' => $coupon));
+		}
 	}
 }
