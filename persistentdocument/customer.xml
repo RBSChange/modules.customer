@@ -13,6 +13,7 @@
 		<add name="synchroId" type="Integer" />
 		<add name="lastCartUpdate" type="DateTime" />
 		<add name="lastAbandonedOrderDate" type="DateTime" />
+		<add name="lastOrderId" type="Integer" />
 	</properties>
 	<statuses default="ACTIVE" />
 </document>
