@@ -32,8 +32,16 @@ class customer_CreationDateComparisonCustomerFilter extends f_persistentdocument
 	{
 		if ($value instanceof customer_persistentdocument_customer)
 		{
-			$date = $this->getParameter('date')->getParameter()->getValueForQyuery();
-			return $date < $value->getCreationdate();
+			$param = $this->getParameter('date');
+			$date = $param->getParameter()->getValueForQuery();
+			switch ($param->getRestriction())
+			{
+				case 'ge':
+					return $value->getCreationdate() > $date;
+					
+				case 'le':
+					return $value->getCreationdate() < $date;
+			}
 		}
 		return false;
 	}
