@@ -20,4 +20,18 @@ class customer_DynamiccustomergroupScriptDocumentElement extends import_ScriptDo
 	{
 		return f_persistentdocument_PersistentDocumentModel::getInstanceFromDocumentModelName('modules_customer/dynamiccustomergroup');
 	}
+	
+	/**
+	 * @return array
+	 */
+	protected function getDocumentProperties()
+	{
+		$properties = parent::getDocumentProperties();
+		if (isset($properties['query']))
+		{
+			$query = $this->replaceRefIdInString($properties['query']) ;
+			$properties['query'] = $query;
+		}
+		return $properties;
+	}
 }
