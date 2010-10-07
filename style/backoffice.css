@@ -23,5 +23,5 @@ treechildren::-moz-tree-image(modules_customer_address){
 	list-style-image: url(/changeicons/small/addressbook2.png);
 }
 treechildren::-moz-tree-image(modules_customer_coupon){
-	list-style-image: url(/changeicons/small/ticket_yellow.png);
+	list-style-image: url(/changeicons/small/coupon.png);
 }
