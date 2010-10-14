@@ -63,6 +63,13 @@
 		<locale lang="en">having {count} {status} orders with {field}</locale>
 	</entity>
 
+	<entity id="ordercountcustomerfilter-label">
+		<locale lang="fr">nombre de commandes payées</locale>
+	</entity>
+	<entity id="ordercountcustomerfilter-text">
+		<locale lang="fr">les clients qui ont {count} commandes payées</locale>
+	</entity>
+
 	<entity id="lastordercustomerfilter-label">
 		<locale lang="fr">propriété de la dernière commande</locale>
 		<locale lang="en">filter on a property of the last order</locale>
