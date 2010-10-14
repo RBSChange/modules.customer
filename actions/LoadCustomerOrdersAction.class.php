@@ -30,7 +30,7 @@ class customer_LoadCustomerOrdersAction extends f_action_BaseJSONAction
 				$orderInfo['status'] = $order->getBoOrderStatusLabel();
 				$orderInfo['totalamountwithtax'] = catalog_PriceHelper::applyFormat($order->getTotalAmountWithTax(), $order->getPriceFormat());
 				$orderInfo['totalamountwithouttax'] = catalog_PriceHelper::applyFormat($order->getTotalAmountWithoutTax(), $order->getPriceFormat());
-				$orderInfo['commentadmin'] = $order->getCommentadminAsHtml();			
+				$orderInfo['commentadmin'] = $order->getCommentadmin();			
 				$result[] = $orderInfo;
 			}
 		}

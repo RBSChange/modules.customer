@@ -535,7 +535,7 @@
 		</resources>
 		<content>
 			<xul:groupbox flex="1">
-				<xul:caption xbl:inherits="label" />
+				<xul:caption xbl:inherits="xbl:text=label" class="allow-text-selection" />
 				<xul:grid flex="1">
 					<xul:columns>
 						<xul:column />
@@ -544,28 +544,28 @@
 					<xul:rows>
 						<xul:row>
 							<xul:label value="&amp;modules.order.document.order.Reference;" />
-							<xul:label class="text-link" xbl:inherits="value=ordernumber" onclick="openOrder();"/>
+							<xul:label class="allow-text-selection" class="text-link" xbl:inherits="xbl:text=ordernumber" onclick="openOrder();"/>
 						</xul:row>
 						<xul:row>
 							<xul:label value="&amp;modules.order.document.order.Creationdate;" />
-							<xul:label xbl:inherits="value=creationdate" />
+							<xul:label class="allow-text-selection" xbl:inherits="xbl:text=creationdate" />
 						</xul:row>
 						<xul:row>
 							<xul:label value="&amp;modules.order.document.order.OrderStatus;" />
-							<xul:label anonid="order-status" xbl:inherits="value=status,class=statusClass" />
+							<xul:label class="allow-text-selection" anonid="order-status" xbl:inherits="xbl:text=status,class=statusClass" />
 						</xul:row>
 						<xul:row>
 							<xul:label value="&amp;modules.order.document.order.TotalAmountWithoutTax;" />
-							<xul:label xbl:inherits="value=totalamountwithouttax" />
+							<xul:label class="allow-text-selection" xbl:inherits="xbl:text=totalamountwithouttax" />
 						</xul:row>
 						<xul:row>
 							<xul:label value="&amp;modules.order.document.order.TotalAmountWithTax;" />
-							<xul:label xbl:inherits="value=totalamountwithtax" />
+							<xul:label class="allow-text-selection" xbl:inherits="xbl:text=totalamountwithtax" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=commentadminhidden">
 							<xul:label value="&amp;modules.order.document.order.Commentadmin;" />
 							<xul:hbox flex="1">
-								<html:div flex="1" anonid="commentadmin" xmlns="http://www.w3.org/1999/xhtml"><xbl:children /></html:div>
+								<html:div class="allow-text-selection" flex="1" anonid="commentadmin" xmlns="http://www.w3.org/1999/xhtml"><xbl:children /></html:div>
 							</xul:hbox>
 						</xul:row>
 					</xul:rows>
