@@ -544,7 +544,7 @@
 					<xul:rows>
 						<xul:row>
 							<xul:label value="&amp;modules.order.document.order.Reference;" />
-							<xul:label class="allow-text-selection" class="text-link" xbl:inherits="xbl:text=ordernumber" onclick="openOrder();"/>
+							<xul:label class="text-link" xbl:inherits="xbl:text=ordernumber" onclick="openOrder();"/>
 						</xul:row>
 						<xul:row>
 							<xul:label value="&amp;modules.order.document.order.Creationdate;" />
