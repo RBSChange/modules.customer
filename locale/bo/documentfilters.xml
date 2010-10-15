@@ -64,10 +64,10 @@
 	</entity>
 
 	<entity id="ordercountcustomerfilter-label">
-		<locale lang="fr">nombre de commandes payées</locale>
+		<locale lang="fr">nombre de commandes passées</locale>
 	</entity>
 	<entity id="ordercountcustomerfilter-text">
-		<locale lang="fr">les clients qui ont {count} commandes payées</locale>
+		<locale lang="fr">les clients qui ont {count} commande(s) {status}</locale>
 	</entity>
 
 	<entity id="lastordercustomerfilter-label">
