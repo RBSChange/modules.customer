@@ -73,10 +73,14 @@ class customer_CustomergroupService extends f_persistentdocument_DocumentService
 	/**
 	 * @param customer_persistentdocument_customergroup $group
 	 * @param customer_persistentdocument_customer $customer
-	 * @return Booelan
+	 * @return Boolean
 	 */
 	public function isMember($group, $customer)
 	{
+		if (!($customer instanceof customer_persistentdocument_customer))
+		{
+			return false;
+		}
 		return $group->getDocumentService()->doIsMember($group, $customer);
 	}
 	
