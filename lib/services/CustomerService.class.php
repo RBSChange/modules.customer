@@ -289,7 +289,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		}
 		$user = $customer->getUser();
 
-		$url = LinkHelper::getUrl('customer', 'EmailConfirmation', array(
+		$url = LinkHelper::getActionUrl('customer', 'EmailConfirmation', array(
 			'cmpref' => $customer->getId(),
 			'lang' => $customer->getLang(),
 			'mailref' => $user->getEmail()
@@ -361,7 +361,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			$page = $tagService->getDocumentByContextualTag('contextual_website_website_error404', $website);
 		}
 
-		return LinkHelper::getUrl($page, RequestContext::getInstance()->getLang(), array('customerParam'=> array('confirmationCode' => $confirmationCode)));
+		return LinkHelper::getDocumentUrl($page, RequestContext::getInstance()->getLang(), array('customerParam'=> array('confirmationCode' => $confirmationCode)));
 	}
 
 	/**
