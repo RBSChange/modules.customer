@@ -1,3 +1,0 @@
-Version: 3.0.2
-
-Introduces a lastcartupdate property equivalent to the former meta modules.customer.lastCartUpdate
