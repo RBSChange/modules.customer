@@ -17,6 +17,7 @@ class customer_Setup extends object_InitDataSetup
 		{
 			$scriptReader = import_ScriptReader::getInstance();
        	 	$scriptReader->executeModuleScript('customer', 'init.xml');
+       	 	$scriptReader->executeModuleScript('customer', 'list.xml');
 		}
 		catch (Exception $e)
 		{
