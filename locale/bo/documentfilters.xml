@@ -67,7 +67,7 @@
 		<locale lang="fr">nombre de commandes passées</locale>
 	</entity>
 	<entity id="ordercountcustomerfilter-text">
-		<locale lang="fr">les clients qui ont {count} commande(s) {status}</locale>
+		<locale lang="fr">les clients dont le nombre de commandes {status} est {count}</locale>
 	</entity>
 
 	<entity id="lastordercustomerfilter-label">
@@ -86,5 +86,12 @@
 	<entity id="websitecustomerfilter-text">
 		<locale lang="fr">les clients de {shop}</locale>
 		<locale lang="en">customers of {shop}</locale>
+	</entity>
+	
+	<entity id="noordercustomerfilter-label">
+		<locale lang="fr">sans commande</locale>
+	</entity>
+	<entity id="noordercustomerfilter-text">
+		<locale lang="fr">les clients qui n'ont {status}</locale>
 	</entity>
 </localization>
