@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization>
+  <entity id="noordercustomertype.no-order">
+    <locale lang="fr">pas de commande</locale>
+  </entity>
+  <entity id="noordercustomertype.no-paid-order">
+    <locale lang="fr">pas de commande payé</locale>
+  </entity>
+</localization>
