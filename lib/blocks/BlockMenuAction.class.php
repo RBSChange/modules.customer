@@ -1,13 +1,15 @@
 <?php
-class customer_BlockMenuAction extends block_BlockAction
+class customer_BlockMenuAction extends website_BlockAction
 {
 	/**
-	 * @param block_BlockContext $context
-	 * @param block_BlockRequest $request
-	 * @return String the view name
+	 * @param f_mvc_Request $request
+	 * @param f_mvc_Response $response
+	 * @return String
 	 */
-	public function execute($context, $request)
+	function execute($request, $response)
 	{
+		echo "fix me !";
+		return null;
 		$ws = website_WebsiteModuleService::getInstance();
 
 		try
