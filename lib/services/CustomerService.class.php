@@ -258,10 +258,9 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	 */
 	public function getCustomerUserGroup()
 	{
-		$frontendGroupService = users_FrontendgroupService::getInstance();
 		try 
 		{
-			return $frontendGroupService->getDocumentByExclusiveTag(self::GROUP_TAG);
+			return TagService::getInstance()->getDocumentByExclusiveTag(self::GROUP_TAG);
 		}
 		catch (Exception $e)
 		{
@@ -269,7 +268,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			{
 				Framework::exception($e);
 			}
-			$group = $frontendGroupService->getNewDocumentInstance();
+			$group = users_FrontendgroupService::getInstance()->getNewDocumentInstance();
 			$group->setLabel(f_Locale::translate('&modules.customer.bo.general.Customer-user-group-label;'));
 			$group->save();
 			TagService::getInstance()->addTag($group, self::GROUP_TAG);
