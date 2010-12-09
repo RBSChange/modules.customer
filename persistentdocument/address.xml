@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/1.0.xsd"
-	model-version="1.0" icon="addressbook2" publish-on-day-change="false" backoffice-indexable="false" has-url="false">
-	<properties>
-		<add name="label" type="String" min-occurs="1" />
-		<add name="titleid" type="Integer" from-list="modules_users/title" />
-		<add name="firstname" type="String" min-occurs="1" />
-		<add name="lastname" type="String" min-occurs="1" />
-		<add name="email" type="String" min-occurs="1" />
-		<add name="company" type="String" />
-		<add name="addressLine1" type="String" min-occurs="1" />
-		<add name="addressLine2" type="String" />
-		<add name="addressLine3" type="String" />
-		<add name="zipCode" type="String" min-occurs="1" />
-		<add name="city" type="String" min-occurs="1" />
-		<add name="province" type="String" />
-		<add name="countryid" type="Integer" min-occurs="1" from-list="modules_zone/publishedcountries" />
-		<add name="phone" type="String" />
-		<add name="fax" type="String" />
-	</properties>
-	<statuses default="PUBLICATED" />
+<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/1.0.xsd" model-version="1.0" icon="addressbook2" publish-on-day-change="false" backoffice-indexable="false" has-url="false">
+  <properties>
+    <add name="label" type="String" min-occurs="1"/>
+    <add name="titleid" type="Integer" from-list="modules_users/title"/>
+    <add name="firstname" type="String" min-occurs="1"/>
+    <add name="lastname" type="String" min-occurs="1"/>
+    <add name="email" type="String" min-occurs="1"/>
+    <add name="company" type="String"/>
+    <add name="addressLine1" type="String" min-occurs="1"/>
+    <add name="addressLine2" type="String"/>
+    <add name="addressLine3" type="String"/>
+    <add name="zipCode" type="String" min-occurs="1"/>
+    <add name="city" type="String" min-occurs="1"/>
+    <add name="province" type="String"/>
+    <add name="countryid" type="Integer" min-occurs="1" from-list="modules_zone/publishedcountries"/>
+    <add name="phone" type="String"/>
+    <add name="fax" type="String"/>
+    <add name="mobilephone" type="String"/>
+  </properties>
+  <statuses default="PUBLICATED"/>
 </document>

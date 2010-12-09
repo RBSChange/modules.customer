@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.document.customer" lcid="en_GB">
+  <key id="label">label</key>
+  <key id="website">website</key>
+  <key id="website-help">customer's related website</key>
+  <key id="creationdate">creation date</key>
+  <key id="lastcartupdate">last cart modification date</key>
+  <key id="birthday">birthday</key>
+</i18n>

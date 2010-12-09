@@ -7,13 +7,14 @@
 		<sectionrow labeli18n="modules.users.document.user.Lastname" id="lastname" />
 		<sectionrow labeli18n="modules.users.document.user.Email" id="email" />
 		<sectionrow labeli18n="modules.customer.document.customer.Creationdate" id="creationdate" />
+		<field name="birthday" hidetime="true" hidehelp="true" />
 		<field name="canBeTrusted" />
 		<field name="tarifGroup" />
 	</section>
 	<vbox class="adresses" />
 	<xul>
 		<javascript>
-			<field name="mPropIds">['website', 'title', 'firstname', 'lastname', 'email', 'creationdate']</field>
+			<field name="mPropIds">['website', 'title', 'firstname', 'lastname', 'email', 'creationdate']</field>  
 		
 			<constructor><![CDATA[
 				this.extendMethod("fireInitializeComplete", this.fireInitializeCompleteExtend);
@@ -67,7 +68,7 @@
 						}
 						else
 						{
-							addressesNode.removeAttribute('collapsed');
+							section.removeAttribute('collapsed');
 						}
 						
 						for (var name in address)

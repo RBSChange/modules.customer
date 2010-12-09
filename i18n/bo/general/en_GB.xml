@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.bo.general" lcid="en_GB">
+  <key id="module-name">customers</key>
+  <key id="tree-root-name">customers</key>
+  <key id="system-folder-name">customers</key>
+  <key id="customers">customers</key>
+  <key id="order-title">order n°{number}</key>
+  <key id="account-confirmation-required">account data confirmation required</key>
+  <key id="account-activated">activated account</key>
+  <key id="email-address-confirmation-required">e-mail confirmation required</key>
+  <key id="yes">yes</key>
+  <key id="no">no</key>
+  <key id="customer-user-group-label">customers</key>
+  <key id="no-cart-for-this-customer">customers</key>
+  <key id="already-anonymized">This customer is already anonymized!</key>
+  <key id="has-not-finished-order">This customer has not finished orders.</key>
+  <key id="birthday">Birthday</key>
+</i18n>

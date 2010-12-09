@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.bo.general" lcid="fr_FR">
+  <key id="module-name">comptes clients</key>
+  <key id="tree-root-name">comptes clients</key>
+  <key id="system-folder-name">comptes clients</key>
+  <key id="customers">comptes clients</key>
+  <key id="back-to-cutomer-list">retour à la liste des clients</key>
+  <key id="back-to-order">retour au détail de la commande</key>
+  <key id="back-to-top">haut de page</key>
+  <key id="orders">commandes</key>
+  <key id="order-title">commande n°{number}</key>
+  <key id="default-address">adresse principale</key>
+  <key id="address-title">adresse n°{number}</key>
+  <key id="additionnal-data">données complémentaires</key>
+  <key id="customer-identification">identification du client</key>
+  <key id="customer-details">détail d'un compte client</key>
+  <key id="shipping-addresses">addresses de livraison</key>
+  <key id="refresh">actualiser</key>
+  <key id="print">imprimer</key>
+  <key id="view-detail">voir le détail</key>
+  <key id="account-confirmation-required">confirmation des données du compte requise</key>
+  <key id="account-activated">compte activé</key>
+  <key id="email-address-confirmation-required">confirmation de l'adresse e-mail requise</key>
+  <key id="yes">oui</key>
+  <key id="no">non</key>
+  <key id="customer-user-group-label">utilisateurs disposant d'un compte client</key>
+  <key id="no-cart-for-this-customer">Ce client n'a pas de panier en cours.</key>
+  <key id="no-order-for-this-customer">Ce client n'a passé aucune commande.</key>
+  <key id="already-anonymized">Ce client est déjà anonymisé !</key>
+  <key id="has-not-finished-order">Ce client a des commandes en cours.</key>
+  <key id="birthday">Date de naissance</key>
+</i18n>

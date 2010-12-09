@@ -71,6 +71,19 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		{
 			$document->setLabel($user->getLabel());
 		}
+		
+		if ($document->isPropertyModified('birthday'))
+		{
+			if ($document->getBirthday())
+			{
+				$date = date_Calendar::getInstance($document->getUIBirthday());
+				$document->setBirthdayDayNumber($date->getMonth()*31 + $date->getDay());
+			}
+			else
+			{
+				$document->setBirthdayDayNumber(null);
+			}
+		}
 	}
 
 	/**

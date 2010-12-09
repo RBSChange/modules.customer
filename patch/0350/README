@@ -1,0 +1,9 @@
+Version: 3.5.0
+
+Add "mobilephone" field in address table of customer module :
+The "mobilephone" field add an information on customer's address (he/she can modified his/her Mobile Phone Number with the regular formular)
+
+Add "birthday" and "birthdaydaynumber" fields on customer table of customer module :
+The "birthday" field add an information on customer (he/she can modified his/her birthdate with the regular formular)
+The "birthdaydaynumber" is an hidden field needed to doing opperation for filters (by exemple BirthdayCustomerFilter)
+

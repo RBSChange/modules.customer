@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.document.customer" lcid="fr_FR">
+  <key id="document-name">client</key>
+  <key id="label">libellé</key>
+  <key id="website">site web</key>
+  <key id="website-help">site web auquel le client est associé</key>
+  <key id="tarifgroup">groupe tarifaire</key>
+  <key id="creationdate">date de création</key>
+  <key id="canbetrusted">client de confiance</key>
+  <key id="usedcoupon">coupons utilisés</key>
+  <key id="lastcartupdate">date de dernière modification du panier</key>
+  <key id="lastabandonedorderdate">dernier abandon de commande</key>
+  <key id="birthday">date de naissance</key>
+</i18n>

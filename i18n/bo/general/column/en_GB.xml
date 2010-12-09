@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.bo.general.column" lcid="en_GB">
+  <key id="label">label</key>
+  <key id="email">e-mail address</key>
+  <key id="date">registration date</key>
+  <key id="activation">activation</key>
+  <key id="website">website</key>
+  <key id="description">description</key>
+</i18n>

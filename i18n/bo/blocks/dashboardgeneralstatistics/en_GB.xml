@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.bo.blocks.dashboardgeneralstatistics" lcid="en_GB">
+  <key id="title">customers of the website</key>
+  <key id="shop">website</key>
+  <key id="columns">columns</key>
+  <key id="column-month">month</key>
+  <key id="column-new">new</key>
+  <key id="column-lastlogin">last login</key>
+</i18n>

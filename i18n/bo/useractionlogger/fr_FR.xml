@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.bo.useractionlogger" lcid="fr_FR">
+  <key id="insert-dynamiccustomergroup">création du groupe dynamique {documentlabel}</key>
+  <key id="log-insert-dynamiccustomergroup">création du groupe dynamique</key>
+  <key id="add-product-to-cart">Ajout au panier du produit {product} </key>
+  <key id="update-dynamiccustomergroup">update.dynamiccustomergroup {documentlabel}</key>
+  <key id="log-update-dynamiccustomergroup">log-update-dynamiccustomergroup</key>
+  <key id="update-customer">update.customer {documentlabel}</key>
+  <key id="log-update-customer">log-update-customer</key>
+  <key id="reactivate-customer">Réactivation du compte client {documentlabel} </key>
+  <key id="log-reactivate-customer">log-reactivate-customer</key>
+  <key id="deactivated-customer">Désactivation du compte client {documentlabel} </key>
+  <key id="log-deactivated-customer">log-deactivated-customer</key>
+  <key id="log-add-product-to-cart">log-add-product-to-cart</key>
+  <key id="add-cartrule-to-cart">Ajout au panier de la règle {cartrule}</key>
+  <key id="log-add-cartrule-to-cart">log-add-cartrule-to-cart</key>
+  <key id="order-process-start">Démarrage du processus de commande</key>
+  <key id="log-order-process-start">log-order-process-start</key>
+  <key id="order-process-cancel">Annulation du processus de commande</key>
+  <key id="log-order-process-cancel">log-order-process-cancel</key>
+  <key id="order-process-end">Validation de la commande n°{orderNumber}</key>
+  <key id="log-order-process-end">log-order-process-end</key>
+</i18n>

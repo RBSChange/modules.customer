@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.bo.doceditor.property" lcid="en_GB">
+  <key id="full-name">full name</key>
+  <key id="code">customer code</key>
+  <key id="catalog">catalog</key>
+  <key id="order-count">order count (paid or waiting for payment)</key>
+  <key id="order-amount-total">order amount total (paid or waiting for payment)</key>
+  <key id="order-amount-average">order amount average (paid or waiting for payment)</key>
+  <key id="cart-line-count">line count</key>
+  <key id="cart-total-tax">total tax amount</key>
+  <key id="cart-total-amount">total amount with tax</key>
+</i18n>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.bo.documentfilters" lcid="fr_FR">
+  <key id="query-on-customer">les clients satisfaisant l'ensemble des critères suivants</key>
+  <key id="or-query-on-customer">les clients satisfaisant l'un des critères suivants</key>
+  <key id="addressfilter-label">propriété de l'adresse</key>
+  <key id="addressfilter-text">les clients qui ont une adresse avec {field}</key>
+  <key id="creationdatefilter-label">inscription dans les N derniers jours/mois/années</key>
+  <key id="creationdatefilter-text">les clients qui ont une date d'inscription dans les {count} dernier(e)(s) {unit}</key>
+  <key id="creationdatecomparisoncustomerfilter-label">date d'inscription</key>
+  <key id="creationdatecomparisoncustomerfilter-text">les clients qui ont une {date}</key>
+  <key id="loginfilter-label">identifiant de connexion</key>
+  <key id="loginfilter-text">les clients dont l'identifiant de connexion {mode} {code}</key>
+  <key id="orderamountaveragefilter-label">le montant moyen des commandes</key>
+  <key id="orderamountaveragefilter-text">les clients dont les commandes {status} ont en moyenne un {average}</key>
+  <key id="orderfilter-label">propriété d'une commande</key>
+  <key id="orderfilter-text">les clients qui ont {count} commandes {status} avec {field}</key>
+  <key id="ordercountcustomerfilter-label">nombre de commandes passées</key>
+  <key id="ordercountcustomerfilter-text">les clients dont le nombre de commandes {status} est {count}</key>
+  <key id="lastordercustomerfilter-label">propriété de la dernière commande</key>
+  <key id="lastordercustomerfilter-text">les clients dont la dernière commande a {field}</key>
+  <key id="websitecustomerfilter-label">les clients des sites</key>
+  <key id="websitecustomerfilter-text">les clients de {shop}</key>
+  <key id="noordercustomerfilter-label">sans commande</key>
+  <key id="noordercustomerfilter-text">les clients qui n'ont {status}</key>
+  <key id="customerfilter-label">propriétés du compte client</key>
+  <key id="customerfilter-text">les clients avec {field}</key>
+  <key id="birthdaycustomerfilter-label">date d'anniversaire du compte client</key>
+  <key id="birthdaycustomerfilter-text">les clients qui ont leur anniversaire dans les {count} prochains jours</key>
+</i18n>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.bo.doceditor.panel.carts" lcid="fr_FR">
+  <key id="title">panier pour la boutique ″{shop}″</key>
+  <key id="unknown">inconnue</key>
+  <key id="unexisting-product">ce produit n'existe plus !</key>
+  <key id="lines">lignes</key>
+  <key id="last-update">dernière mise à jour</key>
+  <key id="tva-amount">TVA</key>
+  <key id="sub-total-without-tax">sous-total hors taxes</key>
+  <key id="sub-total-with-tax">sous-total TTC</key>
+  <key id="modified-sub-total-without-tax">sous-total réduit hors taxes</key>
+  <key id="modified-sub-total-with-tax">sous-total réduit TTC</key>
+  <key id="total-without-tax">total hors taxes</key>
+  <key id="total-with-tax">total TTC</key>
+  <key id="unit-price">prix unitaire</key>
+  <key id="total-price">prix total</key>
+</i18n>

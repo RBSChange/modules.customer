@@ -1,4 +1,7 @@
 <?php
+/**
+ * @deprecated use customer_CustomerFilter
+ */
 class customer_CreationDateComparisonCustomerFilter extends f_persistentdocument_DocumentFilterImpl
 {
 	public function __construct()
@@ -7,6 +10,14 @@ class customer_CreationDateComparisonCustomerFilter extends f_persistentdocument
 		$parameter = f_persistentdocument_DocumentFilterRestrictionParameter::getNewInstance($info);
 		$parameter->setAllowedRestrictions($info->getName(), array('ge', 'le'));
 		$this->setParameter('date', $parameter);
+	}
+	
+	/**
+	 * @return boolean
+	 */
+	public static function isHidden()
+	{
+		return true;
 	}
 	
 	/**

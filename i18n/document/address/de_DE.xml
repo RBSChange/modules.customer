@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.document.address" lcid="de_DE">
+  <key id="document-name">Adresse</key>
+  <key id="label">Name</key>
+  <key id="label-help">Name</key>
+  <key id="title">Anrede</key>
+  <key id="titleid">Anrede</key>
+  <key id="firstname">Vorname</key>
+  <key id="lastname">Nachname</key>
+  <key id="email">E-mailadresse</key>
+  <key id="company">Firma</key>
+  <key id="addressline1">Adresse (Zeile 1)</key>
+  <key id="addressline2">Adresse (Zeile 2)</key>
+  <key id="addressline3">Adresse (Zeile 3)</key>
+  <key id="zipcode">PLZ</key>
+  <key id="city">Stadt</key>
+  <key id="province">province</key>
+  <key id="country">Land</key>
+  <key id="countryid">Land</key>
+  <key id="phone">Telefon</key>
+  <key id="fax">Fax</key>
+</i18n>

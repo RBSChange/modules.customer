@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.document.customerwrapperbean" lcid="de_DE">
+  <key id="password">Passwort</key>
+  <key id="passwordconfirm">Bestätigung Passwort</key>
+  <key id="passwordconfirm-error">Ihr Passwort ist nicht bestätigt</key>
+  <key id="invalid-login-error">gibt es bereits ein Konto mit dieser E-Mail-Adresse.</key>
+  <key id="create-account">ein Kundenkonto eröffnen</key>
+</i18n>

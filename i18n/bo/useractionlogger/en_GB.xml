@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.bo.useractionlogger" lcid="en_GB">
+  <key id="add-product-to-cart">Product  {product} added to cart</key>
+</i18n>

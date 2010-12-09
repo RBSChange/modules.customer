@@ -115,7 +115,7 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 		{
 			return;
 		}
-		
+		$nodeAttributes['birthday'] = date_DateFormat::format($this->getBirthday(), 'D d M Y');
 		$nodeAttributes['email'] = $this->getUser()->getEmail();
 		$nodeAttributes['date'] = date_DateFormat::format($this->getCreationdate(), 'D d M Y');
 
@@ -151,6 +151,7 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 	public function addFormProperties($propertiesNames, &$formProperties)
 	{
 		$user = $this->getUser();
+		
 		$dateTimeFormat = customer_ModuleService::getInstance()->getUIDateTimeFormat();
 		
 		$formProperties['activateTrust'] = ModuleService::getInstance()->getPreferenceValue('customer', 'activateTrust');
@@ -167,6 +168,7 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 		}
 		$identification['firstname'] = $user->getFirstname();
 		$identification['lastname'] = $user->getLastname();
+		$identification['birthday'] = date_DateFormat::format($this->getUIBirthday(), 'd M Y');
 		$identification['email'] = $user->getEmail();
 		$identification['creationdate'] = date_DateFormat::format($this->getUICreationdate(), $dateTimeFormat);
 		$formProperties['identification'] = $identification;
@@ -209,6 +211,7 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 			}
 			$addressInfo['email'] = $address->getEmail();
 			$addressInfo['phone'] = $address->getPhone();
+			$addressInfo['mobilephone'] = $address->getMobilephone();
 			$addressInfo['creationdate'] = date_DateFormat::format($address->getUICreationdate(), $dateTimeFormat);
 			$addresses[] = $addressInfo;
 		}

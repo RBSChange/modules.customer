@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.bo.doceditor.panel.carts" lcid="en_GB">
+  <key id="title">cart for the shop ″{shop}″</key>
+  <key id="unknown">unknown</key>
+  <key id="unexisting-product">unexisting product!</key>
+  <key id="lines">lines</key>
+  <key id="last-update">la update</key>
+  <key id="tva-amount">tax</key>
+  <key id="sub-total-without-tax">sub-total without tax</key>
+  <key id="sub-total-with-tax">sub-total with tax</key>
+  <key id="modified-sub-total-without-tax">reducted sub-total without tax</key>
+  <key id="modified-sub-total-with-tax">reducted sub-total with tax</key>
+  <key id="total-without-tax">total without tax</key>
+  <key id="total-with-tax">total with tax</key>
+  <key id="unit-price">unit price</key>
+  <key id="total-price">total price</key>
+</i18n>

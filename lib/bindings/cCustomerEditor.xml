@@ -195,6 +195,10 @@
 							<xul:label value="&amp;modules.customer.document.address.Phone;" />
 							<xul:label xbl:inherits="xbl:text=phone" class="allow-text-selection" />
 						</xul:row>
+						<xul:row xbl:inherits="hidden=mobilephonehidden">
+							<xul:label value="&amp;modules.customer.document.address.Mobilephone;" />
+							<xul:label xbl:inherits="xbl:text=mobilephone" class="allow-text-selection" />
+						</xul:row>
 						<xul:row>
 							<xul:label value="&amp;modules.customer.document.address.Creationdate;" />
 							<xul:label xbl:inherits="xbl:text=creationdate" class="allow-text-selection" />

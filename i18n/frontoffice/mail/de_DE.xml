@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.frontoffice.mail" lcid="de_DE">
+  <key id="newpassword">Änderung Ihres Passwortes auf der Webseite</key>
+  <key id="renewpassword">Erneuerung Ihres Passwortes auf der Webseite</key>
+</i18n>

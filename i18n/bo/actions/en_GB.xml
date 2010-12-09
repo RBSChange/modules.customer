@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.bo.actions" lcid="en_GB">
+  <key id="create_">create</key>
+  <key id="createtarif_">create</key>
+  <key id="create-dynamiccustomergroup">create a dynamic customer group</key>
+  <key id="create-editablecustomergroup">create an editable customer group</key>
+  <key id="creating-group-mailing-list">mailing list creation</key>
+  <key id="create-tarifcustomergroupfolder">Create tarifcustomergroupfolder</key>
+</i18n>

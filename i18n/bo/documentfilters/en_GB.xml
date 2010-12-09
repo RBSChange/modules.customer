@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.bo.documentfilters" lcid="en_GB">
+  <key id="query-on-customer">customers matching all the following conditions</key>
+  <key id="or-query-on-customer">customers matching one of the following conditions</key>
+  <key id="addressfilter-label">filter on an address field</key>
+  <key id="addressfilter-text">customer having an address with {field}</key>
+  <key id="creationdatefilter-label">clients having registered in the last N derniers days/month/years</key>
+  <key id="creationdatefilter-text">clients having registered within the last {count} {unit}</key>
+  <key id="creationdatecomparisoncustomerfilter-label">registration date</key>
+  <key id="creationdatecomparisoncustomerfilter-text">clients having {date}</key>
+  <key id="loginfilter-label">filter on the login</key>
+  <key id="loginfilter-text">whose login {mode} {code}</key>
+  <key id="orderamountaveragefilter-label">filter on the average order amount</key>
+  <key id="orderamountaveragefilter-text">whose {status} orders have an average of {average}</key>
+  <key id="orderfilter-label">filter on a property of the order</key>
+  <key id="orderfilter-text">having {count} {status} orders with {field}</key>
+  <key id="lastordercustomerfilter-label">filter on a property of the last order</key>
+  <key id="lastordercustomerfilter-text">having las order with {field}</key>
+  <key id="websitecustomerfilter-label">customers of websites</key>
+  <key id="websitecustomerfilter-text">customers of {shop}</key>
+</i18n>

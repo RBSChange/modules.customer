@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.document.editablecustomergroup" lcid="fr_FR">
+  <include id="m.customer.document.customergroup"/>
+  <key id="document-name">groupes de clients éditable</key>
+  <key id="members">membres</key>
+</i18n>
