@@ -27,9 +27,9 @@ class customer_BirthdayCustomerFilter extends f_persistentdocument_DocumentFilte
 	public function getQuery()
 	{
 		$count = $this->getParameter('count')->getValueForQuery();
-		$todayPlusCount = date_Calendar::getInstance()->now();
+		$todayPlusCount = date_Calendar::now();
 		$todayPlusCount->add(date_Calendar::DAY,$count);
-		$today = date_Calendar::getInstance()->now();
+		$today = date_Calendar::now();
 		$todayDayNumber = ($today->getMonth()*31 + $today->getDay());
 		$todayPlusCountDayNumber = ($todayPlusCount->getMonth()*31 + $todayPlusCount->getDay());
 		
@@ -59,9 +59,9 @@ class customer_BirthdayCustomerFilter extends f_persistentdocument_DocumentFilte
 			if ($birthdayDayNumber !== null)
 			{
 				$count = $this->getParameter('count');
-				$todayPlusCount = date_Calendar::getInstance()->now();
+				$todayPlusCount = date_Calendar::now();
 				$todayPlusCount->add(date_Calendar::DAY,$count);
-				$today = date_Calendar::getInstance()->now();
+				$today = date_Calendar::now();
 				$todayDayNumber = ($today->getMonth()*31 + $today->getDay());
 				$todayPlusCountDayNumber = ($todayPlusCount->getMonth()*31 + $todayPlusCount->getDay()); 
 				
