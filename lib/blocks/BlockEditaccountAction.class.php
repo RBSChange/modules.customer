@@ -13,6 +13,11 @@ class customer_BlockEditaccountAction extends website_BlockAction
 	 */
 	function execute($request, $response)
 	{
+		if ($this->isInBackoffice())
+		{
+			return;
+		}
+
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
