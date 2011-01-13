@@ -230,4 +230,50 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 		}
 		return $this->getMeta('customerCode');
 	}
+	
+	//Wrapped user info
+	
+	/**
+	 * @return string
+	 */
+	public function getCivility()
+	{
+		$user = $this->getUser();
+		if ($user !== null)
+		{
+			$title = $user->getTitle();
+			if ($title !== null)
+			{
+				return $title->getLabel();
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getFirstname()
+	{
+		$user = $this->getUser();
+		return $user !== null ? $user->getFirstname() : null;
+	}	
+	
+	/**
+	 * @return string
+	 */
+	public function getLastname()
+	{
+		$user = $this->getUser();
+		return $user !== null ? $user->getLastname() : null;
+	}	
+	
+	/**
+	 * @return string
+	 */
+	public function getEmail()
+	{
+		$user = $this->getUser();
+		return $user !== null ? $user->getEmail() : null;
+	}
 }

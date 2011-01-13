@@ -94,4 +94,22 @@ class customer_persistentdocument_address extends customer_persistentdocument_ad
 		}
 		return null;
 	}
+	
+	/**
+	 * @return string
+	 */
+	public function getCivility()
+	{
+		$title = $this->getTitle();
+		return ($title !== null) ? $title->getLabel() : null;
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getCountryName()
+	{
+		$country = $this->getCountry();
+		return $country !== null ? $country->getLabel() : null;
+	}	
 }
