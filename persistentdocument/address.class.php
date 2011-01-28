@@ -112,4 +112,14 @@ class customer_persistentdocument_address extends customer_persistentdocument_ad
 		$country = $this->getCountry();
 		return $country !== null ? $country->getLabel() : null;
 	}	
+
+	/**
+	 * @return string
+	 */
+	public function getCountryCode()
+	{
+		$country = $this->getCountry();
+		return $country !== null ? $country->getCode() : null;
+	}	
+	
 }
