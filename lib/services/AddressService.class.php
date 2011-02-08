@@ -48,7 +48,11 @@ class customer_AddressService extends f_persistentdocument_DocumentService
 	 */
 	public function getDefaultByCustomer($customer)
 	{
-		return $customer->getAddress(0);
+		if ($customer && $customer->getAddressCount())
+		{
+			return $customer->getAddress(0);
+		}
+		return null;
 	}
 	
 	/**
