@@ -585,4 +585,120 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			f_event_EventManager::dispatchEvent('removeUsedCouponFromCustomer', $this, array('customer' => $customer, 'coupon' => $coupon));
 		}
 	}
+	
+	/**
+	 * @param customer_persistentdocument_customer $customer
+	 * @param string $moduleName
+	 * @param string $treeType
+	 * @param array<string, string> $nodeAttributes
+	 */
+	public function addTreeAttributes($customer, $moduleName, $treeType, &$nodeAttributes)
+	{
+		if ($treeType != 'wlist')
+		{
+			return;
+		}
+		$nodeAttributes['birthday'] = date_DateFormat::format($customer->getBirthday(), 'D d M Y');
+		$nodeAttributes['email'] = $customer->getUser()->getEmail();
+		$nodeAttributes['date'] = date_DateFormat::format($customer->getCreationdate(), 'D d M Y');
+
+		// Activation.
+		if (!$customer->isPublished())
+		{
+			$nodeAttributes['activation'] = $customer->getNotActivatedReasonLabel();
+		}
+		else
+		{
+			$nodeAttributes['activation'] = f_Locale::translateUI("&modules.customer.bo.general.Account-activated;");
+		}
+		
+		// Website.
+		$website = $customer->getWebsite();
+		if ($website !== null)
+		{
+			$nodeAttributes['website'] = $website->getLabel();
+		}
+		else 
+		{
+			$nodeAttributes['website'] = '-';
+		}
+		
+		$anonymizer = customer_AnonymizerService::getInstance();		
+		$nodeAttributes['canBeAnonymized'] = (!$anonymizer->isAnonymized($customer) && $anonymizer->canBeAnonymized($customer));	
+	}
+		
+	/**
+	 * @param customer_persistentdocument_customer $customer
+	 * @param string[] $propertiesNames
+	 * @param array $formProperties
+	 */
+	public function addFormProperties($customer, $propertiesNames, &$formProperties)
+	{
+		$user = $customer->getUser();
+		
+		$dateTimeFormat = customer_ModuleService::getInstance()->getUIDateTimeFormat();
+		
+		$formProperties['activateTrust'] = ModuleService::getInstance()->getPreferenceValue('customer', 'activateTrust');
+		
+		// Identification.
+		$identification = array();
+		if ($customer->getWebsite() !== null)
+		{
+			$identification['website'] = $customer->getWebsite()->getLabel();
+		}
+		if ($user->getTitle() !== null)
+		{
+			$identification['title'] = $user->getTitle()->getLabel();
+		}
+		$identification['firstname'] = $user->getFirstname();
+		$identification['lastname'] = $user->getLastname();
+		$identification['birthday'] = date_DateFormat::format($customer->getUIBirthday(), 'd M Y');
+		$identification['email'] = $user->getEmail();
+		$identification['creationdate'] = date_DateFormat::format($customer->getUICreationdate(), $dateTimeFormat);
+		$formProperties['identification'] = $identification;
+		
+		// Addresses.
+		$addresses = array();
+		foreach ($customer->getAddressArray() as $index => $address)
+		{	
+			$addressInfo = array();
+			if ($index == 0)
+			{
+				$addressInfo['label'] = f_Locale::translateUI('&modules.customer.bo.general.Default-address;');
+			}
+			else
+			{
+				$addressInfo['label'] = f_Locale::translateUI('&modules.customer.bo.general.Address-title;', array('number' => $index+1));
+			}
+			if ($address->getTitle() !== null)
+			{
+				$addressInfo['title'] = $address->getTitle()->getLabel();
+			}
+			else
+			{
+				$addressInfo['title'] = '';
+			}
+			$addressInfo['firstname'] = $address->getFirstname();
+			$addressInfo['lastname'] = $address->getLastname();
+			$addressInfo['addressline1'] = $address->getAddressLine1();
+			$addressInfo['addressline2'] = $address->getAddressLine2();
+			$addressInfo['addressline3'] = $address->getAddressLine3();
+			$addressInfo['zipcode'] = $address->getZipcode();
+			$addressInfo['city'] = $address->getCity();
+			if ($address->getCountry() !== null)
+			{
+				$addressInfo['country'] = $address->getCountry()->getLabel();
+			}
+			else
+			{
+				$addressInfo['country'] = '';
+			}
+			$addressInfo['email'] = $address->getEmail();
+			$addressInfo['phone'] = $address->getPhone();
+			$addressInfo['mobilephone'] = $address->getMobilephone();
+			$addressInfo['creationdate'] = date_DateFormat::format($address->getUICreationdate(), $dateTimeFormat);
+			$addresses[] = $addressInfo;
+		}
+		$formProperties['addresses'] = $addresses;
+	}
 }
