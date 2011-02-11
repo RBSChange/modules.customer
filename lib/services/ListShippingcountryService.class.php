@@ -3,7 +3,7 @@
  * customer_ListShippingcountryService
  * @package module.customer
  */
-class customer_ListShippingcountryService extends customer_ListBaseCountryService
+class customer_ListShippingcountryService extends BaseService
 {
 	/**
 	 * @var customer_ListShippingcountryService
@@ -15,25 +15,56 @@ class customer_ListShippingcountryService extends customer_ListBaseCountryServic
 	 */
 	public static function getInstance()
 	{
-		if (is_null(self::$instance))
+		if (self::$instance === null)
 		{
-			self::$instance = new customer_ListShippingcountryService();
+			self::$instance = self::getServiceClassInstance(get_class());
 		}
 		return self::$instance;
 	}
 
-	protected function __construct()
+	/**
+	 * @see list_persistentdocument_dynamiclist::getItems()
+	 * @return list_Item[]
+	 */
+	public final function getItems()
 	{
-		try 
+		$results = array();
+		$shop = catalog_ShopService::getInstance()->getCurrentShop();
+		if ($shop === null)
 		{
-			$shop = catalog_ShopService::getInstance()->getCurrentShop();
+			return $results;
 		}
-		catch (Exception $e)
+		
+		foreach (catalog_TaxService::getInstance()->getZonesForShop($shop) as $zone) 
 		{
-			$shop = null;
-			Framework::exception($e);
-		}		
-		$zone = ($shop !== null) ? $shop->getShippingZone() : zone_ZoneService::getInstance()->getDefaultZone();
-		$this->setZone($zone);
+			foreach (zone_CountryService::getInstance()->getCountries($zone) as $country)
+			{
+				$results[$country->getId()] = new list_Item($country->getLabel(), $country->getId());
+			}
+		}
+		return $results;
 	}
+
+	/**
+	 * @var Array
+	 */
+	private $parameters = array();
+	
+	/**
+	 * @see list_persistentdocument_dynamiclist::getListService()
+	 * @param array $parameters
+	 */
+	public function setParameters($parameters)
+	{
+		$this->parameters = $parameters;
+	}
+	
+	/**
+	 * @see list_persistentdocument_dynamiclist::getItemByValue()
+	 * @param string $value;
+	 * @return list_Item
+	 */
+//	public function getItemByValue($value)
+//	{
+//	}
 }
