@@ -11,4 +11,5 @@
   <actiondef modulename="customer" actionname="update.dynamiccustomergroup" label="modules.customer.bo.useractionlogger.update-dynamiccustomergroup"/>
   <actiondef modulename="customer" actionname="update.customer" label="modules.customer.bo.useractionlogger.update-customer"/>
   <actiondef modulename="customer" actionname="insert.dynamiccustomergroup" label="modules.customer.bo.useractionlogger.insert-dynamiccustomergroup"/>
+  <actiondef modulename="customer" actionname="move.dynamiccustomergroup" label="m.customer.bo.useractionlogger.move-dynamiccustomergroup"/>
 </script>

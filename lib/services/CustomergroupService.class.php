@@ -111,4 +111,14 @@ class customer_CustomergroupService extends f_persistentdocument_DocumentService
 	{
 		throw new Exception('This method must be redefined in descendant classes!');
 	}
+	
+	/**
+	 * @param customer_persistentdocument_customergroup $doc
+	 * @param users_persistentdocument_dynamicfrontendgroup $group
+	 */
+	public function onDynamicfrontendgroupCreated($doc, $group)
+	{
+		$doc->setDynamicgroup($group);
+		$doc->save();
+	}
 }

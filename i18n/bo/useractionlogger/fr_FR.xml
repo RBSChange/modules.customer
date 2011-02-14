@@ -20,4 +20,6 @@
   <key id="log-order-process-cancel">log-order-process-cancel</key>
   <key id="order-process-end">Validation de la commande n°{orderNumber}</key>
   <key id="log-order-process-end">log-order-process-end</key>
+  <key id="move-dynamiccustomergroup">move.dynamiccustomergroup {destinationlabel} {documentlabel}</key>
+  <key id="log-move-dynamiccustomergroup">log move dynamiccustomergroup</key>
 </i18n>
