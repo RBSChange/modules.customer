@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+	<binding fileName="modules/list/persistentdocument/import/list_binding.xml" />
+	<binding fileName="modules/notification/persistentdocument/import/notification_binding.xml" />
+	<binding fileName="modules/customer/persistentdocument/import/customer_binding.xml" />
+	<binding fileName="modules/form/persistentdocument/import/form_binding.xml" />
+
+	<rootfolder module="customer">
+		<voucherfolder />
+	</rootfolder>
+</script>

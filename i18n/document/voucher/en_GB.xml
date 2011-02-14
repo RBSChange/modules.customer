@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.document.voucher" lcid="en_GB">
+  <include id="m.customer.document.coupon"/>
+  <key id="document-name">voucher</key>
+  <key id="shop">[TO TRANSLATE] shop</key>
+  <key id="shop-help">[TO TRANSLATE] shop-help</key>
+  <key id="customerid">[TO TRANSLATE] customerId</key>
+  <key id="customerid-help">[TO TRANSLATE] customerId-help</key>
+  <key id="amount">[TO TRANSLATE] amount</key>
+  <key id="amount-help">[TO TRANSLATE] amount-help</key>
+</i18n>

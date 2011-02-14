@@ -51,4 +51,24 @@ class customer_CouponService extends f_persistentdocument_DocumentService
 	{
 		return $this->pp->createQuery('modules_customer/coupon', false);
 	}
+
+	
+	/**
+	 * @param string $code
+	 * @return coupon_persistentdocument_coupon | null
+	 */
+	public function getByCode($code)
+	{
+		return $this->createQuery()->add(Restrictions::eq('code', $code))->findUnique();
+	}
+		
+	/**
+	 * @param customer_persistentdocument_coupon $coupon
+	 * @param order_CartInfo $cart
+	 * @return boolean
+	 */
+	public function validateForCart($coupon, $cart)
+	{
+		return false;
+	}
 }

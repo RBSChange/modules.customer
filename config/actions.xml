@@ -21,7 +21,7 @@
 			var parameters = { id: id, className: "customer_FrontendgroupFeederService", forModule: "customer" };
 			wCore.executeJSON('users', 'CreateDynamicfrontendgroup', parameters, callBack, true);
 		]]></body>
-	</action>	
+	</action>
 	<action name="onCreateFrontendgroupSuccess">
 		<parameter name="result" />
 		<body><![CDATA[
@@ -41,9 +41,17 @@
 		]]></body>
 	</action>
 	<action name="anonymizeIsActive">
-		<parameter name="itemData"/>
+		<parameter name="itemData" />
 		<body><![CDATA[
 			return itemData.canBeAnonymized == true;
 		]]></body>
+	</action>
+	<action name="createVoucher">
+		<parameter name="listWidget" />
+		<body><![CDATA[this.createDocumentEditor('modules_customer_voucher', listWidget.getSelectedItems()[0].id);]]></body>
+	</action>
+	<action name="createVoucherhandler">
+		<parameter name="listWidget" />
+		<body><![CDATA[this.createDocumentEditor('modules_customer_voucherhandler', listWidget.getSelectedItems()[0].id);]]></body>
 	</action>
 </actions>

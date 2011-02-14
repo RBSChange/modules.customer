@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.document.coupon" lcid="fr_FR">
+	<include id="m.generic.document.document" />
+	<key id="document-name">coupon</key>
+	<key id="code">code</key>
+	<key id="code-help">Code à saisir sur le site par le client.</key>
+	<key id="startpublicationdate">début de validité</key>
+	<key id="startpublicationdate-help">Laisser ce champ vide pour le rendre valide dès maintenant.</key>
+	<key id="endpublicationdate">fin de validité</key>
+	<key id="endpublicationdate-help">Laisser ce champ vide pour le rendre valide indéfiniment.</key>
+</i18n>

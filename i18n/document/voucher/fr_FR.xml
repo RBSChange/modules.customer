@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.document.voucher" lcid="fr_FR">
+	<include id="m.customer.document.coupon" />
+	<key id="document-name">bon de réduction</key>
+	<key id="shop">boutique</key>
+	<key id="shop-help">Le bon de réduction ne sera utilisable que sur cette boutique.</key>
+	<key id="customerid">client concerné</key>
+	<key id="customerid-help">Si un client est renseigné, lui seul pourra utiliser ce bon. Si aucun client n'est renseigné, chaque client pourra l'utiliser.</key>
+	<key id="amount">montant</key>
+	<key id="amount-help">Montant de la réduction accordée par ce bon.</key>
+	<key id="fieldgroup-validity">validité</key>
+</i18n>

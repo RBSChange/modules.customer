@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <script>
-	<binding fileName="modules/generic/persistentdocument/import/generic_binding.xml" />
-	<binding name="customer" className="customer_CustomerScriptDocumentElement" />
-	<binding name="preferences" className="customer_PreferencesScriptDocumentElement" />
-	<binding name="customerpreferences" className="customer_PreferencesScriptDocumentElement" />
-	<binding name="address" className="customer_AddressScriptDocumentElement" />
-	<binding name="customergroup" className="customer_CustomergroupScriptDocumentElement" />
-	<binding name="dynamiccustomergroup" className="customer_DynamiccustomergroupScriptDocumentElement" />
-	<binding name="editablecustomergroup" className="customer_EditablecustomergroupScriptDocumentElement" />
-	<binding name="tarifcustomergroup" className="customer_TarifcustomergroupScriptDocumentElement" />
-	<binding name="tarifcustomergroupfolder" className="customer_TarifcustomergroupfolderScriptDocumentElement" />
-	<binding name="coupon" className="customer_CouponScriptDocumentElement" />
+  <binding fileName="modules/generic/persistentdocument/import/generic_binding.xml"/>
+  <binding name="customer" className="customer_CustomerScriptDocumentElement"/>
+  <binding name="preferences" className="customer_PreferencesScriptDocumentElement"/>
+  <binding name="customerpreferences" className="customer_PreferencesScriptDocumentElement"/>
+  <binding name="address" className="customer_AddressScriptDocumentElement"/>
+  <binding name="customergroup" className="customer_CustomergroupScriptDocumentElement"/>
+  <binding name="dynamiccustomergroup" className="customer_DynamiccustomergroupScriptDocumentElement"/>
+  <binding name="editablecustomergroup" className="customer_EditablecustomergroupScriptDocumentElement"/>
+  <binding name="tarifcustomergroup" className="customer_TarifcustomergroupScriptDocumentElement"/>
+  <binding name="tarifcustomergroupfolder" className="customer_TarifcustomergroupfolderScriptDocumentElement"/>
+  <binding name="coupon" className="customer_CouponScriptDocumentElement"/>
+  <binding name="voucher" className="customer_VoucherScriptDocumentElement"/>
+  <binding name="voucherfolder" className="customer_VoucherfolderScriptDocumentElement"/>
+  <binding name="voucherhandler" className="customer_VoucherhandlerScriptDocumentElement"/>
 </script>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.customer.document.voucherhandler" lcid="fr_FR">
+	<include id="m.order.document.cartmodifier" />
+	<key id="document-name">gestionnaire de bons de réductions</key>
+	<key id="application-conditions">conditions d'application</key>
+	<key id="label-fo">réduction</key>
+</i18n>

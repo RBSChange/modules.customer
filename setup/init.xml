@@ -49,6 +49,7 @@
 	
 	<rootfolder module="customer">
 		<tarifcustomergroupfolder />
+		<voucherfolder />
 	</rootfolder>
 	
 	<rootfolder module="preferences">

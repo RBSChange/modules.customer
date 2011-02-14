@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.customer.bo.actions" lcid="fr_FR">
-  <key id="create_">créer</key>
-  <key id="createtarif_">créer</key>
-  <key id="create-dynamiccustomergroup">créer un groupe de clients dynamique</key>
-  <key id="create-editablecustomergroup">créer un groupe de clients éditable</key>
-  <key id="create-tarifcustomergroup">créer un groupe tarifaire</key>
-  <key id="creating-group-mailing-list">création de la liste d'abonnés</key>
-  <key id="create-tarifcustomergroupfolder">Créer tarifcustomergroupfolder</key>
-  <key id="createfrontendgroup">créer un groupe d'utilisateurs dynamique à partir de ce groupe</key>
-  <key id="anonymize">anonymiser ce client (irréversible)</key>
-  <key id="confirm-anonymize">Attention : cette opération est irréversible. Êtes-vous sûr de vouloir continuer ?</key>
+	<key id="create_">créer</key>
+	<key id="createtarif_">créer</key>
+	<key id="createvoucher_">créer</key>
+	<key id="create-dynamiccustomergroup">créer un groupe de clients dynamique</key>
+	<key id="create-editablecustomergroup">créer un groupe de clients éditable</key>
+	<key id="create-tarifcustomergroup">créer un groupe tarifaire</key>
+	<key id="creating-group-mailing-list">création de la liste d'abonnés</key>
+	<key id="create-tarifcustomergroupfolder">Créer tarifcustomergroupfolder</key>
+	<key id="createfrontendgroup">créer un groupe d'utilisateurs dynamique à partir de ce groupe</key>
+	<key id="anonymize">anonymiser ce client (irréversible)</key>
+	<key id="confirm-anonymize">Attention : cette opération est irréversible. Êtes-vous sûr de vouloir continuer ?</key>
+	<key id="createvoucher">créer un bon de réduction</key>
+	<key id="createvoucherhandler">créer un gestionnaire de bons de réduction</key>
 </i18n>

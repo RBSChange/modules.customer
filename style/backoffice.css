@@ -25,3 +25,12 @@ treechildren::-moz-tree-image(modules_customer_address){
 treechildren::-moz-tree-image(modules_customer_coupon){
 	list-style-image: url(/changeicons/small/coupon.png);
 }
+treechildren::-moz-tree-image(modules_customer_voucher){
+	list-style-image: url(/changeicons/small/coupon.png);
+}
+treechildren::-moz-tree-image(modules_customer_voucherfolder){
+	list-style-image: url(/changeicons/small/coupon-folder.png);
+}
+treechildren::-moz-tree-image(modules_customer_voucherhandler){
+	list-style-image: url(/changeicons/small/cart-modifier.png);
+}
