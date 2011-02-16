@@ -91,7 +91,7 @@ class customer_VoucherService extends customer_CouponService
 	 */
 	public function addTreeAttributes($document, $moduleName, $treeType, &$nodeAttributes)
 	{
-		parent::addTreeAttributes($document, $moduleName, $treeType, &$nodeAttributes);
+		parent::addTreeAttributes($document, $moduleName, $treeType, $nodeAttributes);
 		if ($treeType == 'wlist')
 		{
 			$shop = $document->getShop();
