@@ -18,6 +18,17 @@ class customer_Setup extends object_InitDataSetup
 			$scriptReader = import_ScriptReader::getInstance();
        	 	$scriptReader->executeModuleScript('customer', 'init.xml');
        	 	$scriptReader->executeModuleScript('customer', 'list.xml');
+       	 	
+			$mbs = uixul_ModuleBindingService::getInstance();
+			$mbs->addImportInPerspective('catalog', 'customer', 'catalog.perspective');
+			$mbs->addImportInActions('catalog', 'customer', 'catalog.actions');
+			$result = $mbs->addImportform('catalog', 'modules_customer/voucherhandler');
+			if ($result['action'] == 'create')
+			{
+				uixul_DocumentEditorService::getInstance()->compileEditorsConfig();
+			}
+				
+			f_permission_PermissionService::getInstance()->addImportInRight('catalog', 'customer', 'catalog.rights');
 		}
 		catch (Exception $e)
 		{
@@ -26,4 +37,3 @@ class customer_Setup extends object_InitDataSetup
 		}
 	}
 }
-?>

@@ -50,8 +50,4 @@
 		<parameter name="listWidget" />
 		<body><![CDATA[this.createDocumentEditor('modules_customer_voucher', listWidget.getSelectedItems()[0].id);]]></body>
 	</action>
-	<action name="createVoucherhandler">
-		<parameter name="listWidget" />
-		<body><![CDATA[this.createDocumentEditor('modules_customer_voucherhandler', listWidget.getSelectedItems()[0].id);]]></body>
-	</action>
 </actions>

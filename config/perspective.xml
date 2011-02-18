@@ -104,11 +104,9 @@
 		<model name="modules_customer/voucherfolder">
 			<children>
 				<child model="modules_customer/voucher" />
-				<child model="modules_customer/voucherhandler" />
 			</children>
 			<drops>
 				<drop model="modules_customer/voucher" action="move" />
-				<drop model="modules_customer/voucherhandler" action="move" />
 			</drops>
 			<columns>
 				<column name="code" flex="1" />
@@ -120,20 +118,10 @@
 				<contextaction name="openFolder" />
 				<groupactions name="createVoucher_">
 					<contextaction name="createVoucher" />
-					<contextaction name="createVoucherhandler" />
 				</groupactions>
 			</contextactions>
 		</model>
 		<model name="modules_customer/voucher">
-			<contextactions>
-				<contextaction name="edit" />
-				<contextaction name="delete" />
-				<contextaction name="activate" />
-				<contextaction name="deactivated" />
-				<contextaction name="reactivate" />
-			</contextactions>
-		</model>
-		<model name="modules_customer/voucherhandler">
 			<contextactions>
 				<contextaction name="edit" />
 				<contextaction name="delete" />
@@ -169,6 +157,5 @@
 		<action name="anonymize" permission="Delete" icon="delete" />
 		<action name="createVoucher_" icon="add" />
 		<action name="createVoucher" single="true" permission="Insert_voucher" icon="add" />
-		<action name="createVoucherhandler" single="true" permission="Insert_voucherhandler" icon="add" />
 	</actions>
 </perspective>

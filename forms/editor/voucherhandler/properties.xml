@@ -4,10 +4,9 @@
 		<field name="label" hidehelp="true" />
 		<field name="description" hidehelp="true" />
 		<field name="exclusive" />
-		<field name="excludeModifier" />
+		<field name="excludeModifier" moduleselector="catalog" allow="modules_customer_voucherhandler"/>
 	</section>
 	<section labeli18n="modules.customer.document.voucherhandler.Application-conditions">
-		<field name="shop" hidehelp="true" />
 		<field name="startpublicationdate" hidehelp="true" />
 		<field name="endpublicationdate" hidehelp="true" />
 	</section>

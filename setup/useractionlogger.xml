@@ -12,4 +12,12 @@
   <actiondef modulename="customer" actionname="update.customer" label="modules.customer.bo.useractionlogger.update-customer"/>
   <actiondef modulename="customer" actionname="insert.dynamiccustomergroup" label="modules.customer.bo.useractionlogger.insert-dynamiccustomergroup"/>
   <actiondef modulename="customer" actionname="move.dynamiccustomergroup" label="m.customer.bo.useractionlogger.move-dynamiccustomergroup"/>
+  <actiondef modulename="customer" actionname="insert.voucher" label="m.customer.bo.useractionlogger.insert-voucher"/>
+  <actiondef modulename="customer" actionname="activate.voucher" label="m.customer.bo.useractionlogger.activate-voucher"/>
+ 
+  <actiondef modulename="catalog" actionname="deactivated.voucherhandler" label="m.customer.bo.useractionlogger.deactivated-voucherhandler"/>
+  <actiondef modulename="catalog" actionname="reactivate.voucherhandler" label="m.customer.bo.useractionlogger.reactivate-voucherhandler"/>
+  <actiondef modulename="catalog" actionname="delete.voucherhandler" label="m.customer.bo.useractionlogger.delete-voucherhandler"/>
+  <actiondef modulename="catalog" actionname="insert.voucherhandler" label="m.customer.bo.useractionlogger.insert-voucherhandler"/>
+  <actiondef modulename="catalog" actionname="activate.voucherhandler" label="m.customer.bo.useractionlogger.activate-voucherhandler"/>
 </script>

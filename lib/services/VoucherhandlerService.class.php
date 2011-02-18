@@ -53,6 +53,21 @@ class customer_VoucherhandlerService extends order_CartmodifierService
 	}
 	
 	/**
+	 * @param customer_persistentdocument_voucherhandler $document
+	 * @param Integer $parentNodeId Parent node ID where to save the document.
+	 * @return void
+	 */
+	protected function preInsert($document, $parentNodeId = null)
+	{
+		parent::preInsert($document, $parentNodeId);
+		$document->setInsertInTree(false);
+		if ($document->getShop() === null)
+		{
+			$document->setShop(catalog_persistentdocument_shop::getInstanceById($parentNodeId));
+		}
+	}
+	
+	/**
 	 * @param order_persistentdocument_cartmodifier $modifier
 	 * @param order_CartInfo $cart
 	 * @return boolean
@@ -126,20 +141,5 @@ class customer_VoucherhandlerService extends order_CartmodifierService
 			$cart->removeDiscount($discountInfo);
 		}
 		return true;
-	}
-	
-	/**
-	 * @param customer_persistentdocument_voucherhandler $document
-	 * @param string $moduleName
-	 * @param string $treeType
-	 * @param array<string, string> $nodeAttributes
-	 */
-	public function addTreeAttributes($document, $moduleName, $treeType, &$nodeAttributes)
-	{
-		if ($treeType == 'wlist')
-		{
-			$shop = $document->getShop();
-			$nodeAttributes['shop'] = $shop->getLabel();
-		}
 	}
 }
