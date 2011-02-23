@@ -46,7 +46,6 @@ class customer_AddressFilter extends f_persistentdocument_DocumentFilterImpl
 		$query = customer_CustomerService::getInstance()->createQuery();
 		$field = $this->getParameter('field');
 		$propName = $field->getPropertyName();
-		Framework::fatal($propName);
 		if ($propName == 'modules_customer/address.country')
 		{
 			$restriction = $field->getRestriction();
