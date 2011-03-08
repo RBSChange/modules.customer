@@ -587,6 +587,17 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	}
 	
 	/**
+	 * @param integer $min (excluded)
+	 * @param integer $max (included)
+	 */
+	public function getIdsBetweenBirthdayDayNumber($min, $max)
+	{
+		return $this->createQuery()->add(Restrictions::gt('birthdayDayNumber', $min))
+			->add(Restrictions::le('birthdayDayNumber', $max))
+			->setProjection(Projections::property('id'))->findColumn('id');
+	}
+	
+	/**
 	 * @param customer_persistentdocument_customer $customer
 	 * @param string $moduleName
 	 * @param string $treeType
@@ -700,5 +711,16 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			$addresses[] = $addressInfo;
 		}
 		$formProperties['addresses'] = $addresses;
+	}
+		
+	/**
+	 * @param customer_persistentdocument_customer $customer
+	 * @return catalog_persistentdocument_shop[]
+	 */
+	public function getAllShops($customer)
+	{
+		$usergroup = users_WebsitefrontendgroupService::getInstance()->getDefaultByUser($customer->getUser());
+		$websites = $usergroup->getWebsites();
+		return catalog_ShopService::getInstance()->getPublishedByWebsites($websites);
 	}
 }
