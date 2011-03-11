@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.customer.document.preferences" lcid="fr_FR">
-  <key id="document-name">préférences</key>
-  <key id="activateemailconfirmation">Confirmation de l'e-mail</key>
-  <key id="activateemailconfirmation-help">Si ce champ est positionné à ″oui″, les nouveaux clients devront confirmer leur addresse e-mail via un lien qui leur sera automatiquement envoyé par e-mail.</key>
-  <key id="activatetrust">Afficher la confiance d'un client</key>
-  <key id="activatetrust-help">Afficher la confiance d'un client</key>
-  <key id="securitylevel">niveau de sécurité des mots de passe</key>
-  <key id="securitylevel-help">Il existe trois niveaux de sécurité, chaque niveau de sécurité hérite des conditions des niveaux précédénts : 1) basse, les mots de passe doivent contenir au moins 6 caractères et 12 au maximum ; 2) moyenne, les mots de passe doivent contenir des lettres et des chiffres ; 3) les mots de passe doivent contenir des lettres minuscules et majuscules.</key>
+	<key id="document-name">préférences</key>
+	<key id="activateemailconfirmation">Confirmation de l'e-mail</key>
+	<key id="activateemailconfirmation-help">Si ce champ est positionné à ″oui″, les nouveaux clients devront confirmer leur addresse e-mail via un lien qui leur sera automatiquement envoyé par e-mail.</key>
+	<key id="activatetrust">Afficher la confiance d'un client</key>
+	<key id="activatetrust-help">Afficher la confiance d'un client</key>
 </i18n>

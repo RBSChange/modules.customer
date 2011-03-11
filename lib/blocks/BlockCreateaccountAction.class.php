@@ -6,12 +6,11 @@
 class customer_BlockCreateaccountAction extends website_BlockAction
 {
 	/**
-	 * @see website_BlockAction::execute()
 	 * @param f_mvc_Request $request
 	 * @param f_mvc_Response $response
 	 * @return String
 	 */
-	function execute($request, $response)
+	public function execute($request, $response)
 	{
 		// If there is already a customer, redirect to account.
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
@@ -34,7 +33,7 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 	 * @param customer_CustomerWrapperBean $customerWrapper
 	 * @return boolean
 	 */
-	function validateSaveInput($request, $customerWrapper)
+	public function validateSaveInput($request, $customerWrapper)
 	{
 		// Validation.
 		$validationRules = array_merge(
@@ -44,7 +43,7 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 		);
 		if (!$customerWrapper->id)
 		{
-			$securityLevel = ModuleService::getInstance()->getPreferenceValue('customer', 'securitylevel');
+			$securityLevel = ModuleService::getInstance()->getPreferenceValue('users', 'securitylevel');
 			$validationRules[] = "password{blank:false;password:$securityLevel}";
 		}
 		$isOk = $this->processValidationRules($validationRules, $request, $customerWrapper);
@@ -56,7 +55,7 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 		$existingUser = users_UserService::getInstance()->getFrontendUserByLogin($login, $website->getId());
 		if ($existingUser !== null && $existingUser->getId() !== $user->getId())
 		{
-			$this->addError(f_Locale::translate('&modules.customer.document.customerwrapperbean.Invalid-login-error;'));
+			$this->addError(LocaleService::getInstance()->transFO('m.customer.document.customerwrapperbean.invalid-login-error', array('ucf')));
 			$isOk = false;
 		}
 		
@@ -64,13 +63,12 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 	}
 
 	/**
-	 * @see website_BlockAction::execute()
 	 * @param f_mvc_Request $request
 	 * @param f_mvc_Response $response
 	 * @param customer_CustomerWrapperBean $customerWrapper
 	 * @return String
 	 */
-	function executeSave($request, $response, customer_CustomerWrapperBean $customerWrapper)
+	public function executeSave($request, $response, customer_CustomerWrapperBean $customerWrapper)
 	{
 		$customer = $customerWrapper->customer;		
 		$user = $customer->getUser();			
