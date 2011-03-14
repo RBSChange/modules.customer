@@ -92,9 +92,11 @@ class customer_BlockManageaddressAction extends website_BlockAction
 	 * @param customer_persistentdocument_address $address
 	 * @return String
 	 */
-	function getSaveInputValidationRules($request)
+	public function getSaveInputValidationRules($request)
 	{
-		return BeanUtils::getBeanValidationRules('customer_persistentdocument_address', null, array('label'));
+		$rules = BeanUtils::getBeanValidationRules('customer_persistentdocument_address', null, array('label'));
+		$rules[] = 'email{email:true}';
+		return $rules;
 	}
 	
 	/**
