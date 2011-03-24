@@ -50,6 +50,11 @@ class customer_BlockEditaccountAction extends website_BlockAction
 	 */
 	function executeSave($request, $response, customer_persistentdocument_customer $customer)
 	{
+		$currentCustomer = customer_CustomerService::getInstance()->getCurrentCustomer();
+		if (!DocumentHelper::isEquals($currentCustomer, $customer))
+		{
+			throw new Exception("Bad parameter");
+		}
 		$user = $customer->getUser();
 		$user->save();
 		$customer->save();
