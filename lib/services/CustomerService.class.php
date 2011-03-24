@@ -309,7 +309,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		$link = sprintf('<a class="link" href="%s" title="%s">%s</a>', $url, f_Locale::translate('&modules.customer.mail.Click-here-to-conforirm;'), $url);
 
 		$notificationService = notification_NotificationService::getInstance();
-		$notification = $notificationService->getNotificationByCodeName('modules_customer/emailConfirmation');
+		$notification = $notificationService->getByCodeName('modules_customer/emailConfirmation');
 
 		$recipients = new mail_MessageRecipients();
 		$recipients->setTo($user->getEmail());
