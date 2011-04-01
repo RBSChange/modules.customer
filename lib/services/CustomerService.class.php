@@ -179,10 +179,13 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			$user->setEmail($email);
 			$user->setPassword($password);
 		
-			$websiteFrontendGroupService = users_WebsitefrontendgroupService::getInstance();
-			$group = $websiteFrontendGroupService->getDefaultByWebsite(DocumentHelper::getDocumentInstance($websiteId));
+			$website = website_persistentdocument_website::getInstanceById($websiteId);
+			$group = users_WebsitefrontendgroupService::getInstance()->getDefaultByWebsite($website);
+			$user->setWebsiteid($group->getWebsiteid());
+			$user->addGroups($group);
+			
 			// Save the user.
-			$user->save($group->getId());
+			$user->save();
 			$user->activate();
 			
 			$customer = customer_CustomerService::getInstance()->getNewDocumentInstance();
@@ -244,8 +247,10 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			$group = users_WebsitefrontendgroupService::getInstance()->getDefaultByWebsite($website);
 			$user = $customer->getUser();
 			$user->setLogin($user->getEmail());
-			$user->setPassword($password);				
-			$user->save($group->getId());
+			$user->setPassword($password);
+			$user->setWebsiteid($group->getWebsiteid());
+			$user->addGroups($group);			
+			$user->save();
 			$user->activate();
 				
 			$customer->save();
