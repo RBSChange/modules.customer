@@ -67,7 +67,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	protected function preSave($document, $parentNodeId)
 	{
 		$user = $document->getUser();
-		if (!is_null($user))
+		if ($user !== null)
 		{
 			$document->setLabel($user->getLabel());
 		}
@@ -287,7 +287,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 				Framework::exception($e);
 			}
 			$group = users_FrontendgroupService::getInstance()->getNewDocumentInstance();
-			$group->setLabel(f_Locale::translate('&modules.customer.bo.general.Customer-user-group-label;'));
+			$group->setLabel(LocaleService::getInstance()->transFO('m.customer.bo.general.customer-user-group-label', array('ucf')));
 			$group->save();
 			TagService::getInstance()->addTag($group, self::GROUP_TAG);
 		}
@@ -311,7 +311,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			'lang' => $customer->getLang(),
 			'mailref' => $user->getEmail()
 		));
-		$link = sprintf('<a class="link" href="%s" title="%s">%s</a>', $url, f_Locale::translate('&modules.customer.mail.Click-here-to-conforirm;'), $url);
+		$link = sprintf('<a class="link" href="%s" title="%s">%s</a>', $url, LocaleService::getInstance()->transFO('m.customer.mail.click-here-to-conforirm', array('ucf')), $url);
 
 		$notificationService = notification_NotificationService::getInstance();
 		$notification = $notificationService->getByCodeName('modules_customer/emailConfirmation');
@@ -388,7 +388,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	 */
 	public function hasAlreadyUsedCoupon($customer, $coupon)
 	{
-		if (!is_null($customer) && !is_null($coupon))
+		if ($customer !== null && $coupon !== null)
 		{
 			foreach ($customer->getUsedCouponArray() as $usedCoupon)
 			{
@@ -407,7 +407,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	 */
 	public function getIdsByUsedCoupon($coupon)
 	{
-		if (is_null($coupon))
+		if ($coupon === null)
 		{
 			return array();
 		}
@@ -625,7 +625,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		}
 		else
 		{
-			$nodeAttributes['activation'] = f_Locale::translateUI("&modules.customer.bo.general.Account-activated;");
+			$nodeAttributes['activation'] = LocaleService::getInstance()->transBO("m.customer.bo.general.account-activated", array('ucf'));
 		}
 		
 		// Website.
@@ -675,16 +675,17 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		
 		// Addresses.
 		$addresses = array();
+		$ls = LocaleService::getInstance();
 		foreach ($customer->getAddressArray() as $index => $address)
 		{	
 			$addressInfo = array();
 			if ($index == 0)
 			{
-				$addressInfo['label'] = f_Locale::translateUI('&modules.customer.bo.general.Default-address;');
+				$addressInfo['label'] = $ls->transBO('m.customer.bo.general.default-address', array('ucf'));
 			}
 			else
 			{
-				$addressInfo['label'] = f_Locale::translateUI('&modules.customer.bo.general.Address-title;', array('number' => $index+1));
+				$addressInfo['label'] = $ls->transBO('m.customer.bo.general.address-title', array('ucf'), array('number' => $index+1));
 			}
 			if ($address->getTitle() !== null)
 			{

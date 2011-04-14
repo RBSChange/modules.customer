@@ -86,7 +86,7 @@ class customer_VoucherhandlerService extends order_CartmodifierService
 			return false;
 		}
 		
-		return $modifier->getShop()->getId() == $coupon->getShop()->getId();
+		return $modifier->getShop()->getId() == $cart->getShopId();
 	}
 	
 	/**

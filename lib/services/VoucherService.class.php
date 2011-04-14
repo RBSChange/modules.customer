@@ -72,6 +72,11 @@ class customer_VoucherService extends customer_CouponService
 				return false;
 			}
 			
+			if ($coupon->getShop() !== null && $cart->getShopId() !== $coupon->getShop()->getId())
+			{
+				return false;
+			}
+			
 			$linesAmount = 0.0;
 			foreach ($cart->getCartLineArray($value) as $cartLineInfo) 
 			{
