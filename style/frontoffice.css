@@ -1,2 +1,10 @@
 .modules-custmer{
 }
+
+.modules-customer-manageaddress ul{
+	list-style-type: none;
+}
+
+.modules-customer-manageaddress ol.delivery{
+	list-style-type: none;
+}
