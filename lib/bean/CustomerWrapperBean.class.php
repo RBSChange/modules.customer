@@ -21,6 +21,11 @@ class customer_CustomerWrapperBean
 	public $passwordconfirm;
 	
 	/**
+	 * @var String
+	 */
+	public $emailconfirm;
+	
+	/**
 	 * @var Integer
 	 */
 	public $id;

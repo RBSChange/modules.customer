@@ -5,4 +5,5 @@
   <key id="passwordconfirm-error">votre mot de passe n'est pas confirmé</key>
   <key id="invalid-login-error">il existe déjà un compte utilisant cette adresse email.</key>
   <key id="create-account">créer mon compte</key>
+  <key id="emailconfirm">Confirmation de l'adresse email</key>
 </i18n>

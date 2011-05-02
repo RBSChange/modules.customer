@@ -2,7 +2,11 @@
 <blocks>
 	<block type="modules_customer_menu" icon="menu" label="&amp;modules.customer.bo.blocks.Menu;" />
 	<block type="modules_customer_index" icon="customer" label="&amp;modules.customer.bo.blocks.Index;" />
-	<block type="modules_customer_createaccount" icon="add" label="&amp;modules.customer.bo.blocks.Create-account;" />
+	<block type="modules_customer_createaccount" icon="add" label="&amp;modules.customer.bo.blocks.Create-account;">
+		<parameters>
+			<parameter name="confirmEmail" type="Boolean" default-value="false" />
+		</parameters>
+	</block>
 	<block type="modules_customer_editaccount" icon="edit" label="&amp;modules.customer.bo.blocks.Edit-account;" />
 	<block type="modules_customer_manageaddress" icon="edit" label="&amp;modules.customer.bo.blocks.Manage-address;" />
 	<block type="modules_customer_AccountPublication" icon="status-detail" label="&amp;modules.customer.bo.blocks.Account-publication;" />

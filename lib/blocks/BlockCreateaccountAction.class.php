@@ -46,6 +46,11 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 			$securityLevel = ModuleService::getInstance()->getPreferenceValue('users', 'securitylevel');
 			$validationRules[] = "password{blank:false;password:$securityLevel}";
 		}
+		$cfg = $this->getConfiguration();
+		if ($cfg->getConfirmEmail())
+		{
+			$validationRules[] = "propEq:customer.user.email,emailconfirm";
+		}
 		$isOk = $this->processValidationRules($validationRules, $request, $customerWrapper);
 
 		// Login validation.
