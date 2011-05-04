@@ -13,6 +13,10 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 	public function execute($request, $response)
 	{
 		// If there is already a customer, redirect to account.
+                if ($this->isInBackoffice())
+                {
+                    return website_BlockView::NONE;
+                }
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer !== null)
 		{
