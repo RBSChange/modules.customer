@@ -5,13 +5,7 @@
 	<ol>
 		<li><input change:field="name customer.user.email" /></li>
 		<tal:block tal:condition="configuration/getConfirmEmail"> 
-		<li><input change:field="name emailconfirm; id customer_createaccount_emailconfirm" /></li>
-		<script change:javascript="head 'modules.website.lib.js.preventCopyPaste'" />
-		<script type="text/javascript">
-		jQuery(document).ready(function() {
-			website_PreventCopyPaste('customer_createaccount_emailconfirm');
-		});
-		</script>
+		<li><input required="true" change:field="name emailconfirm; id customer_createaccount_emailconfirm" /></li>
 		</tal:block>
 		<li><input change:field="name customer.user.titleid" /></li>
 		<li><input change:field="name customer.user.firstname" /></li>
