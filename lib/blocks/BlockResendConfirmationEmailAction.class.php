@@ -1,15 +1,11 @@
 <?php
 /**
- * customer_BlockResendConfirmationEmailAction
- * @package modules.customer
+ * @deprecated (will be removed in 4.0)
  */
 class customer_BlockResendConfirmationEmailAction extends website_BlockAction
 {
 	/**
-	 * @see website_BlockAction::execute()
-	 * @param f_mvc_Request $request
-	 * @param f_mvc_Response $response
-	 * @return String
+	 * @deprecated (will be removed in 4.0)
 	 */
 	function execute($request, $response)
 	{
@@ -17,7 +13,7 @@ class customer_BlockResendConfirmationEmailAction extends website_BlockAction
 		{
 			return website_BlockView::BACKOFFICE;
 		}
-		
+
 		$customerService = customer_CustomerService::getInstance();
 		$customer = $customerService->getCurrentCustomer();
 		$success = $customerService->sendEmailConfirmationEmail($customer);

@@ -7,11 +7,6 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 {
 	const REASON_CONFIRM_EMAIL_ADDRESS = 1;
 	const REASON_CONFIRM_ACCOUNT       = 2;
-
-	const EMAIL_CONFIRMATION_OK = 1;
-	const EMAIL_CONFIRMATION_NO_CUSTOMER = 2;
-	const EMAIL_CONFIRMATION_BAD_STATE = 3;
-	const EMAIL_CONFIRMATION_BAD_EMAIL = 4;
 	
 	const GROUP_TAG = 'default_modules_customer_customer-website-user-group';
 
@@ -292,93 +287,6 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			TagService::getInstance()->addTag($group, self::GROUP_TAG);
 		}
 		return $group;
-	}
-
-	/**
-	 * @param customer_persistentdocument_customer $customer
-	 * @return Boolean
-	 */
-	public function sendEmailConfirmationEmail($customer)
-	{
-		if ($customer === null || $customer->getNotActivatedReason() != self::REASON_CONFIRM_EMAIL_ADDRESS)
-		{
-			return false;
-		}
-		$user = $customer->getUser();
-
-		$url = LinkHelper::getActionUrl('customer', 'EmailConfirmation', array(
-			'cmpref' => $customer->getId(),
-			'lang' => $customer->getLang(),
-			'mailref' => $user->getEmail()
-		));
-		$link = sprintf('<a class="link" href="%s" title="%s">%s</a>', $url, LocaleService::getInstance()->transFO('m.customer.mail.click-here-to-conforirm', array('ucf')), $url);
-
-		$notificationService = notification_NotificationService::getInstance();
-		$notification = $notificationService->getByCodeName('modules_customer/emailConfirmation');
-
-		$recipients = new mail_MessageRecipients();
-		$recipients->setTo($user->getEmail());
-
-		$replacements = array();
-		$replacements['title'] = ($user->getTitle() !== null) ? $user->getTitle()->getLabel() : '';
-		$replacements['lastname'] = $user->getLastname();
-		$replacements['fullname'] = $user->getFullname();
-		$replacements['confirmation-url'] = $url;
-		$replacements['confirmation-link'] = $link;
-
-		return $notificationService->send($notification, $recipients, $replacements, 'customer');
-	}
-
-	/**
-	 * @param customer_persistentdocument_customer $customer
-	 * @param String $email
-	 * @return Integer
-	 */
-	public function validateEmailConfirmation($customer, $email)
-	{
-		// No customer.
-		if (is_null($customer))
-		{
-			return self::EMAIL_CONFIRMATION_NO_CUSTOMER;
-		}
-		// Customer not needing confirmation.
-		else if ($customer->getNotActivatedReason() != self::REASON_CONFIRM_EMAIL_ADDRESS)
-		{
-			return self::EMAIL_CONFIRMATION_BAD_STATE;
-		}
-		// Bad e-mail.
-		else if ($customer->getUser()->getEmail() != $email)
-		{
-			return self::EMAIL_CONFIRMATION_BAD_EMAIL;
-		}
-		else
-		{
-			$customer->setNotActivatedReason(null);
-			$customer->save();
-			return self::EMAIL_CONFIRMATION_OK;
-		}
-	}
-
-	/**
-	 * @param Integer $confirmationCode
-	 * @return String
-	 */
-	public function getEmailConfirmationRedirectionUrl($confirmationCode)
-	{
-		$website = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
-		$tagService = TagService::getInstance();
-
-		try
-		{
-			$page = $tagService->getDocumentByContextualTag('contextual_website_website_modules_customer_my-account', $website);
-		}
-		catch (TagException $e)
-		{
-			$e; // Avoid warning in Eclipse.
-			$page = $tagService->getDocumentByContextualTag('contextual_website_website_error404', $website);
-		}
-
-		return LinkHelper::getDocumentUrl($page, RequestContext::getInstance()->getLang(), array('customerParam'=> array('confirmationCode' => $confirmationCode)));
 	}
 
 	/**
@@ -728,5 +636,110 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		$usergroup = users_WebsitefrontendgroupService::getInstance()->getDefaultByUser($customer->getUser());
 		$websites = $usergroup->getWebsites();
 		return catalog_ShopService::getInstance()->getPublishedByWebsites($websites);
+	}
+	
+	// Deprecated.
+	
+	/**
+	 * @deprecated (will be removed in 4.0)
+	 */
+	const EMAIL_CONFIRMATION_OK = 1;
+	
+	/**
+	 * @deprecated (will be removed in 4.0)
+	 */
+	const EMAIL_CONFIRMATION_NO_CUSTOMER = 2;
+	
+	/**
+	 * @deprecated (will be removed in 4.0)
+	 */
+	const EMAIL_CONFIRMATION_BAD_STATE = 3;
+	
+	/**
+	 * @deprecated (will be removed in 4.0)
+	 */
+	const EMAIL_CONFIRMATION_BAD_EMAIL = 4;
+	
+	/**
+	 * @deprecated (will be removed in 4.0)
+	 */
+	public function sendEmailConfirmationEmail($customer)
+	{
+		if ($customer === null || $customer->getNotActivatedReason() != self::REASON_CONFIRM_EMAIL_ADDRESS)
+		{
+			return false;
+		}
+		$user = $customer->getUser();
+
+		$url = LinkHelper::getActionUrl('customer', 'EmailConfirmation', array(
+			'cmpref' => $customer->getId(),
+			'lang' => $customer->getLang(),
+			'mailref' => $user->getEmail()
+		));
+		$link = sprintf('<a class="link" href="%s" title="%s">%s</a>', $url, LocaleService::getInstance()->transFO('m.customer.mail.click-here-to-conforirm', array('ucf')), $url);
+
+		$notificationService = notification_NotificationService::getInstance();
+		$notification = $notificationService->getByCodeName('modules_customer/emailConfirmation');
+
+		$recipients = new mail_MessageRecipients();
+		$recipients->setTo($user->getEmail());
+
+		$replacements = array();
+		$replacements['title'] = ($user->getTitle() !== null) ? $user->getTitle()->getLabel() : '';
+		$replacements['lastname'] = $user->getLastname();
+		$replacements['fullname'] = $user->getFullname();
+		$replacements['confirmation-url'] = $url;
+		$replacements['confirmation-link'] = $link;
+
+		return $notificationService->send($notification, $recipients, $replacements, 'customer');
+	}
+	
+	/**
+	 * @deprecated (will be removed in 4.0)
+	 */
+	public function validateEmailConfirmation($customer, $email)
+	{
+		// No customer.
+		if (is_null($customer))
+		{
+			return self::EMAIL_CONFIRMATION_NO_CUSTOMER;
+		}
+		// Customer not needing confirmation.
+		else if ($customer->getNotActivatedReason() != self::REASON_CONFIRM_EMAIL_ADDRESS)
+		{
+			return self::EMAIL_CONFIRMATION_BAD_STATE;
+		}
+		// Bad e-mail.
+		else if ($customer->getUser()->getEmail() != $email)
+		{
+			return self::EMAIL_CONFIRMATION_BAD_EMAIL;
+		}
+		else
+		{
+			$customer->setNotActivatedReason(null);
+			$customer->save();
+			return self::EMAIL_CONFIRMATION_OK;
+		}
+	}
+
+	/**
+	 * @deprecated (will be removed in 4.0)
+	 */
+	public function getEmailConfirmationRedirectionUrl($confirmationCode)
+	{
+		$website = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+		$tagService = TagService::getInstance();
+
+		try
+		{
+			$page = $tagService->getDocumentByContextualTag('contextual_website_website_modules_customer_my-account', $website);
+		}
+		catch (TagException $e)
+		{
+			$e; // Avoid warning in Eclipse.
+			$page = $tagService->getDocumentByContextualTag('contextual_website_website_error404', $website);
+		}
+
+		return LinkHelper::getDocumentUrl($page, RequestContext::getInstance()->getLang(), array('customerParam'=> array('confirmationCode' => $confirmationCode)));
 	}
 }

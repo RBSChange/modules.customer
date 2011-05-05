@@ -22,17 +22,7 @@
 			<staticitem label="&amp;modules.customer.bo.blocks.dashboardgeneralstatistics.column-hasorder;" value="hasorder" />
 		</staticlist>
 	</systemfolder>
-	
-	<systemfolder module="notification" relatedmodule="customer">
-		<notification label="Confirmation de l'adresse e-mail" codename="modules_customer/emailConfirmation"
-			template="default" subject="Confirmation de votre adresse e-mail"
-			availableparameters="{confirmation-link}, {confirmation-url}, {title}, {firstname}, {lastname}, {fullname}, {company-name}, {website-url}"
-			body="&lt;p&gt;Cher {title} {lastname},&lt;/p&gt;
-&lt;p&gt;Pour confirmer votre adresse e-mail, cliquez sur le lien suivant :&lt;br /&gt;{confirmation-link}&lt;/p&gt;
-&lt;p&gt;Merci de votre confiance et à bientôt sur {website-url}&lt;/p&gt;
-&lt;p&gt;L'équipe {company-name}&lt;/p&gt;"	/>	
-	</systemfolder>
-	
+		
 	<systemfolder module="form" relatedmodule="customer">
 		<form formid="modules_customer/contact" label="Formulaire de contact à propos d'un compte client" 
 			description="Ce formulaire est destiné à contacter le site à propos d'un compte client (problèmes de création de compte, de connexion, etc). Pour les messages spécifiques à une commande, un système de messagerie dédié est disponible à partir du compte client."
