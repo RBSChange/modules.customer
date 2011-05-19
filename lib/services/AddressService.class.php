@@ -125,7 +125,7 @@ class customer_AddressService extends f_persistentdocument_DocumentService
 	
 	/**
 	 * @param customer_persistentdocument_address $document
-	 * @param unknown_type $parentNodeId
+	 * @param integer $parentNodeId
 	 */
 	protected function preInsert($document, $parentNodeId) 
 	{
@@ -133,5 +133,43 @@ class customer_AddressService extends f_persistentdocument_DocumentService
 		{
 			$document->setLabel($this->getFullName($document));
 		}	
+	}
+	
+	/**
+	 * @param customer_persistentdocument_address $address
+	 * @return array
+	 */
+	public function getAddressInfos($address)
+	{
+		$ls = LocaleService::getInstance();
+		$addressInfo = array();
+		if ($address->getTitle() !== null)
+		{
+			$addressInfo['title'] = $address->getTitle()->getLabel();
+		}
+		else
+		{
+			$addressInfo['title'] = '';
+		}
+		$addressInfo['firstname'] = $address->getFirstname();
+		$addressInfo['lastname'] = $address->getLastname();
+		$addressInfo['addressline1'] = $address->getAddressLine1();
+		$addressInfo['addressline2'] = $address->getAddressLine2();
+		$addressInfo['addressline3'] = $address->getAddressLine3();
+		$addressInfo['zipcode'] = $address->getZipcode();
+		$addressInfo['city'] = $address->getCity();
+		if ($address->getCountry() !== null)
+		{
+			$addressInfo['country'] = $address->getCountry()->getLabel();
+		}
+		else
+		{
+			$addressInfo['country'] = '';
+		}
+		$addressInfo['email'] = $address->getEmail();
+		$addressInfo['phone'] = $address->getPhone();
+		$addressInfo['mobilephone'] = $address->getMobilephone();
+		$addressInfo['creationdate'] = date_DateFormat::format($address->getUICreationdate(), $dateTimeFormat);
+		return $addressInfo;
 	}
 }

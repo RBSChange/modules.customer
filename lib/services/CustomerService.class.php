@@ -586,7 +586,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		$ls = LocaleService::getInstance();
 		foreach ($customer->getAddressArray() as $index => $address)
 		{	
-			$addressInfo = array();
+			$addressInfo = $address->getDocumentService()->getAddressInfos($address);
 			if ($index == 0)
 			{
 				$addressInfo['label'] = $ls->transBO('m.customer.bo.general.default-address', array('ucf'));
@@ -595,33 +595,6 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			{
 				$addressInfo['label'] = $ls->transBO('m.customer.bo.general.address-title', array('ucf'), array('number' => $index+1));
 			}
-			if ($address->getTitle() !== null)
-			{
-				$addressInfo['title'] = $address->getTitle()->getLabel();
-			}
-			else
-			{
-				$addressInfo['title'] = '';
-			}
-			$addressInfo['firstname'] = $address->getFirstname();
-			$addressInfo['lastname'] = $address->getLastname();
-			$addressInfo['addressline1'] = $address->getAddressLine1();
-			$addressInfo['addressline2'] = $address->getAddressLine2();
-			$addressInfo['addressline3'] = $address->getAddressLine3();
-			$addressInfo['zipcode'] = $address->getZipcode();
-			$addressInfo['city'] = $address->getCity();
-			if ($address->getCountry() !== null)
-			{
-				$addressInfo['country'] = $address->getCountry()->getLabel();
-			}
-			else
-			{
-				$addressInfo['country'] = '';
-			}
-			$addressInfo['email'] = $address->getEmail();
-			$addressInfo['phone'] = $address->getPhone();
-			$addressInfo['mobilephone'] = $address->getMobilephone();
-			$addressInfo['creationdate'] = date_DateFormat::format($address->getUICreationdate(), $dateTimeFormat);
 			$addresses[] = $addressInfo;
 		}
 		$formProperties['addresses'] = $addresses;
