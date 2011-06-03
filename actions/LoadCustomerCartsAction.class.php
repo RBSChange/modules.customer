@@ -93,11 +93,13 @@ class customer_LoadCustomerCartsAction extends f_action_BaseJSONAction
 		if ($product === null)
 		{
 			$lineInfo['productLabel'] = f_Locale::translateUI('&module.customer.bo.doceditor.panel.carts.Unexisting-product;');
+			$lineInfo['codeReference'] = '';
 			$lineInfo['availability'] = '';
 		}
 		else
 		{
 			$lineInfo['productLabel'] = $product->getLabel();
+			$lineInfo['codeReference'] = $product->getCodeReference();
 			$lineInfo['availability'] = $product->getAvailability();
 		}
 
