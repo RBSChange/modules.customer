@@ -431,6 +431,7 @@
 		<content>
 			<xul:vbox>
 				<xul:label xbl:inherits="xbl:text=productLabel" class="allow-text-selection" />
+				<xul:label xbl:inherits="xbl:text=codeReference" class="allow-text-selection" />
 			</xul:vbox>
 			<xul:vbox>
 				<xul:label xbl:inherits="xbl:text=unitPriceWithoutTax" class="allow-text-selection" />
