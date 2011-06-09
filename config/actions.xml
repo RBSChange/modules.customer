@@ -50,4 +50,16 @@
 		<parameter name="listWidget" />
 		<body><![CDATA[this.createDocumentEditor('modules_customer_voucher', listWidget.getSelectedItems()[0].id);]]></body>
 	</action>
+	
+	<action name="exportDynGroup">
+		<parameter name="listWidget" />
+		<body><![CDATA[			
+			if (confirm("${transui:m.customer.bo.general.confirmexportmessage,js}"))
+			{
+				var docId = listWidget.getSelectedIds()[0];
+				var lang = this.getContextLang(listWidget);
+				wToolkit.openlink('customer', 'ExportDynGroup', { cmpref: docId, lang : lang});
+			}
+		]]></body>
+	</action>
 </actions>

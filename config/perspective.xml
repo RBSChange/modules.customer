@@ -55,6 +55,7 @@
 			<contextactions>
 				<contextaction name="edit" />
 				<contextaction name="delete" />
+				<contextaction name="exportDynGroup" />
 				<contextaction name="createFrontendgroup" />
 			</contextactions>
 		</model>
@@ -74,6 +75,7 @@
 			<contextactions>
 				<contextaction name="edit" />
 				<contextaction name="delete" />
+				<contextaction name="exportDynGroup" />
 				<contextaction name="createFrontendgroup" />
 			</contextactions>
 		</model>
@@ -157,5 +159,6 @@
 		<action name="anonymize" permission="Delete" icon="delete" />
 		<action name="createVoucher_" icon="add" />
 		<action name="createVoucher" single="true" permission="Insert_voucher" icon="add" />
+		<action name="exportDynGroup" single="true" icon="download" />
 	</actions>
 </perspective>

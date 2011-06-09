@@ -4,7 +4,7 @@
 		labeli18n="modules.uixul.bo.doceditor.section.Properties" 
 		image="{IconsBase}/small/edit-properties.png">
 		<property name="fullName" labeli18n="modules.customer.bo.doceditor.property.Full-name" />
-		<property name="code" labeli18n="modules.customer.bo.doceditor.property.Code" />
+		<property name="codeReference" labeli18n="modules.customer.bo.doceditor.property.Code" />
 		<property name="creationdate" labeli18n="modules.uixul.bo.doceditor.property.Creationdate" />
 	</section>
 										

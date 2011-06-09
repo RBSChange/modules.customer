@@ -1,13 +1,38 @@
 <?php
 class customer_CustomerFilter extends f_persistentdocument_DocumentFilterImpl
 {
+	
+	protected function getExcludedProperty()
+	{
+		return array('id', 'model', 'author', 'authorid', 'modificationdate', 
+				'publicationstatus', 'lang', 'metastring', 'modelversion', 'documentversion',
+				'label', 'startpublicationdate', 'endpublicationdate',
+				'user', 'address', 'notActivatedReason', 'usedCoupon', 'cartSerialized', 'synchroId',
+				'lastOrderId', 'birthdayDayNumber');
+	}
 	public function __construct()
 	{
+		
 		$parameter = f_persistentdocument_DocumentFilterRestrictionParameter::getNewInstance();
-		$parameter->setAllowedPropertyNames(array(
-			'modules_customer/customer.creationdate',
-			'modules_customer/customer.birthday'
-		));
+		$model = f_persistentdocument_PersistentDocumentModel::getInstance('customer', 'customer');
+		$propertyNames = array();
+		$systemProperties = $this->getExcludedProperty();
+		
+		foreach ($model->getPropertiesInfos() as $propertyInfo) 
+		{
+			if ($propertyInfo instanceof PropertyInfo)
+			{
+				if (in_array($propertyInfo->getName(), $systemProperties)) { continue; }
+				if ($propertyInfo->getType() === f_persistentdocument_PersistentDocument::PROPERTYTYPE_LOB ||
+					$propertyInfo->getType() === f_persistentdocument_PersistentDocument::PROPERTYTYPE_LONGSTRING ||
+					$propertyInfo->getType() === f_persistentdocument_PersistentDocument::PROPERTYTYPE_XHTMLFRAGMENT)
+				{
+					continue;
+				}
+				$propertyNames[] = 'modules_customer/customer.' .$propertyInfo->getName();
+			}
+		}
+		$parameter->setAllowedPropertyNames($propertyNames);
 		$this->setParameter('field', $parameter);
 	}
 	

@@ -26,4 +26,7 @@
   <key id="customerfilter-text">les clients avec {field}</key>
   <key id="birthdaycustomerfilter-label">date d'anniversaire du compte client</key>
   <key id="birthdaycustomerfilter-text">les clients qui ont leur anniversaire dans les {count} prochains jours</key>
+  
+  <key id="productorderedfilter-label">produits commandés</key>
+  <key id="productorderedfilter-text">les clients qui ont commandés l'un des produits {product}</key>
 </i18n>

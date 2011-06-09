@@ -11,4 +11,6 @@
   <key id="lastcartupdate">date de dernière modification du panier</key>
   <key id="lastabandonedorderdate">dernier abandon de commande</key>
   <key id="birthday">date de naissance</key>
+  <key id="codereference">code référence</key>
+  <key id="codereference-help">référence client</key>
 </i18n>

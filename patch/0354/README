@@ -1,0 +1,5 @@
+Version: 3.5.0
+
+Add codeReference property on customer
+
+Add customers CSV export on dyngroup and editablegroup

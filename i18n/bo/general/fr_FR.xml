@@ -29,4 +29,5 @@
   <key id="already-anonymized">Ce client est déjà anonymisé !</key>
   <key id="has-not-finished-order">Ce client a des commandes en cours.</key>
   <key id="birthday">Date de naissance</key>
+  <key id="confirmexportmessage">voulez-vous exporter le groupe au format CSV ?</key>
 </i18n>

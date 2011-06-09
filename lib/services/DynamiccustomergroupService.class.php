@@ -93,8 +93,6 @@ class customer_DynamiccustomergroupService extends customer_CustomergroupService
 	 */
 	public function getVirtualChildrenAt($document, $subModelNames, $locateDocumentId, $pageSize, &$startIndex, &$totalCount)
 	{
-		Framework::info(__METHOD__);
-		
 		$queryIntersection = f_persistentdocument_DocumentFilterService::getInstance()->getQueryIntersectionFromJson($document->getQuery());
 		$result = $queryIntersection->findAtOffset($startIndex, $pageSize, $totalCount);
 		return $result;

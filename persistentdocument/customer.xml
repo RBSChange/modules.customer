@@ -9,6 +9,7 @@
     <add name="canBeTrusted" type="Boolean" default-value="false"/>
     <add name="cartSerialized" type="Lob"/>
     <add name="synchroId" type="Integer"/>
+    <add name="codeReference" type="String" db-size="25"/>
     <add name="lastCartUpdate" type="DateTime"/>
     <add name="lastAbandonedOrderDate" type="DateTime"/>
     <add name="lastOrderId" type="Integer"/>

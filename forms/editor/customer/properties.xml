@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <panel>
 	<section labeli18n="modules.customer.bo.doceditor.section.Identification">
+		<field name="codeReference" />
 		<sectionrow labeli18n="modules.customer.document.customer.Website" id="website" />
 		<sectionrow labeli18n="modules.users.document.user.Title" id="title" />
 		<sectionrow labeli18n="modules.users.document.user.Firstname" id="firstname" />

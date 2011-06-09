@@ -90,6 +90,43 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	{
 		$group = $this->getCustomerUserGroup();
 		$document->getUser()->addGroups($group);
+		
+		
+	}
+
+	/**
+	 * @param customer_persistentdocument_customer $document
+	 * @param Integer $parentNodeId Parent node ID where to save the document (optionnal => can be null !).
+	 * @return void
+	 */
+	protected function postInsert($document, $parentNodeId)
+	{
+		if ($document->getCodeReference() === null)
+		{
+			$document->setCodeReference($this->generateCode($document));
+			if ($document->getCodeReference() !== null)
+			{
+				$this->pp->updateDocument($document);
+			}
+		}
+	}
+	
+	/**
+	 * @param customer_persistentdocument_customer $document
+	 * @return string
+	 */
+	public function generateCode($document)
+	{
+		$className = Framework::getConfigurationValue('modules/customer/customerCodeStrategyClass');
+		if ($className !== null && f_util_ClassUtils::classExists($className))
+		{
+			$strategy = new $className();
+			if ($strategy instanceof customer_CustomerCodeStrategy)
+			{
+				return $strategy->generate($document);
+			}
+		}
+		return str_pad($document->getId(), 13, '0', STR_PAD_LEFT);
 	}
 
 	/**
@@ -271,19 +308,12 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	 */
 	public function getCustomerUserGroup()
 	{
-		try 
+		$group = TagService::getInstance()->getDocumentByExclusiveTag(self::GROUP_TAG, false);
+		if ($group === null)
 		{
-			return TagService::getInstance()->getDocumentByExclusiveTag(self::GROUP_TAG);
-		}
-		catch (Exception $e)
-		{
-			if (Framework::isDebugEnabled())
-			{
-				Framework::exception($e);
-			}
 			$group = users_FrontendgroupService::getInstance()->getNewDocumentInstance();
 			$group->setLabel(LocaleService::getInstance()->transFO('m.customer.bo.general.customer-user-group-label', array('ucf')));
-			$group->save();
+			$group->save(ModuleService::getInstance()->getRootFolderId('users'));
 			TagService::getInstance()->addTag($group, self::GROUP_TAG);
 		}
 		return $group;
@@ -399,6 +429,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			$rc->beginI18nWork($lang);
 			
 			$data['properties']['fullName'] = $document->getUser()->getFullName();
+			$data['properties']['codeReference'] = $document->getCodeReference();
 			
 			// Carts.
 			$data['carts'] = array();
@@ -611,6 +642,69 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		return catalog_ShopService::getInstance()->getPublishedByWebsites($websites);
 	}
 	
+	/**
+	 * @return string[string]
+	 */
+    public function getExportFields()
+    {
+    	$fieldNames = array();
+    	$names = array('id', 'email', 'codeReference', 'birthday', 'civility', 'firstname', 'lastname', 
+			'company', 'addressLine1', 'addressLine2', 'addressLine3', 'zipCode', 'city', 'province', 'countryCode', 'phone');
+    	foreach ($names as $name) 
+    	{
+    		$fieldNames[$name] = $name;
+    	}
+        return $fieldNames;
+    }
+	
+    /**
+     * @param customer_persistentdocument_customer $customer
+     * @param string[] $names
+     */
+    public function getExportValues($customer, $names)
+    {
+    	$address = $customer->getAddressCount() ? $customer->getAddress(0) : null; 
+        $values = array();
+		foreach ($names as $propertyName)
+		{
+			if ($propertyName === 'id')
+			{
+				 $values[$propertyName] = $customer->getId();
+			}
+			elseif ($propertyName === 'email')
+			{
+				 $values[$propertyName] = $customer->getEmail();
+			}
+			elseif ($propertyName === 'codeReference')
+			{
+				 $values[$propertyName] = $customer->getCodeReference();
+			} 
+			elseif ($propertyName === 'birthday')
+			{
+				 $values[$propertyName] = $customer->getUIBirthday();
+			}
+		    elseif ($address === null)
+			{
+				$values[$propertyName] = null;
+			}
+			else
+			{
+				$getter = 'get'.ucfirst($propertyName);
+				$values[$propertyName] = $address->{$getter}();
+			}
+		}
+		
+		return array_map(array($this, 'fieldValueUTF8Decode'), $values);
+	}
+	
+	private function fieldValueUTF8Decode($value)
+	{
+		if (is_string($value))
+		{
+			return mb_convert_encoding($value, 'ISO-8859-1', 'UTF-8');
+		}
+		return $value;
+	}
 	// Deprecated.
 	
 	/**
@@ -715,4 +809,6 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 
 		return LinkHelper::getDocumentUrl($page, RequestContext::getInstance()->getLang(), array('customerParam'=> array('confirmationCode' => $confirmationCode)));
 	}
+	
+	
 }

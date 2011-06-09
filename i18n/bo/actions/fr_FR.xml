@@ -13,4 +13,5 @@
 	<key id="confirm-anonymize">Attention : cette opération est irréversible. Êtes-vous sûr de vouloir continuer ?</key>
 	<key id="createvoucher">créer un bon de réduction</key>
 	<key id="createvoucherhandler">créer un gestionnaire de bons de réduction</key>
+	<key id="exportdyngroup">exporter les clients du group</key>
 </i18n>

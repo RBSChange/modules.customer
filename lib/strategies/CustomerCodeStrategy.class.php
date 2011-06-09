@@ -2,8 +2,8 @@
 interface customer_CustomerCodeStrategy
 {
 	/**
-	 * @param customer_persistentdocument_customer $order
+	 * @param customer_persistentdocument_customer $customer
 	 * @return String
 	 */
-	public function generate($order);
+	public function generate($customer);
 }

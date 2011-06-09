@@ -103,19 +103,6 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 		return unserialize($cart);
 	}
 	
-	/**
-	 * @return string
-	 */
-	public function getCode()
-	{
-		if (!$this->hasMeta('customerCode'))
-		{
-			$this->setMeta('customerCode', customer_CustomerCodeGenerator::getInstance()->generate($this));
-			$this->saveMeta();
-		}
-		return $this->getMeta('customerCode');
-	}
-	
 	//Wrapped user info
 	
 	/**
@@ -160,5 +147,23 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 	{
 		$user = $this->getUser();
 		return $user !== null ? $user->getEmail() : null;
+	}
+	
+	//Deprecated
+	
+	/**
+	 * @deprecated use getCodeReference
+	 */
+	public function getCode()
+	{
+		if (!$this->hasMeta('customerCode'))
+		{
+			return $this->getCodeReference();
+		}
+		$codeRef = $this->getMeta('customerCode');
+		$this->setMeta('customerCode', null);
+		$this->setCodeReference($codeRef);
+		$this->saveMeta();
+		return $codeRef;
 	}
 }
