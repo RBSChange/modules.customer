@@ -169,7 +169,7 @@ class customer_AddressService extends f_persistentdocument_DocumentService
 		$addressInfo['email'] = $address->getEmail();
 		$addressInfo['phone'] = $address->getPhone();
 		$addressInfo['mobilephone'] = $address->getMobilephone();
-		$addressInfo['creationdate'] = date_DateFormat::format($address->getUICreationdate(), $dateTimeFormat);
+		$addressInfo['creationdate'] = date_Formatter::toDefaultDateTime($address->getUICreationdate());
 		return $addressInfo;
 	}
 }
