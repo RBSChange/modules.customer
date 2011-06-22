@@ -30,33 +30,51 @@ class customer_ListShippingcountryService extends BaseService
 	{
 		$results = array();
 		$shop = catalog_ShopService::getInstance()->getCurrentShop();
-		if ($shop === null)
+		$countries = $this->getAvailableCountries($shop);
+		foreach ($countries as $country) 
 		{
-			return $results;
-		}
-		
-		foreach (catalog_TaxService::getInstance()->getZonesForShop($shop) as $zone) 
-		{
-			foreach (zone_CountryService::getInstance()->getCountries($zone) as $country)
-			{
-				$results[$country->getId()] = new list_Item($country->getLabel(), $country->getId());
-			}
+			$results[] = new list_Item($country->getLabel(), $country->getId());
 		}
 		return $results;
 	}
-
-	/**
-	 * @var Array
-	 */
-	private $parameters = array();
+	
+	protected $countries = array();
 	
 	/**
-	 * @see list_persistentdocument_dynamiclist::getListService()
-	 * @param array $parameters
+	 * @param catalog_persistentdocument_shop $shop
 	 */
-	public function setParameters($parameters)
+	public function getAvailableCountries($shop)
 	{
-		$this->parameters = $parameters;
+		if ($shop instanceof catalog_persistentdocument_shop)
+		{
+			if (!isset($this->countries[$shop->getId()]))
+			{
+				$list = array();
+				$reorder = false;
+				$countries = catalog_ShippingfilterService::getInstance()->getAvailableCountriesForShop($shop);
+				foreach ($countries as $country) 
+				{
+					$list[$country->getLabel()] = $country;
+				}
+				
+				foreach (catalog_TaxService::getInstance()->getZonesForShop($shop) as $zone) 
+				{
+					foreach (zone_CountryService::getInstance()->getCountries($zone) as $country)
+					{
+						if (!isset($list[$country->getLabel()]))
+						{
+							$list[$country->getLabel()] = $country;
+							$reorder = true;
+						}
+					}
+				}
+							
+				if ($reorder) {ksort($list);}			
+				$this->countries[$shop->getId()] = array_values($list);
+			}
+			return $this->countries[$shop->getId()];
+		}
+		return array();
 	}
 	
 	/**
