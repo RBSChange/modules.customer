@@ -12,7 +12,7 @@
 		<form byFormid="modules_customer/contact" id="contactForm" />
 	</systemfolder>
 	
-	<website byTag="default_modules_website_default-website" template="webfactory/tplTwo">
+	<website byTag="default_modules_website_default-website">
 		<topic byLabel="Compte client (sécurisé)" label="Compte client (sécurisé)">
 			<page label="Mon compte" isIndexPage="true" id="MonCompte">
 				<tag name="contextual_website_website_modules_customer_my-account" />
