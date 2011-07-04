@@ -9,15 +9,20 @@ class customer_BlockResendConfirmationEmailAction extends website_BlockAction
 	 */
 	function execute($request, $response)
 	{
-		if ($this->isInBackoffice())
+		if ($this->isInBackofficeEdition())
 		{
-			return website_BlockView::BACKOFFICE;
+			return website_BlockView::NONE;
 		}
 
 		$customerService = customer_CustomerService::getInstance();
 		$customer = $customerService->getCurrentCustomer();
-		$success = $customerService->sendEmailConfirmationEmail($customer);
-		$request->setAttribute('success', $success);
-		return website_BlockView::SUCCESS;
+		if ($customer !== null)
+		{
+			$success = $customerService->sendEmailConfirmationEmail($customer);
+			$request->setAttribute('success', $success);
+			return website_BlockView::SUCCESS;
+		}
+		
+		return website_BlockView::NONE;
 	}
 }
