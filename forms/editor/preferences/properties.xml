@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <panel>
 	<section labeli18n="modules.customer.document.preferences.Edition-form-title">
-		<field name="activateEmailConfirmation" />
 		<field name="activateTrust" />
 	</section>
 </panel>

@@ -18,6 +18,7 @@
   <key id="edit">modifier</key>
   <key id="delete">supprimer</key>
   <key id="set-default">adresse principale</key>
+  <key id="is-default-address">adresse principale</key>
   <key id="cancel">annuler</key>
   <key id="save">enregistrer</key>
   <key id="send">envoyer</key>
@@ -75,7 +76,7 @@
   <key id="addresses-instructions">cette page vous permet de gérer une liste d'adresses que vous pourrez alors utiliser comme adresse de livraison ou de facturation. Pour rajouter une nouvelle adresse, cliquez sur ″Ajouter une nouvelle adresse″. Pour modifier une adresse existante cliquer sur ″Modifier″.</key>
   <key id="new-billing-address">nouvelle adresse de livraison</key>
   <key id="edit-billing-address">modification d'une adresse de livraison</key>
-  <key id="add-address">ajouter une adresse</key>
+  <key id="add-address">ajouter une nouvelle adresse</key>
   <key id="addresses-list-header">si vous souhaitez faire livrer votre commande à une autre adresse que celle(s) actuellement affichée(s), créez une nouvelle adresse de livraison qui sera ajoutée à votre compte client.</key>
   <key id="submit">envoyer</key>
   <key id="go-back">retour</key>
@@ -108,4 +109,6 @@
   <key id="customer-create">créer un compte</key>
   <key id="customer-connect">me connecter</key>
   <key id="customer-disconnect">me déconnecter</key>
+  <key id="create-new-address">ajout d'une nouvelle adresse</key>
+  <key id="edit-existing-address">modification d'une adresse</key>
 </i18n>

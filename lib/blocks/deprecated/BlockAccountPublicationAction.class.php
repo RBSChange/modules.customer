@@ -1,15 +1,11 @@
 <?php
 /**
- * customer_BlockAccountPublicationAction
- * @package modules.customer
+ * @deprecated (will be removed in 4.0)
  */
 class customer_BlockAccountPublicationAction extends website_BlockAction
 {
 	/**
-	 * @see website_BlockAction::execute()
-	 * @param f_mvc_Request $request
-	 * @param f_mvc_Response $response
-	 * @return String
+	 * @deprecated (will be removed in 4.0)
 	 */
 	function execute($request, $response)
 	{

@@ -697,6 +697,10 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		return array_map(array($this, 'fieldValueUTF8Decode'), $values);
 	}
 	
+	/**
+	 * @param string $value
+	 * @return string
+	 */
 	private function fieldValueUTF8Decode($value)
 	{
 		if (is_string($value))
@@ -705,6 +709,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		}
 		return $value;
 	}
+	
 	// Deprecated.
 	
 	/**
@@ -809,6 +814,4 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 
 		return LinkHelper::getDocumentUrl($page, RequestContext::getInstance()->getLang(), array('customerParam'=> array('confirmationCode' => $confirmationCode)));
 	}
-	
-	
 }

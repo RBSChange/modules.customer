@@ -1,7 +1,7 @@
-<h2 change:h="" change:translate="modules.customer.frontoffice.Create-account-title"></h2>
-<p change:translate="modules.customer.frontoffice.Create-account-line1; name customerWrapper/customer/getUser/getFullnameAsHtml"></p>
-<p change:translate="modules.customer.frontoffice.Create-account-line2"></p>
-<p change:translate="modules.customer.frontoffice.Create-account-line3"></p>
-<p>
-	<a class="button" change:link="tag ctx_customer_my-account" change:translate="modules.customer.frontoffice.Go-to-my-account"></a>
+<h2 change:h="">${trans:modules.customer.frontoffice.create-account-title,ucf}</h2>
+<p>${trans:m.customer.frontoffice.create-account-line1,ucf,name=customerWrapper/customer/getUser/getFullnameAsHtml}</p>
+<p>${trans:m.customer.frontoffice.create-account-line2,ucf}</p>
+<p class="normal">${trans:m.customer.frontoffice.create-account-line3,ucf</p>
+<p class="buttons">
+	<a class="button" change:link="tag ctx_customer_my-account">${trans:modules.customer.frontoffice.go-to-my-account,ucf}</a>
 </p>
