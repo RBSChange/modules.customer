@@ -18,7 +18,6 @@
 				<tag name="contextual_website_website_modules_customer_my-account" />
 				<changecontent for="content-block">
 					<changeblock type="modules_customer_index" />
-					<changeblock type="modules_customer_accountPublication" />
 				</changecontent>
 			</page>
 			<page label="Mes informations" id="MesInformations">
@@ -45,13 +44,7 @@
 					<changeblock type="modules_form_form" __cmpref-refid="contactForm" />
 				</changecontent>
 			</page>
-			<page label="Renvoi d'un email de confirmation" navigationVisibility="hidden">
-				<tag name="contextual_website_website_modules_customer_resend-confirmation-email" />
-				<changecontent for="content-block">
-					<changeblock type="modules_customer_ResendConfirmationEmail" />
-				</changecontent>
-			</page>
-			
+						
 			<permissions>
 				<frontendpermission module="website" role="AuthenticatedFrontUser" group-refid="customersGroup" />
 			</permissions>
