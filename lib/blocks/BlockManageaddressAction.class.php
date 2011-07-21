@@ -14,6 +14,15 @@ class customer_BlockManageaddressAction extends website_BlockAction
 	 */
 	public function execute($request, $response, customer_persistentdocument_address $address)
 	{
+		if ($this->isInBackofficeEdition())
+		{
+			return website_BlockView::NONE;
+		}
+		elseif ($this->isInBackofficePreview())
+		{
+			return website_BlockView::INPUT;
+		}
+		
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
