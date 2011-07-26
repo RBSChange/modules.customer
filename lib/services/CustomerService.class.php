@@ -382,8 +382,8 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	public function getStatisticsByWebsite($website, $fromDate, $toDate)
 	{
 		return array(
-			'monthLabel' => ucfirst(date_DateFormat::format($fromDate, 'F Y')),
-			'monthShortLabel' => date_DateFormat::format($fromDate, 'm/Y'),
+			'monthLabel' => ucfirst(date_Formatter::format($fromDate, 'F Y')),
+			'monthShortLabel' => date_Formatter::format($fromDate, 'm/Y'),
 			'new' => $this->findProjectedTotal($website, $fromDate, $toDate, Projections::rowCount('projection'), 'creationdate'),
 			'lastlogin' => $this->findProjectedTotal($website, $fromDate, $toDate, Projections::rowCount('projection'), 'user.lastlogin'),
 			'hasorder' => $this->findProjectedTotal($website, $fromDate, $toDate, Projections::rowCount('projection'), 'order.creationdate')
@@ -400,11 +400,10 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	 */
 	private function findProjectedTotal($website, $fromDate, $toDate, $projection, $dateToCompare)
 	{
-		$dbFormat = 'Y-m-d H:i:s';
 		$query = $this->createQuery()->add(Restrictions::between(
 			$dateToCompare,
-			date_DateFormat::format($fromDate, $dbFormat),
-			date_DateFormat::format($toDate, $dbFormat)
+			$fromDate->toString(),
+			$toDate->toString()
 		));
 		$query->add(Restrictions::eq('user.websiteid', $website->getId()));
 		return f_util_ArrayUtils::firstElement($query->setProjection($projection)->findColumn('projection'));
@@ -553,9 +552,9 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		{
 			return;
 		}
-		$nodeAttributes['birthday'] = date_DateFormat::format($customer->getBirthday(), 'D d M Y');
+		$nodeAttributes['birthday'] = date_Formatter::toDefaultDateBO($customer->getBirthday());
 		$nodeAttributes['email'] = $customer->getUser()->getEmail();
-		$nodeAttributes['date'] = date_DateFormat::format($customer->getCreationdate(), 'D d M Y');
+		$nodeAttributes['date'] = date_Formatter::toDefaultDateTimeBO($customer->getCreationdate());
 
 		// Activation.
 		if (!$customer->isPublished())
@@ -591,8 +590,6 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	{
 		$user = $customer->getUser();
 		
-		$dateTimeFormat = customer_ModuleService::getInstance()->getUIDateTimeFormat();
-		
 		$formProperties['activateTrust'] = ModuleService::getInstance()->getPreferenceValue('customer', 'activateTrust');
 		
 		// Identification.
@@ -607,9 +604,9 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		}
 		$identification['firstname'] = $user->getFirstname();
 		$identification['lastname'] = $user->getLastname();
-		$identification['birthday'] = date_DateFormat::format($customer->getUIBirthday(), 'd M Y');
+		$identification['birthday'] = $customer->getUIBirthday();
 		$identification['email'] = $user->getEmail();
-		$identification['creationdate'] = date_DateFormat::format($customer->getUICreationdate(), $dateTimeFormat);
+		$identification['creationdate'] = date_Formatter::toDefaultDateTimeBO($customer->getUICreationdate());
 		$formProperties['identification'] = $identification;
 		
 		// Addresses.
