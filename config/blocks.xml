@@ -17,7 +17,4 @@
 			<parameter name="columns" type="String" default-value="new,lastlogin,hasorder" max-occurs="-1" from-list="modules_customer/dashboardshopstatisticscolums" fieldtype="checklist" />
 		</parameters>
 	</block>
-	<!-- @deprecated (will be removed in 4.0) -->
-	<block type="modules_customer_ResendConfirmationEmail" icon="mail" label="&amp;modules.customer.bo.blocks.Resend-confirmation-email;" hidden="true" />
-	<block type="modules_customer_AccountPublication" icon="status-detail" label="&amp;modules.customer.bo.blocks.Account-publication;" hidden="true" />
 </blocks>
