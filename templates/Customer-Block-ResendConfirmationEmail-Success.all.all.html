@@ -1,2 +1,2 @@
-<p class="success" tal:condition="success" change:translate="&modules.customer.frontoffice.Email-sent;" />
-<p class="error" tal:condition="not: success" change:translate="&modules.customer.frontoffice.Email-not-sent;" />
+<p class="success" tal:condition="success" tal:content="trans:m.customer.frontoffice.email-sent,ucf" />
+<p class="error" tal:condition="not: success" tal:content="trans:m.customer.frontoffice.email-not-sent,ucf" />

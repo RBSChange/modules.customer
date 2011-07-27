@@ -1,12 +1,12 @@
 <div class="dashboard-widget" tal:omit-tag="refresh" refreshURL="${refreshURL}" title="${title}" icon="${icon}">
 	<tal:block tal:condition="forEdition">
 	<div class="title-bar" ><img src="${icon}" /> ${title}</div>
-	<div class="content-block"><div class="content" change:translate="&modules.dashboard.dashboard.DummyContent;">...</div></div>
+	<div class="content-block"><div class="content" tal:content="transui:m.dashboard.dashboard.dummycontent,ucf">...</div></div>
 	</tal:block>
 
 	<tal:block tal:condition="not:forEdition">
 		<p>
-			<strong change:translate="modules.customer.bo.blocks.dashboardgeneralstatistics.Statistics-for-website"></strong> 
+			<strong tal:content="transui:m.customer.bo.blocks.dashboardgeneralstatistics.statistics-for-website,ucf"></strong> 
 			<select onchange="var widget = Dashboard.getWidgetByNode(this); widget.parameters['customerParam[websiteId]'] = this.options[this.selectedIndex].value; widget.refresh();">
 				<tal:block tal:repeat="website websites">
 					<option tal:condition="php: websiteId == website.getId()" selected="selected" value="${website/getId}">${website/getLabel}</option>
@@ -19,9 +19,9 @@
 			<thead>
 				<tr>
 					<th />
-					<th tal:condition="columnsArray/new" change:translate="&modules.customer.bo.blocks.dashboardgeneralstatistics.Column-new;" />
-					<th tal:condition="columnsArray/lastlogin" change:translate="&modules.customer.bo.blocks.dashboardgeneralstatistics.Column-lastlogin;" />
-					<th tal:condition="columnsArray/hasorder" change:translate="&modules.customer.bo.blocks.dashboardgeneralstatistics.Column-hasorder;" />
+					<th tal:condition="columnsArray/new" tal:content="transui:m.customer.bo.blocks.dashboardgeneralstatistics.column-new,ucf" />
+					<th tal:condition="columnsArray/lastlogin" tal:content="transui:m.customer.bo.blocks.dashboardgeneralstatistics.column-lastlogin,ucf" />
+					<th tal:condition="columnsArray/hasorder" tal:content="transui:m.customer.bo.blocks.dashboardgeneralstatistics.column-hasorder,ucf" />
 				</tr>
 			</thead>
 			<tbody>
