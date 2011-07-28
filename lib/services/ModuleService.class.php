@@ -23,18 +23,24 @@ class customer_ModuleService extends ModuleBaseService
 	}
 
 	/**
-	 * @return String
+	 * @param string $name
+	 * @param array $arguments
+	 * @deprecated
 	 */
-	public function getUIDateFormat()
+	public function __call($name, $arguments)
 	{
-		return f_Locale::translateUI('&modules.uixul.bo.datePicker.calendar.dataWriterFormat;');
-	}
-	
-	/**
-	 * @return String
-	 */
-	public function getUIDateTimeFormat()
-	{
-		return f_Locale::translateUI('&modules.uixul.bo.datePicker.calendar.dataWriterTimeFormat;');
+		switch ($name)
+		{
+			case 'getUIDateFormat': 
+				Framework::error('Call to deleted ' . get_class($this) . '->getUIDateFormat method');
+				return date_Formatter::getDefaultDateFormat(RequestContext::getInstance()->getUILang());
+				
+			case 'getUIDateTimeFormat':
+				Framework::error('Call to deleted ' . get_class($this) . '->getUIDateTimeFormat method');
+				return date_Formatter::getDefaultDateTimeFormat(RequestContext::getInstance()->getUILang());
+			
+			default: 
+				throw new Exception('No method ' . get_class($this) . '->' . $name);
+		}
 	}
 }
