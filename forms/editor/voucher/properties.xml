@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <panel>
-	<section labeli18n="modules.uixul.bo.doceditor.fieldsgroup.Title">
+	<section labeli18n="m.uixul.bo.doceditor.fieldsgroup.title">
 		<field name="label" hidehelp="true" />
 		<field name="code" />
 		<field name="amount" />
 	</section>
-	<section labeli18n="modules.customer.document.voucher.Fieldgroup-validity">
+	<section labeli18n="m.customer.document.voucher.fieldgroup-validity">
 		<field name="shop" />
 		<field name="customerId" type="document" allow="[modules_customer_customer]" moduleselector="customer" />
 		<field name="startpublicationdate" />

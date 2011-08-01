@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <panel>
-	<section labeli18n="modules.customer.bo.doceditor.section.Identification">
+	<section labeli18n="m.customer.bo.doceditor.section.identification">
 		<field name="codeReference" />
-		<sectionrow labeli18n="modules.customer.document.customer.Website" id="website" />
-		<sectionrow labeli18n="modules.users.document.user.Title" id="title" />
-		<sectionrow labeli18n="modules.users.document.user.Firstname" id="firstname" />
-		<sectionrow labeli18n="modules.users.document.user.Lastname" id="lastname" />
-		<sectionrow labeli18n="modules.users.document.user.Email" id="email" />
-		<sectionrow labeli18n="modules.customer.document.customer.Creationdate" id="creationdate" />
+		<sectionrow labeli18n="m.customer.document.customer.website" id="website" />
+		<sectionrow labeli18n="m.users.document.user.title" id="title" />
+		<sectionrow labeli18n="m.users.document.user.firstname" id="firstname" />
+		<sectionrow labeli18n="m.users.document.user.lastname" id="lastname" />
+		<sectionrow labeli18n="m.users.document.user.email" id="email" />
+		<sectionrow labeli18n="m.customer.document.customer.creationdate" id="creationdate" />
 		<field name="birthday" hidetime="true" hidehelp="true" />
 		<field name="canBeTrusted" />
 		<field name="tarifGroup" />
