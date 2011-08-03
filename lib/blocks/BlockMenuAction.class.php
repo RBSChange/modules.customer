@@ -10,7 +10,7 @@ class customer_BlockMenuAction extends website_BlockAction
 	{
 		if ($this->isInBackofficeEdition())
 		{
-			return block_BlockView::NONE;
+			return website_BlockView::NONE;
 		}
 		
 		$ws = website_WebsiteModuleService::getInstance();
@@ -46,6 +46,6 @@ class customer_BlockMenuAction extends website_BlockAction
 		{
 			Framework::exception($e);
 		}
-		return block_BlockView::SUCCESS;
+		return website_BlockView::SUCCESS;
 	}
 }
