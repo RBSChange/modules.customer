@@ -3,11 +3,11 @@
  * customer_ExportDynGroupAction
  * @package modules.customer.actions
  */
-class customer_ExportDynGroupAction extends f_action_BaseAction
+class customer_ExportDynGroupAction extends change_Action
 {
 	/**
-	 * @param Context $context
-	 * @param ChangeRequest $request
+	 * @param change_Context $context
+	 * @param change_Request $request
 	 */
 	public function _execute($context, $request)
 	{

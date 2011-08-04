@@ -25,7 +25,7 @@ class customer_BlockEditaccountAction extends website_BlockAction
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
-			HttpController::getInstance()->redirectToUrl('website', 'Error404');
+			change_Controller::getInstance()->redirectToUrl('website', 'Error404');
 		}		
 		$request->setAttribute('customer', $customer);
 		return $this->getInputViewName();

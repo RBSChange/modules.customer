@@ -24,7 +24,7 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer !== null)
 		{
-			HttpController::getInstance()->redirectToUrl(LinkHelper::getTagUrl('contextual_website_website_modules_customer_my-account'));
+			change_Controller::getInstance()->redirectToUrl(LinkHelper::getTagUrl('contextual_website_website_modules_customer_my-account'));
 		}
 
 		$user = users_UserService::getInstance()->getCurrentFrontEndUser();

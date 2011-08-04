@@ -26,7 +26,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
-			HttpController::getInstance()->redirectToUrl('website', 'Error404');
+			change_Controller::getInstance()->redirectToUrl('website', 'Error404');
 		}
 		$request->setAttribute('customer', $customer);
 		if ($request->hasParameter('message'))
@@ -68,7 +68,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
-			HttpController::getInstance()->redirectToUrl('website', 'Error404');
+			change_Controller::getInstance()->redirectToUrl('website', 'Error404');
 		}
 		$address->getDocumentService()->initFieldsFromCustomer($address, $customer);
 		$request->setAttribute('address', $address);
@@ -86,7 +86,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
-			HttpController::getInstance()->redirectToUrl('website', 'Error404');
+			change_Controller::getInstance()->redirectToUrl('website', 'Error404');
 		}
 		else if ($customer->getIndexofAddress($address) === null)
 		{
@@ -119,7 +119,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
-			HttpController::getInstance()->redirectToUrl('website', 'Error404');
+			change_Controller::getInstance()->redirectToUrl('website', 'Error404');
 		}
 		else if (!$address->isNew() && $customer->getIndexofAddress($address) === -1)
 		{
@@ -154,7 +154,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
-			HttpController::getInstance()->redirectToUrl('website', 'Error404');
+			change_Controller::getInstance()->redirectToUrl('website', 'Error404');
 		}
 		else if ($customer->getIndexofAddress($address) === null)
 		{
@@ -180,7 +180,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
-			HttpController::getInstance()->redirectToUrl('website', 'Error404');
+			change_Controller::getInstance()->redirectToUrl('website', 'Error404');
 		}
 		else if ($customer->getIndexofAddress($address) === null)
 		{
