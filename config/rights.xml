@@ -38,7 +38,6 @@
       <permission name="Deactivated.*"/>
       <permission name="CreateGroupMailingList.*"/>
       <permission name="CreateFrontendgroup.*"/>
-      <permission name="EditLocale"/>
     </role>
     <role name="User" extend="User">
       <permission name="Enabled"/>

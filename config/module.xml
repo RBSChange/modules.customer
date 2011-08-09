@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <config>
 	<module>
-		<enabled>true</enabled>
 		<visible>true</visible>
 		<icon>customer</icon>
 		<category>e-commerce</category>
-		<usetopic>false</usetopic>
 	</module>
 	<project>
 		<entry name="anonymousEmailAddress">anonymous@localhost.localdomain</entry>
