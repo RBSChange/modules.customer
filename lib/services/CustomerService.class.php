@@ -750,9 +750,6 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		$notificationService = notification_NotificationService::getInstance();
 		$notification = $notificationService->getByCodeName('modules_customer/emailConfirmation');
 
-		$recipients = new mail_MessageRecipients();
-		$recipients->setTo($user->getEmail());
-
 		$replacements = array();
 		$replacements['title'] = ($user->getTitle() !== null) ? $user->getTitle()->getLabel() : '';
 		$replacements['lastname'] = $user->getLastname();
@@ -760,7 +757,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		$replacements['confirmation-url'] = $url;
 		$replacements['confirmation-link'] = $link;
 
-		return $notificationService->send($notification, $recipients, $replacements, 'customer');
+		return $notificationService->send($notification, change_MailService::getInstance()->getRecipientsArray(array($user->getEmail())), $replacements, 'customer');
 	}
 	
 	/**
