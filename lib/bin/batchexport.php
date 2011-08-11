@@ -1,6 +1,6 @@
 <?php
-$tmpFileName = $_POST['argv'][0];
-$customerIds = array_slice($_POST['argv'], 1);
+$tmpFileName = $arguments[0];
+$customerIds = array_slice($arguments, 1);
 $tm = f_persistentdocument_TransactionManager::getInstance();
 
 $cs = customer_CustomerService::getInstance();
