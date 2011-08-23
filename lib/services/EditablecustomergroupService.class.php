@@ -17,7 +17,7 @@ class customer_EditablecustomergroupService extends customer_CustomergroupServic
 	{
 		if (self::$instance === null)
 		{
-			self::$instance = self::getServiceClassInstance(get_class());
+			self::$instance = new self();
 		}
 		return self::$instance;
 	}

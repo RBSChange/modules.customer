@@ -17,7 +17,7 @@ class customer_VoucherfolderService extends generic_FolderService
 	{
 		if (self::$instance === null)
 		{
-			self::$instance = self::getServiceClassInstance(get_class());
+			self::$instance = new self();
 		}
 		return self::$instance;
 	}
