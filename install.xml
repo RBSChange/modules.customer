@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<install type="modules" name="customer" version="4.0.0">
+  <package type="modules" name="catalog"/>
+  <package type="modules" name="order"/>
+  <package type="modules" name="zone"/>
+  <package type="modules" name="users"/>
+  <package type="modules" name="filter"/>
+  <package type="modules" name="preferences"/>
+</install>
