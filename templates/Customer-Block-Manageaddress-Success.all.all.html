@@ -20,17 +20,17 @@
 
 <tal:block metal:define-macro="address">
 	<dl>
-		<dt>${address/getLabelAsHtml} <tal:block tal:condition="isDefault">(${trans:m.customer.frontoffice.is-default-address})</tal:block></dt>
-		<dd>${address/getTitle/getLabelAsHtml} ${address/getFirstnameAsHtml} ${address/getLastnameAsHtml}</dd>
-		<dd>${address/getAddressLine1AsHtml}</dd>
-		<dd tal:condition="address/getAddressLine2">${address/getAddressline2AsHtml}</dd>
-		<dd tal:condition="address/getAddressLine3">${address/getAddressline3AsHtml}</dd>
-		<dd>${address/getZipcodeAsHtml} ${address/getCityAsHtml}</dd>
-		<dd tal:condition="address/getProvince">${address/getProvinceAsHtml}</dd>
-		<dd>${address/getCountry/getLabelAsHtml}</dd>
-		<dd tal:condition="address/getPhone">${address/getPhoneAsHtml}</dd>
-		<dd tal:condition="address/getFax">${address/getFaxAsHtml}</dd>
-		<dd tal:condition="address/getEmail">${address/getEmailAsHtml}</dd>
+		<dt>${address/getLabel} <tal:block tal:condition="isDefault">(${trans:m.customer.frontoffice.is-default-address})</tal:block></dt>
+		<dd>${address/getTitle/getLabel} ${address/getFirstname} ${address/getLastname}</dd>
+		<dd>${address/getAddressLine1}</dd>
+		<dd tal:condition="address/getAddressLine2">${address/getAddressline2}</dd>
+		<dd tal:condition="address/getAddressLine3">${address/getAddressline3}</dd>
+		<dd>${address/getZipcode} ${address/getCity}</dd>
+		<dd tal:condition="address/getProvince">${address/getProvince}</dd>
+		<dd>${address/getCountry/getLabel}</dd>
+		<dd tal:condition="address/getPhone">${address/getPhonel}</dd>
+		<dd tal:condition="address/getFax">${address/getFax}</dd>
+		<dd tal:condition="address/getEmail">${address/getEmail}</dd>
 	</dl>	
 	
 	<form change:form="beanName address">
