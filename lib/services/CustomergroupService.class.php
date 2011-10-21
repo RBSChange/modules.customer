@@ -114,9 +114,9 @@ class customer_CustomergroupService extends f_persistentdocument_DocumentService
 	
 	/**
 	 * @param customer_persistentdocument_customergroup $doc
-	 * @param users_persistentdocument_dynamicfrontendgroup $group
+	 * @param users_persistentdocument_dynamicgroup $group
 	 */
-	public function onDynamicfrontendgroupCreated($doc, $group)
+	public function onDynamicgroupCreated($doc, $group)
 	{
 		$doc->setDynamicgroup($group);
 		$doc->save();

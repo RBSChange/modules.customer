@@ -52,6 +52,7 @@ class customer_AnonymizerService extends BaseService
 	public function anonymizeCustomer($customer)
 	{
 		$this->anonymizeUser($customer->getUser());
+		
 		foreach ($customer->getAddressArray() as $address)
 		{
 			$this->anonymizeAddress($address);
@@ -75,25 +76,11 @@ class customer_AnonymizerService extends BaseService
 	}
 	
 	/**
-	 * @param users_persistentdocument_websitefrontenduser $user
+	 * @param users_persistentdocument_user $user
 	 */
 	protected function anonymizeUser($user)
 	{
-		$user->setFirstname('Anonymous');
-		$user->setLastname('Anonymous');
-		$user->setEmail(Framework::getConfigurationValue('modules/customer/anonymousEmailAddress'));
-		$user->setLogin('anonymous-'.$user->getId());
-		$user->setPasswordmd5(md5(f_util_StringUtils::randomString()));
-		foreach ($user->getGroupsArray() as $group)
-		{
-			if (!($group instanceof users_persistentdocument_websitefrontendgroup))
-			{
-				$user->removeGroups($group);
-			}
-		}
-		$user->save();
-		
-		$user->getDocumentService()->file($user->getId());
+		$user->getDocumentService()->anonymize($user);
 	}
 	
 	/**
@@ -103,7 +90,7 @@ class customer_AnonymizerService extends BaseService
 	{
 		$address->setFirstname('Anonymous');
 		$address->setLastname('Anonymous');
-		$address->setEmail(Framework::getConfigurationValue('modules/customer/anonymousEmailAddress'));
+		$address->setEmail(Framework::getConfigurationValue('modules/users/anonymousEmailAddress'));
 		$address->setAddressLine1('Anonymous');
 		$address->setAddressLine2('Anonymous');
 		$address->setAddressLine3('Anonymous');

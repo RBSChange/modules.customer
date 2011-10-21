@@ -62,7 +62,7 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 		$isOk = $this->processValidationRules($validationRules, $request, $customerWrapper);
 
 		// Login validation.
-		$website = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+		$website = website_WebsiteService::getInstance()->getCurrentWebsite();
 		$user = $customerWrapper->customer->getUser();
 		$login = ($user->getLogin() !== null) ? $user->getLogin() : $user->getEmail();
 		$existingUser = users_UserService::getInstance()->getFrontendUserByLogin($login, $website->getId());

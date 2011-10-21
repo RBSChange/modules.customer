@@ -40,7 +40,7 @@ class customer_BlockEditaccountAction extends website_BlockAction
 	{
 		$validationRules = array_merge(
 			BeanUtils::getBeanValidationRules('customer_persistentdocument_customer'), 
-			BeanUtils::getSubBeanValidationRules('customer_persistentdocument_customer', 'user', null, array('label', 'login', 'passwordmd5', 'websiteid'))
+			BeanUtils::getSubBeanValidationRules('customer_persistentdocument_customer', 'user', null, array('label', 'login', 'passwordmd5'))
 		);
 		return $this->processValidationRules($validationRules, $request, $customer);
 	}

@@ -3,7 +3,7 @@
  * @author intportg
  * @package modules.customer
  */
-class customer_FrontendgroupFeederService extends users_FrontendgroupFeederBaseService
+class customer_GroupFeederService extends users_GroupFeederBaseService
 {
 	/**
 	 * @var customer_FrontendgroupFeederService
@@ -23,7 +23,7 @@ class customer_FrontendgroupFeederService extends users_FrontendgroupFeederBaseS
 	}	
 
 	/**
-	 * @param users_persistentdocument_dynamicfrontendgroup $group
+	 * @param users_persistentdocument_dynamicgroup $group
 	 */
 	public function getUserIds($group)
 	{
@@ -32,7 +32,7 @@ class customer_FrontendgroupFeederService extends users_FrontendgroupFeederBaseS
 		{
 			$doc = DocumentHelper::getDocumentInstance($docId, 'modules_customer/customergroup');
 			$customerIds = $doc->getDocumentService()->getMemberIds($doc);
-			$query = users_WebsitefrontenduserService::getInstance()->createQuery()->add(Restrictions::in('customer.id', $customerIds));
+			$query = users_UserService::getInstance()->createQuery()->add(Restrictions::in('customer.id', $customerIds));
 			return $query->setProjection(Projections::property('id'))->findColumn('id');
 		}
 		return array();

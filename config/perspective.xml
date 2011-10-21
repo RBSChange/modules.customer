@@ -56,7 +56,7 @@
 				<contextaction name="edit" />
 				<contextaction name="delete" />
 				<contextaction name="exportDynGroup" />
-				<contextaction name="createFrontendgroup" />
+				<contextaction name="createGroup" />
 			</contextactions>
 		</model>
 		<model name="modules_customer/editablecustomergroup">
@@ -76,7 +76,7 @@
 				<contextaction name="edit" />
 				<contextaction name="delete" />
 				<contextaction name="exportDynGroup" />
-				<contextaction name="createFrontendgroup" />
+				<contextaction name="createGroup" />
 			</contextactions>
 		</model>
 		<model name="modules_customer/tarifcustomergroup">
@@ -92,7 +92,7 @@
 			<contextactions>
 				<contextaction name="edit" />
 				<contextaction name="delete" />
-				<contextaction name="createFrontendgroup" />
+				<contextaction name="createGroup" />
 			</contextactions>
 		</model>
 		<model name="modules_customer/customer">
@@ -155,7 +155,7 @@
 		<action name="createTarif_" icon="add" />
 		<action name="createTarifcustomergroup" permission="Insert_tarifcustomergroup" icon="add"
 			labeli18n="m.customer.bo.actions.create-tarifcustomergroup" />
-		<action name="createFrontendgroup" permission="CreateFrontendgroup" icon="users-frontoffice-dynamic" />
+		<action name="createGroup" permission="CreateGroup" icon="users-frontoffice-dynamic" />
 		<action name="anonymize" permission="Delete" icon="delete" />
 		<action name="createVoucher_" icon="add" />
 		<action name="createVoucher" single="true" permission="Insert_voucher" icon="add" />

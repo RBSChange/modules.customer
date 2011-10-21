@@ -5,15 +5,15 @@
     <document name="customer"/>
     <document name="dynamiccustomergroup">
       <action name="CreateGroupMailingList"/>
-      <action name="CreateFrontendgroup"/>
+      <action name="CreateGroup"/>
     </document>
     <document name="editablecustomergroup">
       <action name="CreateGroupMailingList"/>
-      <action name="CreateFrontendgroup"/>
+      <action name="CreateGroup"/>
     </document>
     <document name="tarifcustomergroup">
       <action name="CreateGroupMailingList"/>
-      <action name="CreateFrontendgroup"/>
+      <action name="CreateGroup"/>
     </document>
     <document name="tarifcustomergroupfolder"/>
     <document name="voucher"/>
@@ -37,7 +37,7 @@
       <permission name="ReActivate.*"/>
       <permission name="Deactivated.*"/>
       <permission name="CreateGroupMailingList.*"/>
-      <permission name="CreateFrontendgroup.*"/>
+      <permission name="CreateGroup.*"/>
     </role>
     <role name="User" extend="User">
       <permission name="Enabled"/>

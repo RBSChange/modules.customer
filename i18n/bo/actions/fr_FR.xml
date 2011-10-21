@@ -8,7 +8,7 @@
 	<key id="create-tarifcustomergroup">créer un groupe tarifaire</key>
 	<key id="creating-group-mailing-list">création de la liste d'abonnés</key>
 	<key id="create-tarifcustomergroupfolder">Créer tarifcustomergroupfolder</key>
-	<key id="createfrontendgroup">créer un groupe d'utilisateurs dynamique à partir de ce groupe</key>
+	<key id="creategroup">créer un groupe d'utilisateurs dynamique à partir de ce groupe</key>
 	<key id="anonymize">anonymiser ce client (irréversible)</key>
 	<key id="confirm-anonymize">Attention : cette opération est irréversible. Êtes-vous sûr de vouloir continuer ?</key>
 	<key id="createvoucher">créer un bon de réduction</key>

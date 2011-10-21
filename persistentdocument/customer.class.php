@@ -45,16 +45,31 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 	 */
 	public function getWebsite()
 	{
+		$website = null;
 		$user = $this->getUser();
-		if ($user instanceof users_persistentdocument_websitefrontenduser)
+		if ($user instanceof users_persistentdocument_user)
 		{
-			return DocumentHelper::getDocumentInstance($user->getWebsiteid());
+			
+			$profile = users_UsersprofileService::getInstance()->getByAccessorId($user->getId());
+			if ($profile !== null && $profile->getRegisteredwebsiteid())
+			{
+				$website = DocumentHelper::getDocumentInstance($profile->getRegisteredwebsiteid());
+			}
+			else
+			{
+				$groupIds = DocumentHelper::getIdArrayFromDocumentArray($user->getGroupsArray());
+				if (count($groupIds))
+				{
+					$website = website_WebsiteService::getInstance()->createQuery()
+						->add(Restrictions::in('group.id', $groupIds))
+						->setMaxResults(1)->findUnique();
+				}
+			}
 		}
-		// This is not suposed to happen if the users module patch 0005 is
-		// correctly executed.
-		else
+		
+		if ($website === null)
 		{
-			throw new customer_Exception('The user with id ' . $user->getId() . ' is not a websitefrontenduser! Please check the users module patch 0005.');
+			throw new customer_Exception('The customer with id ' . $this->getId() . ' has no website default website');
 		}
 	}
 

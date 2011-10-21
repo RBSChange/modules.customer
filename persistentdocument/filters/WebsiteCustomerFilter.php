@@ -23,8 +23,9 @@ class customer_WebsiteCustomerFilter extends f_persistentdocument_DocumentFilter
 	 */
 	public function getQuery()
 	{
-		$websiteIds =  DocumentHelper::getIdArrayFromDocumentArray($this->getParameter('shop')->getValueForQuery());
-		return customer_CustomerService::getInstance()->createQuery()->add(Restrictions::in('user.websiteid', $websiteIds));
+		$groupIds = $this->getGroupIds();
+		if (count($groupIds) === 0) {$groupIds[] = 0;}
+		return customer_CustomerService::getInstance()->createQuery()->add(Restrictions::in('user.groups.id', $groupIds));
 	}
 	
 	/**
@@ -34,9 +35,26 @@ class customer_WebsiteCustomerFilter extends f_persistentdocument_DocumentFilter
 	{
 		if ($value instanceof customer_persistentdocument_customer)
 		{
-			$websiteIds =  DocumentHelper::getIdArrayFromDocumentArray($this->getParameter('shop')->getValueForQuery());
-			return in_array($value->getUser()->getWebsiteid(), $websiteIds);
+			$groupIds = $this->getGroupIds();
+			if (count($groupIds) === 0) {return false;}
+			$usersGroupIds = DocumentHelper::getIdArrayFromDocumentArray($value->getUser()->getGroupsArray());
+			return count(array_intersect($groupIds, $usersGroupIds)) > 0;
 		}
 		return false;
+	}
+	
+	private $groupIds;
+	
+	private function getGroupIds()
+	{
+		if ($this->groupIds === null)
+		{
+			$websiteIds =  DocumentHelper::getIdArrayFromDocumentArray($this->getParameter('shop')->getValueForQuery());
+			$this->groupIds = users_GroupService::getInstance()->createQuery()
+				->add(Restrictions::in('website', $websiteIds))
+				->setProjection(Projections::groupProperty('id', 'id'))
+				->findColumn('id');
+		}
+		return $this->groupIds ;
 	}
 }

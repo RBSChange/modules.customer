@@ -5,7 +5,4 @@
 		<icon>customer</icon>
 		<category>e-commerce</category>
 	</module>
-	<project>
-		<entry name="anonymousEmailAddress">anonymous@localhost.localdomain</entry>
-	</project>
 </config>

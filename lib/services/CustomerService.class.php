@@ -148,12 +148,12 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	private $customerByUserId = array();
 	
 	/**
-	 * @param users_persistentdocument_websitefrontenduser $user
+	 * @param users_persistentdocument_user $user
 	 * @return customer_persistentdocument_customer
 	 */
 	public function getByUser($user)
 	{
-		if (!($user instanceof users_persistentdocument_websitefrontenduser))
+		if (!($user instanceof users_persistentdocument_user))
 		{
 			return null;
 		}
@@ -204,20 +204,23 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		{
 			$tm->beginTransaction();
 
-			$user = users_WebsitefrontenduserService::getInstance()->getNewDocumentInstance();
-			$user->setFirstname($firstname);
-			$user->setLastname($lastname);
-			$user->setLogin($email);
+			$user = users_UserService::getInstance()->getNewDocumentInstance();
 			$user->setEmail($email);
 			$user->setPassword($password);
-		
-			$website = website_persistentdocument_website::getInstanceById($websiteId);
-			$group = users_WebsitefrontendgroupService::getInstance()->getDefaultByWebsite($website);
-			$user->setWebsiteid($group->getWebsiteid());
-			$user->addGroups($group);
+			$user->setLabel($firstname . ' ' . $lastname);
 			
-			// Save the user.
+			$website = website_persistentdocument_website::getInstanceById($websiteId);
+			$group = $website->getGroup();
+			$user->addGroups($group);
 			$user->save();
+			
+			$profile = users_UsersprofileService::getInstance()->getNewDocumentInstance();
+			$profile->setAccessor($user);
+			$profile->setFirstname($firstname);
+			$profile->setLastname($lastname);
+			$profile->setRegisteredwebsiteid($websiteId);
+			$profile->save();
+		
 			$user->activate();
 			
 			$customer = customer_CustomerService::getInstance()->getNewDocumentInstance();
@@ -237,7 +240,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	}
 	
 	/**
-	 * @param users_persistentdocument_websitefrontenduser $user
+	 * @param users_persistentdocument_user $user
 	 * @return customer_persistentdocument_customer
 	 */
 	public final function createNewCustomerFromUser($user)
@@ -274,17 +277,27 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			$tm->beginTransaction();			
 			if ($website === null)
 			{
-				$website = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+				$website = website_WebsiteService::getInstance()->getCurrentWebsite();
 			}
-			$group = users_WebsitefrontendgroupService::getInstance()->getDefaultByWebsite($website);
+			$group = $website->getGroup();
 			$user = $customer->getUser();
 			$user->setLogin($user->getEmail());
 			$user->setPassword($password);
-			$user->setWebsiteid($group->getWebsiteid());
 			$user->addGroups($group);			
 			$user->save();
 			$user->activate();
-				
+			
+			$profile = users_UsersprofileService::getInstance()->getByAccessorId($user->getId());
+			if ($profile === null)
+			{
+				$profile = users_UsersprofileService::getInstance()->getNewDocumentInstance();
+				$profile->setAccessor($user);
+			}
+			if ($profile->getRegisteredwebsiteid() === null)
+			{
+				$profile->setRegisteredwebsiteid($website->getId());
+			}
+			$profile->save();
 			$customer->save();
 			$tm->commit();
 		}
@@ -304,14 +317,14 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	
 	/**
 	 * @param website_persistentdocument_website $website
-	 * @return users_persistentdocument_websitefrontendgroup
+	 * @return users_persistentdocument_group
 	 */
 	public function getCustomerUserGroup()
 	{
 		$group = TagService::getInstance()->getDocumentByExclusiveTag(self::GROUP_TAG, false);
 		if ($group === null)
 		{
-			$group = users_FrontendgroupService::getInstance()->getNewDocumentInstance();
+			$group = users_GroupService::getInstance()->getNewDocumentInstance();
 			$group->setLabel(LocaleService::getInstance()->transFO('m.customer.bo.general.customer-user-group-label', array('ucf')));
 			$group->save(ModuleService::getInstance()->getRootFolderId('users'));
 			TagService::getInstance()->addTag($group, self::GROUP_TAG);
@@ -634,7 +647,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	 */
 	public function getAllShops($customer)
 	{
-		$usergroup = users_WebsitefrontendgroupService::getInstance()->getDefaultByUser($customer->getUser());
+		$usergroup = users_GroupService::getInstance()->getDefaultByUser($customer->getUser());
 		$websites = $usergroup->getWebsites();
 		return catalog_ShopService::getInstance()->getPublishedByWebsites($websites);
 	}
@@ -793,7 +806,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	 */
 	public function getEmailConfirmationRedirectionUrl($confirmationCode)
 	{
-		$website = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+		$website = website_WebsiteService::getInstance()->getCurrentWebsite();
 		$tagService = TagService::getInstance();
 
 		try
