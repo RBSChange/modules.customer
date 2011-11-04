@@ -26,7 +26,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
-			HttpController::getInstance()->redirectToUrl('website', 'Error404');
+			HttpController::getInstance()->redirectToUrl(LinkHelper::getTagUrl('contextual_website_website_modules_customer_new-account'));
 		}
 		$request->setAttribute('customer', $customer);
 		if ($request->hasParameter('message'))
@@ -68,7 +68,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
-			HttpController::getInstance()->redirectToUrl('website', 'Error404');
+			HttpController::getInstance()->redirectToUrl(LinkHelper::getTagUrl('contextual_website_website_modules_customer_new-account'));
 		}
 		$address->getDocumentService()->initFieldsFromCustomer($address, $customer);
 		$request->setAttribute('address', $address);
@@ -86,7 +86,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
-			HttpController::getInstance()->redirectToUrl('website', 'Error404');
+			HttpController::getInstance()->redirectToUrl(LinkHelper::getTagUrl('contextual_website_website_modules_customer_new-account'));
 		}
 		else if ($customer->getIndexofAddress($address) === null)
 		{
@@ -119,7 +119,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
-			HttpController::getInstance()->redirectToUrl('website', 'Error404');
+			HttpController::getInstance()->redirectToUrl(LinkHelper::getTagUrl('contextual_website_website_modules_customer_new-account'));
 		}
 		else if (!$address->isNew() && $customer->getIndexofAddress($address) === -1)
 		{
@@ -154,7 +154,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
-			HttpController::getInstance()->redirectToUrl('website', 'Error404');
+			HttpController::getInstance()->redirectToUrl(LinkHelper::getTagUrl('contextual_website_website_modules_customer_new-account'));
 		}
 		else if ($customer->getIndexofAddress($address) === null)
 		{
@@ -180,7 +180,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
-			HttpController::getInstance()->redirectToUrl('website', 'Error404');
+			HttpController::getInstance()->redirectToUrl(LinkHelper::getTagUrl('contextual_website_website_modules_customer_new-account'));
 		}
 		else if ($customer->getIndexofAddress($address) === null)
 		{
