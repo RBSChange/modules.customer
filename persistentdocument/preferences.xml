@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/1.0.xsd"
-	model-version="1.0" icon="customer" publish-on-day-change="false" backoffice-indexable="false" has-url="false">
-	<properties>
-		<add name="label" default-value="preferences" />
-		<add name="activateTrust" type="Boolean" default-value="true" />
-		<!-- @deprecated (will be removed in 4.0) -->
-		<add name="activateEmailConfirmation" type="Boolean" default-value="false" />
-	</properties>
-	<statuses default="PUBLICATED" />
+<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/4.0.xsd" model-version="1.0" icon="customer" publish-on-day-change="false" backoffice-indexable="false" has-url="false">
+  <properties>
+    <property name="label" default-value="preferences"/>
+    <property name="activateTrust" type="Boolean" default-value="true"/>
+    <!-- @deprecated (will be removed in 4.0) -->
+    <property name="activateEmailConfirmation" type="Boolean" default-value="false"/>
+  </properties>
+  <statuses default="PUBLICATED"/>
 </document>
