@@ -5,6 +5,7 @@
 		<field name="description" hidehelp="true" />
 		<field name="exclusive" />
 		<field name="excludeModifier" moduleselector="catalog" allow="modules_customer_voucherhandler"/>
+		<field name="applicationPriority" />
 	</section>
 	<section labeli18n="m.customer.document.voucherhandler.application-conditions">
 		<field name="startpublicationdate" hidehelp="true" />
