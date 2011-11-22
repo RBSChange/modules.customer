@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.customer.frontoffice.mail" lcid="en_GB">
-  <key id="newpassword">Change your password on the site</key>
-  <key id="renewpassword">Renewing your password on the site</key>
+  <key id="newpassword">change your password on the website</key>
+  <key id="renewpassword">renew your password on the site</key>
 </i18n>

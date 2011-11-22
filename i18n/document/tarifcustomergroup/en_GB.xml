@@ -2,4 +2,5 @@
 <i18n baseKey="m.customer.document.tarifcustomergroup" lcid="en_GB">
   <include id="m.customer.document.customergroup"/>
   <key id="members">members</key>
+  <key id="document-name">pricing groups</key>
 </i18n>

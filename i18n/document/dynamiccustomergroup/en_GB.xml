@@ -3,5 +3,5 @@
   <include id="m.customer.document.customergroup"/>
   <key id="document-name">dynamic customer group</key>
   <key id="query">query</key>
-  <key id="query-help">the query to find members of this group.</key>
+  <key id="query-help">The query for finding the members of this group.</key>
 </i18n>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.customer.document.voucherhandler" lcid="en_GB">
   <include id="m.order.document.cartmodifier"/>
-  <key id="document-name">voucherhandler</key>
+  <key id="document-name">voucher handler</key>
+  <key id="application-conditions">application conditions</key>
+  <key id="label-fo">discount</key>
 </i18n>

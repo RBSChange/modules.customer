@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.customer.document.editablecustomergroup" lcid="en_GB">
   <include id="m.customer.document.customergroup"/>
-  <key id="document-name">editable customer group</key>
+  <key id="document-name">editable customer groups</key>
   <key id="members">members</key>
 </i18n>

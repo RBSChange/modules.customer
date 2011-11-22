@@ -17,6 +17,6 @@
 	</models>
 	<actions>
 		<action name="createVoucherhandler" single="true" permission="Insert_voucherhandler" icon="add" 
-			label="&amp;modules.customer.bo.actions.Createvoucherhandler;"/>
+			labeli18n="m.customer.bo.actions.Createvoucherhandler"/>
 	</actions>
 </perspective>

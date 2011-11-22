@@ -6,4 +6,10 @@
   <key id="column-month">month</key>
   <key id="column-new">new</key>
   <key id="column-lastlogin">last login</key>
+  <key id="column-hasorder">placed an order</key>
+  <key id="columns-help">Check the columns to display.</key>
+  <key id="shop-help">Select the website which you want to display the statistics for.</key>
+  <key id="statistics-for-website">customer statistics for the website</key>
+  <key id="usecharts">use charts</key>
+  <key id="usecharts-help">Set it to "yes" to display the statistics as a chart. Set it to "no" to display them as a table.</key>
 </i18n>

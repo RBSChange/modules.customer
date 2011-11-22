@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.customer.document.customerwrapperbean" lcid="en_GB">
   <key id="password">Password</key>
-  <key id="passwordconfirm">Confirmation password</key>
-  <key id="passwordconfirm-error">your password is not confirmed</key>
+  <key id="passwordconfirm">Password confirmation</key>
+  <key id="passwordconfirm-error">your password has not been confirmed</key>
   <key id="invalid-login-error">there is already an account using this email address.</key>
-  <key id="create-account">create an account</key>
+  <key id="create-account">create my account</key>
+  <key id="emailconfirm">Email address confirmation</key>
 </i18n>

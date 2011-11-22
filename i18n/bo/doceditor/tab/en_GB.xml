@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.customer.bo.doceditor.tab" lcid="en_GB">
   <key id="orders">orders</key>
-  <key id="carts">cart</key>
+  <key id="carts">current basket</key>
 </i18n>
