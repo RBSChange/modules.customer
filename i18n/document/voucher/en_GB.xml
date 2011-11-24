@@ -2,10 +2,11 @@
 <i18n baseKey="m.customer.document.voucher" lcid="en_GB">
   <include id="m.customer.document.coupon"/>
   <key id="document-name">voucher</key>
-  <key id="shop">[TO TRANSLATE] shop</key>
-  <key id="shop-help">[TO TRANSLATE] shop-help</key>
-  <key id="customerid">[TO TRANSLATE] customerId</key>
-  <key id="customerid-help">[TO TRANSLATE] customerId-help</key>
-  <key id="amount">[TO TRANSLATE] amount</key>
-  <key id="amount-help">[TO TRANSLATE] amount-help</key>
+  <key id="shop">shop</key>
+  <key id="shop-help">The voucher can only be used in this shop.</key>
+  <key id="customerid">customer recipient</key>
+  <key id="customerid-help">If a customer is specified, only they can use this voucher. If no customer is specified, any customer can use it.</key>
+  <key id="amount">amount</key>
+  <key id="amount-help">Amount of the discount awarded by this voucher.</key>
+  <key id="fieldgroup-validity">validity</key>
 </i18n>

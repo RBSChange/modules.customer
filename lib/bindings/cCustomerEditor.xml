@@ -61,10 +61,10 @@
 	<binding id="cResumeOrderPropertiesSection">
 		<content>
 			<xul:vbox anonid="content" class="content" flex="1">
-				<xul:cproperty name="catalog" label="&amp;modules.customer.bo.doceditor.property.Catalog;" xbl:inherits="value=catalog,collapsed=hidecatalog" />
-				<xul:cproperty name="count" label="&amp;modules.customer.bo.doceditor.property.Order-count;" xbl:inherits="value=count" />
-				<xul:cproperty name="amounttotal" label="&amp;modules.customer.bo.doceditor.property.Order-amount-total;" xbl:inherits="value=amounttotal" />
-				<xul:cproperty name="amountaverage" label="&amp;modules.customer.bo.doceditor.property.Order-amount-average;" xbl:inherits="value=amountaverage" />
+				<xul:cproperty name="catalog" label="${trans:m.customer.bo.doceditor.property.Catalog,ucf,js}" xbl:inherits="value=catalog,collapsed=hidecatalog" />
+				<xul:cproperty name="count" label="${trans:m.customer.bo.doceditor.property.Order-count,ucf,js}" xbl:inherits="value=count" />
+				<xul:cproperty name="amounttotal" label="${trans:m.customer.bo.doceditor.property.Order-amount-total,ucf,js}" xbl:inherits="value=amounttotal" />
+				<xul:cproperty name="amountaverage" label="${trans:m.customer.bo.doceditor.property.Order-amount-average,ucf,js}" xbl:inherits="value=amountaverage" />
 			</xul:vbox>
 		</content>
 	</binding>
@@ -128,10 +128,10 @@
 	<binding id="cResumeCartPropertiesSection">
 		<content>
 			<xul:vbox anonid="content" class="content" flex="1">
-				<xul:cproperty name="catalog" label="&amp;modules.customer.bo.doceditor.property.Catalog;" xbl:inherits="value=catalog,collapsed=hidecatalog" />
-				<xul:cproperty name="lineCount" label="&amp;modules.customer.bo.doceditor.property.Cart-line-count;" xbl:inherits="value=lineCount" />
-				<xul:cproperty name="totalTax" label="&amp;modules.customer.bo.doceditor.property.Cart-total-tax;" xbl:inherits="value=totalTax" />
-				<xul:cproperty name="totalAmount" label="&amp;modules.customer.bo.doceditor.property.Cart-total-amount;" xbl:inherits="value=totalAmount" />
+				<xul:cproperty name="catalog" label="${trans:m.customer.bo.doceditor.property.Catalog,ucf,js}" xbl:inherits="value=catalog,collapsed=hidecatalog" />
+				<xul:cproperty name="lineCount" label="${trans:m.customer.bo.doceditor.property.Cart-line-count,ucf,js}" xbl:inherits="value=lineCount" />
+				<xul:cproperty name="totalTax" label="${trans:m.customer.bo.doceditor.property.Cart-total-tax,ucf,js}" xbl:inherits="value=totalTax" />
+				<xul:cproperty name="totalAmount" label="${trans:m.customer.bo.doceditor.property.Cart-total-amount,ucf,js}" xbl:inherits="value=totalAmount" />
 			</xul:vbox>
 		</content>
 	</binding>
@@ -152,55 +152,55 @@
 					</xul:columns>
 					<xul:rows>
 						<xul:row xbl:inherits="hidden=titlehidden">
-							<xul:label value="&amp;modules.customer.document.address.Title;" />
+							<xul:label value="${trans:m.customer.document.address.Title,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=title" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=firstnamehidden">
-							<xul:label value="&amp;modules.customer.document.address.Firstname;" />
+							<xul:label value="${trans:m.customer.document.address.Firstname,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=firstname" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=lastnamehidden">
-							<xul:label value="&amp;modules.customer.document.address.Lastname;" />
+							<xul:label value="${trans:m.customer.document.address.Lastname,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=lastname" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
-							<xul:label value="&amp;modules.customer.document.address.Addressline1;" />
+							<xul:label value="${trans:m.customer.document.address.Addressline1,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=addressline1" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=addressline2hidden">
-							<xul:label value="&amp;modules.customer.document.address.Addressline2;" />
+							<xul:label value="${trans:m.customer.document.address.Addressline2,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=addressline2" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=addressline3hidden">
-							<xul:label value="&amp;modules.customer.document.address.Addressline3;" />
+							<xul:label value="${trans:m.customer.document.address.Addressline3,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=addressline3" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
-							<xul:label value="&amp;modules.customer.document.address.Zipcode;" />
+							<xul:label value="${trans:m.customer.document.address.Zipcode,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=zipcode" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
-							<xul:label value="&amp;modules.customer.document.address.City;" />
+							<xul:label value="${trans:m.customer.document.address.City,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=city" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
-							<xul:label value="&amp;modules.customer.document.address.Country;" />
+							<xul:label value="${trans:m.customer.document.address.Country,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=country" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=emailhidden">
-							<xul:label value="&amp;modules.customer.document.address.Email;" />
+							<xul:label value="${trans:m.customer.document.address.Email,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=email" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=phonehidden">
-							<xul:label value="&amp;modules.customer.document.address.Phone;" />
+							<xul:label value="${trans:m.customer.document.address.Phone,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=phone" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=mobilephonehidden">
-							<xul:label value="&amp;modules.customer.document.address.Mobilephone;" />
+							<xul:label value="${trans:m.customer.document.address.Mobilephone,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=mobilephone" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
-							<xul:label value="&amp;modules.customer.document.address.Creationdate;" />
+							<xul:label value="${trans:m.customer.document.address.Creationdate,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=creationdate" class="allow-text-selection" />
 						</xul:row>
 					</xul:rows>
@@ -349,11 +349,11 @@
 					</xul:columns>
 					<xul:rows>
 						<xul:row>
-							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Last-update;" />
+							<xul:label value="${trans:m.customer.bo.doceditor.panel.carts.Last-update,ucf,js}" />
 							<xul:label xbl:inherits="value=lastupdate" />
 						</xul:row>
 						<xul:groupbox flex="1">
-							<xul:caption label="&amp;modules.customer.bo.doceditor.panel.carts.Lines;" />
+							<xul:caption label="${trans:m.customer.bo.doceditor.panel.carts.Lines,ucf,js}" />
 							<xul:grid class="cart-lines">
 								<xul:columns>
 									<xul:column flex="1" />
@@ -368,47 +368,47 @@
 							</xul:grid>
 						</xul:groupbox>
 						<xul:row xbl:inherits="hidden=couponLabelhidden">
-							<xul:label value="&amp;modules.order.frontoffice.Coupon-name;" />
+							<xul:label value="${trans:m.order.frontoffice.Coupon-name,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=couponLabel" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=couponLabelhidden">
-							<xul:label value="&amp;modules.order.frontoffice.Coupon-code;" />
+							<xul:label value="${trans:m.order.frontoffice.Coupon-code,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=couponCode" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=couponLabelhidden">
-							<xul:label value="&amp;modules.order.frontoffice.Coupon-value;" />
+							<xul:label value="${trans:m.order.frontoffice.Coupon-value,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=couponValue" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=couponLabelhidden">
-							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Modified-sub-total-without-tax;" />
+							<xul:label value="${trans:m.customer.bo.doceditor.panel.carts.Modified-sub-total-without-tax,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=subTotalWithCartModificatorsWithoutTax" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=couponLabelhidden">
-							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Modified-sub-total-with-tax;" />
+							<xul:label value="${trans:m.customer.bo.doceditor.panel.carts.Modified-sub-total-with-tax,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=subTotalWithCartModificatorsWithTax" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=shippingLabelhidden">
-							<xul:label value="&amp;modules.order.frontoffice.Shipping-mode;" />
+							<xul:label value="${trans:m.order.frontoffice.Shipping-mode,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=shippingLabel" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=shippingLabelhidden">
-							<xul:label value="&amp;modules.order.frontoffice.Shipping-fees;" />
+							<xul:label value="${trans:m.order.frontoffice.Shipping-fees,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=shippingPrice" class="allow-text-selection" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=billingLabelhidden">
-							<xul:label value="&amp;modules.order.frontoffice.Billing-mode;" />
+							<xul:label value="${trans:m.order.frontoffice.Billing-mode,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=billingLabel" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
-							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Total-without-tax;" />
+							<xul:label value="${trans:m.customer.bo.doceditor.panel.carts.Total-without-tax,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=totalWithoutTax" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
-							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Tva-amount;" />
+							<xul:label value="${trans:m.customer.bo.doceditor.panel.carts.Tva-amount,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=tvaAmount" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
-							<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Total-with-tax;" />
+							<xul:label value="${trans:m.customer.bo.doceditor.panel.carts.Total-with-tax,ucf,js}" />
 							<xul:label xbl:inherits="xbl:text=totalWithTax" class="allow-text-selection" />
 						</xul:row>
 					</xul:rows>
@@ -419,11 +419,11 @@
 	
 	<binding id="headRow">
 		<content>
-			<xul:label value="&amp;modules.order.frontoffice.Designation;" />
-			<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Unit-price;" />
-			<xul:label value="&amp;modules.order.frontoffice.Availability;" />
-			<xul:label value="&amp;modules.order.frontoffice.Quantity;" />
-			<xul:label value="&amp;modules.customer.bo.doceditor.panel.carts.Total-price;" />
+			<xul:label value="${trans:m.order.frontoffice.Designation,ucf,js}" />
+			<xul:label value="${trans:m.customer.bo.doceditor.panel.carts.Unit-price,ucf,js}" />
+			<xul:label value="${trans:m.order.frontoffice.Availability,ucf,js}" />
+			<xul:label value="${trans:m.order.frontoffice.Quantity,ucf,js}" />
+			<xul:label value="${trans:m.customer.bo.doceditor.panel.carts.Total-price,ucf,js}" />
 		</content>
 	</binding>	
 	
@@ -548,27 +548,27 @@
 					</xul:columns>
 					<xul:rows>
 						<xul:row>
-							<xul:label value="&amp;modules.order.document.order.Reference;" />
+							<xul:label value="${trans:m.order.document.order.Reference,ucf,js}" />
 							<xul:label class="text-link" xbl:inherits="xbl:text=ordernumber" onclick="openOrder();"/>
 						</xul:row>
 						<xul:row>
-							<xul:label value="&amp;modules.order.document.order.Creationdate;" />
+							<xul:label value="${trans:m.order.document.order.Creationdate,ucf,js}" />
 							<xul:label class="allow-text-selection" xbl:inherits="xbl:text=creationdate" />
 						</xul:row>
 						<xul:row>
-							<xul:label value="&amp;modules.order.document.order.OrderStatus;" />
+							<xul:label value="${trans:m.order.document.order.OrderStatus,ucf,js}" />
 							<xul:label class="allow-text-selection" anonid="order-status" xbl:inherits="xbl:text=status,class=statusClass" />
 						</xul:row>
 						<xul:row>
-							<xul:label value="&amp;modules.order.document.order.TotalAmountWithoutTax;" />
+							<xul:label value="${trans:m.order.document.order.TotalAmountWithoutTax,ucf,js}" />
 							<xul:label class="allow-text-selection" xbl:inherits="xbl:text=totalamountwithouttax" />
 						</xul:row>
 						<xul:row>
-							<xul:label value="&amp;modules.order.document.order.TotalAmountWithTax;" />
+							<xul:label value="${trans:m.order.document.order.TotalAmountWithTax,ucf,js}" />
 							<xul:label class="allow-text-selection" xbl:inherits="xbl:text=totalamountwithtax" />
 						</xul:row>
 						<xul:row xbl:inherits="hidden=commentadminhidden">
-							<xul:label value="&amp;modules.order.document.order.Commentadmin;" />
+							<xul:label value="${trans:m.order.document.order.Commentadmin,ucf,js}" />
 							<xul:hbox flex="1">
 								<html:div class="allow-text-selection" flex="1" anonid="commentadmin" xmlns="http://www.w3.org/1999/xhtml"><xbl:children /></html:div>
 							</xul:hbox>

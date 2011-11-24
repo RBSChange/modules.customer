@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.customer.document.coupon" lcid="en_GB">
-	<include id="m.generic.document.document" />
-	<key id="document-name">coupon</key>
-	<key id="code">code</key>
-	<key id="startpublicationdate">start validity date</key>
-	<key id="endpublicationdate">end validity date</key>
+  <include id="m.generic.document.document"/>
+  <key id="document-name">coupon</key>
+  <key id="code">code</key>
+  <key id="startpublicationdate">validity start date</key>
+  <key id="endpublicationdate">validity end date</key>
+  <key id="code-help">Code to be entered on the website by the customer.</key>
+  <key id="endpublicationdate-help">Leave this field blank in order to make it valid indefinitely.</key>
+  <key id="startpublicationdate-help">Leave this field blank in order to make it valid immediately.</key>
 </i18n>

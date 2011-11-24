@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.customer.bo.blocks" lcid="en_GB">
   <key id="menu">account menu</key>
-  <key id="manage-address">addresses management</key>
+  <key id="manage-address">address management</key>
   <key id="account-publication">account activation</key>
   <key id="index">account index</key>
-  <key id="resend-confirmation-email">resend confirmation e-mail</key>
-  <key id="customer-info">customer informations</key>
+  <key id="resend-confirmation-email">resend confirmation email</key>
+  <key id="customer-info">customer information</key>
+  <key id="cart-list">my baskets</key>
+  <key id="create-account">create a new account</key>
+  <key id="edit-account">edit account</key>
 </i18n>

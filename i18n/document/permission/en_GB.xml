@@ -7,7 +7,7 @@
   <key id="translator">Translator</key>
   <key id="translator-help">Translator</key>
   <key id="validator">Validator</key>
-  <key id="validator-help">Validator</key>
+  <key id="validator-help">Validator of content before it is published</key>
   <key id="user">User</key>
   <key id="user-help">User</key>
 </i18n>

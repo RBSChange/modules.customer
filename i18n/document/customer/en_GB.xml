@@ -2,8 +2,15 @@
 <i18n baseKey="m.customer.document.customer" lcid="en_GB">
   <key id="label">label</key>
   <key id="website">website</key>
-  <key id="website-help">customer's related website</key>
+  <key id="website-help">Website with which the customer is associated.</key>
   <key id="creationdate">creation date</key>
-  <key id="lastcartupdate">last cart modification date</key>
+  <key id="lastcartupdate">date of last basket modification</key>
   <key id="birthday">birthday</key>
+  <key id="canbetrusted">trusted customer</key>
+  <key id="codereference">reference code</key>
+  <key id="codereference-help">Customer reference.</key>
+  <key id="document-name">customer</key>
+  <key id="lastabandonedorderdate">abandoned order</key>
+  <key id="tarifgroup">pricing group</key>
+  <key id="usedcoupon">coupons used</key>
 </i18n>
