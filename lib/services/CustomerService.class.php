@@ -553,45 +553,39 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			->setProjection(Projections::property('id'))->findColumn('id');
 	}
 	
+	
 	/**
-	 * @param customer_persistentdocument_customer $customer
+	 * @param customer_persistentdocument_customer $document
+	 * @param array<string, string> $attributes
+	 * @param integer $mode
 	 * @param string $moduleName
-	 * @param string $treeType
-	 * @param array<string, string> $nodeAttributes
 	 */
-	public function addTreeAttributes($customer, $moduleName, $treeType, &$nodeAttributes)
+	public function completeBOAttributes($document, &$attributes, $mode, $moduleName)
 	{
-		if ($treeType != 'wlist')
+		if (!($mode & DocumentHelper::MODE_CUSTOM))
 		{
 			return;
 		}
-		$nodeAttributes['birthday'] = date_Formatter::toDefaultDateBO($customer->getBirthday());
-		$nodeAttributes['email'] = $customer->getUser()->getEmail();
-		$nodeAttributes['date'] = date_Formatter::toDefaultDateTimeBO($customer->getCreationdate());
+		$attributes['birthday'] = date_Formatter::toDefaultDateBO($document->getBirthday());
+		$attributes['email'] = $document->getUser()->getEmail();
+		$attributes['date'] = date_Formatter::toDefaultDateTimeBO($document->getUICreationdate());
 
 		// Activation.
-		if (!$customer->isPublished())
+		if (!$document->isPublished())
 		{
-			$nodeAttributes['activation'] = $customer->getNotActivatedReasonLabel();
+			$attributes['activation'] = $document->getNotActivatedReasonLabel();
 		}
 		else
 		{
-			$nodeAttributes['activation'] = LocaleService::getInstance()->transBO("m.customer.bo.general.account-activated", array('ucf'));
+			$attributes['activation'] = LocaleService::getInstance()->trans("m.customer.bo.general.account-activated", array('ucf'));
 		}
 		
 		// Website.
-		$website = $customer->getWebsite();
-		if ($website !== null)
-		{
-			$nodeAttributes['website'] = $website->getLabel();
-		}
-		else 
-		{
-			$nodeAttributes['website'] = '-';
-		}
-		
+		$website = $document->getWebsite();
+		$attributes['website'] = ($website !== null) ? $website->getLabel() : '-';
+
 		$anonymizer = customer_AnonymizerService::getInstance();		
-		$nodeAttributes['canBeAnonymized'] = (!$anonymizer->isAnonymized($customer) && $anonymizer->canBeAnonymized($customer));	
+		$attributes['canBeAnonymized'] = (!$anonymizer->isAnonymized($document) && $anonymizer->canBeAnonymized($document));	
 	}
 		
 	/**

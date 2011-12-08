@@ -90,20 +90,20 @@ class customer_VoucherService extends customer_CouponService
 
 	/**
 	 * @param customer_persistentdocument_voucher $document
+	 * @param array<string, string> $attributes
+	 * @param integer $mode
 	 * @param string $moduleName
-	 * @param string $treeType
-	 * @param array<string, string> $nodeAttributes
 	 */
-	public function addTreeAttributes($document, $moduleName, $treeType, &$nodeAttributes)
+	public function completeBOAttributes($document, &$attributes, $mode, $moduleName)
 	{
-		parent::addTreeAttributes($document, $moduleName, $treeType, $nodeAttributes);
-		if ($treeType == 'wlist')
+		parent::completeBOAttributes($document, $attributes, $mode, $moduleName);
+		if ($mode & DocumentHelper::MODE_CUSTOM)
 		{
 			$shop = $document->getShop();
-			$nodeAttributes['shop'] = $shop->getLabel();
-			$nodeAttributes['amount'] = $document->getAmount() . $shop->getCurrencySymbol();
+			$attributes['shop'] = $shop->getLabel();
+			$attributes['amount'] = $document->getAmount() . $shop->getCurrencySymbol();
 			$customer = $document->getCustomer();
-			$nodeAttributes['customer'] = ($customer !== null) ? $customer->getLabel() : '-';
+			$attributes['customer'] = ($customer !== null) ? $customer->getLabel() : '-';
 		}
 	}
 }
