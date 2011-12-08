@@ -36,7 +36,7 @@ class customer_PreferencesService extends f_persistentdocument_DocumentService
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery('modules_customer/preferences');
+		return $this->getPersistentProvider()->createQuery('modules_customer/preferences');
 	}
 	
 	/**
@@ -46,6 +46,6 @@ class customer_PreferencesService extends f_persistentdocument_DocumentService
 	 */
 	protected function preSave($document, $parentNodeId)
 	{
-		$document->setLabel('&modules.customer.bo.general.Module-name;');
+		$document->setLabel('customer');
 	}
 }
