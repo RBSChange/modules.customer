@@ -103,10 +103,10 @@ class customer_AddressService extends f_persistentdocument_DocumentService
 		$label = array();
 		if ($includeTitle && $address->getTitle() !==  null)
 		{
-			$label[] = $address->getTitle()->getLabelAsHtml();
+			$label[] = $address->getTitle()->getLabel();
 		}
-		$label[] = $address->getFirstnameAsHtml();
-		$label[] = $address->getLastnameAsHtml();
+		$label[] = $address->getFirstname();
+		$label[] = $address->getLastname();
 		return implode(' ', $label);
 	}
 	
