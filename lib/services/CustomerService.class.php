@@ -643,6 +643,15 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	}
 	
 	/**
+	 * @param customer_persistentdocument_customer $customer
+	 * @return array<string, string>
+	 */
+	public function getNotificationParameters($customer)
+	{
+		return array('customerCodeReference' => $customer->getCodeReferenceAsHtml());
+	}
+	
+	/**
 	 * @return string[string]
 	 */
     public function getExportFields()
