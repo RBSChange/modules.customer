@@ -5,6 +5,20 @@
  */
 class customer_persistentdocument_address extends customer_persistentdocument_addressbase
 {
+	
+	/**
+	 * @param String $email
+	 * @return Boolean
+	 */
+	protected function setEmailInternal($email)
+	{
+		if ($email != null)
+		{
+			$email = f_util_StringUtils::strtolower(strval($email));
+		}
+		return parent::setEmailInternal($email);
+	}
+
 	/**
 	 * @return customer_persistentdocument_customer
 	 */
@@ -22,6 +36,16 @@ class customer_persistentdocument_address extends customer_persistentdocument_ad
 	{
 		return $this->getDocumentService()
 			->getFullName($this, $includeTitle);
+	}
+	
+	/**
+	 * @param customer_persistentdocument_address $address
+	 * @param Boolean $includeTitle
+	 * @return String
+	 */
+	public function getFullNameAsHtml($includeTitle = true)
+	{
+		return f_util_HtmlUtils::textToHtml($this->getFullName($includeTitle));
 	}
 	
 	/**
