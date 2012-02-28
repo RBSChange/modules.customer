@@ -15,7 +15,7 @@ class customer_BlockIndexAction extends website_BlockAction
 	{
 		if ($this->isInBackofficeEdition())
 		{
-			return website_BlockView::BACKOFFICE;
+			return website_BlockView::NONE;
 		}
 		$request->setAttribute('user', users_UserService::getInstance()->getCurrentFrontEndUser());
 		return website_BlockView::SUCCESS;

@@ -11,7 +11,7 @@ class customer_BlockDashboardGeneralStatisticsAction extends dashboard_BlockDash
 	 */
 	protected function setRequestContent($request, $forEdition)
 	{
-		if ($request->hasParameter('shopId'))
+		if ($request->hasParameter('websiteId'))
 		{
 			$website = DocumentHelper::getDocumentInstance($request->getParameter('websiteId'));
 		}

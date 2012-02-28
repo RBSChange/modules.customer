@@ -1,9 +1,9 @@
 <form change:form="beanName customer">
 	<fieldset>
-		<legend>${trans:m.customer.frontoffice.accountedit-title,ucf}</legend>
+		<legend class="h-1">${trans:m.customer.frontoffice.accountedit-title,ucf}</legend>
 		<ul change:errors=""></ul>
 		<ol>
-			<li><input change:field="name user.email" /></li>
+			<li><input change:field="name user.email; required 'true'" /></li>
 			<li><input change:field="name user.titleid" /></li>
 			<li><input change:field="name user.firstname" /></li>
 			<li><input change:field="name user.lastname" /></li>

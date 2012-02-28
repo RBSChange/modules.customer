@@ -1,8 +1,8 @@
-<h2 change:h="">${trans:m.customer.frontoffice.addresses-title,ucf}</h2>
+<h1 change:h="">${trans:m.customer.frontoffice.addresses-title,ucf}</h1>
 <form change:form="beanClass customer_persistentdocument_address; beanName address">
 	<fieldset>
-		<legend tal:condition="address/isNew">${trans:m.customer.frontoffice.create-new-address,ucf}</legend>
-		<legend tal:condition="not:address/isNew">${trans:m.customer.frontoffice.edit-existing-address,ucf}</legend>
+		<legend tal:condition="address/isNew" class="h-2">${trans:m.customer.frontoffice.create-new-address,ucf}</legend>
+		<legend tal:condition="not:address/isNew" class="h-2">${trans:m.customer.frontoffice.edit-existing-address,ucf}</legend>
 		<ul change:errors=""></ul>
 		<ol>
 			<li><input change:field="name label" labeli18n="m.customer.document.address.label"/></li>
