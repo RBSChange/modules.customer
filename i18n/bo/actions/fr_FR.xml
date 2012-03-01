@@ -14,4 +14,6 @@
 	<key id="createvoucher">créer un bon de réduction</key>
 	<key id="createvoucherhandler">créer un gestionnaire de bons de réduction</key>
 	<key id="exportdyngroup">exporter les clients du group</key>
+	<key id="website-already-contains-customer-pages">Ce site contient déjà les pages spécifiques de la rubrique Compte client.</key>
+	<key id="website-does-not-contain-customer-topic">Ce site ne contient pas de rubrique Compte client.</key>
 </i18n>
