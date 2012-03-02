@@ -5,7 +5,7 @@
 		<ol>
 			<li><input change:field="name customer.user.email" /></li>
 			<tal:block tal:condition="configuration/getConfirmEmail"> 
-				<li><input change:field="name emailconfirm; id customer_createaccount_emailconfirm; required 'true'" /></li>
+				<li><input change:field="name emailconfirm; id customer_createaccount_emailconfirm; required true" /></li>
 			</tal:block>
 			<li><input change:field="name customer.user.titleid" /></li>
 			<li><input change:field="name customer.user.firstname" /></li>
