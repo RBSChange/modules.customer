@@ -13,33 +13,33 @@
 	</systemfolder>
 	
 	<website byTag="default_modules_website_default-website">
-		<topic byLabel="Compte client (sécurisé)" label="Compte client (sécurisé)">
-			<page label="Mon compte" isIndexPage="true" id="MonCompte">
-				<tag name="contextual_website_website_modules_customer_my-account" />
+		<topic byLabel="Compte client">
+			<page label="Mon compte" isIndexPage="true" id="MonCompte"
+				byTag="contextual_website_website_modules_customer_my-account">
 				<changecontent for="content-block">
 					<changeblock type="modules_customer_index" />
 				</changecontent>
 			</page>
-			<page label="Mes informations" id="MesInformations">
-				<tag name="contextual_website_website_modules_customer_my-account-info" />
+			<page label="Mes informations" id="MesInformations"
+				byTag="contextual_website_website_modules_customer_my-account-info">
 				<changecontent for="content-block">
 					<changeblock type="modules_customer_editaccount" />
 				</changecontent>
 			</page>
-			<page label="Mon mot de passe" id="MonMotDePasse">
-				<tag name="contextual_website_website_modules_customer_my-account-password" />
+			<page label="Mon mot de passe" id="MonMotDePasse"
+				byTag="contextual_website_website_modules_customer_my-account-password">
 				<changecontent for="content-block">
 					<changeblock type="modules_users_changepassword" />
 				</changecontent>
 			</page>
-			<page label="Mes adresses" id="MesAdresses">
-				<tag name="contextual_website_website_modules_customer_manageaddress" />
+			<page label="Mes adresses" id="MesAdresses" 
+				byTag="contextual_website_website_modules_customer_manageaddress">
 				<changecontent for="content-block">
 					<changeblock type="modules_customer_manageaddress" />
 				</changecontent>
 			</page>
-			<page label="Contact" id="Contact">
-				<tag name="contextual_website_website_modules_customer_contact-form" />
+			<page label="Contact" id="Contact"
+				byTag="contextual_website_website_modules_customer_contact-form">
 				<changecontent for="content-block">
 					<changeblock type="modules_form_form" __cmpref-refid="contactForm" />
 				</changecontent>
