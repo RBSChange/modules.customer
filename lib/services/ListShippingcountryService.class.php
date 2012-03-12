@@ -47,6 +47,7 @@ class customer_ListShippingcountryService extends BaseService
 	{
 		if ($shop instanceof catalog_persistentdocument_shop)
 		{
+			$billingArea = $shop->getCurrentBillingArea();
 			if (!isset($this->countries[$shop->getId()]))
 			{
 				$list = array();
@@ -57,7 +58,7 @@ class customer_ListShippingcountryService extends BaseService
 					$list[$country->getLabel()] = $country;
 				}
 				
-				foreach (catalog_TaxService::getInstance()->getZonesForShop($shop) as $zone) 
+				foreach (catalog_TaxService::getInstance()->getAllZonesForBillingArea($billingArea) as $zone) 
 				{
 					foreach (zone_CountryService::getInstance()->getCountries($zone) as $country)
 					{

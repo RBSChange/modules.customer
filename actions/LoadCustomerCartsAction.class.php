@@ -18,12 +18,15 @@ class customer_LoadCustomerCartsAction extends f_action_BaseJSONAction
 		
 		if (ModuleService::getInstance()->moduleExists('order'))
 		{
+			/* @var $cart order_CartInfo */
 			$cart = $customer->getCart();
 			if ($cart && $cart->getCartLineCount() != 0)
 			{
 				try
 				{
+					/* @var $shop catalog_persistentdocument_shop */
 					$shop = $cart->getShop();
+					$billingArea = $cart->getBillingArea();
 					$cartInfo = array();
 					
 					// Global infos.
@@ -42,7 +45,7 @@ class customer_LoadCustomerCartsAction extends f_action_BaseJSONAction
 					if ($cart->getShippingLabel())
 					{
 						$cartInfo['shippingLabel'] = $cart->getShippingLabel();
-						$cartInfo['shippingPrice'] = $shop->formatPrice($cart->getShippingPriceWithTax());
+						$cartInfo['shippingPrice'] = $billingArea->formatPrice($cart->getShippingPriceWithTax());
 					}
 					$cartInfo['billingLabel'] = '';
 					if ($cart->getBillingLabel())
@@ -52,15 +55,15 @@ class customer_LoadCustomerCartsAction extends f_action_BaseJSONAction
 					
 					$cartInfo['couponLabel'] = '';
 					
-					$cartInfo['totalWithoutTax'] = $shop->formatPrice($cart->getTotalWithoutTax());
-					$cartInfo['tvaAmount'] = $shop->formatPrice($cart->getTotalTax());
-					$cartInfo['totalWithTax'] = $shop->formatPrice($cart->getTotalWithTax());
+					$cartInfo['totalWithoutTax'] = $billingArea->formatPrice($cart->getTotalWithoutTax());
+					$cartInfo['tvaAmount'] = $billingArea->formatPrice($cart->getTotalTax());
+					$cartInfo['totalWithTax'] = $billingArea->formatPrice($cart->getTotalWithTax());
 					
 					// Lines.
 					$cartInfo['lines'] = array();
 					foreach ($cart->getCartLineArray() as $line)
 					{
-						$lineInfo = $this->getLineInfo($line, 'cart-line', $shop);
+						$lineInfo = $this->getLineInfo($line, 'cart-line', $billingArea);
 						if ($lineInfo !== null)
 						{
 							$cartInfo['lines'][] = $lineInfo;
@@ -82,10 +85,10 @@ class customer_LoadCustomerCartsAction extends f_action_BaseJSONAction
 	/**
 	 * @param order_CartLineInfo $line
 	 * @param String $type
-	 * @param catalog_persistentdocument_shop $shop
+	 * @param catalog_persistentdocument_billingarea $billingArea
 	 * @return Array<String => String>
 	 */
-	private function getLineInfo($line, $type, $shop)
+	private function getLineInfo($line, $type, $billingArea)
 	{
 		$lineInfo = array();
 		$lineInfo['linetype'] = $type;
@@ -103,11 +106,11 @@ class customer_LoadCustomerCartsAction extends f_action_BaseJSONAction
 			$lineInfo['availability'] = $product->getAvailability();
 		}
 
-		$lineInfo['unitPriceWithoutTax'] = $shop->formatPrice($line->getValueWithoutTax());
-		$lineInfo['unitPriceWithTax'] = $shop->formatPrice($line->getValueWithTax());
+		$lineInfo['unitPriceWithoutTax'] = $billingArea->formatPrice($line->getValueWithoutTax());
+		$lineInfo['unitPriceWithTax'] = $billingArea->formatPrice($line->getValueWithTax());
 		$lineInfo['quantity'] = $line->getQuantity();
-		$lineInfo['totalPriceWithoutTax'] = $shop->formatPrice($line->getTotalValueWithoutTax());
-		$lineInfo['totalPriceWithTax'] = $shop->formatPrice($line->getTotalValueWithTax());
+		$lineInfo['totalPriceWithoutTax'] = $billingArea->formatPrice($line->getTotalValueWithoutTax());
+		$lineInfo['totalPriceWithTax'] = $billingArea->formatPrice($line->getTotalValueWithTax());
 		
 		return $lineInfo;
 	}

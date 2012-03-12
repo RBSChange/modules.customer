@@ -456,17 +456,18 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			$query = order_OrderService::getInstance()->createQuery();
 			$query->add(Restrictions::eq('customer.id', $document->getId()));
 			$query->add(Restrictions::notin('orderStatus', array(order_OrderService::CANCELED)));
-			$query->setProjection(Projections::rowCount('count'), Projections::sum('totalAmountWithTax', 'amounttotal'), Projections::avg('totalAmountWithTax', 'amountaverage'), Projections::groupProperty('shopId'));
+			$query->setProjection(Projections::rowCount('count'), Projections::sum('totalAmountWithTax', 'amounttotal'), 
+					Projections::avg('totalAmountWithTax', 'amountaverage'), Projections::groupProperty('shopId'));
 			$rows = $query->find();
 			
 			foreach ($rows as $row)
 			{
-				$shop = DocumentHelper::getDocumentInstance($row['shopId']);
+				$shop = catalog_persistentdocument_shop::getInstanceById($row['shopId']);
 				$data['orders'][] = array(
 					'shop' => $shop->getLabelAsHtml(),
 					'count' => $row['count'],
-					'amounttotal' => $shop->formatPrice($row['amounttotal']),
-					'amountaverage' => $shop->formatPrice($row['amountaverage'])
+					'amounttotal' => $shop->getDefaultBillingArea()->formatPrice($row['amounttotal']),
+					'amountaverage' => $shop->getDefaultBillingArea()->formatPrice($row['amountaverage'])
 				);
 			}
 									

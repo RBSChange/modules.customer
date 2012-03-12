@@ -33,7 +33,7 @@ class customer_ListBillingcountryService extends customer_ListBaseCountryService
 			$shop = null;
 			Framework::exception($e);
 		}
-		$zone = ($shop !== null) ? $shop->getBillingZone() : zone_ZoneService::getInstance()->getDefaultZone();
+		$zone = ($shop !== null) ? $shop->getCurrentBillingArea()->getBillingAddressZone() : zone_ZoneService::getInstance()->getDefaultZone();
 		$this->setZone($zone);
 	}
 }
