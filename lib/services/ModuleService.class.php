@@ -21,9 +21,11 @@ class customer_ModuleService extends ModuleBaseService
 		}
 		return self::$instance;
 	}
+	
+	// Deprecated.
 
 	/**
-	 * @return String
+	 * @deprecated
 	 */
 	public function getUIDateFormat()
 	{
@@ -31,7 +33,7 @@ class customer_ModuleService extends ModuleBaseService
 	}
 	
 	/**
-	 * @return String
+	 * @deprecated
 	 */
 	public function getUIDateTimeFormat()
 	{

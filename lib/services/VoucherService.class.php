@@ -78,7 +78,7 @@ class customer_VoucherService extends customer_CouponService
 			}
 			
 			$linesAmount = 0.0;
-			foreach ($cart->getCartLineArray($value) as $cartLineInfo) 
+			foreach ($cart->getCartLineArray() as $cartLineInfo) 
 			{
 				$linesAmount += $cartLineInfo->getTotalValueWithTax();
 			}

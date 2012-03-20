@@ -14,77 +14,50 @@
 	
 	<website byTag="default_modules_website_default-website">
 		<topic byLabel="Compte client">
-			<page label="Mon compte" isIndexPage="true" id="MonCompte"
-				byTag="contextual_website_website_modules_customer_my-account">
+			<page label="Mon compte" isIndexPage="true" byTag="contextual_website_website_modules_customer_my-account">
 				<changecontent for="content-block">
 					<changeblock type="modules_customer_index" />
 				</changecontent>
 			</page>
-			<page label="Mes informations" id="MesInformations"
-				byTag="contextual_website_website_modules_customer_my-account-info">
+			<page label="Mes informations" byTag="contextual_website_website_modules_customer_my-account-info">
 				<changecontent for="content-block">
 					<changeblock type="modules_customer_editaccount" />
 				</changecontent>
 			</page>
-			<page label="Mon mot de passe" id="MonMotDePasse"
-				byTag="contextual_website_website_modules_customer_my-account-password">
+			<page label="Mon mot de passe" byTag="contextual_website_website_modules_customer_my-account-password">
 				<changecontent for="content-block">
 					<changeblock type="modules_users_changepassword" />
 				</changecontent>
 			</page>
-			<page label="Mes adresses" id="MesAdresses" 
-				byTag="contextual_website_website_modules_customer_manageaddress">
+			<page label="Mes adresses" byTag="contextual_website_website_modules_customer_manageaddress">
 				<changecontent for="content-block">
 					<changeblock type="modules_customer_manageaddress" />
 				</changecontent>
 			</page>
-			<page label="Contact" id="Contact"
-				byTag="contextual_website_website_modules_customer_contact-form">
+			<page label="Contact" byTag="contextual_website_website_modules_customer_contact-form">
 				<changecontent for="content-block">
 					<changeblock type="modules_form_form" __cmpref-refid="contactForm" />
 				</changecontent>
-			</page>
-						
+			</page>						
 			<permissions>
 				<frontendpermission module="website" role="AuthenticatedFrontUser" group-refid="customersGroup" />
 			</permissions>
 		</topic>
 		
-		<topic byLabel="Outils" label="Outils">
-			<page label="Mot de passe perdu">
-				<tag name="contextual_website_website_modules_customer_password-lost" />
+		<topic byLabel="Outils">
+			<page label="Mot de passe perdu" byTag="contextual_website_website_modules_customer_password-lost">
 				<changecontent for="content-block">
 					<changeblock type="modules_users_resetpassword" />
 				</changecontent>
 			</page>
-			<documentRef type="modules_website/page" byTag="contextual_website_website_modules_catalog_favorite-product-list" id="MesProduitsFavoris" />
 		</topic>
 			
-		<topic byLabel="Commande" label="Commande">
-			<page label="Créer un compte client">
-				<tag name="contextual_website_website_modules_customer_new-account" />
+		<topic byLabel="Commande">
+			<page label="Créer un compte client" byTag="contextual_website_website_modules_customer_new-account">
 				<changecontent for="content-block">
 					<changeblock type="modules_customer_createaccount" />
 				</changecontent>
 			</page>
 		</topic>
-		
-		<menus>
-			<menu label="Menu Compte client">
-				<tag name="contextual_website_website_modules_customer_menu-account" />
-				<menuitempage pageid="MonCompte" />
-				<menuitempage pageid="MesInformations" />
-				<menuitempage pageid="MonMotDePasse" />
-				<menuitempage pageid="MesAdresses" />
-			</menu>
-			<menu label="Menu Commandes">
-				<tag name="contextual_website_website_modules_customer_menu-orders" />
-				<menuitempage pageid="MesProduitsFavoris" />
-			</menu>
-			<menu label="Menu Services">
-				<tag name="contextual_website_website_modules_customer_menu-services" />
-				<menuitempage pageid="Contact" />
-			</menu>
-		</menus>
 	</website>
 </script>

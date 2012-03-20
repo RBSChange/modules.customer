@@ -2,14 +2,10 @@
 <tags>
 	<!-- public pages -->	
 	<tag label="&amp;modules.customer.bo.tags.New-account;" icon="add">contextual_website_website_modules_customer_new-account</tag>
-	<tag label="&amp;modules.customer.bo.tags.Password-lost;" icon="change-password">contextual_website_website_modules_customer_password-lost</tag>
 	<tag label="&amp;modules.customer.bo.tags.Contact-form;" icon="form">contextual_website_website_modules_customer_contact-form</tag>
-	
+
 	<!-- Restricted pages -->	
 	<tag label="&amp;modules.customer.bo.tags.My-account;" icon="customer">contextual_website_website_modules_customer_my-account</tag>
-	<tag label="&amp;modules.customer.bo.tags.Resend-confirmation-email;" icon="mail">contextual_website_website_modules_customer_resend-confirmation-email</tag>
-
-	<!-- My account menu -->
 	<tag label="&amp;modules.customer.bo.tags.My-account-info;" icon="edit">contextual_website_website_modules_customer_my-account-info</tag>
 	<tag label="&amp;modules.customer.bo.tags.My-account-password;" icon="change-password">contextual_website_website_modules_customer_my-account-password</tag>
 	<tag label="&amp;modules.customer.bo.tags.My-account-address;" icon="edit">contextual_website_website_modules_customer_manageaddress</tag>

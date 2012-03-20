@@ -5,10 +5,7 @@
  */
 class customer_persistentdocument_preferences extends customer_persistentdocument_preferencesbase 
 {
-
 	/**
-	 * @see f_persistentdocument_PersistentDocumentImpl::getLabel()
-	 *
 	 * @return String
 	 */
 	public function getLabel()

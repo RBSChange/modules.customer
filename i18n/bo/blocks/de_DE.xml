@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.customer.bo.blocks" lcid="de_DE">
-  <key id="create-account">Neues Konto</key>
-  <key id="edit-account">Konto bearneiten</key>
-  <key id="cart-list">Meine Warenkörbe</key>
-  <key id="menu">Kontomenü</key>
-  <key id="manage-address">Verwaltung der Adressen</key>
-  <key id="account-publication">Konto aktivieren</key>
-  <key id="index">Kontoindex</key>
-  <key id="resend-confirmation-email">BestätigungsE-mail erneut zuschicken</key>
-  <key id="customer-info">Kundeninformation</key>
+	<key id="create-account">Neues Konto</key>
+	<key id="edit-account">Konto bearneiten</key>
+	<key id="manage-address">Verwaltung der Adressen</key>
+	<key id="index">Kontoindex</key>
+	<key id="customer-info">Kundeninformation</key>
 </i18n>

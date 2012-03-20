@@ -51,7 +51,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	 */
 	public function isPublishable($document)
 	{
-		return parent::isPublishable($document) && ! $document->getNotActivatedReason();
+		return parent::isPublishable($document) && !$document->getNotActivatedReason();
 	}
 	
 	/**
@@ -557,16 +557,6 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		$nodeAttributes['birthday'] = date_DateFormat::format($customer->getBirthday(), 'D d M Y');
 		$nodeAttributes['email'] = $customer->getUser()->getEmail();
 		$nodeAttributes['date'] = date_DateFormat::format($customer->getCreationdate(), 'D d M Y');
-
-		// Activation.
-		if (!$customer->isPublished())
-		{
-			$nodeAttributes['activation'] = $customer->getNotActivatedReasonLabel();
-		}
-		else
-		{
-			$nodeAttributes['activation'] = LocaleService::getInstance()->transBO("m.customer.bo.general.account-activated", array('ucf'));
-		}
 		
 		// Website.
 		$website = $customer->getWebsite();
@@ -592,8 +582,6 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	{
 		$user = $customer->getUser();
 		
-		$dateTimeFormat = customer_ModuleService::getInstance()->getUIDateTimeFormat();
-		
 		$formProperties['activateTrust'] = ModuleService::getInstance()->getPreferenceValue('customer', 'activateTrust');
 		
 		// Identification.
@@ -610,7 +598,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		$identification['lastname'] = $user->getLastname();
 		$identification['birthday'] = date_DateFormat::format($customer->getUIBirthday(), 'd M Y');
 		$identification['email'] = $user->getEmail();
-		$identification['creationdate'] = date_DateFormat::format($customer->getUICreationdate(), $dateTimeFormat);
+		$identification['creationdate'] = date_Formatter::toDefaultDateTimeBO($customer->getUICreationdate());
 		$formProperties['identification'] = $identification;
 		
 		// Addresses.

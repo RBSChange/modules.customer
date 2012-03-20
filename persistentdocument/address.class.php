@@ -5,7 +5,6 @@
  */
 class customer_persistentdocument_address extends customer_persistentdocument_addressbase
 {
-	
 	/**
 	 * @param String $email
 	 * @return Boolean
@@ -34,8 +33,7 @@ class customer_persistentdocument_address extends customer_persistentdocument_ad
 	 */
 	public function getFullName($includeTitle = true)
 	{
-		return $this->getDocumentService()
-			->getFullName($this, $includeTitle);
+		return $this->getDocumentService()->getFullName($this, $includeTitle);
 	}
 	
 	/**
@@ -62,7 +60,6 @@ class customer_persistentdocument_address extends customer_persistentdocument_ad
 			$this->setTitleid(null);
 		}
 	}
-	
 
 	/**
 	 * @param zone_persistentdocument_country $country
@@ -112,7 +109,7 @@ class customer_persistentdocument_address extends customer_persistentdocument_ad
 				return DocumentHelper::getDocumentInstance($countryId, 'modules_zone/country');
 			}
 		}
-		catch ( Exception $e )
+		catch (Exception $e)
 		{
 			Framework::exception($e);
 		}
@@ -144,6 +141,5 @@ class customer_persistentdocument_address extends customer_persistentdocument_ad
 	{
 		$country = $this->getCountry();
 		return $country !== null ? $country->getCode() : null;
-	}	
-	
+	}
 }

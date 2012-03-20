@@ -21,6 +21,11 @@
 			<staticitem label="&amp;modules.customer.bo.blocks.dashboardgeneralstatistics.column-lastlogin;" value="lastlogin" />
 			<staticitem label="&amp;modules.customer.bo.blocks.dashboardgeneralstatistics.column-hasorder;" value="hasorder" />
 		</staticlist>
+		
+		<staticlist listid="modules_customer/noordercustomertype" label="Type de commande non passé" >
+			<staticitem label="&amp;modules.customer.bo.lists.noordercustomertype.No-order;" value="noorder" />
+			<staticitem label="&amp;modules.customer.bo.lists.noordercustomertype.No-paid-order;" value="nopaidorder" />
+		</staticlist>
 	</systemfolder>
 		
 	<systemfolder module="form" relatedmodule="customer">

@@ -22,24 +22,6 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 	}
 
 	/**
-	 * @return String
-	 */
-	public function getNotActivatedReasonLabel()
-	{
-		$reason = "";
-		switch ($this->getNotActivatedReason())
-		{
-			case customer_CustomerService::REASON_CONFIRM_ACCOUNT:
-				$reason = f_Locale::translate("&modules.customer.bo.general.Account-confirmation-required;");
-				break;
-			case customer_CustomerService::REASON_CONFIRM_EMAIL_ADDRESS :
-				$reason = f_Locale::translate("&modules.customer.bo.general.Email-address-confirmation-required;");
-				break;
-		}
-		return $reason;
-	}
-
-	/**
 	 * @return website_persistentdocument_website
 	 * @throws customer_Exception
 	 */
@@ -59,11 +41,11 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 	}
 
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public function canBeTrustedAsString()
 	{
-		return f_Locale::translate($this->getCanBeTrusted() ? '&modules.customer.bo.general.Yes;' : '&modules.customer.bo.general.No;');
+		return LocaleService::getInstance()->transFO('m.uixul.frontoffice.' . ($this->getCanBeTrusted() ? 'yes' : 'no'), array('ucf'));
 	}
 
 	/**
@@ -103,7 +85,7 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 		return unserialize($cart);
 	}
 	
-	//Wrapped user info
+	// Wrapped user info.
 	
 	/**
 	 * @return string
@@ -149,7 +131,7 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 		return $user !== null ? $user->getEmail() : null;
 	}
 	
-	//Deprecated
+	// Deprecated.
 	
 	/**
 	 * @deprecated use getCodeReference
@@ -165,5 +147,24 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 		$this->setCodeReference($codeRef);
 		$this->saveMeta();
 		return $codeRef;
+	}
+	
+	/**
+	 * @deprecated with no replacement
+	 */
+	public function getNotActivatedReasonLabel()
+	{
+		$ls = LocaleService::getInstance();
+		$reason = '';
+		switch ($this->getNotActivatedReason())
+		{
+			case customer_CustomerService::REASON_CONFIRM_ACCOUNT:
+				$reason = $ls->transFO('m.customer.bo.general.account-confirmation-required', array('ucf'));
+				break;
+			case customer_CustomerService::REASON_CONFIRM_EMAIL_ADDRESS :
+				$reason = $ls->transFO('m.customer.bo.general.email-address-confirmation-required', array('ucf'));
+				break;
+		}
+		return $reason;
 	}
 }

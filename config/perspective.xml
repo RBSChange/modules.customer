@@ -49,7 +49,6 @@
 			<columns>
 				<column name="email" flex="2" />
 				<column name="date" flex="1" />
-				<column name="activation" flex="4" />
 				<column name="website" flex="2" />
 			</columns>
 			<contextactions>
@@ -69,7 +68,6 @@
 			<columns>
 				<column name="email" flex="2" />
 				<column name="date" flex="1" />
-				<column name="activation" flex="4" />
 				<column name="website" flex="2" />
 			</columns>
 			<contextactions>
@@ -86,7 +84,6 @@
 			<columns>
 				<column name="email" flex="2" />
 				<column name="date" flex="1" />
-				<column name="activation" flex="4" />
 				<column name="website" flex="2" />
 			</columns>
 			<contextactions>

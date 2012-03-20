@@ -11,11 +11,10 @@ class customer_LoadCustomerCartsAction extends f_action_BaseJSONAction
 	 */
 	public function _execute($context, $request)
 	{
+		$ls = LocaleService::getInstance();
 		$customer = $this->getDocumentInstanceFromRequest($request);
-		$dateTimeFormat = customer_ModuleService::getInstance()->getUIDateTimeFormat();
 		
-		$result = array();
-		
+		$result = array();		
 		if (ModuleService::getInstance()->moduleExists('order'))
 		{
 			/* @var $cart order_CartInfo */
@@ -30,15 +29,15 @@ class customer_LoadCustomerCartsAction extends f_action_BaseJSONAction
 					$cartInfo = array();
 					
 					// Global infos.
-					$cartInfo['label'] = f_Locale::translateUI('&modules.customer.bo.doceditor.panel.carts.Title;', array('shop' => $shop->getLabel()));
+					$cartInfo['label'] = $ls->transBO('m.customer.bo.doceditor.panel.carts.title', array('ucf'), array('shop' => $shop->getLabel()));
 					$lastUpdate = $customer->getUILastCartUpdate($cart->getShopId());
 					if ($lastUpdate !== null)
 					{
-						$cartInfo['lastupdate'] = date_DateFormat::format($lastUpdate, $dateTimeFormat);
+						$cartInfo['lastupdate'] = date_Formatter::toDefaultDateTimeBO($lastUpdate);
 					}
 					else
 					{
-						$lastUpdate = f_Locale::translateUI('&modules.customer.bo.doceditor.panel.carts.Unknown;');
+						$lastUpdate = $ls->transBO('m.customer.bo.doceditor.panel.carts.unknown', array('ucf'));
 					}
 					
 					$cartInfo['shippingLabel'] = '';
@@ -95,7 +94,7 @@ class customer_LoadCustomerCartsAction extends f_action_BaseJSONAction
 		$product = $line->getProduct();
 		if ($product === null)
 		{
-			$lineInfo['productLabel'] = f_Locale::translateUI('&module.customer.bo.doceditor.panel.carts.Unexisting-product;');
+			$lineInfo['productLabel'] = LocaleService::getInstance()->transBO('m.customer.bo.doceditor.panel.carts.unexisting-product', array('ucf'));
 			$lineInfo['codeReference'] = '';
 			$lineInfo['availability'] = '';
 		}

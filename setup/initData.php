@@ -17,7 +17,6 @@ class customer_Setup extends object_InitDataSetup
 		{
 			$scriptReader = import_ScriptReader::getInstance();
        	 	$scriptReader->executeModuleScript('customer', 'init.xml');
-       	 	$scriptReader->executeModuleScript('customer', 'list.xml');
        	 	
 			$mbs = uixul_ModuleBindingService::getInstance();
 			$mbs->addImportInPerspective('catalog', 'customer', 'catalog.perspective');
