@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <blocks>
-	<block type="modules_customer_menu" icon="menu" label="&amp;modules.customer.bo.blocks.Menu;" />
 	<block type="modules_customer_index" icon="customer" label="&amp;modules.customer.bo.blocks.Index;" />
 	<block type="modules_customer_createaccount" icon="add" label="&amp;modules.customer.bo.blocks.Create-account;">
 		<parameters>
@@ -10,14 +9,11 @@
 	<block type="modules_customer_editaccount" icon="edit" label="&amp;modules.customer.bo.blocks.Edit-account;" />
 	<block type="modules_customer_manageaddress" icon="edit" label="&amp;modules.customer.bo.blocks.Manage-address;" />
 	<block type="modules_customer_Customerinfo" icon="customer" label="&amp;modules.customer.bo.blocks.Customer-info;" />
-	<block type="modules_customer_DashboardGeneralStatistics" display="" icon="statistics" dashboard="true" label="&amp;modules.customer.bo.blocks.DashboardGeneralStatistics.Title;">
+	<block type="modules_customer_DashboardGeneralStatistics" display="" icon="statistics" dashboard="true">
 		<parameters>
 			<parameter name="website" type="modules_website/website" min-occurs="1" />
 			<parameter name="usecharts" type="Boolean" default-value="true" />
 			<parameter name="columns" type="String" default-value="new,lastlogin,hasorder" max-occurs="-1" from-list="modules_customer/dashboardshopstatisticscolums" fieldtype="checklist" />
 		</parameters>
 	</block>
-	<!-- @deprecated (will be removed in 4.0) -->
-	<block type="modules_customer_ResendConfirmationEmail" icon="mail" label="&amp;modules.customer.bo.blocks.Resend-confirmation-email;" hidden="true" />
-	<block type="modules_customer_AccountPublication" icon="status-detail" label="&amp;modules.customer.bo.blocks.Account-publication;" hidden="true" />
 </blocks>
