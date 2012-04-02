@@ -75,12 +75,21 @@ class customer_TarifcustomergroupService extends customer_CustomergroupService
 	}
 	
 	/**
-	 * @param customer_persistentdocument_editablecustomergroup $group
+	 * @param customer_persistentdocument_tarifcustomergroup $group
 	 * @param customer_persistentdocument_customer $customer
 	 * @return Boolean
 	 */
 	protected function doIsMember($group, $customer)
 	{
 		return in_array($customer->getId(), $this->doGetMemberIds($group));
+	}
+	
+	/**
+	 * @param customer_persistentdocument_tarifcustomergroup $document
+	 * @return void
+	 */
+	protected function preDelete($document)
+	{
+		catalog_PriceService::getInstance()->deleteForProductId($document->getId());
 	}
 }

@@ -113,6 +113,15 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	
 	/**
 	 * @param customer_persistentdocument_customer $document
+	 * @return void
+	 */
+	protected function preDelete($document)
+	{
+		catalog_PriceService::getInstance()->deleteForProductId($document->getId());
+	}
+	
+	/**
+	 * @param customer_persistentdocument_customer $document
 	 * @return string
 	 */
 	public function generateCode($document)
