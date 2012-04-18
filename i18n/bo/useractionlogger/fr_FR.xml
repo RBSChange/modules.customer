@@ -26,7 +26,6 @@
   <key id="log-insert-voucher">log insert voucher</key>
   <key id="activate-voucher">activate.voucher {documentlabel}</key>
   <key id="log-activate-voucher">log activate voucher</key>
-  
   <key id="deactivated-voucherhandler">deactivated.voucherhandler {documentlabel}</key>
   <key id="log-deactivated-voucherhandler">log deactivated voucherhandler</key>
   <key id="reactivate-voucherhandler">reactivate.voucherhandler {documentlabel}</key>
@@ -37,4 +36,6 @@
   <key id="log-insert-voucherhandler">log insert voucherhandler</key>
   <key id="activate-voucherhandler">activate.voucherhandler {documentlabel}</key>
   <key id="log-activate-voucherhandler">log activate voucherhandler</key>
+  <key id="update-voucher">update.voucher {documentlabel}</key>
+  <key id="log-update-voucher">log update voucher</key>
 </i18n>

@@ -53,6 +53,19 @@ class customer_VoucherService extends customer_CouponService
 	}
 	
 	/**
+	 * @param customer_persistentdocument_voucher $document
+	 * @param Integer $parentNodeId Parent node ID where to save the document (optionnal).
+	 * @return void
+	 */
+	protected function preInsert($document, $parentNodeId)
+	{
+		if (!$document->getBillingAreaId() && $document->getShop())
+		{
+			$document->setBillingAreaId($document->getShop()->getDefaultBillingArea()->getId());
+		}
+	}
+
+	/**
 	 * @param customer_persistentdocument_voucher $coupon
 	 * @param order_CartInfo $cart
 	 * @return boolean
@@ -61,6 +74,17 @@ class customer_VoucherService extends customer_CouponService
 	{
 		if ($coupon !== null && $coupon->isPublished() && !$cart->isEmpty())
 		{
+			if (!DocumentHelper::equals($coupon->getShop(), $cart->getShop()))
+			{
+				return false;
+			}
+			
+			if ($coupon->getBillingAreaId() != $cart->getBillingAreaId())
+			{
+				return false;
+			}
+			
+			
 			$customer = $cart->getCustomer();
 			if ($customer === null || $customer->getDocumentService()->hasAlreadyUsedCoupon($customer, $coupon))
 			{
@@ -68,11 +92,6 @@ class customer_VoucherService extends customer_CouponService
 			}
 			
 			if ($coupon->getCustomerId() && $coupon->getCustomerId() !== $customer->getId())
-			{
-				return false;
-			}
-			
-			if ($coupon->getShop() !== null && $cart->getShopId() !== $coupon->getShop()->getId())
 			{
 				return false;
 			}
@@ -101,7 +120,16 @@ class customer_VoucherService extends customer_CouponService
 		{
 			$shop = $document->getShop();
 			$nodeAttributes['shop'] = $shop->getLabel();
-			$nodeAttributes['amount'] = $document->getAmount() . $shop->getCurrencySymbol();
+			$ba = $document->getBillingArea();
+			if ($ba instanceof catalog_persistentdocument_billingarea)
+			{
+				$nodeAttributes['amount'] = $ba->formatPrice($document->getAmount(), $shop->getLang());
+				$nodeAttributes['shop'] .= '/' . $ba->getLabel();
+			}
+			else
+			{
+				$nodeAttributes['amount'] = $document->getAmount();
+			}
 			$customer = $document->getCustomer();
 			$nodeAttributes['customer'] = ($customer !== null) ? $customer->getLabel() : '-';
 		}

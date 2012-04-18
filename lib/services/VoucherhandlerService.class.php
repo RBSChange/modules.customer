@@ -52,20 +52,6 @@ class customer_VoucherhandlerService extends order_CartmodifierService
 		return $this->pp->createQuery('modules_customer/voucherhandler', false);
 	}
 	
-	/**
-	 * @param customer_persistentdocument_voucherhandler $document
-	 * @param Integer $parentNodeId Parent node ID where to save the document.
-	 * @return void
-	 */
-	protected function preInsert($document, $parentNodeId = null)
-	{
-		parent::preInsert($document, $parentNodeId);
-		$document->setInsertInTree(false);
-		if ($document->getShop() === null)
-		{
-			$document->setShop(catalog_persistentdocument_shop::getInstanceById($parentNodeId));
-		}
-	}
 	
 	/**
 	 * @param order_persistentdocument_cartmodifier $modifier
@@ -85,8 +71,8 @@ class customer_VoucherhandlerService extends order_CartmodifierService
 		{
 			return false;
 		}
-		
-		return $modifier->getShop()->getId() == $cart->getShopId();
+		return DocumentHelper::equals($coupon->getShop(), $cart->getShop()) 
+			&& $coupon->getBillingAreaId() == $cart->getBillingAreaId();
 	}
 	
 	/**

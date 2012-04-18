@@ -9,4 +9,6 @@
 	<key id="amount">montant</key>
 	<key id="amount-help">Montant de la réduction accordée par ce bon.</key>
 	<key id="fieldgroup-validity">validité</key>
+	<key id="billingareaid">zone de facturation</key>
+	<key id="billingareaid-help">zone de facturation du panier</key>
 </i18n>

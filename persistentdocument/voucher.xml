@@ -6,5 +6,6 @@
 		<add name="shop" type="modules_catalog/shop" min-occurs="1" inverse="true" from-list="modules_catalog/shops" />
 		<add name="amount" type="Double" min-occurs="1" />
 		<add name="customerId" type="Integer" />
+    	<add name="billingAreaId" type="Integer" from-list="modules_catalog/billingareabyshop" />
 	</properties>
 </document>

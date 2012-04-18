@@ -7,8 +7,39 @@
 	</section>
 	<section labeli18n="modules.customer.document.voucher.Fieldgroup-validity">
 		<field name="shop" />
+		<field name="billingAreaId" required="true" />
 		<field name="customerId" type="document" allow="[modules_customer_customer]" moduleselector="customer" />
 		<field name="startpublicationdate" />
 		<field name="endpublicationdate" />
 	</section>
+	<xul>	
+		<javascript>	
+			<constructor><![CDATA[
+				var me = this;
+				this.addEventListener('fieldChanged', function () { me.updateBillingArea(); }, true);
+				this.addEventListener('panelInitializeComplete', function () { me.updateBillingArea(); }, true);
+			]]></constructor>
+			
+			<method name="updateBillingArea">
+				<body><![CDATA[
+					var shopId = this.fields.shop.value;
+					var billingArea = this.fields.billingAreaId;
+					if (billingArea.getAttribute('shopId') != shopId)
+					{
+						billingArea.setAttribute('shopId', shopId);
+						billingArea.setAttribute('nocache', 'true');
+						if (shopId != '')
+						{
+							billingArea.replaceItems({shopId: shopId});
+						}
+						else
+						{
+							billingArea.replaceItems({});
+						}
+						billingArea.removeAttribute('nocache');	
+					}	
+				]]></body>
+			</method>
+		</javascript>
+	</xul>
 </panel>
