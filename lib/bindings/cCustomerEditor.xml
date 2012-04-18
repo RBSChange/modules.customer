@@ -247,7 +247,7 @@
 						var carts = result.contents;
 						if (carts.length == 0)
 						{
-							this.showWarningMessage("&modules.customer.bo.general.No-cart-for-this-customer;");
+							this.showWarningMessage("${transui:m.customer.bo.general.no-cart-for-this-customer,js,ucf}");
 						}						
 						var cart;
 						var section;
@@ -352,6 +352,19 @@
 							<xul:label value="${transui:m.customer.bo.doceditor.panel.carts.Last-update,ucf,attr}" />
 							<xul:label xbl:inherits="value=lastupdate" />
 						</xul:row>
+						<xul:row xbl:inherits="hidden=couponLabelhidden">
+							<xul:label value="${transui:m.order.frontoffice.Coupon-name,ucf,attr}" />
+							<xul:label xbl:inherits="xbl:text=couponLabel" class="allow-text-selection" />
+						</xul:row>
+
+						<xul:row xbl:inherits="hidden=shippingLabelhidden">
+							<xul:label value="${transui:m.order.frontoffice.Shipping-mode,ucf,attr}" />
+							<xul:label xbl:inherits="xbl:text=shippingLabel" class="allow-text-selection" />
+						</xul:row>
+						<xul:row xbl:inherits="hidden=billingLabelhidden">
+							<xul:label value="${transui:m.order.frontoffice.Billing-mode,ucf,attr}" />
+							<xul:label xbl:inherits="xbl:text=billingLabel" class="allow-text-selection" />
+						</xul:row>
 						<xul:groupbox flex="1">
 							<xul:caption label="${transui:m.customer.bo.doceditor.panel.carts.Lines,ucf,attr}" />
 							<xul:grid class="cart-lines">
@@ -367,50 +380,47 @@
 								</xul:rows>
 							</xul:grid>
 						</xul:groupbox>
-						<xul:row xbl:inherits="hidden=couponLabelhidden">
-							<xul:label value="${transui:m.order.frontoffice.Coupon-name,ucf,attr}" />
-							<xul:label xbl:inherits="xbl:text=couponLabel" class="allow-text-selection" />
-						</xul:row>
-						<xul:row xbl:inherits="hidden=couponLabelhidden">
-							<xul:label value="${transui:m.order.frontoffice.Coupon-code,ucf,attr}" />
-							<xul:label xbl:inherits="xbl:text=couponCode" class="allow-text-selection" />
-						</xul:row>
-						<xul:row xbl:inherits="hidden=couponLabelhidden">
-							<xul:label value="${transui:m.order.frontoffice.Coupon-value,ucf,attr}" />
-							<xul:label xbl:inherits="xbl:text=couponValue" class="allow-text-selection" />
-						</xul:row>
-						<xul:row xbl:inherits="hidden=couponLabelhidden">
-							<xul:label value="${transui:m.customer.bo.doceditor.panel.carts.Modified-sub-total-without-tax,ucf,attr}" />
-							<xul:label xbl:inherits="xbl:text=subTotalWithCartModificatorsWithoutTax" class="allow-text-selection" />
-						</xul:row>
-						<xul:row xbl:inherits="hidden=couponLabelhidden">
-							<xul:label value="${transui:m.customer.bo.doceditor.panel.carts.Modified-sub-total-with-tax,ucf,attr}" />
-							<xul:label xbl:inherits="xbl:text=subTotalWithCartModificatorsWithTax" class="allow-text-selection" />
-						</xul:row>
-						<xul:row xbl:inherits="hidden=shippingLabelhidden">
-							<xul:label value="${transui:m.order.frontoffice.Shipping-mode,ucf,attr}" />
-							<xul:label xbl:inherits="xbl:text=shippingLabel" class="allow-text-selection" />
-						</xul:row>
-						<xul:row xbl:inherits="hidden=shippingLabelhidden">
-							<xul:label value="${transui:m.order.frontoffice.Shipping-fees,ucf,attr}" />
-							<xul:label xbl:inherits="xbl:text=shippingPrice" class="allow-text-selection" />
-						</xul:row>
-						<xul:row xbl:inherits="hidden=billingLabelhidden">
-							<xul:label value="${transui:m.order.frontoffice.Billing-mode,ucf,attr}" />
-							<xul:label xbl:inherits="xbl:text=billingLabel" class="allow-text-selection" />
+						<xul:row>
+							<xul:label value="${transui:m.customer.bo.doceditor.panel.carts.sub-total-without-tax,ucf,attr}" />
+							<xul:label xbl:inherits="xbl:text=subtotalWithoutTax" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
-							<xul:label value="${transui:m.customer.bo.doceditor.panel.carts.Total-without-tax,ucf,attr}" />
+							<xul:label value="${transui:m.customer.bo.doceditor.panel.carts.sub-total-with-tax,ucf,attr}" />
+							<xul:label xbl:inherits="xbl:text=subtotalWithTax" class="allow-text-selection" />
+						</xul:row>
+						
+						<xul:row xbl:inherits="hidden=discountTotalWithTaxhidden">
+							<xul:label value="${transui:m.customer.bo.doceditor.panel.carts.discount-total-with-tax,ucf,attr}" />
+							<xul:label xbl:inherits="xbl:text=discountTotalWithTax" class="allow-text-selection" />
+						</xul:row>						
+			
+						<xul:row xbl:inherits="hidden=feesTotalWithTaxhidden">
+							<xul:label value="${transui:m.customer.bo.doceditor.panel.carts.fees-total-with-tax,ucf,attr}" />
+							<xul:label xbl:inherits="xbl:text=feesTotalWithTax" class="allow-text-selection" />
+						</xul:row>	
+									
+						<xul:row>
+							<xul:label value="${transui:m.customer.bo.doceditor.panel.carts.total-without-tax,ucf,attr}" />
 							<xul:label xbl:inherits="xbl:text=totalWithoutTax" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
-							<xul:label value="${transui:m.customer.bo.doceditor.panel.carts.Tva-amount,ucf,attr}" />
+							<xul:label value="${transui:m.customer.bo.doceditor.panel.carts.tva-amount,ucf,attr}" />
 							<xul:label xbl:inherits="xbl:text=tvaAmount" class="allow-text-selection" />
 						</xul:row>
 						<xul:row>
 							<xul:label value="${transui:m.customer.bo.doceditor.panel.carts.Total-with-tax,ucf,attr}" />
 							<xul:label xbl:inherits="xbl:text=totalWithTax" class="allow-text-selection" />
 						</xul:row>
+						
+						<xul:row xbl:inherits="hidden=totalCreditNoteAmounthidden">
+							<xul:label value="${transui:m.customer.bo.doceditor.panel.carts.total-credit-note,ucf,attr}" />
+							<xul:label xbl:inherits="xbl:text=totalCreditNoteAmount" class="allow-text-selection" />
+						</xul:row>
+						
+						<xul:row>
+							<xul:label value="${transui:m.customer.bo.doceditor.panel.carts.total-amount,ucf,attr}" />
+							<xul:label xbl:inherits="xbl:text=totalAmount" class="allow-text-selection" />
+						</xul:row>													
 					</xul:rows>
 				</xul:grid>
 			</xul:groupbox>

@@ -10,8 +10,16 @@
   <key id="sub-total-with-tax">sous-total TTC</key>
   <key id="modified-sub-total-without-tax">sous-total réduit hors taxes</key>
   <key id="modified-sub-total-with-tax">sous-total réduit TTC</key>
+  
+  <key id="discount-total-with-tax">réductions TTC</key>
+  <key id="fees-total-with-tax">frais TTC</key>
+  
   <key id="total-without-tax">total hors taxes</key>
   <key id="total-with-tax">total TTC</key>
+  
+  <key id="total-credit-note">avoir</key>
+  <key id="total-amount">à payer</key>
+  
   <key id="unit-price">prix unitaire</key>
   <key id="total-price">prix total</key>
 </i18n>

@@ -29,7 +29,7 @@ class customer_LoadCustomerCartsAction extends f_action_BaseJSONAction
 					$cartInfo = array();
 					
 					// Global infos.
-					$cartInfo['label'] = $ls->transBO('m.customer.bo.doceditor.panel.carts.title', array('ucf'), array('shop' => $shop->getLabel()));
+					$cartInfo['label'] = $ls->transBO('m.customer.bo.doceditor.panel.carts.title', array('ucf'), array('shop' => $shop->getLabel() . ' / ' . $billingArea->getLabel()));
 					$lastUpdate = $customer->getUILastCartUpdate($cart->getShopId());
 					if ($lastUpdate !== null)
 					{
@@ -44,7 +44,6 @@ class customer_LoadCustomerCartsAction extends f_action_BaseJSONAction
 					if ($cart->getShippingLabel())
 					{
 						$cartInfo['shippingLabel'] = $cart->getShippingLabel();
-						$cartInfo['shippingPrice'] = $billingArea->formatPrice($cart->getShippingPriceWithTax());
 					}
 					$cartInfo['billingLabel'] = '';
 					if ($cart->getBillingLabel())
@@ -52,11 +51,33 @@ class customer_LoadCustomerCartsAction extends f_action_BaseJSONAction
 						$cartInfo['billingLabel'] = $cart->getBillingLabel();
 					}
 					
-					$cartInfo['couponLabel'] = '';
+					if ($cart->hasCoupon())
+					{
+						$cartInfo['couponLabel'] = $cart->getCoupon()->getLabel();
+					}
+					else
+					{
+						$cartInfo['couponLabel'] = '';
+					}
+					$cartInfo['subtotalWithoutTax'] = $billingArea->formatPrice($cart->getSubTotalWithoutTax());
+					$cartInfo['subtotalWithTax'] = $billingArea->formatPrice($cart->getSubTotalWithTax());
 					
-					$cartInfo['totalWithoutTax'] = $billingArea->formatPrice($cart->getTotalWithoutTax());
-					$cartInfo['tvaAmount'] = $billingArea->formatPrice($cart->getTotalTax());
+					$v = $cart->getDiscountTotalWithTax();
+					$cartInfo['discountTotalWithTax'] = ($v > 0) ?$billingArea->formatPrice($v) : '';
+					
+					
+					$v = $cart->getFeesTotalWithTax();
+					$cartInfo['feesTotalWithTax'] =  ($v > 0) ?$billingArea->formatPrice($v) : '';
+					
+					$cartInfo['totalWithoutTax'] = $billingArea->formatPrice($cart->getTotalWithoutTax());				
 					$cartInfo['totalWithTax'] = $billingArea->formatPrice($cart->getTotalWithTax());
+					
+					$cartInfo['tvaAmount'] = $billingArea->formatPrice($cart->getTotalTax());
+					
+					$v = $cart->getTotalCreditNoteAmount();
+					$cartInfo['totalCreditNoteAmount'] = ($v > 0) ?$billingArea->formatPrice($v) : '';
+					
+					$cartInfo['totalAmount'] = $billingArea->formatPrice($cart->getTotalAmount());
 					
 					// Lines.
 					$cartInfo['lines'] = array();

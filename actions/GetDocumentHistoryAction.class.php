@@ -13,7 +13,7 @@ class customer_GetDocumentHistoryAction extends generic_GetDocumentHistoryAction
 		$logs = parent::getLogs($document, null);
 		if ($document instanceof customer_persistentdocument_customer)
 		{
-			$logs = $this->mergeLogs($logs, parent::getLogs(null, $document->getUser()));
+			$logs = $this->mergeLogs(array($logs, parent::getLogs(null, $document->getUser())));
 		}
 		return $logs;
 	}
