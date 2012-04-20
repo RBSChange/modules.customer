@@ -73,8 +73,8 @@
   <key id="back-to-order">revenir à la commande</key>
   <key id="send-message-for-this-order">écrire un message à propos de cette commande</key>
   <key id="message-history-for-this-order" updated="true">historique des messages pour cette commande</key>
-  <key id="message-sent-by-customer">message envoyé à {companyName} le</key>
-  <key id="message-sent-by-company">message envoyé par {companyName} le</key>
+  <key id="message-sent-by-customer" updated="true">message envoyé au service client le</key>
+  <key id="message-sent-by-company" updated="true">message envoyé par le service client le</key>
   <key id="messages-for-order">messages relatifs à votre commande n°{orderId} du</key>
   <key id="write-messages-for-order">envoyer un message relatif à votre commande n°{orderId} du</key>
   <key id="your-message">votre message</key>
