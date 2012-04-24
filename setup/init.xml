@@ -43,8 +43,8 @@
 	</systemfolder>
 	
 	<rootfolder module="customer">
-		<tarifcustomergroupfolder />
-		<voucherfolder />
+		<tarifcustomergroupfolder byLabel="m.customer.document.tarifcustomergroupfolder.document-name"/>
+		<voucherfolder byLabel="m.customer.document.voucherfolder.document-name"/>
 	</rootfolder>
 	
 	<rootfolder module="preferences">
