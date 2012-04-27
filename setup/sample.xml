@@ -14,7 +14,7 @@
 	</websitefrontendgroup>
 
 	<rootfolder module="customer">
-		<tarifcustomergroupfolder byLabel="Groupes tarifaires">
+		<tarifcustomergroupfolder byLabel="m.customer.document.tarifcustomergroupfolder.document-name">
 			<tarifcustomergroup byLabel="Premier groupe tarifaire d'exemple" description="Premier groupe tarifaire d'exemple" id="tarif1" />
 			<tarifcustomergroup byLabel="Second groupe tarifaire d'exemple" description="Second groupe tarifaire d'exemple" id="tarif2" />
 		</tarifcustomergroupfolder>
