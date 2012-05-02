@@ -18,5 +18,6 @@
 	<actions>
 		<action name="createVoucherhandler" single="true" permission="Insert_voucherhandler" icon="add" 
 			labeli18n="m.customer.bo.actions.Createvoucherhandler"/>
+		<action name="activate" permission="Activate" icon="activate" labeli18n="m.uixul.bo.actions.Activate" />
 	</actions>
 </perspective>
