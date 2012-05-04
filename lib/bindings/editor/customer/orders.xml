@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<bindings xmlns="http://www.mozilla.org/xbl" xmlns:xbl="http://www.mozilla.org/xbl" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<!-- Orders panel -->
+	
+	<binding id="customer_orders" extends="layout.cDocumentEditor#cDocumentEditorPanel">
+		<content>
+			<xul:vbox flex="1">
+				<xul:cmessageinfo anonid="message" />
+				<xul:scrollbox anonid="scrollctrl" flex="1" class="editordatacontainer" orient="vertical">
+					<xul:vbox anonid="orders" />
+					<xul:spacer flex="1" />
+				</xul:scrollbox>					
+			</xul:vbox>
+		</content>
+		<implementation>
+			<method name="getInitializeParameters">
+				<body><![CDATA[
+					return {
+						action: "LoadCustomerOrders", 
+						cmpref: this.documentEditor.documentid, 
+						lang : Context.W_LANG
+					};
+				]]></body>
+			</method>
+						
+			<method name="fireInitializeComplete">
+				<parameter name="result" />
+				<body><![CDATA[
+					if (result.status != "OK")
+					{
+						this.showErrorMessage(result.contents.errorMessage);
+					}
+					else
+					{									
+						var orders = result.contents;
+						if (orders.length == 0)
+						{
+							this.showWarningMessage("&modules.customer.bo.general.No-order-for-this-customer;");
+						}
+						var order;
+						var section;
+						var ordersNode = document.getAnonymousElementByAttribute(this, "anonid", 'orders');
+						for (var i = 0; i < orders.length; i++)
+						{
+							order = orders[i];
+							section = ordersNode.childNodes[i];
+							if (section == null)
+							{
+								section = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'section');
+								section.className = 'order';
+								ordersNode.appendChild(section);
+							}
+							else
+							{
+								section.removeAttribute('collapsed');
+								section.removeChild(section.firstChild);
+							}
+							
+							
+							section.setAttribute('customerid', this.documentEditor.documentid);							
+							for (var name in order)
+							{
+								section.setAttribute(name, order[name]);
+								if (order[name] && order[name] != '')
+								{
+									section.removeAttribute(name+'hidden');
+								}
+								else
+								{
+									section.setAttribute(name+'hidden', true);
+								}
+							}
+							
+							// Comment admin.
+							section.appendChild(document.createTextNode(order['commentadmin']));
+						}
+						while (section = ordersNode.childNodes[i])
+						{
+							section.setAttribute('collapsed', 'true');
+							i++;
+						}
+					}
+					this.mInitialized = true;
+					this.gotoTop();
+				]]></body>
+			</method>
+		</implementation>
+	</binding>	
+
+	<binding id="orderSection">
+		<resources>
+			<stylesheet src="modules.uixul.cFieldsGroup" />
+			<stylesheet src="modules.customer.cCustomerEditor" />
+		</resources>
+		<content>
+			<xul:groupbox flex="1">
+				<xul:caption xbl:inherits="xbl:text=label" class="allow-text-selection" />
+				<xul:grid flex="1">
+					<xul:columns>
+						<xul:column />
+						<xul:column flex="1" />
+					</xul:columns>
+					<xul:rows>
+						<xul:row>
+							<xul:label value="${transui:m.order.document.order.Reference,ucf,attr}" />
+							<xul:label class="text-link" xbl:inherits="xbl:text=ordernumber" onclick="openOrder();"/>
+						</xul:row>
+						<xul:row>
+							<xul:label value="${transui:m.order.document.order.Creationdate,ucf,attr}" />
+							<xul:label class="allow-text-selection" xbl:inherits="xbl:text=creationdate" />
+						</xul:row>
+						<xul:row>
+							<xul:label value="${transui:m.order.document.order.OrderStatus,ucf,attr}" />
+							<xul:label class="allow-text-selection" anonid="order-status" xbl:inherits="xbl:text=status,class=statusClass" />
+						</xul:row>
+						<xul:row>
+							<xul:label value="${transui:m.order.document.order.TotalAmountWithoutTax,ucf,attr}" />
+							<xul:label class="allow-text-selection" xbl:inherits="xbl:text=totalamountwithouttax" />
+						</xul:row>
+						<xul:row>
+							<xul:label value="${transui:m.order.document.order.TotalAmountWithTax,ucf,attr}" />
+							<xul:label class="allow-text-selection" xbl:inherits="xbl:text=totalamountwithtax" />
+						</xul:row>
+						<xul:row xbl:inherits="hidden=commentadminhidden">
+							<xul:label value="${transui:m.order.document.order.Commentadmin,ucf,attr}" />
+							<xul:hbox flex="1">
+								<html:div class="allow-text-selection" flex="1" anonid="commentadmin" xmlns="http://www.w3.org/1999/xhtml"><xbl:children /></html:div>
+							</xul:hbox>
+						</xul:row>
+					</xul:rows>
+				</xul:grid>
+			</xul:groupbox>
+		</content>
+		<implementation>
+			<method name="openOrder">
+				<body><![CDATA[
+					var uri = ['order', 'openDocument', 'modules_order_order', this.id, 'properties'].join(',');
+					var from = ['customer', 'openDocument', 'modules_customer_customer', this.getAttribute('customerid'), 'orders'].join(',');
+					openActionUri(uri, from);					
+				]]></body>
+			</method>			
+		</implementation>
+	</binding>
+</bindings>
