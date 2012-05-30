@@ -40,7 +40,7 @@ class customer_ExportDynGroupAction extends f_action_BaseAction
 	
 		foreach (array_chunk($ids, 250) as $chunk)
 		{
-			$result = f_util_System::execHTTPScript($batchPath, array_merge(array($tmpFileName), $chunk));
+			$result = f_util_System::execScript($batchPath, array_merge(array($tmpFileName), $chunk));
 			if ($result !== 'OK')
 			{
 				Framework::error(__METHOD__ . " " . $result);
