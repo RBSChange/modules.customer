@@ -7,8 +7,8 @@
 	<binding fileName="modules/customer/persistentdocument/import/customer_binding.xml" />
 
  	<country byLabel="France" id="fr" />
- 	
- 	<editablelist listid="modules_users/title" >	
+
+	<editablelist listid="modules_users/title" >	
 		<item byLabel="M" id="mr"/>
 	</editablelist>
 	
@@ -16,24 +16,22 @@
 	
 	<group byWebsite-refid="defaultwebsite">
 		<user id="johndoe1" login="johndoe1"  email="john.doe1@rbs.fr" password="abcd123" label="John Doe1" >
-			<usersprofile firstname="John" lastname="Doe1"  titleid-refid="mr" registeredwebsiteid-refid="defaultwebsite" />
+			<usersprofile firstname="John" lastname="Doe1" titleid-refid="mr" registeredwebsiteid-refid="defaultwebsite" />
 		</user>
-		
+
 		<user id="johndoe2" login="johndoe2" email="john.doe2@rbs.fr" password="abcd123" label="John Doe2" >
-			<usersprofile firstname="John" lastname="Doe2"  titleid-refid="mr" registeredwebsiteid-refid="defaultwebsite" />
+			<usersprofile firstname="John" lastname="Doe2" titleid-refid="mr" registeredwebsiteid-refid="defaultwebsite" />
 		</user>
-		
 		<user id="johndoe3" login="johndoe3" email="john.doe3@rbs.fr" password="abcd123" label="John Doe3" >
-			<usersprofile firstname="John" lastname="Doe3"  titleid-refid="mr" registeredwebsiteid-refid="defaultwebsite" />
+			<usersprofile firstname="John" lastname="Doe3" titleid-refid="mr" registeredwebsiteid-refid="defaultwebsite" />
 		</user>
-		
 		<user id="joedoe" login="joedoe" email="joe.doe@rbs.fr" password="abcd123" label="John Doe" >
-			<usersprofile firstname="Joe" lastname="Doe"  titleid-refid="mr" registeredwebsiteid-refid="defaultwebsite" />
+			<usersprofile firstname="Joe" lastname="Doe" titleid-refid="mr" registeredwebsiteid-refid="defaultwebsite" />
 		</user>
 	</group>
 
 	<rootfolder module="customer">
-		<tarifcustomergroupfolder byLabel="Groupes tarifaires">
+		<tarifcustomergroupfolder byLabel="m.customer.document.tarifcustomergroupfolder.document-name">
 			<tarifcustomergroup byLabel="Premier groupe tarifaire d'exemple" description="Premier groupe tarifaire d'exemple" id="tarif1" />
 			<tarifcustomergroup byLabel="Second groupe tarifaire d'exemple" description="Second groupe tarifaire d'exemple" id="tarif2" />
 		</tarifcustomergroupfolder>

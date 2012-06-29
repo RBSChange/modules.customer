@@ -1,4 +1,4 @@
-<h2 change:h="">${trans:m.customer.frontoffice.addresses-title,ucf}</h2>
+<h1 change:h="">${trans:m.customer.frontoffice.addresses-title,ucf}</h1>
 <p class="normal">${trans:m.customer.frontoffice.addresses-instructions,ucf}</p>
 
 <p class="buttons">
@@ -7,38 +7,36 @@
 
 <ul change:messages=""></ul>
 
-<ol class="ecom-adresses">
-	<li class="current" tal:define="address customer/getDefaultAddress" tal:condition="address">
+<ul class="document-list">
+	<li tal:define="address customer/getDefaultAddress" tal:condition="address" class="${alternateclass:addrIndex}">
 		<tal:block tal:define="isDefault php: true" metal:use-macro="address" />
 	</li>
 	<tal:block tal:define="addresses customer/getSecondaryAddresses" tal:condition="addresses">
-		<li tal:repeat="address addresses" class="${php: repeat.address.odd ? 'odd' : 'even'}">
+		<li tal:repeat="address addresses" class="${alternateclass:addrIndex}">
 			<tal:block tal:define="isDefault php: false" metal:use-macro="address" />
 		</li>
 	</tal:block>	
-</ol>
+</ul>
 
 <tal:block metal:define-macro="address">
-	<dl>
-		<dt>${address/getLabel} <tal:block tal:condition="isDefault">(${trans:m.customer.frontoffice.is-default-address})</tal:block></dt>
-		<dd>${address/getTitle/getLabel} ${address/getFirstname} ${address/getLastname}</dd>
-		<dd>${address/getAddressLine1}</dd>
-		<dd tal:condition="address/getAddressLine2">${address/getAddressline2}</dd>
-		<dd tal:condition="address/getAddressLine3">${address/getAddressline3}</dd>
-		<dd>${address/getZipcode} ${address/getCity}</dd>
-		<dd tal:condition="address/getProvince">${address/getProvince}</dd>
-		<dd>${address/getCountry/getLabel}</dd>
-		<dd tal:condition="address/getPhone">${address/getPhonel}</dd>
-		<dd tal:condition="address/getFax">${address/getFax}</dd>
-		<dd tal:condition="address/getEmail">${address/getEmail}</dd>
-	</dl>	
-	
-	<form change:form="beanName address">
-		<p>
-			<input change:hiddeninput="name beanId" value="${address/getId}" />
-			<input class="button" change:submit="name edit" labeli18n="m.customer.frontoffice.edit" />
-			<input tal:condition="not: isDefault" class="button" change:submit="name delete" labeli18n="m.customer.frontoffice.delete" />
-			<input tal:condition="not: isDefault" class="button" change:submit="name setDefault" labeli18n="m.customer.frontoffice.set-default" />
-		</p>
-	</form>
+	<h2 change:h="">${structure address/getLabelAsHtml} <tal:block tal:condition="isDefault">(${trans:m.customer.frontoffice.is-default-address})</tal:block></h2>
+	<ul class="address normal-margin">
+		<li>${structure address/getTitle/getLabelAsHtml} ${structure address/getFirstnameAsHtml} ${structure address/getLastnameAsHtml}</li>
+		<li>${structure address/getAddressLine1AsHtml}</li>
+		<li tal:condition="address/getAddressLine2">${structure address/getAddressline2AsHtml}</li>
+		<li tal:condition="address/getAddressLine3">${structure address/getAddressline3AsHtml}</li>
+		<li>${structure address/getZipcodeAsHtml} ${structure address/getCityAsHtml}</li>
+		<li tal:condition="address/getProvince">${structure address/getProvinceAsHtml}</li>
+		<li>${structure address/getCountry/getLabelAsHtml}</li>
+		<li tal:condition="address/getPhone">${structure address/getPhoneAsHtml}</li>
+		<li tal:condition="address/getFax">${structure address/getFaxAsHtml}</li>
+		<li tal:condition="address/getEmail">${structure address/getEmailAsHtml}</li>
+	</ul>	
+	<ul class="normal">
+		<li><a change:actionlink="" action="edit" beanId="${address/getId}">${trans:m.customer.frontoffice.edit,ucf}</a></li>
+		<tal:block tal:condition="not: isDefault">
+			<li><a change:actionlink="" action="delete" beanId="${address/getId}">${trans:m.customer.frontoffice.delete,ucf}</a></li>
+			<li><a change:actionlink="" action="setDefault" beanId="${address/getId}">${trans:m.customer.frontoffice.set-default,ucf}</a></li>
+		</tal:block>
+	</ul>
 </tal:block>

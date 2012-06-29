@@ -1,6 +1,13 @@
-<p>
-	<a tal:condition="not: customer" change:link="tag ctx_customer_new-account" tal:content="trans:m.customer.frontoffice.customer-create,ucf"></a>
-	<a tal:condition="customer" change:link="tag ctx_customer_my-account">${user/getFullname}</a>
-	<a tal:condition="not: user" change:link="tag ctx_customer_my-account" tal:content="trans:m.customer.frontoffice.customer-connect,ucf"></a>
-	<a tal:condition="user" change:link="module users; action FrontendLogout" tal:content="trans:m.customer.frontoffice.customer-disconnect,ucf"></a>
-</p>
+<div class="scroll">
+	<h2 change:h="">${trans:m.customer.frontoffice.my-account,ucf}</h2>
+	<ul>
+		<li>
+			<a tal:condition="not: customer" change:link="tag ctx_customer_new-account">${trans:m.customer.frontoffice.customer-create,ucf}</a>
+			<a tal:condition="customer" change:link="tag ctx_customer_my-account">${user/getFullname}</a>
+		</li>
+		<li>
+			<a tal:condition="not: user" change:link="tag ctx_customer_my-account">${trans:m.customer.frontoffice.customer-connect,ucf}</a>
+			<a tal:condition="user" change:link="module users; action FrontendLogout">${trans:m.customer.frontoffice.customer-disconnect,ucf}</a>
+		</li>
+	</ul>
+</div>

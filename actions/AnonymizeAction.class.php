@@ -17,11 +17,11 @@ class customer_AnonymizeAction extends change_JSONAction
 		$anonymizer = customer_AnonymizerService::getInstance();
 		if ($anonymizer->isAnonymized($customer))
 		{
-			return $this->sendJSONError(f_Locale::translateUI('&modules.customer.bo.general.Already-anonymized;'));
+			return $this->sendJSONError(LocaleService::getInstance()->trans('m.customer.bo.general.already-anonymized', array('ucf')));
 		}
 		else if (!$anonymizer->canBeAnonymized($customer))
 		{
-			return $this->sendJSONError(f_Locale::translateUI('&modules.customer.bo.general.Has-not-finished-order;'));
+			return $this->sendJSONError(LocaleService::getInstance()->trans('m.customer.bo.general.has-not-finished-order', array('ucf')));
 		}
 		$anonymizer->anonymizeCustomer($customer);
 		

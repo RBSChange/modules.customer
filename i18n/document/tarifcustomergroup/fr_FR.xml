@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.customer.document.tarifcustomergroup" lcid="fr_FR">
-  <include id="m.customer.document.customergroup"/>
-  <key id="document-name">groupes tarifaire</key>
-  <key id="members">membres</key>
+	<include id="m.customer.document.customergroup" />
+	<key id="document-name">groupes tarifaire</key>
+	<key id="members">membres</key>
 </i18n>

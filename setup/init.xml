@@ -21,13 +21,18 @@
 			<staticitem label="&amp;modules.customer.bo.blocks.dashboardgeneralstatistics.column-lastlogin;" value="lastlogin" />
 			<staticitem label="&amp;modules.customer.bo.blocks.dashboardgeneralstatistics.column-hasorder;" value="hasorder" />
 		</staticlist>
+		
+		<staticlist listid="modules_customer/noordercustomertype" label="Type de commande non passé" >
+			<staticitem label="&amp;modules.customer.bo.lists.noordercustomertype.No-order;" value="noorder" />
+			<staticitem label="&amp;modules.customer.bo.lists.noordercustomertype.No-paid-order;" value="nopaidorder" />
+		</staticlist>
 	</systemfolder>
 		
 	<systemfolder module="form" relatedmodule="customer">
 		<form formid="modules_customer/contact" label="Formulaire de contact à propos d'un compte client" 
 			description="Ce formulaire est destiné à contacter le site à propos d'un compte client (problèmes de création de compte, de connexion, etc). Pour les messages spécifiques à une commande, un système de messagerie dédié est disponible à partir du compte client."
 			submitButton="Envoyer" confirmMessage="Nous avons bien enregistré votre demande."
-			markup="default" useBackLink="true" useCaptcha="true" messageSendingType="0">		
+			markup="default" useBackLink="true" useCaptcha="true" >		
 			<fieldtext fieldName="email" label="Votre adresse e-mail" required="true" multiline="false"
 				cols="50" maxlength="255" validators="blank:false;maxSize:255;minSize:0;email:true" />
 			<fieldtext fieldName="login" label="Votre login" required="false" multiline="false"
@@ -38,8 +43,8 @@
 	</systemfolder>
 	
 	<rootfolder module="customer">
-		<tarifcustomergroupfolder />
-		<voucherfolder />
+		<tarifcustomergroupfolder byLabel="m.customer.document.tarifcustomergroupfolder.document-name"/>
+		<voucherfolder byLabel="m.customer.document.voucherfolder.document-name"/>
 	</rootfolder>
 	
 	<rootfolder module="preferences">

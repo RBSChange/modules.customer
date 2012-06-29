@@ -1,27 +1,10 @@
 <?php
 /**
- * customer_VoucherhandlerService
- * @package modules.customer
+ * @package mdoules.customer
+ * @method customer_VoucherfolderService getInstance()
  */
 class customer_VoucherhandlerService extends order_CartmodifierService
 {
-	/**
-	 * @var customer_VoucherhandlerService
-	 */
-	private static $instance;
-
-	/**
-	 * @return customer_VoucherhandlerService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-
 	/**
 	 * @return customer_persistentdocument_voucherhandler
 	 */
@@ -38,7 +21,7 @@ class customer_VoucherhandlerService extends order_CartmodifierService
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery('modules_customer/voucherhandler');
+		return $this->getPersistentProvider()->createQuery('modules_customer/voucherhandler');
 	}
 	
 	/**
@@ -49,23 +32,9 @@ class customer_VoucherhandlerService extends order_CartmodifierService
 	 */
 	public function createStrictQuery()
 	{
-		return $this->pp->createQuery('modules_customer/voucherhandler', false);
+		return $this->getPersistentProvider()->createQuery('modules_customer/voucherhandler', false);
 	}
 	
-	/**
-	 * @param customer_persistentdocument_voucherhandler $document
-	 * @param Integer $parentNodeId Parent node ID where to save the document.
-	 * @return void
-	 */
-	protected function preInsert($document, $parentNodeId = null)
-	{
-		parent::preInsert($document, $parentNodeId);
-		$document->setInsertInTree(false);
-		if ($document->getShop() === null)
-		{
-			$document->setShop(catalog_persistentdocument_shop::getInstanceById($parentNodeId));
-		}
-	}
 	
 	/**
 	 * @param order_persistentdocument_cartmodifier $modifier
@@ -85,8 +54,8 @@ class customer_VoucherhandlerService extends order_CartmodifierService
 		{
 			return false;
 		}
-		
-		return $modifier->getShop()->getId() == $cart->getShopId();
+		return DocumentHelper::equals($coupon->getShop(), $cart->getShop()) 
+			&& $coupon->getBillingAreaId() == $cart->getBillingAreaId();
 	}
 	
 	/**
@@ -116,7 +85,7 @@ class customer_VoucherhandlerService extends order_CartmodifierService
 			{
 				$discountInfo = new order_DiscountInfo();
 				$discountInfo->setId($modifier->getId());
-				$discountInfo->setLabel(LocaleService::getInstance()->transFO('m.customer.document.voucherhandler.label-fo', array('ucf', 'lab')));
+				$discountInfo->setLabel(LocaleService::getInstance()->trans('m.customer.document.voucherhandler.label-fo', array('ucf', 'lab')));
 				$cart->addDiscount($discountInfo);
 			}
 			$valueWithTax = $cart->getSubTotalWithTax();

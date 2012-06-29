@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.customer.bo.lists.noordercustomertype" lcid="en_GB">
-  <key id="no-order">no order</key>
-  <key id="no-paid-order">no paid order</key>
+	<key id="no-order">no order</key>
+	<key id="no-paid-order">no paid order</key>
 </i18n>

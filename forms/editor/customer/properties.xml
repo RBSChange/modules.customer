@@ -15,12 +15,10 @@
 	<vbox class="adresses" />
 	<xul>
 		<javascript>
-			<field name="mPropIds">['website', 'title', 'firstname', 'lastname', 'email', 'creationdate']</field>  
-		
+			<field name="mPropIds">['website', 'title', 'firstname', 'lastname', 'email', 'creationdate']</field>
 			<constructor><![CDATA[
 				this.extendMethod("fireInitializeComplete", this.fireInitializeCompleteExtend);
 			]]></constructor>
-
 			<method name="fireInitializeCompleteExtend">
 				<parameter name="result" />
 				<body><![CDATA[
@@ -93,5 +91,5 @@
 				]]></body>
 			</method>
 		</javascript>
-	</xul>	 		
+	</xul>
 </panel>

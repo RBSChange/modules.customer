@@ -18,7 +18,7 @@ class customer_CreationDateFilter extends f_persistentdocument_DocumentFilterImp
 	}
 	
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public static function getDocumentModelName()
 	{

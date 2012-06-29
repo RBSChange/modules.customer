@@ -2,7 +2,7 @@
 class customer_ProductOrderedFilter extends f_persistentdocument_DocumentFilterImpl
 {
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public static function getDocumentModelName()
 	{
@@ -12,7 +12,7 @@ class customer_ProductOrderedFilter extends f_persistentdocument_DocumentFilterI
 	public function __construct()
 	{
 		$info = new BeanPropertyInfoImpl('product', BeanPropertyType::DOCUMENT, 'catalog_persistentdocument_product');
-		$info->setLabelKey('&modules.order.bo.documentfilters.parameter.cart-product;');
+		$info->setLabelKey('m.order.bo.documentfilters.parameter.cart-product');
 		$parameter = new f_persistentdocument_DocumentFilterValueParameter($info);
 		$parameter->setCustomPropertyAttribute('product', 'dialog', 'productselector');
 		$allow = DocumentHelper::expandAllowAttribute('[modules_catalog_product],[modules_catalog_declinedproduct]');

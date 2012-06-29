@@ -4,11 +4,30 @@
 		<field name="label" hidehelp="true" />
 		<field name="description" hidehelp="true" />
 		<field name="exclusive" />
-		<field name="excludeModifier" moduleselector="catalog" allow="modules_customer_voucherhandler"/>
+		<field name="excludeModifier" moduleselector="catalog" allow="modules_customer_voucherhandler" />
 		<field name="applicationPriority" />
 	</section>
 	<section labeli18n="m.customer.document.voucherhandler.application-conditions">
+		<fieldinput name="shop" type="hidden" />
+		<field name="billingArea" required="true" />
 		<field name="startpublicationdate" hidehelp="true" />
 		<field name="endpublicationdate" hidehelp="true" />
 	</section>
+	<xul>
+		<javascript>
+			<constructor><![CDATA[
+				var me = this;
+				this.addEventListener('panelInitializeComplete', function () { me.updateBillingArea(); }, true);
+			]]></constructor>
+			<method name="updateBillingArea">
+				<body><![CDATA[
+					var shop = this.fields.shop;
+					var billingArea = this.fields.billingArea;
+					billingArea.setAttribute('nocache', 'true');
+					billingArea.replaceItems({shopId: shop.value});
+					billingArea.removeAttribute('nocache');	
+				]]></body>
+			</method>
+		</javascript>
+	</xul>
 </panel>

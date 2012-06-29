@@ -1,17 +1,15 @@
 <?php
 /**
- * customer_BlockEditaccountAction
  * @package modules.customer
  */
 class customer_BlockEditaccountAction extends website_BlockAction
 {
 	/**
-	 * @see website_BlockAction::execute()
 	 * @param f_mvc_Request $request
 	 * @param f_mvc_Response $response
-	 * @return String
+	 * @return string
 	 */
-	function execute($request, $response)
+	public function execute($request, $response)
 	{
 		if ($this->isInBackofficeEdition())
 		{
@@ -36,7 +34,7 @@ class customer_BlockEditaccountAction extends website_BlockAction
 	 * @param customer_persistentdocument_customer $customer
 	 * @return boolean
 	 */
-	function validateSaveInput($request, $customer)
+	public function validateSaveInput($request, $customer)
 	{
 		$validationRules = array_merge(
 			BeanUtils::getBeanValidationRules('customer_persistentdocument_customer'), 
@@ -50,9 +48,9 @@ class customer_BlockEditaccountAction extends website_BlockAction
 	 * @param f_mvc_Request $request
 	 * @param f_mvc_Response $response
 	 * @param customer_persistentdocument_customer $customer
-	 * @return String
+	 * @return string
 	 */
-	function executeSave($request, $response, customer_persistentdocument_customer $customer)
+	public function executeSave($request, $response, customer_persistentdocument_customer $customer)
 	{
 		$currentCustomer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if (!DocumentHelper::equals($currentCustomer, $customer))
@@ -62,7 +60,7 @@ class customer_BlockEditaccountAction extends website_BlockAction
 		$user = $customer->getUser();
 		$user->save();
 		$customer->save();
-		$this->addMessage(f_Locale::translate('&modules.customer.frontoffice.Updating-success;'));
+		$this->addMessage(LocaleService::getInstance()->trans('m.customer.frontoffice.updating-success', array('ucf')));
 		return 'Save';
 	}
 }

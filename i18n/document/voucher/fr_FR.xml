@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.customer.document.voucher" lcid="fr_FR">
 	<include id="m.customer.document.coupon" />
 	<key id="document-name">bon de réduction</key>
@@ -9,4 +9,6 @@
 	<key id="amount">montant</key>
 	<key id="amount-help">Montant de la réduction accordée par ce bon.</key>
 	<key id="fieldgroup-validity">validité</key>
+	<key id="billingareaid">zone de facturation</key>
+	<key id="billingareaid-help">zone de facturation du panier</key>
 </i18n>

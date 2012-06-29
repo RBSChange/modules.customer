@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.customer.bo.general.column" lcid="en_GB">
-  <key id="label">label</key>
-  <key id="email">email address</key>
-  <key id="date">registration date</key>
-  <key id="activation">activation</key>
-  <key id="website">website</key>
-  <key id="description">description</key>
-  <key id="amount">amount</key>
-  <key id="code">code</key>
-  <key id="customer">customer</key>
-  <key id="shop">shop</key>
+	<key id="label">label</key>
+	<key id="email">email address</key>
+	<key id="date">registration date</key>
+	<key id="activation">activation</key>
+	<key id="website">website</key>
+	<key id="description">description</key>
+	<key id="amount">amount</key>
+	<key id="code">code</key>
+	<key id="customer">customer</key>
+	<key id="shop">shop</key>
 </i18n>

@@ -1,27 +1,10 @@
 <?php
 /**
- * @author intportg
- * @package modules.customer
+ * @package mdoules.customer
+ * @method customer_GroupFeederService getInstance()
  */
 class customer_GroupFeederService extends users_GroupFeederBaseService
 {
-	/**
-	 * @var customer_FrontendgroupFeederService
-	 */
-	private static $instance;
-
-	/**
-	 * @return customer_FrontendgroupFeederService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}	
-
 	/**
 	 * @param users_persistentdocument_dynamicgroup $group
 	 */

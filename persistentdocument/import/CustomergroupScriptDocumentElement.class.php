@@ -5,15 +5,15 @@
  */
 class customer_CustomergroupScriptDocumentElement extends import_ScriptDocumentElement
 {
-    /**
-     * @return customer_persistentdocument_customergroup
-     */
-    protected function initPersistentDocument()
-    {
-    	return customer_CustomergroupService::getInstance()->getNewDocumentInstance();
-    }
-    
-    /**
+	/**
+	 * @return customer_persistentdocument_customergroup
+	 */
+	protected function initPersistentDocument()
+	{
+		return customer_CustomergroupService::getInstance()->getNewDocumentInstance();
+	}
+	
+	/**
 	 * @return f_persistentdocument_PersistentDocumentModel
 	 */
 	protected function getDocumentModel()

@@ -11,24 +11,26 @@ class customer_LoadCustomerOrdersAction extends change_JSONAction
 	 */
 	public function _execute($context, $request)
 	{
-		$customer = $this->getDocumentInstanceFromRequest($request);
+		$customer = $this->getDocumentInstanceFromRequest($request);		
 		$result = array();
 		
 		if (ModuleService::getInstance()->moduleExists('order'))
 		{
-			$ls = LocaleService::getInstance();
 			$orders = order_OrderService::getInstance()->getByCustomer($customer);
 			foreach ($orders as $order)
-			{	
+			{
+				/* @var $order order_persistentdocument_order */
 				$orderInfo = array();
-				$orderInfo['id'] = $order->getId();			
-				$orderInfo['label'] = $ls->transBO('m.customer.bo.general.order-title', array('ucf'), array('number' => $order->getId()));			
+				$orderInfo['id'] = $order->getId();
+				$orderInfo['label'] = LocaleService::getInstance()->trans('m.customer.bo.general.order-title', array('ucf'), array('number' => $order->getId()));			
 				$orderInfo['ordernumber'] = $order->getOrderNumber();			
 				$orderInfo['creationdate'] = date_Formatter::toDefaultDateTimeBO($order->getUICreationdate());			
 				$orderInfo['statusClass'] = str_replace('_', '-', strtolower($order->getOrderStatus()));
 				$orderInfo['status'] = $order->getBoOrderStatusLabel();
-				$orderInfo['totalamountwithtax'] = catalog_PriceHelper::applyFormat($order->getTotalAmountWithTax(), $order->getPriceFormat());
-				$orderInfo['totalamountwithouttax'] = catalog_PriceHelper::applyFormat($order->getTotalAmountWithoutTax(), $order->getPriceFormat());
+				
+				$pf = catalog_PriceFormatter::getInstance();	
+				$orderInfo['totalamountwithtax'] = $pf->applyFormat($order->getTotalAmountWithTax(), $order->getPriceFormat(), $order->getCurrencyCode());
+				$orderInfo['totalamountwithouttax'] = $pf->applyFormat($order->getTotalAmountWithoutTax(), $order->getPriceFormat(), $order->getCurrencyCode());
 				$orderInfo['commentadmin'] = $order->getCommentadmin();			
 				$result[] = $orderInfo;
 			}

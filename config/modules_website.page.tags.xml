@@ -1,16 +1,11 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <tags>
-	<!-- public pages -->	
-	<tag labeli18n="m.customer.bo.tags.new-account" icon="add">contextual_website_website_modules_customer_new-account</tag>
-	<tag labeli18n="m.customer.bo.tags.password-lost" icon="change-password">contextual_website_website_modules_customer_password-lost</tag>
-	<tag labeli18n="m.customer.bo.tags.contact-form" icon="form">contextual_website_website_modules_customer_contact-form</tag>
-	
-	<!-- Restricted pages -->	
-	<tag labeli18n="m.customer.bo.tags.my-account" icon="customer">contextual_website_website_modules_customer_my-account</tag>
-	<tag labeli18n="m.customer.bo.tags.resend-confirmation-email" icon="mail">contextual_website_website_modules_customer_resend-confirmation-email</tag>
-
-	<!-- My account menu -->
-	<tag labeli18n="m.customer.bo.tags.my-account-info" icon="edit">contextual_website_website_modules_customer_my-account-info</tag>
-	<tag labeli18n="m.customer.bo.tags.my-account-password" icon="change-password">contextual_website_website_modules_customer_my-account-password</tag>
-	<tag labeli18n="m.customer.bo.tags.my-account-address" icon="edit">contextual_website_website_modules_customer_manageaddress</tag>
+	<!-- public pages -->
+	<tag icon="add" labeli18n="m.customer.bo.tags.new-account">contextual_website_website_modules_customer_new-account</tag>
+	<tag icon="form" labeli18n="m.customer.bo.tags.contact-form">contextual_website_website_modules_customer_contact-form</tag>
+	<!-- Restricted pages -->
+	<tag icon="customer" labeli18n="m.customer.bo.tags.my-account">contextual_website_website_modules_customer_my-account</tag>
+	<tag icon="edit" labeli18n="m.customer.bo.tags.my-account-info">contextual_website_website_modules_customer_my-account-info</tag>
+	<tag icon="change-password" labeli18n="m.customer.bo.tags.my-account-password">contextual_website_website_modules_customer_my-account-password</tag>
+	<tag icon="edit" labeli18n="m.customer.bo.tags.my-account-address">contextual_website_website_modules_customer_manageaddress</tag>
 </tags>

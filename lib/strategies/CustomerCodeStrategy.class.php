@@ -3,7 +3,7 @@ interface customer_CustomerCodeStrategy
 {
 	/**
 	 * @param customer_persistentdocument_customer $customer
-	 * @return String
+	 * @return string
 	 */
 	public function generate($customer);
 }

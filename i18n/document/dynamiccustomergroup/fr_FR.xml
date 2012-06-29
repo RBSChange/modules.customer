@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.customer.document.dynamiccustomergroup" lcid="fr_FR">
-  <include id="m.customer.document.customergroup"/>
-  <key id="document-name">groupes de clients dynamique</key>
-  <key id="query">requête</key>
-  <key id="query-help">la requête permettant de retrouver les membres de ce groupe.</key>
+	<include id="m.customer.document.customergroup" />
+	<key id="document-name">groupes de clients dynamique</key>
+	<key id="query">requête</key>
+	<key id="query-help">la requête permettant de retrouver les membres de ce groupe.</key>
 </i18n>

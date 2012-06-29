@@ -1,27 +1,10 @@
 <?php
 /**
- * customer_DynamiccustomergroupService
- * @package customer
+ * @package mdoules.customer
+ * @method customer_DynamiccustomergroupService getInstance()
  */
 class customer_DynamiccustomergroupService extends customer_CustomergroupService
 {
-	/**
-	 * @var customer_DynamiccustomergroupService
-	 */
-	private static $instance;
-
-	/**
-	 * @return customer_DynamiccustomergroupService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-
 	/**
 	 * @return customer_persistentdocument_dynamiccustomergroup
 	 */
@@ -38,7 +21,7 @@ class customer_DynamiccustomergroupService extends customer_CustomergroupService
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery('modules_customer/dynamiccustomergroup');
+		return $this->getPersistentProvider()->createQuery('modules_customer/dynamiccustomergroup');
 	}
 	
 	/**
@@ -49,7 +32,7 @@ class customer_DynamiccustomergroupService extends customer_CustomergroupService
 	 */
 	public function createStrictQuery()
 	{
-		return $this->pp->createQuery('modules_customer/dynamiccustomergroup', false);
+		return $this->getPersistentProvider()->createQuery('modules_customer/dynamiccustomergroup', false);
 	}
 	
 	/**
@@ -64,7 +47,7 @@ class customer_DynamiccustomergroupService extends customer_CustomergroupService
 		
 	/**
 	 * @param customer_persistentdocument_dynamiccustomergroup $group
-	 * @return Integer[]
+	 * @return integer[]
 	 */
 	protected function doGetMemberIds($group)
 	{
@@ -75,7 +58,7 @@ class customer_DynamiccustomergroupService extends customer_CustomergroupService
 	/**
 	 * @param customer_persistentdocument_dynamiccustomergroup $group
 	 * @param customer_persistentdocument_customer $customer
-	 * @return Boolean
+	 * @return boolean
 	 */
 	protected function doIsMember($group, $customer)
 	{

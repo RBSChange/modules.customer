@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.customer.bo.actions" lcid="fr_FR">
 	<key id="create_">créer</key>
 	<key id="createtarif_">créer</key>
@@ -13,5 +13,7 @@
 	<key id="confirm-anonymize">Attention : cette opération est irréversible. Êtes-vous sûr de vouloir continuer ?</key>
 	<key id="createvoucher">créer un bon de réduction</key>
 	<key id="createvoucherhandler">créer un gestionnaire de bons de réduction</key>
-	<key id="exportdyngroup">exporter les clients du group</key>
+	<key id="exportdyngroup">exporter les clients du groupe</key>
+	<key id="website-already-contains-customer-pages">Ce site contient déjà les pages spécifiques de la rubrique Compte client.</key>
+	<key id="website-does-not-contain-customer-topic">Ce site ne contient pas de rubrique Compte client.</key>
 </i18n>

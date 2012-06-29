@@ -1,32 +1,19 @@
-<?xml version="1.0"?>
-<panel>	
-	<section name="properties" linkedtab="properties" actiontexti18n="m.uixul.bo.doceditor.section.action.view"
-		labeli18n="m.uixul.bo.doceditor.section.properties" 
-		image="{IconsBase}/small/edit-properties.png">
+<?xml version="1.0" encoding="UTF-8"?>
+<panel>
+	<section name="properties" linkedtab="properties" actiontexti18n="m.uixul.bo.doceditor.section.action.view" labeli18n="m.uixul.bo.doceditor.section.properties" image="{IconsBase}/small/edit-properties.png">
 		<property name="fullName" labeli18n="m.customer.bo.doceditor.property.full-name" />
 		<property name="codeReference" labeli18n="m.customer.bo.doceditor.property.code" />
 		<property name="creationdate" labeli18n="m.uixul.bo.doceditor.property.creationdate" />
 	</section>
-										
-	<section name="publication" linkedtab="publication" labeli18n="m.uixul.bo.doceditor.section.publication" 
-		image="{IconsBase}/small/status.png">
-		<property name="status" labeli18n="m.uixul.bo.doceditor.property.status"/>
-		<property name="workflow" labeli18n="m.uixul.bo.doceditor.property.workflow"/>
+	<section name="publication" linkedtab="publication" labeli18n="m.uixul.bo.doceditor.section.publication" image="{IconsBase}/small/status.png">
+		<property name="status" labeli18n="m.uixul.bo.doceditor.property.status" />
+		<property name="workflow" labeli18n="m.uixul.bo.doceditor.property.workflow" />
 	</section>
-		
-	<section name="history" linkedtab="history" actiontexti18n="m.uixul.bo.doceditor.section.action.view"
-		labeli18n="m.uixul.bo.doceditor.section.history" 
-		image="{IconsBase}/small/history.png">
-		<property name="modificationdate" labeli18n="m.uixul.bo.doceditor.property.modificationdate"/>
+	<section name="history" linkedtab="history" actiontexti18n="m.uixul.bo.doceditor.section.action.view" labeli18n="m.uixul.bo.doceditor.section.history" image="{IconsBase}/small/history.png">
+		<property name="modificationdate" labeli18n="m.uixul.bo.doceditor.property.modificationdate" />
 	</section>
-		
-	<section name="carts" linkedtab="carts" actiontexti18n="m.uixul.bo.doceditor.section.action.view"
-		labeli18n="m.customer.bo.doceditor.section.carts" 
-		image="{IconsBase}/small/cart.png">
+	<section name="carts" linkedtab="carts" actiontexti18n="m.uixul.bo.doceditor.section.action.view" labeli18n="m.customer.bo.doceditor.section.carts" image="{IconsBase}/small/cart.png">
 	</section>
-			
-	<section name="orders" linkedtab="orders" actiontexti18n="m.uixul.bo.doceditor.section.action.view"
-		labeli18n="m.customer.bo.doceditor.section.orders" 
-		image="{IconsBase}/small/order.png">
-	</section>					
+	<section name="orders" linkedtab="orders" actiontexti18n="m.uixul.bo.doceditor.section.action.view" labeli18n="m.customer.bo.doceditor.section.orders" image="{IconsBase}/small/order.png">
+	</section>
 </panel>

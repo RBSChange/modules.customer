@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.customer.bo.doceditor.panel.carts" lcid="en_GB">
-  <key id="title">basket for the ″{shop}″ shop</key>
-  <key id="unknown">unknown</key>
-  <key id="unexisting-product">this product no longer exists!</key>
-  <key id="lines">rows</key>
-  <key id="last-update">latest update</key>
-  <key id="tva-amount">VAT</key>
-  <key id="sub-total-without-tax">sub-total without tax</key>
-  <key id="sub-total-with-tax">sub-total incl. taxes</key>
-  <key id="modified-sub-total-without-tax">reduced sub-total without tax</key>
-  <key id="modified-sub-total-with-tax">reduced sub-total incl. taxes</key>
-  <key id="total-without-tax">total without tax</key>
-  <key id="total-with-tax">total incl. taxes</key>
-  <key id="unit-price">unit price</key>
-  <key id="total-price">total price</key>
+	<key id="title">basket for the ″{shop}″ shop</key>
+	<key id="unknown">unknown</key>
+	<key id="unexisting-product">this product no longer exists!</key>
+	<key id="lines">rows</key>
+	<key id="last-update">latest update</key>
+	<key id="tva-amount">VAT</key>
+	<key id="sub-total-without-tax">sub-total without tax</key>
+	<key id="sub-total-with-tax">sub-total incl. taxes</key>
+	<key id="modified-sub-total-without-tax">reduced sub-total without tax</key>
+	<key id="modified-sub-total-with-tax">reduced sub-total incl. taxes</key>
+	<key id="total-without-tax">total without tax</key>
+	<key id="total-with-tax">total incl. taxes</key>
+	<key id="unit-price">unit price</key>
+	<key id="total-price">total price</key>
 </i18n>

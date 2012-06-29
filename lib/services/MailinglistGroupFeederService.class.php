@@ -1,27 +1,10 @@
 <?php
 /**
- * @author intportg
- * @package modules.customer
+ * @package mdoules.customer
+ * @method customer_MailinglistGroupFeederService getInstance()
  */
 class customer_MailinglistGroupFeederService extends emailing_MailinglistFeederBaseService
 {
-	/**
-	 * @var customer_MailinglistGroupFeederService
-	 */
-	private static $instance;
-
-	/**
-	 * @return customer_MailinglistGroupFeederService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}	
-
 	/**
 	 * @param emailing_persistentdocument_dynamicmailinglist $list
 	 */
@@ -37,7 +20,7 @@ class customer_MailinglistGroupFeederService extends emailing_MailinglistFeederB
 	}
 	
 	/**
-	 * @param Integer $id
+	 * @param integer $id
 	 * @param emailing_persistentdocument_dynamicmailinglist $list
 	 */
 	public function refreshSubscriber($id, $list)

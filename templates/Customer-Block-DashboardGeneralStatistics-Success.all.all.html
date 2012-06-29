@@ -1,12 +1,12 @@
 <div class="dashboard-widget" tal:omit-tag="refresh" refreshURL="${refreshURL}" title="${title}" icon="${icon}">
 	<tal:block tal:condition="forEdition">
 	<div class="title-bar" ><img src="${icon}" /> ${title}</div>
-	<div class="content-block"><div class="content" tal:content="transui:m.dashboard.dashboard.dummycontent,ucf">...</div></div>
+	<div class="content-block"><div class="content">${trans:m.dashboard.dashboard.dummycontent,ucf}</div></div>
 	</tal:block>
 
 	<tal:block tal:condition="not:forEdition">
 		<p>
-			<strong tal:content="transui:m.customer.bo.blocks.dashboardgeneralstatistics.statistics-for-website,ucf"></strong> 
+			<strong>${trans:m.customer.bo.blocks.dashboardgeneralstatistics.statistics-for-website,ucf}</strong> 
 			<select onchange="var widget = Dashboard.getWidgetByNode(this); widget.parameters['customerParam[websiteId]'] = this.options[this.selectedIndex].value; widget.refresh();">
 				<tal:block tal:repeat="website websites">
 					<option tal:condition="php: websiteId == website.getId()" selected="selected" value="${website/getId}">${website/getLabel}</option>
@@ -15,21 +15,21 @@
 			</select>
 		</p>
 		
-		<table width="100%" tal:condition="widget/lines">
+		<table style="width: 100%" tal:condition="widget/lines">
 			<thead>
 				<tr>
 					<th />
-					<th tal:condition="columnsArray/new" tal:content="transui:m.customer.bo.blocks.dashboardgeneralstatistics.column-new,ucf" />
-					<th tal:condition="columnsArray/lastlogin" tal:content="transui:m.customer.bo.blocks.dashboardgeneralstatistics.column-lastlogin,ucf" />
-					<th tal:condition="columnsArray/hasorder" tal:content="transui:m.customer.bo.blocks.dashboardgeneralstatistics.column-hasorder,ucf" />
+					<th tal:condition="columnsArray/new">${trans:m.customer.bo.blocks.dashboardgeneralstatistics.column-new,ucf}</th>
+					<th tal:condition="columnsArray/lastlogin">${trans:m.customer.bo.blocks.dashboardgeneralstatistics.column-lastlogin,ucf}</th>
+					<th tal:condition="columnsArray/hasorder">${trans:m.customer.bo.blocks.dashboardgeneralstatistics.column-hasorder,ucf}</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr tal:repeat="line widget/lines">
-					<td tal:content="line/monthLabel" />
-					<td tal:condition="columnsArray/new" tal:content="line/new" />
-					<td tal:condition="columnsArray/lastlogin" tal:content="line/lastlogin" />
-					<td tal:condition="columnsArray/hasorder" tal:content="line/hasorder" />
+					<td>${line/monthLabel}</td>
+					<td tal:condition="columnsArray/new">${line/new}</td>
+					<td tal:condition="columnsArray/lastlogin">${line/lastlogin}</td>
+					<td tal:condition="columnsArray/hasorder">${line/hasorder}</td>
 				</tr>
 			</tbody>
 		</table>

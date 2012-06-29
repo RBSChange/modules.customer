@@ -1,27 +1,10 @@
 <?php
 /**
- * customer_ListShippingcountryService
- * @package module.customer
+ * @package mdoules.customer
+ * @method customer_ListShippingcountryService getInstance()
  */
-class customer_ListShippingcountryService extends BaseService
+class customer_ListShippingcountryService extends change_BaseService implements list_ListItemsService
 {
-	/**
-	 * @var customer_ListShippingcountryService
-	 */
-	private static $instance;
-
-	/**
-	 * @return customer_ListShippingcountryService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-
 	/**
 	 * @see list_persistentdocument_dynamiclist::getItems()
 	 * @return list_Item[]
@@ -47,6 +30,7 @@ class customer_ListShippingcountryService extends BaseService
 	{
 		if ($shop instanceof catalog_persistentdocument_shop)
 		{
+			$billingArea = $shop->getCurrentBillingArea();
 			if (!isset($this->countries[$shop->getId()]))
 			{
 				$list = array();
@@ -57,7 +41,7 @@ class customer_ListShippingcountryService extends BaseService
 					$list[$country->getLabel()] = $country;
 				}
 				
-				foreach (catalog_TaxService::getInstance()->getZonesForShop($shop) as $zone) 
+				foreach (catalog_TaxService::getInstance()->getAllZonesForBillingArea($billingArea) as $zone) 
 				{
 					foreach (zone_CountryService::getInstance()->getCountries($zone) as $country)
 					{
@@ -76,13 +60,4 @@ class customer_ListShippingcountryService extends BaseService
 		}
 		return array();
 	}
-	
-	/**
-	 * @see list_persistentdocument_dynamiclist::getItemByValue()
-	 * @param string $value;
-	 * @return list_Item
-	 */
-//	public function getItemByValue($value)
-//	{
-//	}
 }

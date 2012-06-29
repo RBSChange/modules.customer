@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <perspective>
 	<models>
 		<model name="modules_generic/rootfolder">
@@ -49,7 +49,6 @@
 			<columns>
 				<column name="email" flex="2" />
 				<column name="date" flex="1" />
-				<column name="activation" flex="4" />
 				<column name="website" flex="2" />
 			</columns>
 			<contextactions>
@@ -69,7 +68,6 @@
 			<columns>
 				<column name="email" flex="2" />
 				<column name="date" flex="1" />
-				<column name="activation" flex="4" />
 				<column name="website" flex="2" />
 			</columns>
 			<contextactions>
@@ -86,7 +84,6 @@
 			<columns>
 				<column name="email" flex="2" />
 				<column name="date" flex="1" />
-				<column name="activation" flex="4" />
 				<column name="website" flex="2" />
 			</columns>
 			<contextactions>
@@ -148,13 +145,10 @@
 		<action name="reactivate" permission="ReActivate" icon="reactivate" labeli18n="m.uixul.bo.actions.reactivate" />
 		<action name="delete" permission="Delete" icon="delete" labeli18n="m.uixul.bo.actions.delete" />
 		<action name="create_" icon="add" />
-		<action name="createDynamiccustomergroup" permission="Insert_dynamiccustomergroup" icon="add"
-			labeli18n="m.customer.bo.actions.create-dynamiccustomergroup" />
-		<action name="createEditablecustomergroup" permission="Insert_editablecustomergroup" icon="add"
-			labeli18n="m.customer.bo.actions.create-editablecustomergroup" />
+		<action name="createDynamiccustomergroup" permission="Insert_dynamiccustomergroup" icon="add" labeli18n="m.customer.bo.actions.create-dynamiccustomergroup" />
+		<action name="createEditablecustomergroup" permission="Insert_editablecustomergroup" icon="add" labeli18n="m.customer.bo.actions.create-editablecustomergroup" />
 		<action name="createTarif_" icon="add" />
-		<action name="createTarifcustomergroup" permission="Insert_tarifcustomergroup" icon="add"
-			labeli18n="m.customer.bo.actions.create-tarifcustomergroup" />
+		<action name="createTarifcustomergroup" permission="Insert_tarifcustomergroup" icon="add" labeli18n="m.customer.bo.actions.create-tarifcustomergroup" />
 		<action name="createGroup" permission="CreateGroup" icon="users-frontoffice-dynamic" />
 		<action name="anonymize" permission="Delete" icon="delete" />
 		<action name="createVoucher_" icon="add" />

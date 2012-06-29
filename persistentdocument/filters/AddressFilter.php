@@ -21,17 +21,17 @@ class customer_AddressFilter extends f_persistentdocument_DocumentFilterImpl
 		));
 		$countryInfo = new BeanPropertyInfoImpl('country', 'modules_zone/country');
 		$countryInfo->setListId('modules_zone/publishedcountries');
-		$countryInfo->setLabelKey('&modules.customer.document.address.Country;');
+		$countryInfo->setLabelKey('m.customer.document.address.country');
 		$addressParameter->addAllowedProperty('modules_customer/address.country', $countryInfo);
 		$titleInfo = new BeanPropertyInfoImpl('title', 'modules_list/item');
 		$titleInfo->setListId('modules_users/title');
-		$titleInfo->setLabelKey('&modules.customer.document.address.Title;');
+		$titleInfo->setLabelKey('m.customer.document.address.title');
 		$addressParameter->addAllowedProperty('modules_customer/address.title', $titleInfo);
 		$this->setParameters(array('field' => $addressParameter));
 	}
 	
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public static function getDocumentModelName()
 	{

@@ -21,7 +21,7 @@ class customer_CreationDateComparisonCustomerFilter extends f_persistentdocument
 	}
 	
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public static function getDocumentModelName()
 	{

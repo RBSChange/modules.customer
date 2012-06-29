@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.customer.bo.doceditor.property" lcid="fr_FR">
-  <key id="full-name">nom complet</key>
-  <key id="code">code client</key>
-  <key id="catalog">catalogue</key>
-  <key id="order-count">nombre de commandes (payées ou en attente de paiement)</key>
-  <key id="order-amount-total">motant total des commandes (payées ou en attente de paiement)</key>
-  <key id="order-amount-average">motant moyen des commandes (payées ou en attente de paiement)</key>
-  <key id="cart-line-count">nombre de lignes</key>
-  <key id="cart-total-tax">montant total des taxes</key>
-  <key id="cart-total-amount">montant total TTC</key>
+	<key id="full-name">nom complet</key>
+	<key id="code">code client</key>
+	<key id="catalog">catalogue</key>
+	<key id="order-count">nombre de commandes (payées ou en attente de paiement)</key>
+	<key id="order-amount-total">motant total des commandes (payées ou en attente de paiement)</key>
+	<key id="order-amount-average">motant moyen des commandes (payées ou en attente de paiement)</key>
+	<key id="cart-line-count">nombre de lignes</key>
+	<key id="cart-total-tax">montant total des taxes</key>
+	<key id="cart-total-amount">montant total TTC</key>
 </i18n>

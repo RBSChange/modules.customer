@@ -5,15 +5,15 @@
  */
 class customer_CouponScriptDocumentElement extends import_ScriptDocumentElement
 {
-    /**
-     * @return customer_persistentdocument_coupon
-     */
-    protected function initPersistentDocument()
-    {
-    	return customer_CouponService::getInstance()->getNewDocumentInstance();
-    }
-    
-    /**
+	/**
+	 * @return customer_persistentdocument_coupon
+	 */
+	protected function initPersistentDocument()
+	{
+		return customer_CouponService::getInstance()->getNewDocumentInstance();
+	}
+	
+	/**
 	 * @return f_persistentdocument_PersistentDocumentModel
 	 */
 	protected function getDocumentModel()

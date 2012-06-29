@@ -10,7 +10,7 @@ class customer_NoOrderCustomerFilter extends customer_OrderFilterBase
 	}
 	
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public static function getDocumentModelName()
 	{

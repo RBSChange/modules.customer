@@ -1,47 +1,47 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <rights>
-  <actions>
-    <document name="rootfolder"/>
-    <document name="customer"/>
-    <document name="dynamiccustomergroup">
-      <action name="CreateGroupMailingList"/>
-      <action name="CreateGroup"/>
-    </document>
-    <document name="editablecustomergroup">
-      <action name="CreateGroupMailingList"/>
-      <action name="CreateGroup"/>
-    </document>
-    <document name="tarifcustomergroup">
-      <action name="CreateGroupMailingList"/>
-      <action name="CreateGroup"/>
-    </document>
-    <document name="tarifcustomergroupfolder"/>
-    <document name="voucher"/>
-    <document name="voucherfolder"/>
-    <document name="voucherhandler"/>
-  </actions>
-  <roles>
-    <role name="Admin">
-      <permission name="*"/>
-      <permission name="LoadPermissions.*"/>
-      <permission name="SavePermissions.*"/>
-      <permission name="GetPreferencesDocument"/>
-      <permission name="LoadForTranslation.*"/>
-      <permission name="UpdateTranslation.*"/>
-      <permission name="Delete.*"/>
-      <permission name="Save.*"/>
-      <permission name="Insert.*"/>
-      <permission name="Update.*"/>
-      <permission name="Load.*"/>
-      <permission name="LoadTags"/>
-      <permission name="ReActivate.*"/>
-      <permission name="Deactivated.*"/>
-      <permission name="CreateGroupMailingList.*"/>
-      <permission name="CreateGroup.*"/>
-    </role>
-    <role name="User" extend="User">
-      <permission name="Enabled"/>
-      <permission name="List.*"/>
-    </role>
-  </roles>
+	<actions>
+		<document name="rootfolder" />
+		<document name="customer" />
+		<document name="dynamiccustomergroup">
+			<action name="CreateGroupMailingList" />
+			<action name="CreateGroup" />
+		</document>
+		<document name="editablecustomergroup">
+			<action name="CreateGroupMailingList" />
+			<action name="CreateGroup" />
+		</document>
+		<document name="tarifcustomergroup">
+			<action name="CreateGroupMailingList" />
+			<action name="CreateGroup" />
+		</document>
+		<document name="tarifcustomergroupfolder" />
+		<document name="voucher" />
+		<document name="voucherfolder" />
+		<document name="voucherhandler" />
+	</actions>
+	<roles>
+		<role name="Admin">
+			<permission name="*" />
+			<permission name="LoadPermissions.*" />
+			<permission name="SavePermissions.*" />
+			<permission name="GetPreferencesDocument" />
+			<permission name="LoadForTranslation.*" />
+			<permission name="UpdateTranslation.*" />
+			<permission name="Delete.*" />
+			<permission name="Save.*" />
+			<permission name="Insert.*" />
+			<permission name="Update.*" />
+			<permission name="Load.*" />
+			<permission name="LoadTags" />
+			<permission name="ReActivate.*" />
+			<permission name="Deactivated.*" />
+			<permission name="CreateGroupMailingList.*" />
+			<permission name="CreateFrontendgroup.*" />
+		</role>
+		<role name="User" extend="User">
+			<permission name="Enabled" />
+			<permission name="List.*" />
+		</role>
+	</roles>
 </rights>

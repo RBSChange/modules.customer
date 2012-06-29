@@ -22,7 +22,7 @@ class customer_OrderAmountAverageFilter extends customer_OrderFilterBase
 	}
 	
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public static function getDocumentModelName()
 	{

@@ -1,4 +1,6 @@
 <?php
+/* @var $arguments array */
+$arguments = isset($arguments) ? $arguments : array();
 $tmpFileName = $arguments[0];
 $customerIds = array_slice($arguments, 1);
 $tm = f_persistentdocument_TransactionManager::getInstance();

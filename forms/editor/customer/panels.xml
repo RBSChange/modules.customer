@@ -2,15 +2,8 @@
 <panels>
 	<panel name="resume" />
 	<panel name="properties" />
+	<panel name="carts" icon="cart" labeli18n="m.customer.bo.doceditor.tab.carts" />
+	<panel name="orders" icon="order" labeli18n="m.customer.bo.doceditor.tab.orders" />
 	<panel name="publication" />
 	<panel name="history" />
-	
-	<xul>
-		<javascript>
-			<constructor><![CDATA[
-				this.addTab('carts', "${transui:m.customer.bo.doceditor.tab.carts,js,ucf}", 'cart');
-				this.addTab('orders', "${transui:m.customer.bo.doceditor.tab.orders,js,ucf}", 'order');
-			]]></constructor>
-		</javascript>
-	</xul>	 
 </panels>

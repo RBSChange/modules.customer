@@ -6,6 +6,19 @@
 class customer_persistentdocument_address extends customer_persistentdocument_addressbase
 {
 	/**
+	 * @param string $email
+	 * @return boolean
+	 */
+	protected function setEmailInternal($email)
+	{
+		if ($email != null)
+		{
+			$email = f_util_StringUtils::toLower(strval($email));
+		}
+		return parent::setEmailInternal($email);
+	}
+
+	/**
 	 * @return customer_persistentdocument_customer
 	 */
 	public function getCustomer()
@@ -15,13 +28,22 @@ class customer_persistentdocument_address extends customer_persistentdocument_ad
 	
 	/**
 	 * @param customer_persistentdocument_address $address
-	 * @param Boolean $includeTitle
-	 * @return String
+	 * @param boolean $includeTitle
+	 * @return string
 	 */
 	public function getFullName($includeTitle = true)
 	{
-		return $this->getDocumentService()
-			->getFullName($this, $includeTitle);
+		return $this->getDocumentService()->getFullName($this, $includeTitle);
+	}
+	
+	/**
+	 * @param customer_persistentdocument_address $address
+	 * @param boolean $includeTitle
+	 * @return string
+	 */
+	public function getFullNameAsHtml($includeTitle = true)
+	{
+		return f_util_HtmlUtils::textToHtml($this->getFullName($includeTitle));
 	}
 	
 	/**
@@ -38,7 +60,6 @@ class customer_persistentdocument_address extends customer_persistentdocument_ad
 			$this->setTitleid(null);
 		}
 	}
-	
 
 	/**
 	 * @param zone_persistentdocument_country $country
@@ -88,7 +109,7 @@ class customer_persistentdocument_address extends customer_persistentdocument_ad
 				return DocumentHelper::getDocumentInstance($countryId, 'modules_zone/country');
 			}
 		}
-		catch ( Exception $e )
+		catch (Exception $e)
 		{
 			Framework::exception($e);
 		}
@@ -120,6 +141,5 @@ class customer_persistentdocument_address extends customer_persistentdocument_ad
 	{
 		$country = $this->getCountry();
 		return $country !== null ? $country->getCode() : null;
-	}	
-	
+	}
 }

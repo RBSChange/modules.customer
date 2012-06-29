@@ -1,16 +1,8 @@
 <?php
 /**
+ * customer_persistentdocument_preferences
  * @package customer
  */
 class customer_persistentdocument_preferences extends customer_persistentdocument_preferencesbase 
 {
-	/**
-	 * Define the label of the tree node of the document.
-	 * By default, this method returns the label property value.
-	 * @return string
-	 */
-	public function getTreeNodeLabel()
-	{
-		return LocaleService::getInstance()->trans('m.customer.bo.general.module-name', array('ucf'));
-	}
 }

@@ -1,27 +1,10 @@
 <?php
 /**
- * customer_CustomergroupService
- * @package customer
+ * @package mdoules.customer
+ * @method customer_CustomergroupService getInstance()
  */
 class customer_CustomergroupService extends f_persistentdocument_DocumentService
 {
-	/**
-	 * @var customer_CustomergroupService
-	 */
-	private static $instance;
-
-	/**
-	 * @return customer_CustomergroupService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-
 	/**
 	 * @return customer_persistentdocument_customergroup
 	 */
@@ -38,7 +21,7 @@ class customer_CustomergroupService extends f_persistentdocument_DocumentService
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery('modules_customer/customergroup');
+		return $this->getPersistentProvider()->createQuery('modules_customer/customergroup');
 	}
 	
 	/**
@@ -49,7 +32,7 @@ class customer_CustomergroupService extends f_persistentdocument_DocumentService
 	 */
 	public function createStrictQuery()
 	{
-		return $this->pp->createQuery('modules_customer/customergroup', false);
+		return $this->getPersistentProvider()->createQuery('modules_customer/customergroup', false);
 	}
 	
 	/**
@@ -63,7 +46,7 @@ class customer_CustomergroupService extends f_persistentdocument_DocumentService
 	
 	/**
 	 * @param customer_persistentdocument_customergroup $group
-	 * @return Integer[]
+	 * @return integer[]
 	 */
 	public function getMemberIds($group)
 	{
@@ -73,7 +56,7 @@ class customer_CustomergroupService extends f_persistentdocument_DocumentService
 	/**
 	 * @param customer_persistentdocument_customergroup $group
 	 * @param customer_persistentdocument_customer $customer
-	 * @return Boolean
+	 * @return boolean
 	 */
 	public function isMember($group, $customer)
 	{
@@ -95,7 +78,7 @@ class customer_CustomergroupService extends f_persistentdocument_DocumentService
 		
 	/**
 	 * @param customer_persistentdocument_customergroup $group
-	 * @return Integer[]
+	 * @return integer[]
 	 */
 	protected function doGetMemberIds($group)
 	{
@@ -105,7 +88,7 @@ class customer_CustomergroupService extends f_persistentdocument_DocumentService
 	/**
 	 * @param customer_persistentdocument_customergroup $group
 	 * @param customer_persistentdocument_customer $customer
-	 * @return Boolean
+	 * @return boolean
 	 */
 	protected function doIsMember($group, $customer)
 	{

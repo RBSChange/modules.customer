@@ -1,9 +1,9 @@
 <?php
 /**
- * customer_ListBaseCountryService
- * @package module.customer
+ * @package mdoules.customer
+ * @method customer_ListBaseCountryService getInstance()
  */
-abstract class customer_ListBaseCountryService extends BaseService
+abstract class customer_ListBaseCountryService extends change_BaseService implements list_ListItemsService
 {
 	/**
 	 * @var zone_persistentdocument_zone
@@ -32,7 +32,7 @@ abstract class customer_ListBaseCountryService extends BaseService
 	}
 	
 	/**
-	 * @param String $value
+	 * @param string $value
 	 * @return list_Item
 	 */
 	public final function getItemByValue($value)
@@ -50,7 +50,7 @@ abstract class customer_ListBaseCountryService extends BaseService
 	}
 
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public final function getDefaultId()
 	{

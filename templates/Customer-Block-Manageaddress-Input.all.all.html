@@ -1,15 +1,15 @@
-<h2 change:h="">${trans:m.customer.frontoffice.addresses-title,ucf}</h2>
+<h1 change:h="">${trans:m.customer.frontoffice.addresses-title,ucf}</h1>
 <form change:form="beanClass customer_persistentdocument_address; beanName address">
 	<fieldset>
-		<legend tal:condition="address/isNew">${trans:m.customer.frontoffice.create-new-address,ucf}</legend>
-		<legend tal:condition="not:address/isNew">${trans:m.customer.frontoffice.edit-existing-address,ucf}</legend>
+		<legend tal:condition="address/isNew" class="h-2">${trans:m.customer.frontoffice.create-new-address,ucf}</legend>
+		<legend tal:condition="not:address/isNew" class="h-2">${trans:m.customer.frontoffice.edit-existing-address,ucf}</legend>
 		<ul change:errors=""></ul>
 		<ol>
 			<li><input change:field="name label" labeli18n="m.customer.document.address.label"/></li>
 			<li><input change:field="name titleid" /></li>
 			<li><input change:field="name firstname" /></li>
 			<li><input change:field="name lastname" /></li>
-			<li><input change:field="name email" /></li>
+			<li><input change:field="name email" autocorrect="off" autocapitalize="off" /></li>
 			<li><input change:field="name company" /></li>
 			<li><input change:field="name addressLine1" /></li>
 			<li><input change:field="name addressLine2" /></li>
@@ -24,8 +24,8 @@
 		</ol>
 		<p class="buttons">
 			<input change:field="name beanId" hidden="true" />
-			<input class="button" change:submit="name save" labeli18n="m.customer.frontoffice.save" />
-			<input class="button" change:submit="name cancel" labeli18n="m.customer.frontoffice.cancel" />
+			<input change:submit="name save" labeli18n="m.customer.frontoffice.save" />
+			<input class="button secondary" change:submit="name cancel" labeli18n="m.customer.frontoffice.cancel" />
 		</p>
 	</fieldset>
 </form>

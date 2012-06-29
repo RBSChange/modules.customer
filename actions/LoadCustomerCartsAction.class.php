@@ -11,22 +11,25 @@ class customer_LoadCustomerCartsAction extends change_JSONAction
 	 */
 	public function _execute($context, $request)
 	{
+		$ls = LocaleService::getInstance();
 		$customer = $this->getDocumentInstanceFromRequest($request);
-		$result = array();
 		
+		$result = array();
 		if (ModuleService::getInstance()->moduleExists('order'))
 		{
-			$ls = LocaleService::getInstance();
+			/* @var $cart order_CartInfo */
 			$cart = $customer->getCart();
 			if ($cart && $cart->getCartLineCount() != 0)
 			{
 				try
 				{
+					/* @var $shop catalog_persistentdocument_shop */
 					$shop = $cart->getShop();
+					$billingArea = $cart->getBillingArea();
 					$cartInfo = array();
 					
 					// Global infos.
-					$cartInfo['label'] = $ls->transBO('m.customer.bo.doceditor.panel.carts.title', array('ucf'), array('shop' => $shop->getLabel()));
+					$cartInfo['label'] = $ls->trans('m.customer.bo.doceditor.panel.carts.title', array('ucf'), array('shop' => $shop->getLabel() . ' / ' . $billingArea->getLabel()));
 					$lastUpdate = $customer->getUILastCartUpdate($cart->getShopId());
 					if ($lastUpdate !== null)
 					{
@@ -34,14 +37,13 @@ class customer_LoadCustomerCartsAction extends change_JSONAction
 					}
 					else
 					{
-						$lastUpdate = $ls->transBO('m.customer.bo.doceditor.panel.carts.unknown', array('ucf'));
+						$lastUpdate = $ls->trans('m.customer.bo.doceditor.panel.carts.unknown', array('ucf'));
 					}
 					
 					$cartInfo['shippingLabel'] = '';
 					if ($cart->getShippingLabel())
 					{
 						$cartInfo['shippingLabel'] = $cart->getShippingLabel();
-						$cartInfo['shippingPrice'] = $shop->formatPrice($cart->getShippingPriceWithTax());
 					}
 					$cartInfo['billingLabel'] = '';
 					if ($cart->getBillingLabel())
@@ -49,17 +51,39 @@ class customer_LoadCustomerCartsAction extends change_JSONAction
 						$cartInfo['billingLabel'] = $cart->getBillingLabel();
 					}
 					
-					$cartInfo['couponLabel'] = '';
+					if ($cart->hasCoupon())
+					{
+						$cartInfo['couponLabel'] = $cart->getCoupon()->getLabel();
+					}
+					else
+					{
+						$cartInfo['couponLabel'] = '';
+					}
+					$cartInfo['subtotalWithoutTax'] = $billingArea->formatPrice($cart->getSubTotalWithoutTax());
+					$cartInfo['subtotalWithTax'] = $billingArea->formatPrice($cart->getSubTotalWithTax());
 					
-					$cartInfo['totalWithoutTax'] = $shop->formatPrice($cart->getTotalWithoutTax());
-					$cartInfo['tvaAmount'] = $shop->formatPrice($cart->getTotalTax());
-					$cartInfo['totalWithTax'] = $shop->formatPrice($cart->getTotalWithTax());
+					$v = $cart->getDiscountTotalWithTax();
+					$cartInfo['discountTotalWithTax'] = ($v > 0) ?$billingArea->formatPrice($v) : '';
+					
+					
+					$v = $cart->getFeesTotalWithTax();
+					$cartInfo['feesTotalWithTax'] =  ($v > 0) ?$billingArea->formatPrice($v) : '';
+					
+					$cartInfo['totalWithoutTax'] = $billingArea->formatPrice($cart->getTotalWithoutTax());				
+					$cartInfo['totalWithTax'] = $billingArea->formatPrice($cart->getTotalWithTax());
+					
+					$cartInfo['tvaAmount'] = $billingArea->formatPrice($cart->getTotalTax());
+					
+					$v = $cart->getTotalCreditNoteAmount();
+					$cartInfo['totalCreditNoteAmount'] = ($v > 0) ?$billingArea->formatPrice($v) : '';
+					
+					$cartInfo['totalAmount'] = $billingArea->formatPrice($cart->getTotalAmount());
 					
 					// Lines.
 					$cartInfo['lines'] = array();
 					foreach ($cart->getCartLineArray() as $line)
 					{
-						$lineInfo = $this->getLineInfo($line, 'cart-line', $shop);
+						$lineInfo = $this->getLineInfo($line, 'cart-line', $billingArea);
 						if ($lineInfo !== null)
 						{
 							$cartInfo['lines'][] = $lineInfo;
@@ -80,18 +104,18 @@ class customer_LoadCustomerCartsAction extends change_JSONAction
 	
 	/**
 	 * @param order_CartLineInfo $line
-	 * @param String $type
-	 * @param catalog_persistentdocument_shop $shop
+	 * @param string $type
+	 * @param catalog_persistentdocument_billingarea $billingArea
 	 * @return Array<String => String>
 	 */
-	private function getLineInfo($line, $type, $shop)
+	private function getLineInfo($line, $type, $billingArea)
 	{
 		$lineInfo = array();
 		$lineInfo['linetype'] = $type;
 		$product = $line->getProduct();
 		if ($product === null)
 		{
-			$lineInfo['productLabel'] = LocaleService::getInstance()->transBO('m.customer.bo.doceditor.panel.carts.unexisting-product', array('ucf'));
+			$lineInfo['productLabel'] = LocaleService::getInstance()->trans('m.customer.bo.doceditor.panel.carts.unexisting-product', array('ucf'));
 			$lineInfo['codeReference'] = '';
 			$lineInfo['availability'] = '';
 		}
@@ -102,11 +126,11 @@ class customer_LoadCustomerCartsAction extends change_JSONAction
 			$lineInfo['availability'] = $product->getAvailability();
 		}
 
-		$lineInfo['unitPriceWithoutTax'] = $shop->formatPrice($line->getValueWithoutTax());
-		$lineInfo['unitPriceWithTax'] = $shop->formatPrice($line->getValueWithTax());
+		$lineInfo['unitPriceWithoutTax'] = $billingArea->formatPrice($line->getValueWithoutTax());
+		$lineInfo['unitPriceWithTax'] = $billingArea->formatPrice($line->getValueWithTax());
 		$lineInfo['quantity'] = $line->getQuantity();
-		$lineInfo['totalPriceWithoutTax'] = $shop->formatPrice($line->getTotalValueWithoutTax());
-		$lineInfo['totalPriceWithTax'] = $shop->formatPrice($line->getTotalValueWithTax());
+		$lineInfo['totalPriceWithoutTax'] = $billingArea->formatPrice($line->getTotalValueWithoutTax());
+		$lineInfo['totalPriceWithTax'] = $billingArea->formatPrice($line->getTotalValueWithTax());
 		
 		return $lineInfo;
 	}

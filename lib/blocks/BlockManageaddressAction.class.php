@@ -10,7 +10,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 	 * @param f_mvc_Request $request
 	 * @param f_mvc_Response $response
 	 * @param customer_persistentdocument_address $address
-	 * @return String
+	 * @return string
 	 */
 	public function execute($request, $response, customer_persistentdocument_address $address)
 	{
@@ -49,7 +49,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 	/**
 	 * @param f_mvc_Request $request
 	 * @param f_mvc_Response $response
-	 * @return String
+	 * @return string
 	 */
 	public function executeCancel($request, $response)
 	{
@@ -61,7 +61,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 	 * @param f_mvc_Request $request
 	 * @param f_mvc_Response $response
 	 * @param customer_persistentdocument_address $address
-	 * @return String
+	 * @return string
 	 */
 	public function executeAdd($request, $response, customer_persistentdocument_address $address)
 	{
@@ -79,7 +79,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 	 * @param f_mvc_Request $request
 	 * @param f_mvc_Response $response
 	 * @param customer_persistentdocument_address $address
-	 * @return String
+	 * @return string
 	 */
 	public function executeEdit($request, $response, customer_persistentdocument_address $address)
 	{
@@ -90,7 +90,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		}
 		else if ($customer->getIndexofAddress($address) === null)
 		{
-			$this->redirect('customer', 'manageaddress', array('error' => f_Locale::translate('&modules.customer.frontoffice.Not-your-address-error;')));
+			$this->redirect('customer', 'manageaddress', array('error' => LocaleService::getInstance()->trans('m.customer.frontoffice.not-your-address-error', array('ucf'))));
 			return website_BlockView::NONE;
 		}
 		return website_BlockView::INPUT;
@@ -99,7 +99,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 	/**
 	 * @param f_mvc_Request $request
 	 * @param customer_persistentdocument_address $address
-	 * @return String
+	 * @return string
 	 */
 	public function getSaveInputValidationRules($request)
 	{
@@ -112,10 +112,11 @@ class customer_BlockManageaddressAction extends website_BlockAction
 	 * @param f_mvc_Request $request
 	 * @param f_mvc_Response $response
 	 * @param customer_persistentdocument_address $address
-	 * @return String
+	 * @return string
 	 */
 	public function executeSave($request, $response, customer_persistentdocument_address $address)
 	{
+		$ls = LocaleService::getInstance();
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
@@ -123,7 +124,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		}
 		else if (!$address->isNew() && $customer->getIndexofAddress($address) === -1)
 		{
-			$this->redirect('customer', 'manageaddress', array('error' => f_Locale::translate('&modules.customer.frontoffice.Not-your-address-error;')));
+			$this->redirect('customer', 'manageaddress', array('error' => $ls->trans('m.customer.frontoffice.not-your-address-error', array('ucf'))));
 			return website_BlockView::NONE;
 		}
 		$request->setAttribute('customer', $customer);
@@ -134,11 +135,11 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		{
 			$customer->addAddress($address);
 			$customer->save();
-			$this->redirect('customer', 'manageaddress', array('message' => f_Locale::translate('&modules.customer.frontoffice.Creating-address-success;')));
+			$this->redirect('customer', 'manageaddress', array('message' => $ls->trans('m.customer.frontoffice.creating-address-success', array('ucf'))));
 		}
 		else 
 		{
-			$this->redirect('customer', 'manageaddress', array('message' => f_Locale::translate('&modules.customer.frontoffice.Updating-success;')));
+			$this->redirect('customer', 'manageaddress', array('message' => $ls->trans('m.customer.frontoffice.updating-success', array('ucf'))));
 		}
 		return website_BlockView::NONE;
 	}
@@ -147,10 +148,11 @@ class customer_BlockManageaddressAction extends website_BlockAction
 	 * @param f_mvc_Request $request
 	 * @param f_mvc_Response $response
 	 * @param customer_persistentdocument_address $address
-	 * @return String
+	 * @return string
 	 */
 	public function executeSetDefault($request, $response, customer_persistentdocument_address $address)
 	{
+		$ls = LocaleService::getInstance();
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
@@ -158,14 +160,14 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		}
 		else if ($customer->getIndexofAddress($address) === null)
 		{
-			$this->redirect('customer', 'manageaddress', array('error' => f_Locale::translate('&modules.customer.frontoffice.Not-your-address-error;')));
+			$this->redirect('customer', 'manageaddress', array('error' => $ls->trans('m.customer.frontoffice.not-your-address-error', array('ucf'))));
 			return website_BlockView::NONE;
 		}
 		$request->setAttribute('customer', $customer);
 		$customer->removeAddress($address);
 		$customer->setAddressArray(array_merge(array($address), $customer->getAddressArray()));
 		$customer->save();
-		$this->redirect('customer', 'manageaddress', array('message' => f_Locale::translate('&modules.customer.frontoffice.Set-default-address-success;')));
+		$this->redirect('customer', 'manageaddress', array('message' => $ls->trans('m.customer.frontoffice.set-default-address-success', array('ucf'))));
 		return website_BlockView::NONE;
 	}
 	
@@ -173,10 +175,11 @@ class customer_BlockManageaddressAction extends website_BlockAction
 	 * @param f_mvc_Request $request
 	 * @param f_mvc_Response $response
 	 * @param customer_persistentdocument_address $address
-	 * @return String
+	 * @return string
 	 */
 	public function executeDelete($request, $response, customer_persistentdocument_address $address)
 	{
+		$ls = LocaleService::getInstance();
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer === null)
 		{
@@ -184,13 +187,13 @@ class customer_BlockManageaddressAction extends website_BlockAction
 		}
 		else if ($customer->getIndexofAddress($address) === null)
 		{
-			$this->redirect('customer', 'manageaddress', array('error' => f_Locale::translate('&modules.customer.frontoffice.Not-your-address-error;')));
+			$this->redirect('customer', 'manageaddress', array('error' => $ls->trans('m.customer.frontoffice.not-your-address-error', array('ucf'))));
 			return website_BlockView::NONE;
 		}
 		$request->setAttribute('customer', $customer);
 		
 		$address->delete();
-		$this->redirect('customer', 'manageaddress', array('message' => f_Locale::translate('&modules.customer.frontoffice.Deleting-address-success;')));
+		$this->redirect('customer', 'manageaddress', array('message' => $ls->trans('m.customer.frontoffice.deleting-address-success', array('ucf'))));
 		return website_BlockView::NONE;
 	}
 }

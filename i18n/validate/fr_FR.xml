@@ -1,25 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.customer.validate" lcid="fr_FR">
-  <key id="required-fields-error-message">Certains champs ne sont pas valides.</key>
-  <key id="errors-header-message">Erreurs lors de la validation:</key>
-  <key id="passwords-do-not-match">Le mot de passe n'a pas été confirmé.</key>
-  <key id="emails-do-not-match">L'adresse email n'a pas été confirmée.</key>
-  <key id="email-address-already-used-message">Un compte existe deja pour cette email.</key>
-  <key id="lastname-is-not-valid">Le champ ″Nom″ n'est pas valide.</key>
-  <key id="firstname-is-not-valid">Le champ ″Prénom″ n'est pas valide.</key>
-  <key id="email-is-not-valid">Le champ ″Adresse e-mail″ n'est pas valide.</key>
-  <key id="password-is-not-valid">Le champ ″Mot de passe″ doit comporter au moins 6 caractères.</key>
-  <key id="old-password-is-not-valid">Le champ ″Mot de passe actuel″ n'est pas valide.</key>
-  <key id="new-password-is-not-valid">Le champ ″Nouveau mot de passe″ doit comporter au moins 6 caractères.</key>
-  <key id="confirm-password-is-not-valid">Le champ ″Confirmation du mot de passe″ n'est pas valide.</key>
-  <key id="addressline1-is-not-valid">Le champ ″Adresse (ligne 1)″ n'est pas valide.</key>
-  <key id="label-is-not-valid">Le champ ″Intitulé″ n'est pas valide.</key>
-  <key id="zipcode-is-not-valid">Le champ ″Code postal″ n'est pas valide.</key>
-  <key id="city-is-not-valid">Le champ ″Ville″ n'est pas valide.</key>
-  <key id="country-is-not-valid">Le champ ″Pays″ n'est pas valide.</key>
-  <key id="phone-is-not-valid">Le champ ″Téléphone″ n'est pas valide.</key>
-  <key id="mobilephone-is-not-valid">Le champ ″Téléphone portable″ n'est pas valide.</key>
-  <key id="title-is-not-valid">Le champ ″Titre″ n'est pas valide.</key>
-  <key id="incorrect-password">Le mot de passe saisi ne correspond pas à votre mot de passe actuel.</key>
-  <key id="nickname-missing">Le pseudonyme ne peut pas être vide.</key>
+	<key id="required-fields-error-message">Certains champs ne sont pas valides.</key>
+	<key id="errors-header-message">Erreurs lors de la validation:</key>
+	<key id="passwords-do-not-match">Le mot de passe n'a pas été confirmé.</key>
+	<key id="emails-do-not-match">L'adresse email n'a pas été confirmée.</key>
+	<key id="email-address-already-used-message">Un compte existe deja pour cette email.</key>
+	<key id="lastname-is-not-valid">Le champ ″Nom″ n'est pas valide.</key>
+	<key id="firstname-is-not-valid">Le champ ″Prénom″ n'est pas valide.</key>
+	<key id="email-is-not-valid">Le champ ″Adresse e-mail″ n'est pas valide.</key>
+	<key id="password-is-not-valid">Le champ ″Mot de passe″ doit comporter au moins 6 caractères.</key>
+	<key id="old-password-is-not-valid">Le champ ″Mot de passe actuel″ n'est pas valide.</key>
+	<key id="new-password-is-not-valid">Le champ ″Nouveau mot de passe″ doit comporter au moins 6 caractères.</key>
+	<key id="confirm-password-is-not-valid">Le champ ″Confirmation du mot de passe″ n'est pas valide.</key>
+	<key id="addressline1-is-not-valid">Le champ ″Adresse (ligne 1)″ n'est pas valide.</key>
+	<key id="label-is-not-valid">Le champ ″Intitulé″ n'est pas valide.</key>
+	<key id="zipcode-is-not-valid">Le champ ″Code postal″ n'est pas valide.</key>
+	<key id="city-is-not-valid">Le champ ″Ville″ n'est pas valide.</key>
+	<key id="country-is-not-valid">Le champ ″Pays″ n'est pas valide.</key>
+	<key id="phone-is-not-valid">Le champ ″Téléphone″ n'est pas valide.</key>
+	<key id="mobilephone-is-not-valid">Le champ ″Téléphone portable″ n'est pas valide.</key>
+	<key id="title-is-not-valid">Le champ ″Titre″ n'est pas valide.</key>
+	<key id="incorrect-password">Le mot de passe saisi ne correspond pas à votre mot de passe actuel.</key>
+	<key id="nickname-missing">Le pseudonyme ne peut pas être vide.</key>
 </i18n>

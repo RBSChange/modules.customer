@@ -1,15 +1,14 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <blocks>
-	<block type="modules_customer_menu" icon="menu" labeli18n="m.customer.bo.blocks.menu"/>
-	<block type="modules_customer_index" icon="customer" labeli18n="m.customer.bo.blocks.index"/>
+	<block type="modules_customer_index" icon="customer" labeli18n="m.customer.bo.blocks.index" />
 	<block type="modules_customer_createaccount" icon="add" labeli18n="m.customer.bo.blocks.create-account">
 		<parameters>
 			<parameter name="confirmEmail" type="Boolean" default-value="false" />
 		</parameters>
 	</block>
-	<block type="modules_customer_editaccount" icon="edit" labeli18n="m.customer.bo.blocks.edit-account"/>
-	<block type="modules_customer_manageaddress" icon="edit" labeli18n="m.customer.bo.blocks.manage-address"/>
-	<block type="modules_customer_Customerinfo" icon="customer" labeli18n="m.customer.bo.blocks.customer-info"/>
+	<block type="modules_customer_editaccount" icon="edit" labeli18n="m.customer.bo.blocks.edit-account" />
+	<block type="modules_customer_manageaddress" icon="edit" labeli18n="m.customer.bo.blocks.manage-address" />
+	<block type="modules_customer_Customerinfo" icon="customer" labeli18n="m.customer.bo.blocks.customer-info" />
 	<block type="modules_customer_DashboardGeneralStatistics" icon="statistics" dashboard="true">
 		<parameters>
 			<parameter name="website" type="modules_website/website" min-occurs="1" />

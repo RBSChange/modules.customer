@@ -1,29 +1,10 @@
 <?php
 /**
- * customer_AddressService
- * @package mdoules.order
+ * @package mdoules.customer
+ * @method customer_AddressService getInstance()
  */
 class customer_AddressService extends f_persistentdocument_DocumentService
 {
-	/**
-	 * Singleton
-	 * @var customer_AddressService
-	 */
-	private static $instance = null;
-
-	/**
-	 * @return customer_AddressService
-	 */
-	public static function getInstance()
-	{
-		if (is_null(self::$instance))
-		{
-			$className = get_class();
-			self::$instance = new $className();
-		}
-		return self::$instance;
-	}
-
 	/**
 	 * @return customer_persistentdocument_address
 	 */
@@ -38,7 +19,7 @@ class customer_AddressService extends f_persistentdocument_DocumentService
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery('modules_customer/address');
+		return $this->getPersistentProvider()->createQuery('modules_customer/address');
 	}
 	
 	/**
@@ -95,18 +76,18 @@ class customer_AddressService extends f_persistentdocument_DocumentService
 	
 	/**
 	 * @param customer_persistentdocument_address $address
-	 * @param Boolean $includeTitle
-	 * @return String
+	 * @param boolean $includeTitle
+	 * @return string
 	 */
 	public function getFullName($address, $includeTitle = true)
 	{
 		$label = array();
 		if ($includeTitle && $address->getTitle() !==  null)
 		{
-			$label[] = $address->getTitle()->getLabelAsHtml();
+			$label[] = $address->getTitle()->getLabel();
 		}
-		$label[] = $address->getFirstnameAsHtml();
-		$label[] = $address->getLastnameAsHtml();
+		$label[] = $address->getFirstname();
+		$label[] = $address->getLastname();
 		return implode(' ', $label);
 	}
 	

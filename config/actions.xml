@@ -54,7 +54,7 @@
 	<action name="exportDynGroup">
 		<parameter name="listWidget" />
 		<body><![CDATA[			
-			if (confirm("${transui:m.customer.bo.general.confirmexportmessage,js}"))
+			if (confirm("${trans:m.customer.bo.general.confirmexportmessage,js}"))
 			{
 				var docId = listWidget.getSelectedIds()[0];
 				var lang = this.getContextLang(listWidget);

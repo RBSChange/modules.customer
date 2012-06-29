@@ -1,27 +1,10 @@
 <?php
 /**
- * customer_VoucherfolderService
- * @package modules.customer
+ * @package mdoules.customer
+ * @method customer_VoucherfolderService getInstance()
  */
 class customer_VoucherfolderService extends generic_FolderService
 {
-	/**
-	 * @var customer_VoucherfolderService
-	 */
-	private static $instance;
-
-	/**
-	 * @return customer_VoucherfolderService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-
 	/**
 	 * @return customer_persistentdocument_voucherfolder
 	 */
@@ -38,7 +21,7 @@ class customer_VoucherfolderService extends generic_FolderService
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery('modules_customer/voucherfolder');
+		return $this->getPersistentProvider()->createQuery('modules_customer/voucherfolder');
 	}
 	
 	/**
@@ -49,6 +32,6 @@ class customer_VoucherfolderService extends generic_FolderService
 	 */
 	public function createStrictQuery()
 	{
-		return $this->pp->createQuery('modules_customer/voucherfolder', false);
+		return $this->getPersistentProvider()->createQuery('modules_customer/voucherfolder', false);
 	}
 }

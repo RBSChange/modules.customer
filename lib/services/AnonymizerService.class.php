@@ -1,28 +1,10 @@
 <?php
 /**
- * customer_AnonymizerService
- * @package modules.customer.lib.services
+ * @package mdoules.customer
+ * @method customer_AnonymizerService getInstance()
  */
-class customer_AnonymizerService extends BaseService
+class customer_AnonymizerService extends change_BaseService
 {
-	/**
-	 * Singleton
-	 * @var customer_AnonymizerService
-	 */
-	private static $instance = null;
-
-	/**
-	 * @return customer_AnonymizerService
-	 */
-	public static function getInstance()
-	{
-		if (is_null(self::$instance))
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-	
 	/**
 	 * 
 	 * @param customer_persistentdocument_customer $customer
@@ -51,28 +33,7 @@ class customer_AnonymizerService extends BaseService
 	 */
 	public function anonymizeCustomer($customer)
 	{
-		$this->anonymizeUser($customer->getUser());
-		
-		foreach ($customer->getAddressArray() as $address)
-		{
-			$this->anonymizeAddress($address);
-		}
-		foreach ($customer->getOrderArrayInverse() as $order)
-		{
-			$this->anonymizeAddress($order->getBillingAddress());
-			$this->anonymizeAddress($order->getShippingAddress());
-		}
-		
-		$customer->setLabel('Anonymous');
-		$customer->save();
-		
-		foreach ($customer->getEditablecustomergroupArrayInverse() as $group)
-		{
-			$group->removeMember($customer);
-			$group->save();
-		}
-		
-		$customer->getDocumentService()->file($customer->getId());
+		$user->getDocumentService()->anonymize($user);
 	}
 	
 	/**
@@ -80,7 +41,21 @@ class customer_AnonymizerService extends BaseService
 	 */
 	protected function anonymizeUser($user)
 	{
-		$user->getDocumentService()->anonymize($user);
+		$user->setFirstname('Anonymous');
+		$user->setLastname('Anonymous');
+		$address->setEmail(Framework::getConfigurationValue('modules/users/anonymousEmailAddress'));
+		$user->setLogin('anonymous-'.$user->getId());
+		$user->setPasswordmd5(md5(f_util_StringUtils::randomString()));
+		foreach ($user->getGroupsArray() as $group)
+		{
+			if (!($group instanceof users_persistentdocument_group))
+			{
+				$user->removeGroups($group);
+			}
+		}
+		$user->save();
+		
+		$user->getDocumentService()->file($user->getId());
 	}
 	
 	/**
@@ -90,7 +65,7 @@ class customer_AnonymizerService extends BaseService
 	{
 		$address->setFirstname('Anonymous');
 		$address->setLastname('Anonymous');
-		$address->setEmail(Framework::getConfigurationValue('modules/users/anonymousEmailAddress'));
+		$address->setEmail(Framework::getConfigurationValue('modules/customer/anonymousEmailAddress'));
 		$address->setAddressLine1('Anonymous');
 		$address->setAddressLine2('Anonymous');
 		$address->setAddressLine3('Anonymous');

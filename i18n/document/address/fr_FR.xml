@@ -1,24 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.customer.document.address" lcid="fr_FR">
-  <key id="document-name">adresse</key>
-  <key id="label">libellé</key>
-  <key id="label-help">libellé</key>
-  <key id="title">civilité</key>
-  <key id="titleid">civilité</key>
-  <key id="firstname">prénom</key>
-  <key id="lastname">nom</key>
-  <key id="email">adresse e-mail</key>
-  <key id="company">société</key>
-  <key id="addressline1">adresse (ligne 1)</key>
-  <key id="addressline2">adresse (ligne 2)</key>
-  <key id="addressline3">adresse (ligne 3)</key>
-  <key id="zipcode">code postal</key>
-  <key id="city">ville</key>
-  <key id="province">province</key>
-  <key id="country">pays</key>
-  <key id="countryid">pays</key>
-  <key id="phone">téléphone</key>
-  <key id="mobilephone">téléphone portable</key>
-  <key id="fax">fax</key>
-  <key id="creationdate">date de création</key>
+	<key id="document-name">adresse</key>
+	<key id="label">libellé</key>
+	<key id="label-help">libellé</key>
+	<key id="title">civilité</key>
+	<key id="titleid">civilité</key>
+	<key id="firstname">prénom</key>
+	<key id="lastname">nom</key>
+	<key id="email">adresse e-mail</key>
+	<key id="company">société</key>
+	<key id="addressline1">adresse (ligne 1)</key>
+	<key id="addressline2">adresse (ligne 2)</key>
+	<key id="addressline3">adresse (ligne 3)</key>
+	<key id="zipcode">code postal</key>
+	<key id="city">ville</key>
+	<key id="province">province</key>
+	<key id="country">pays</key>
+	<key id="countryid">pays</key>
+	<key id="phone">téléphone</key>
+	<key id="mobilephone">téléphone portable</key>
+	<key id="fax">fax</key>
+	<key id="creationdate">date de création</key>
 </i18n>

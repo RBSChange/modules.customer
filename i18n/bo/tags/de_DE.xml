@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.customer.bo.tags" lcid="de_DE">
-  <key id="new-account">Neues Konto</key>
-  <key id="password-lost">Passwort verloren</key>
-  <key id="my-account">Mein Konto</key>
-  <key id="my-account-info">Meine Informationen</key>
-  <key id="my-account-password">Mein Passwort</key>
-  <key id="my-account-address">Meine Adressen</key>
-  <key id="my-account-orders">Meine Bestellungen</key>
-  <key id="my-account-carts">Meine Warenkörbe</key>
-  <key id="my-account-messages">Post</key>
-  <key id="menu-account">Mein Konto</key>
-  <key id="menu-orders">Meine Bestellungen</key>
-  <key id="resend-confirmation-email">BestätigungsE-mail erneut zuschicken</key>
-  <key id="contact-form">Kontakt Kundenkonto</key>
+	<key id="new-account">Neues Konto</key>
+	<key id="my-account">Mein Konto</key>
+	<key id="my-account-info">Meine Informationen</key>
+	<key id="my-account-password">Mein Passwort</key>
+	<key id="my-account-address">Meine Adressen</key>
+	<key id="my-account-orders">Meine Bestellungen</key>
+	<key id="my-account-carts">Meine Warenkörbe</key>
+	<key id="my-account-messages">Post</key>
+	<key id="contact-form">Kontakt Kundenkonto</key>
 </i18n>

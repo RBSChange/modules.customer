@@ -1,24 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.customer.validate" lcid="de_DE">
-  <key id="required-fields-error-message">Einige Felder sind ungültig.</key>
-  <key id="errors-header-message">Fehler bei der Validierung:</key>
-  <key id="passwords-do-not-match">Passwort wurde nicht bestätigt.</key>
-  <key id="emails-do-not-match">E-mailadresse wurde nicht bestätigt.</key>
-  <key id="email-address-already-used-message">Es gibt schon ein Konto für diese E-mailadresse.</key>
-  <key id="lastname-is-not-valid">Das Feld ″Nachname″ ist nicht gültig.</key>
-  <key id="firstname-is-not-valid">Das Feld ″Vorname″ ist nicht gültig.</key>
-  <key id="email-is-not-valid">Das Feld ″E-mailadresse″ ist nicht gültig.</key>
-  <key id="password-is-not-valid">Das Feld ″Passwort″ muss mindestens 6 Zeichen beinhalten.</key>
-  <key id="old-password-is-not-valid">Das Feld ″aktuelles Passwort″ ist nicht gültig.</key>
-  <key id="new-password-is-not-valid">Das Feld ″neues Passwort″ muss mindestens 6 Zeichen beinhalten.</key>
-  <key id="confirm-password-is-not-valid">Das Feld ″Passwort bestätigen″ ist nicht gültig.</key>
-  <key id="addressline1-is-not-valid">Das Feld ″Adresse (Zeile 1)″ ist nicht gültig.</key>
-  <key id="label-is-not-valid">Das Feld ″Bezeichnung″ ist nicht gültig.</key>
-  <key id="zipcode-is-not-valid">Das Feld ″PLZ″ ist nicht gültig.</key>
-  <key id="city-is-not-valid">Das Feld ″Stadt″ ist nicht gültig.</key>
-  <key id="country-is-not-valid">Das Feld ″Land″ ist nicht gültig.</key>
-  <key id="phone-is-not-valid">Das Feld ″Telefon″ ist nicht gültig.</key>
-  <key id="title-is-not-valid">Das Feld ″Titel″ ist nicht gültig.</key>
-  <key id="incorrect-password">Das erfasste Passwort entspricht nicht Ihrem aktuellen Passwort.</key>
-  <key id="nickname-missing">Der Pseudonym kann nicht leer sein.</key>
+	<key id="required-fields-error-message">Einige Felder sind ungültig.</key>
+	<key id="errors-header-message">Fehler bei der Validierung:</key>
+	<key id="passwords-do-not-match">Passwort wurde nicht bestätigt.</key>
+	<key id="emails-do-not-match">E-mailadresse wurde nicht bestätigt.</key>
+	<key id="email-address-already-used-message">Es gibt schon ein Konto für diese E-mailadresse.</key>
+	<key id="lastname-is-not-valid">Das Feld ″Nachname″ ist nicht gültig.</key>
+	<key id="firstname-is-not-valid">Das Feld ″Vorname″ ist nicht gültig.</key>
+	<key id="email-is-not-valid">Das Feld ″E-mailadresse″ ist nicht gültig.</key>
+	<key id="password-is-not-valid">Das Feld ″Passwort″ muss mindestens 6 Zeichen beinhalten.</key>
+	<key id="old-password-is-not-valid">Das Feld ″aktuelles Passwort″ ist nicht gültig.</key>
+	<key id="new-password-is-not-valid">Das Feld ″neues Passwort″ muss mindestens 6 Zeichen beinhalten.</key>
+	<key id="confirm-password-is-not-valid">Das Feld ″Passwort bestätigen″ ist nicht gültig.</key>
+	<key id="addressline1-is-not-valid">Das Feld ″Adresse (Zeile 1)″ ist nicht gültig.</key>
+	<key id="label-is-not-valid">Das Feld ″Bezeichnung″ ist nicht gültig.</key>
+	<key id="zipcode-is-not-valid">Das Feld ″PLZ″ ist nicht gültig.</key>
+	<key id="city-is-not-valid">Das Feld ″Stadt″ ist nicht gültig.</key>
+	<key id="country-is-not-valid">Das Feld ″Land″ ist nicht gültig.</key>
+	<key id="phone-is-not-valid">Das Feld ″Telefon″ ist nicht gültig.</key>
+	<key id="title-is-not-valid">Das Feld ″Titel″ ist nicht gültig.</key>
+	<key id="incorrect-password">Das erfasste Passwort entspricht nicht Ihrem aktuellen Passwort.</key>
+	<key id="nickname-missing">Der Pseudonym kann nicht leer sein.</key>
 </i18n>

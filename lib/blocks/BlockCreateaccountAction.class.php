@@ -8,7 +8,7 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 	/**
 	 * @param f_mvc_Request $request
 	 * @param f_mvc_Response $response
-	 * @return String
+	 * @return string
 	 */
 	public function execute($request, $response)
 	{
@@ -68,7 +68,7 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 		$existingUser = users_UserService::getInstance()->getFrontendUserByLogin($login, $website->getId());
 		if ($existingUser !== null && $existingUser->getId() !== $user->getId())
 		{
-			$this->addError(LocaleService::getInstance()->transFO('m.customer.document.customerwrapperbean.invalid-login-error', array('ucf')));
+			$this->addError(LocaleService::getInstance()->trans('m.customer.document.customerwrapperbean.invalid-login-error', array('ucf')));
 			$isOk = false;
 		}
 		
@@ -79,7 +79,7 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 	 * @param f_mvc_Request $request
 	 * @param f_mvc_Response $response
 	 * @param customer_CustomerWrapperBean $customerWrapper
-	 * @return String
+	 * @return string
 	 */
 	public function executeSave($request, $response, customer_CustomerWrapperBean $customerWrapper)
 	{

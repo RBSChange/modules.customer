@@ -10,7 +10,15 @@ class customer_persistentdocument_voucher extends customer_persistentdocument_vo
 	 */
 	public function getCustomer()
 	{
-		$id = $this->getCustomerId();
-		return $id ? customer_persistentdocument_customer::getInstanceById($id) : null;
+		return DocumentHelper::getDocumentInstanceIfExists($this->getCustomerId());
+	}
+	
+	/**
+	 * @return catalog_persistentdocument_billingarea
+	 */
+	public function getBillingArea()
+	{
+		return DocumentHelper::getDocumentInstanceIfExists($this->getBillingAreaId());
 	}
 }
+

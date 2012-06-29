@@ -1,27 +1,10 @@
 <?php
 /**
- * customer_TarifcustomergroupfolderService
- * @package customer
+ * @package mdoules.customer
+ * @method customer_TarifcustomergroupfolderService getInstance()
  */
 class customer_TarifcustomergroupfolderService extends generic_FolderService
 {
-	/**
-	 * @var customer_TarifcustomergroupfolderService
-	 */
-	private static $instance;
-
-	/**
-	 * @return customer_TarifcustomergroupfolderService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-
 	/**
 	 * @return customer_persistentdocument_tarifcustomergroupfolder
 	 */
@@ -38,7 +21,7 @@ class customer_TarifcustomergroupfolderService extends generic_FolderService
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery('modules_customer/tarifcustomergroupfolder');
+		return $this->getPersistentProvider()->createQuery('modules_customer/tarifcustomergroupfolder');
 	}
 	
 	/**
@@ -49,6 +32,6 @@ class customer_TarifcustomergroupfolderService extends generic_FolderService
 	 */
 	public function createStrictQuery()
 	{
-		return $this->pp->createQuery('modules_customer/tarifcustomergroupfolder', false);
+		return $this->getPersistentProvider()->createQuery('modules_customer/tarifcustomergroupfolder', false);
 	}
 }

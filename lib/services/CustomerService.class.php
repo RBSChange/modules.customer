@@ -1,32 +1,14 @@
 <?php
 /**
- * customer_CustomerService
- * @package modules.customer
+ * @package mdoules.customer
+ * @method customer_CustomerService getInstance()
  */
 class customer_CustomerService extends f_persistentdocument_DocumentService
 {
 	const REASON_CONFIRM_EMAIL_ADDRESS = 1;
-	const REASON_CONFIRM_ACCOUNT       = 2;
+	const REASON_CONFIRM_ACCOUNT	   = 2;
 	
 	const GROUP_TAG = 'default_modules_customer_customer-website-user-group';
-
-	/**
-	 * Singleton
-	 * @var customer_CustomerService
-	 */
-	private static $instance = null;
-
-	/**
-	 * @return customer_CustomerService
-	 */
-	public static function getInstance()
-	{
-		if (is_null(self::$instance))
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
 
 	/**
 	 * @return customer_persistentdocument_customer
@@ -42,7 +24,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery('modules_customer/customer');
+		return $this->getPersistentProvider()->createQuery('modules_customer/customer');
 	}
 
 	/**
@@ -51,12 +33,12 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	 */
 	public function isPublishable($document)
 	{
-		return parent::isPublishable($document) && ! $document->getNotActivatedReason();
+		return parent::isPublishable($document) && !$document->getNotActivatedReason();
 	}
 	
 	/**
 	 * @param customer_persistentdocument_customer $document
-	 * @param Integer $parentNodeId Parent node ID where to save the document (optionnal => can be null !).
+	 * @param integer $parentNodeId Parent node ID where to save the document (optionnal => can be null !).
 	 * @return void
 	 */
 	protected function preSave($document, $parentNodeId)
@@ -83,7 +65,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 
 	/**
 	 * @param customer_persistentdocument_customer $document
-	 * @param Integer $parentNodeId Parent node ID where to save the document (optionnal => can be null !).
+	 * @param integer $parentNodeId Parent node ID where to save the document (optionnal => can be null !).
 	 * @return void
 	 */
 	protected function preInsert($document, $parentNodeId)
@@ -96,7 +78,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 
 	/**
 	 * @param customer_persistentdocument_customer $document
-	 * @param Integer $parentNodeId Parent node ID where to save the document (optionnal => can be null !).
+	 * @param integer $parentNodeId Parent node ID where to save the document (optionnal => can be null !).
 	 * @return void
 	 */
 	protected function postInsert($document, $parentNodeId)
@@ -106,9 +88,18 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			$document->setCodeReference($this->generateCode($document));
 			if ($document->getCodeReference() !== null)
 			{
-				$this->pp->updateDocument($document);
+				$this->getPersistentProvider()->updateDocument($document);
 			}
 		}
+	}
+	
+	/**
+	 * @param customer_persistentdocument_customer $document
+	 * @return void
+	 */
+	protected function preDelete($document)
+	{
+		catalog_PriceService::getInstance()->deleteForProductId($document->getId());
 	}
 	
 	/**
@@ -208,7 +199,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			$user->setEmail($email);
 			$user->setPassword($password);
 			$user->setLabel($firstname . ' ' . $lastname);
-			
+				
 			$website = website_persistentdocument_website::getInstanceById($websiteId);
 			$group = $website->getGroup();
 			$user->addGroups($group);
@@ -220,7 +211,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			$profile->setLastname($lastname);
 			$profile->setRegisteredwebsiteid($websiteId);
 			$profile->save();
-		
+			
 			$user->activate();
 			
 			$customer = customer_CustomerService::getInstance()->getNewDocumentInstance();
@@ -265,9 +256,9 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	
 	/**
 	 * @param customer_persistentdocument_customer $customer
-	 * @param String $password
+	 * @param string $password
 	 * @param website_persistentdocument_website $website
-	 * @param Boolean $authenticate
+	 * @param boolean $authenticate
 	 */
 	public function saveNewCustomer($customer, $password, $website = null, $authenticate = true)
 	{
@@ -283,6 +274,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			$user = $customer->getUser();
 			$user->setLogin($user->getEmail());
 			$user->setPassword($password);
+			$user->setWebsiteid($group->getWebsiteid());
 			$user->addGroups($group);			
 			$user->save();
 			$user->activate();
@@ -298,6 +290,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 				$profile->setRegisteredwebsiteid($website->getId());
 			}
 			$profile->save();
+			
 			$customer->save();
 			$tm->commit();
 		}
@@ -325,7 +318,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		if ($group === null)
 		{
 			$group = users_GroupService::getInstance()->getNewDocumentInstance();
-			$group->setLabel(LocaleService::getInstance()->transFO('m.customer.bo.general.customer-user-group-label', array('ucf')));
+			$group->setLabel(LocaleService::getInstance()->trans('m.customer.bo.general.customer-user-group-label', array('ucf')));
 			$group->save(ModuleService::getInstance()->getRootFolderId('users'));
 			TagService::getInstance()->addTag($group, self::GROUP_TAG);
 		}
@@ -335,7 +328,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	/**
 	 * @param customer_persistentdocument_customer $customer
 	 * @param order_persistentdocument_coupon $coupon
-	 * @return Boolean
+	 * @return boolean
 	 */
 	public function hasAlreadyUsedCoupon($customer, $coupon)
 	{
@@ -377,7 +370,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	
 	/**
 	 * @param website_persistentdocument_website $website
-	 * @return Integer
+	 * @return integer
 	 */
 	public function getCountByWebsite($website)
 	{
@@ -408,11 +401,12 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	 * @param date_Calendar $fromDate
 	 * @param date_Calendar $toDate
 	 * @param f_persistentdocument_criteria_OperationProjection $projection
-	 * @param String $orderStatus
+	 * @param string $orderStatus
 	 * @return Mixed
 	 */
 	private function findProjectedTotal($website, $fromDate, $toDate, $projection, $dateToCompare)
 	{
+		$dbFormat = 'Y-m-d H:i:s';
 		$query = $this->createQuery()->add(Restrictions::between(
 			$dateToCompare,
 			$fromDate->toString(),
@@ -468,17 +462,18 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			$query = order_OrderService::getInstance()->createQuery();
 			$query->add(Restrictions::eq('customer.id', $document->getId()));
 			$query->add(Restrictions::notin('orderStatus', array(order_OrderService::CANCELED)));
-			$query->setProjection(Projections::rowCount('count'), Projections::sum('totalAmountWithTax', 'amounttotal'), Projections::avg('totalAmountWithTax', 'amountaverage'), Projections::groupProperty('shopId'));
+			$query->setProjection(Projections::rowCount('count'), Projections::sum('totalAmountWithTax', 'amounttotal'), 
+					Projections::avg('totalAmountWithTax', 'amountaverage'), Projections::groupProperty('shopId'));
 			$rows = $query->find();
 			
 			foreach ($rows as $row)
 			{
-				$shop = DocumentHelper::getDocumentInstance($row['shopId']);
+				$shop = catalog_persistentdocument_shop::getInstanceById($row['shopId']);
 				$data['orders'][] = array(
 					'shop' => $shop->getLabelAsHtml(),
 					'count' => $row['count'],
-					'amounttotal' => $shop->formatPrice($row['amounttotal']),
-					'amountaverage' => $shop->formatPrice($row['amountaverage'])
+					'amounttotal' => $shop->getDefaultBillingArea()->formatPrice($row['amounttotal']),
+					'amountaverage' => $shop->getDefaultBillingArea()->formatPrice($row['amountaverage'])
 				);
 			}
 									
@@ -502,14 +497,14 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		{
 			try 
 			{
-				$this->tm->beginTransaction();
+				$this->getTransactionManager()->beginTransaction();
 				$customer->addUsedCoupon($coupon);
-				$this->pp->updateDocument($customer);
-				$this->tm->commit();
+				$this->getPersistentProvider()->updateDocument($customer);
+				$this->getTransactionManager()->commit();
 			}
 			catch (Exception $e)
 			{
-				$this->tm->rollBack($e);
+				$this->getTransactionManager()->rollBack($e);
 				throw $e;
 			}
 			
@@ -527,14 +522,14 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		{
 			try 
 			{
-				$this->tm->beginTransaction();
+				$this->getTransactionManager()->beginTransaction();
 				$customer->removeUsedCoupon($coupon);
-				$this->pp->updateDocument($customer);
-				$this->tm->commit();
+				$this->getPersistentProvider()->updateDocument($customer);
+				$this->getTransactionManager()->commit();
 			}
 			catch (Exception $e)
 			{
-				$this->tm->rollBack($e);
+				$this->getTransactionManager()->rollBack($e);
 				throw $e;
 			}
 			
@@ -552,8 +547,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			->add(Restrictions::le('birthdayDayNumber', $max))
 			->setProjection(Projections::property('id'))->findColumn('id');
 	}
-	
-	
+
 	/**
 	 * @param customer_persistentdocument_customer $document
 	 * @param array<string, string> $attributes
@@ -569,23 +563,13 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		$attributes['birthday'] = date_Formatter::toDefaultDateBO($document->getBirthday());
 		$attributes['email'] = $document->getUser()->getEmail();
 		$attributes['date'] = date_Formatter::toDefaultDateTimeBO($document->getUICreationdate());
-
-		// Activation.
-		if (!$document->isPublished())
-		{
-			$attributes['activation'] = $document->getNotActivatedReasonLabel();
-		}
-		else
-		{
-			$attributes['activation'] = LocaleService::getInstance()->trans("m.customer.bo.general.account-activated", array('ucf'));
-		}
-		
+	
 		// Website.
 		$website = $document->getWebsite();
 		$attributes['website'] = ($website !== null) ? $website->getLabel() : '-';
-
-		$anonymizer = customer_AnonymizerService::getInstance();		
-		$attributes['canBeAnonymized'] = (!$anonymizer->isAnonymized($document) && $anonymizer->canBeAnonymized($document));	
+	
+		$anonymizer = customer_AnonymizerService::getInstance();
+		$attributes['canBeAnonymized'] = (!$anonymizer->isAnonymized($document) && $anonymizer->canBeAnonymized($document));
 	}
 		
 	/**
@@ -624,11 +608,11 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			$addressInfo = $address->getDocumentService()->getAddressInfos($address);
 			if ($index == 0)
 			{
-				$addressInfo['label'] = $ls->transBO('m.customer.bo.general.default-address', array('ucf'));
+				$addressInfo['label'] = $ls->trans('m.customer.bo.general.default-address', array('ucf'));
 			}
 			else
 			{
-				$addressInfo['label'] = $ls->transBO('m.customer.bo.general.address-title', array('ucf'), array('number' => $index+1));
+				$addressInfo['label'] = $ls->trans('m.customer.bo.general.address-title', array('ucf'), array('number' => $index+1));
 			}
 			$addresses[] = $addressInfo;
 		}
@@ -647,28 +631,37 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	}
 	
 	/**
+	 * @param customer_persistentdocument_customer $customer
+	 * @return array<string, string>
+	 */
+	public function getNotificationParameters($customer)
+	{
+		return array('customerCodeReference' => $customer->getCodeReferenceAsHtml());
+	}
+	
+	/**
 	 * @return string[string]
 	 */
-    public function getExportFields()
-    {
-    	$fieldNames = array();
-    	$names = array('id', 'email', 'codeReference', 'birthday', 'civility', 'firstname', 'lastname', 
+	public function getExportFields()
+	{
+		$fieldNames = array();
+		$names = array('id', 'email', 'codeReference', 'birthday', 'civility', 'firstname', 'lastname', 
 			'company', 'addressLine1', 'addressLine2', 'addressLine3', 'zipCode', 'city', 'province', 'countryCode', 'phone');
-    	foreach ($names as $name) 
-    	{
-    		$fieldNames[$name] = $name;
-    	}
-        return $fieldNames;
-    }
+		foreach ($names as $name) 
+		{
+			$fieldNames[$name] = $name;
+		}
+		return $fieldNames;
+	}
 	
-    /**
-     * @param customer_persistentdocument_customer $customer
-     * @param string[] $names
-     */
-    public function getExportValues($customer, $names)
-    {
-    	$address = $customer->getAddressCount() ? $customer->getAddress(0) : null; 
-        $values = array();
+	/**
+	 * @param customer_persistentdocument_customer $customer
+	 * @param string[] $names
+	 */
+	public function getExportValues($customer, $names)
+	{
+		$address = $customer->getAddressCount() ? $customer->getAddress(0) : null; 
+		$values = array();
 		foreach ($names as $propertyName)
 		{
 			if ($propertyName === 'id')
@@ -687,7 +680,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			{
 				 $values[$propertyName] = $customer->getUIBirthday();
 			}
-		    elseif ($address === null)
+			elseif ($address === null)
 			{
 				$values[$propertyName] = null;
 			}
@@ -712,107 +705,5 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			return mb_convert_encoding($value, 'ISO-8859-1', 'UTF-8');
 		}
 		return $value;
-	}
-	
-	// Deprecated.
-	
-	/**
-	 * @deprecated (will be removed in 4.0)
-	 */
-	const EMAIL_CONFIRMATION_OK = 1;
-	
-	/**
-	 * @deprecated (will be removed in 4.0)
-	 */
-	const EMAIL_CONFIRMATION_NO_CUSTOMER = 2;
-	
-	/**
-	 * @deprecated (will be removed in 4.0)
-	 */
-	const EMAIL_CONFIRMATION_BAD_STATE = 3;
-	
-	/**
-	 * @deprecated (will be removed in 4.0)
-	 */
-	const EMAIL_CONFIRMATION_BAD_EMAIL = 4;
-	
-	/**
-	 * @deprecated (will be removed in 4.0)
-	 */
-	public function sendEmailConfirmationEmail($customer)
-	{
-		if ($customer === null || $customer->getNotActivatedReason() != self::REASON_CONFIRM_EMAIL_ADDRESS)
-		{
-			return false;
-		}
-		$user = $customer->getUser();
-
-		$url = LinkHelper::getActionUrl('customer', 'EmailConfirmation', array(
-			'cmpref' => $customer->getId(),
-			'lang' => $customer->getLang(),
-			'mailref' => $user->getEmail()
-		));
-		$link = sprintf('<a class="link" href="%s" title="%s">%s</a>', $url, LocaleService::getInstance()->transFO('m.customer.mail.click-here-to-conforirm', array('ucf')), $url);
-
-		$notificationService = notification_NotificationService::getInstance();
-		$notification = $notificationService->getByCodeName('modules_customer/emailConfirmation');
-
-		$replacements = array();
-		$replacements['title'] = ($user->getTitle() !== null) ? $user->getTitle()->getLabel() : '';
-		$replacements['lastname'] = $user->getLastname();
-		$replacements['fullname'] = $user->getFullname();
-		$replacements['confirmation-url'] = $url;
-		$replacements['confirmation-link'] = $link;
-
-		return $notificationService->send($notification, change_MailService::getInstance()->getRecipientsArray(array($user->getEmail())), $replacements, 'customer');
-	}
-	
-	/**
-	 * @deprecated (will be removed in 4.0)
-	 */
-	public function validateEmailConfirmation($customer, $email)
-	{
-		// No customer.
-		if (is_null($customer))
-		{
-			return self::EMAIL_CONFIRMATION_NO_CUSTOMER;
-		}
-		// Customer not needing confirmation.
-		else if ($customer->getNotActivatedReason() != self::REASON_CONFIRM_EMAIL_ADDRESS)
-		{
-			return self::EMAIL_CONFIRMATION_BAD_STATE;
-		}
-		// Bad e-mail.
-		else if ($customer->getUser()->getEmail() != $email)
-		{
-			return self::EMAIL_CONFIRMATION_BAD_EMAIL;
-		}
-		else
-		{
-			$customer->setNotActivatedReason(null);
-			$customer->save();
-			return self::EMAIL_CONFIRMATION_OK;
-		}
-	}
-
-	/**
-	 * @deprecated (will be removed in 4.0)
-	 */
-	public function getEmailConfirmationRedirectionUrl($confirmationCode)
-	{
-		$website = website_WebsiteService::getInstance()->getCurrentWebsite();
-		$tagService = TagService::getInstance();
-
-		try
-		{
-			$page = $tagService->getDocumentByContextualTag('contextual_website_website_modules_customer_my-account', $website);
-		}
-		catch (TagException $e)
-		{
-			$e; // Avoid warning in Eclipse.
-			$page = $tagService->getDocumentByContextualTag('contextual_website_website_error404', $website);
-		}
-
-		return LinkHelper::getDocumentUrl($page, RequestContext::getInstance()->getLang(), array('customerParam'=> array('confirmationCode' => $confirmationCode)));
 	}
 }

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.customer.bo.blocks.createaccount" lcid="en_GB">
-  <key id="confirmEmail"/>
-  <key id="confirmEmail-help"/>
+	<key id="confirmemail">Email address confirmation</key>
+	<key id="confirmemail-help">Asks for confirmation of the email address.</key>
 </i18n>

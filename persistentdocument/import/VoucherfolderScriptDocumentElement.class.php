@@ -5,15 +5,15 @@
  */
 class customer_VoucherfolderScriptDocumentElement extends import_ScriptDocumentElement
 {
-    /**
-     * @return customer_persistentdocument_voucherfolder
-     */
-    protected function initPersistentDocument()
-    {
-    	return customer_VoucherfolderService::getInstance()->getNewDocumentInstance();
-    }
-    
-    /**
+	/**
+	 * @return customer_persistentdocument_voucherfolder
+	 */
+	protected function initPersistentDocument()
+	{
+		return customer_VoucherfolderService::getInstance()->getNewDocumentInstance();
+	}
+	
+	/**
 	 * @return f_persistentdocument_PersistentDocumentModel
 	 */
 	protected function getDocumentModel()

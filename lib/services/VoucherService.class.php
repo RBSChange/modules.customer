@@ -1,27 +1,10 @@
 <?php
 /**
- * customer_VoucherService
- * @package modules.customer
+ * @package mdoules.customer
+ * @method customer_VoucherService getInstance()
  */
 class customer_VoucherService extends customer_CouponService
 {
-	/**
-	 * @var customer_VoucherService
-	 */
-	private static $instance;
-
-	/**
-	 * @return customer_VoucherService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-
 	/**
 	 * @return customer_persistentdocument_voucher
 	 */
@@ -38,7 +21,7 @@ class customer_VoucherService extends customer_CouponService
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery('modules_customer/voucher');
+		return $this->getPersistentProvider()->createQuery('modules_customer/voucher');
 	}
 	
 	/**
@@ -49,9 +32,22 @@ class customer_VoucherService extends customer_CouponService
 	 */
 	public function createStrictQuery()
 	{
-		return $this->pp->createQuery('modules_customer/voucher', false);
+		return $this->getPersistentProvider()->createQuery('modules_customer/voucher', false);
 	}
 	
+	/**
+	 * @param customer_persistentdocument_voucher $document
+	 * @param integer $parentNodeId Parent node ID where to save the document (optionnal).
+	 * @return void
+	 */
+	protected function preInsert($document, $parentNodeId)
+	{
+		if (!$document->getBillingAreaId() && $document->getShop())
+		{
+			$document->setBillingAreaId($document->getShop()->getDefaultBillingArea()->getId());
+		}
+	}
+
 	/**
 	 * @param customer_persistentdocument_voucher $coupon
 	 * @param order_CartInfo $cart
@@ -61,6 +57,17 @@ class customer_VoucherService extends customer_CouponService
 	{
 		if ($coupon !== null && $coupon->isPublished() && !$cart->isEmpty())
 		{
+			if (!DocumentHelper::equals($coupon->getShop(), $cart->getShop()))
+			{
+				return false;
+			}
+			
+			if ($coupon->getBillingAreaId() != $cart->getBillingAreaId())
+			{
+				return false;
+			}
+			
+			
 			$customer = $cart->getCustomer();
 			if ($customer === null || $customer->getDocumentService()->hasAlreadyUsedCoupon($customer, $coupon))
 			{
@@ -72,13 +79,8 @@ class customer_VoucherService extends customer_CouponService
 				return false;
 			}
 			
-			if ($coupon->getShop() !== null && $cart->getShopId() !== $coupon->getShop()->getId())
-			{
-				return false;
-			}
-			
 			$linesAmount = 0.0;
-			foreach ($cart->getCartLineArray($value) as $cartLineInfo) 
+			foreach ($cart->getCartLineArray() as $cartLineInfo) 
 			{
 				$linesAmount += $cartLineInfo->getTotalValueWithTax();
 			}
@@ -87,7 +89,7 @@ class customer_VoucherService extends customer_CouponService
 		}
 		return false;
 	}
-
+	
 	/**
 	 * @param customer_persistentdocument_voucher $document
 	 * @param array<string, string> $attributes
@@ -101,7 +103,16 @@ class customer_VoucherService extends customer_CouponService
 		{
 			$shop = $document->getShop();
 			$attributes['shop'] = $shop->getLabel();
-			$attributes['amount'] = $document->getAmount() . $shop->getCurrencySymbol();
+			$ba = $document->getBillingArea();
+			if ($ba instanceof catalog_persistentdocument_billingarea)
+			{
+				$attributes['amount'] = $ba->formatPrice($document->getAmount(), $shop->getLang());
+				$attributes['shop'] .= '/' . $ba->getLabel();
+			}
+			else 
+			{
+				$attributes['amount'] = $document->getAmount();
+			}
 			$customer = $document->getCustomer();
 			$attributes['customer'] = ($customer !== null) ? $customer->getLabel() : '-';
 		}

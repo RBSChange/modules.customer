@@ -5,15 +5,15 @@
  */
 class customer_TarifcustomergroupfolderScriptDocumentElement extends import_ScriptDocumentElement
 {
-    /**
-     * @return customer_persistentdocument_tarifcustomergroupfolder
-     */
-    protected function initPersistentDocument()
-    {
-    	return customer_TarifcustomergroupfolderService::getInstance()->getNewDocumentInstance();
-    }
-    
-    /**
+	/**
+	 * @return customer_persistentdocument_tarifcustomergroupfolder
+	 */
+	protected function initPersistentDocument()
+	{
+		return customer_TarifcustomergroupfolderService::getInstance()->getNewDocumentInstance();
+	}
+	
+	/**
 	 * @return f_persistentdocument_PersistentDocumentModel
 	 */
 	protected function getDocumentModel()

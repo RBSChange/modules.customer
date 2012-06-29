@@ -11,7 +11,7 @@ class customer_WebsiteCustomerFilter extends f_persistentdocument_DocumentFilter
 	}
 	
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public static function getDocumentModelName()
 	{

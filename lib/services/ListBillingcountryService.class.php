@@ -1,27 +1,10 @@
 <?php
 /**
- * customer_ListShippingcountryService
- * @package module.customer
+ * @package mdoules.customer
+ * @method customer_ListBillingcountryService getInstance()
  */
 class customer_ListBillingcountryService extends customer_ListBaseCountryService
 {
-	/**
-	 * @var customer_ListBillingcountryService
-	 */
-	private static $instance;
-
-	/**
-	 * @return customer_ListBillingcountryService
-	 */
-	public static function getInstance()
-	{
-		if (is_null(self::$instance))
-		{
-			self::$instance = new customer_ListBillingcountryService();
-		}
-		return self::$instance;
-	}
-
 	protected function __construct()
 	{
 		try 
@@ -33,7 +16,7 @@ class customer_ListBillingcountryService extends customer_ListBaseCountryService
 			$shop = null;
 			Framework::exception($e);
 		}
-		$zone = ($shop !== null) ? $shop->getBillingZone() : zone_ZoneService::getInstance()->getDefaultZone();
+		$zone = ($shop !== null) ? $shop->getCurrentBillingArea()->getBillingAddressZone() : zone_ZoneService::getInstance()->getDefaultZone();
 		$this->setZone($zone);
 	}
 }

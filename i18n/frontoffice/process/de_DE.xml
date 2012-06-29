@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.customer.frontoffice.process" lcid="de_DE">
-  <key id="deliveryaddress">Meine Lieferadresse</key>
-  <key id="usethisaddress">diese Adresse benutzen</key>
-  <key id="informationaddaddress">Möchten Sie Ihre Bestellung an eine andere Adresse als die aktuell angezeigt, erstellen Sie eine neue Lieferadresse, die Ihrem Konto hinzugefügt wird.</key>
-  <key id="addaddress">Neue Lieferadresse</key>
-  <key id="address">Adresse(n)</key>
+	<key id="deliveryaddress">Meine Lieferadresse</key>
+	<key id="usethisaddress">diese Adresse benutzen</key>
+	<key id="informationaddaddress">Möchten Sie Ihre Bestellung an eine andere Adresse als die aktuell angezeigt, erstellen Sie eine neue Lieferadresse, die Ihrem Konto hinzugefügt wird.</key>
+	<key id="addaddress">Neue Lieferadresse</key>
+	<key id="address">Adresse(n)</key>
 </i18n>

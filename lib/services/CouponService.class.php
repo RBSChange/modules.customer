@@ -1,27 +1,10 @@
 <?php
 /**
- * customer_CouponService
- * @package customer
+ * @package mdoules.customer
+ * @method customer_CouponService getInstance()
  */
 class customer_CouponService extends f_persistentdocument_DocumentService
 {
-	/**
-	 * @var customer_CouponService
-	 */
-	private static $instance;
-
-	/**
-	 * @return customer_CouponService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-
 	/**
 	 * @return customer_persistentdocument_coupon
 	 */
@@ -38,7 +21,7 @@ class customer_CouponService extends f_persistentdocument_DocumentService
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery('modules_customer/coupon');
+		return $this->getPersistentProvider()->createQuery('modules_customer/coupon');
 	}
 	
 	/**
@@ -49,7 +32,7 @@ class customer_CouponService extends f_persistentdocument_DocumentService
 	 */
 	public function createStrictQuery()
 	{
-		return $this->pp->createQuery('modules_customer/coupon', false);
+		return $this->getPersistentProvider()->createQuery('modules_customer/coupon', false);
 	}
 
 	

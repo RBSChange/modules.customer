@@ -5,15 +5,15 @@
  */
 class customer_VoucherhandlerScriptDocumentElement extends import_ScriptDocumentElement
 {
-    /**
-     * @return customer_persistentdocument_voucherhandler
-     */
-    protected function initPersistentDocument()
-    {
-    	return customer_VoucherhandlerService::getInstance()->getNewDocumentInstance();
-    }
-    
-    /**
+	/**
+	 * @return customer_persistentdocument_voucherhandler
+	 */
+	protected function initPersistentDocument()
+	{
+		return customer_VoucherhandlerService::getInstance()->getNewDocumentInstance();
+	}
+	
+	/**
 	 * @return f_persistentdocument_PersistentDocumentModel
 	 */
 	protected function getDocumentModel()

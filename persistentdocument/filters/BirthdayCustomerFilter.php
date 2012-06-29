@@ -14,7 +14,7 @@ class customer_BirthdayCustomerFilter extends f_persistentdocument_DocumentFilte
 
 	
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public static function getDocumentModelName()
 	{

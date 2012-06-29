@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.customer.bo.actions" lcid="en_GB">
-  <key id="create_">create</key>
-  <key id="createtarif_">create</key>
-  <key id="create-dynamiccustomergroup">create a dynamic customer group</key>
-  <key id="create-editablecustomergroup">create an editable customer group</key>
-  <key id="creating-group-mailing-list">creating the mailing list</key>
-  <key id="create-tarifcustomergroupfolder">Créer tarifcustomergroupfolder</key>
-  <key id="createvoucher">create a voucher</key>
-  <key id="anonymize">make this customer anonymous (cannot be undone)</key>
-  <key id="confirm-anonymize">Beware: this operation cannot be undone. Are you sure you want to proceed?</key>
-  <key id="create-tarifcustomergroup">create a pricing group</key>
-  <key id="createvoucher_">create</key>
-  <key id="createvoucherhandler">create voucher manager</key>
-  <key id="exportdyngroup">export the customers in this group</key>
-  <key id="creategroup"/>
+	<key id="create_">create</key>
+	<key id="createtarif_">create</key>
+	<key id="create-dynamiccustomergroup">create a dynamic customer group</key>
+	<key id="create-editablecustomergroup">create an editable customer group</key>
+	<key id="creating-group-mailing-list">creating the mailing list</key>
+	<key id="create-tarifcustomergroupfolder">Créer tarifcustomergroupfolder</key>
+	<key id="createvoucher">create a voucher</key>
+	<key id="anonymize">make this customer anonymous (cannot be undone)</key>
+	<key id="confirm-anonymize">Beware: this operation cannot be undone. Are you sure you want to proceed?</key>
+	<key id="create-tarifcustomergroup">create a pricing group</key>
+	<key id="createfrontendgroup">create a dynamic user group from this group</key>
+	<key id="createvoucher_">create</key>
+	<key id="createvoucherhandler">create voucher manager</key>
+	<key id="exportdyngroup">export the customers in this group</key>
 </i18n>

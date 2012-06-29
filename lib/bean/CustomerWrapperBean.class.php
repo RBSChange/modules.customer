@@ -31,7 +31,7 @@ class customer_CustomerWrapperBean
 	public $id;
 	
 	/**
-	 * @param Integer $userId
+	 * @param integer $userId
 	 * @return customer_CustomerWrapperBean
 	 */
 	public static function getInstanceById($userId)

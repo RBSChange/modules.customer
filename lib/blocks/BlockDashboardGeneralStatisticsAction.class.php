@@ -11,7 +11,7 @@ class customer_BlockDashboardGeneralStatisticsAction extends dashboard_BlockDash
 	 */
 	protected function setRequestContent($request, $forEdition)
 	{
-		if ($request->hasParameter('shopId'))
+		if ($request->hasParameter('websiteId'))
 		{
 			$website = DocumentHelper::getDocumentInstance($request->getParameter('websiteId'));
 		}
@@ -40,20 +40,20 @@ class customer_BlockDashboardGeneralStatisticsAction extends dashboard_BlockDash
 			foreach (explode(',', $configuration->getColumns()) as $columnName)
 			{
 				$columns[$columnName] = true;
-			}			
+			}
 			$request->setAttribute('columnsArray', $columns);
 			$request->setAttribute('widget', $widget);
 		}
 		else
 		{
-			$charts = array();			
+			$charts = array();
 			foreach (explode(',', $configuration->getColumns()) as $columnName)
 			{
 				$producer = new customer_WebsiteBasicStatisticsProducer();
 				$chart = new f_chart_BarChart($producer->getDataTable(array('websiteId' => $websiteId, 'mode' => $columnName)));
 				$chart->setGrid(new f_chart_Grid(0, 20));
-				$charts[] = array('chart' => $chart, 'title' => f_Locale::translate("&modules.customer.bo.blocks.dashboardgeneralstatistics.Column-$columnName;"));
-			}			
+				$charts[] = array('chart' => $chart, 'title' => LocaleService::getInstance()->trans('m.customer.bo.blocks.dashboardgeneralstatistics.Column-'.$columnName, array('ucf')));
+			}
 			$request->setAttribute('charts', $charts);
 		}
 		$request->setAttribute('websites', website_WebsiteService::getInstance()->getAll());

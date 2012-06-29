@@ -9,7 +9,7 @@ class customer_BlockCustomerinfoAction extends website_BlockAction
 	 * @see website_BlockAction::execute()
 	 * @param f_mvc_Request $request
 	 * @param f_mvc_Response $response
-	 * @return String
+	 * @return string
 	 */
 	function execute($request, $response)
 	{

@@ -1,27 +1,10 @@
 <?php
 /**
- * customer_EditablecustomergroupService
- * @package customer
+ * @package mdoules.customer
+ * @method customer_EditablecustomergroupService getInstance()
  */
 class customer_EditablecustomergroupService extends customer_CustomergroupService
 {
-	/**
-	 * @var customer_EditablecustomergroupService
-	 */
-	private static $instance;
-
-	/**
-	 * @return customer_EditablecustomergroupService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-
 	/**
 	 * @return customer_persistentdocument_editablecustomergroup
 	 */
@@ -38,7 +21,7 @@ class customer_EditablecustomergroupService extends customer_CustomergroupServic
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery('modules_customer/editablecustomergroup');
+		return $this->getPersistentProvider()->createQuery('modules_customer/editablecustomergroup');
 	}
 	
 	/**
@@ -49,7 +32,7 @@ class customer_EditablecustomergroupService extends customer_CustomergroupServic
 	 */
 	public function createStrictQuery()
 	{
-		return $this->pp->createQuery('modules_customer/editablecustomergroup', false);
+		return $this->getPersistentProvider()->createQuery('modules_customer/editablecustomergroup', false);
 	}
 	
 	/**
@@ -63,7 +46,7 @@ class customer_EditablecustomergroupService extends customer_CustomergroupServic
 		
 	/**
 	 * @param customer_persistentdocument_editablecustomergroup $group
-	 * @return Integer[]
+	 * @return integer[]
 	 */
 	protected function doGetMemberIds($group)
 	{
@@ -79,7 +62,7 @@ class customer_EditablecustomergroupService extends customer_CustomergroupServic
 	/**
 	 * @param customer_persistentdocument_editablecustomergroup $group
 	 * @param customer_persistentdocument_customer $customer
-	 * @return Boolean
+	 * @return boolean
 	 */
 	protected function doIsMember($group, $customer)
 	{

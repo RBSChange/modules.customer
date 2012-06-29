@@ -1,27 +1,10 @@
 <?php
 /**
- * customer_TarifcustomergroupService
- * @package customer
+ * @package mdoules.customer
+ * @method customer_TarifcustomergroupService getInstance()
  */
 class customer_TarifcustomergroupService extends customer_CustomergroupService
 {
-	/**
-	 * @var customer_TarifcustomergroupService
-	 */
-	private static $instance;
-
-	/**
-	 * @return customer_TarifcustomergroupService
-	 */
-	public static function getInstance()
-	{
-		if (self::$instance === null)
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-
 	/**
 	 * @return customer_persistentdocument_tarifcustomergroup
 	 */
@@ -38,7 +21,7 @@ class customer_TarifcustomergroupService extends customer_CustomergroupService
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery('modules_customer/tarifcustomergroup');
+		return $this->getPersistentProvider()->createQuery('modules_customer/tarifcustomergroup');
 	}
 	
 	/**
@@ -49,7 +32,7 @@ class customer_TarifcustomergroupService extends customer_CustomergroupService
 	 */
 	public function createStrictQuery()
 	{
-		return $this->pp->createQuery('modules_customer/tarifcustomergroup', false);
+		return $this->getPersistentProvider()->createQuery('modules_customer/tarifcustomergroup', false);
 	}
 	
 	/**
@@ -63,7 +46,7 @@ class customer_TarifcustomergroupService extends customer_CustomergroupService
 		
 	/**
 	 * @param customer_persistentdocument_tarifcustomergroup $group
-	 * @return Integer[]
+	 * @return integer[]
 	 */
 	protected function doGetMemberIds($group)
 	{
@@ -75,12 +58,21 @@ class customer_TarifcustomergroupService extends customer_CustomergroupService
 	}
 	
 	/**
-	 * @param customer_persistentdocument_editablecustomergroup $group
+	 * @param customer_persistentdocument_tarifcustomergroup $group
 	 * @param customer_persistentdocument_customer $customer
-	 * @return Boolean
+	 * @return boolean
 	 */
 	protected function doIsMember($group, $customer)
 	{
 		return in_array($customer->getId(), $this->doGetMemberIds($group));
+	}
+	
+	/**
+	 * @param customer_persistentdocument_tarifcustomergroup $document
+	 * @return void
+	 */
+	protected function preDelete($document)
+	{
+		catalog_PriceService::getInstance()->deleteForProductId($document->getId());
 	}
 }

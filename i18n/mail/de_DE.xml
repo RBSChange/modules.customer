@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <i18n baseKey="m.customer.mail" lcid="de_DE">
-  <key id="click-here-to-conforirm">Klicken Sie hier um Ihre E-mailadresse zu bestätigen</key>
+	<key id="click-here-to-conforirm">Klicken Sie hier um Ihre E-mailadresse zu bestätigen</key>
 </i18n>

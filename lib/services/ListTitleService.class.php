@@ -1,27 +1,10 @@
 <?php
 /**
- * customer_ListTitleService
- * @author intportg
+ * @package mdoules.customer
+ * @method customer_ListTitleService getInstance()
  */
-class customer_ListTitleService extends BaseService
+class customer_ListTitleService extends change_BaseService implements list_ListItemsService
 {
-	/**
-	 * @var customer_ListTitleService
-	 */
-	private static $instance;
-
-	/**
-	 * @return customer_ListTitleService
-	 */
-	public static function getInstance()
-	{
-		if (is_null(self::$instance))
-		{
-			self::$instance = new self();
-		}
-		return self::$instance;
-	}
-
 	/**
 	 * @return Array<Integer, list_Item>
 	 */
@@ -39,7 +22,7 @@ class customer_ListTitleService extends BaseService
 	}
 
 	/**
-	 * @return Integer
+	 * @return integer
 	 */
 	public function getDefaultId()
 	{

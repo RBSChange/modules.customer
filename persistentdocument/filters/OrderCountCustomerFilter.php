@@ -16,7 +16,7 @@ class customer_OrderCountCustomerFilter extends customer_OrderFilterBase
 	}
 	
 	/**
-	 * @return String
+	 * @return string
 	 */
 	public static function getDocumentModelName()
 	{

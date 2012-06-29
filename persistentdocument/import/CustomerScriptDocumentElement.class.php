@@ -3,23 +3,23 @@ class customer_CustomerScriptDocumentElement extends import_ScriptDocumentElemen
 {
 	private $initByLogin;
 	
-    /**
-     * @return customer_persistentdocument_customer
-     */
-    protected function initPersistentDocument()
-    {
-    	if ($this->initByLogin)
-    	{
-    		$customer = customer_CustomerService::getInstance()->createQuery()
-    			->add(Restrictions::eq('user.login', $this->initByLogin))->findUnique();
-    		if (!$customer)
-    		{
-    			throw new Exception('Invalid login : ' . $this->initByLogin);
-    		}
-    		return $customer;	
-    	}
-    	return customer_CustomerService::getInstance()->getNewDocumentInstance();
-    }
+	/**
+	 * @return customer_persistentdocument_customer
+	 */
+	protected function initPersistentDocument()
+	{
+		if ($this->initByLogin)
+		{
+			$customer = customer_CustomerService::getInstance()->createQuery()
+				->add(Restrictions::eq('user.login', $this->initByLogin))->findUnique();
+			if (!$customer)
+			{
+				throw new Exception('Invalid login : ' . $this->initByLogin);
+			}
+			return $customer;	
+		}
+		return customer_CustomerService::getInstance()->getNewDocumentInstance();
+	}
 	
 	/**
 	 * @see import_ScriptDocumentElement::getPersistentDocument()
