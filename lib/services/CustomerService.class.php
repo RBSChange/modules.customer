@@ -440,6 +440,21 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 			$data['properties']['fullName'] = $document->getUser()->getFullName();
 			$data['properties']['codeReference'] = $document->getCodeReference();
 			
+			$anonymizer = customer_AnonymizerService::getInstance();
+			if ($anonymizer->isAnonymized($document))
+			{
+				$data['properties']['anonymization'] = LocaleService::getInstance()->transFO('m.customer.document.customer.anonymized', array('ucf'));
+			}
+			elseif (!$anonymizer->canBeAnonymized($document))
+			{
+				$data['properties']['anonymization'] = LocaleService::getInstance()->transFO('m.customer.document.customer.has-not-finished-orders', array('ucf'));
+			}	
+			else
+			{
+				$data['properties']['canBeAnonymized'] = true;
+				$data['properties']['anonymization'] = LocaleService::getInstance()->transFO('m.customer.document.customer.can-be-anonymized', array('ucf'));
+			}
+			
 			// Carts.
 			$data['carts'] = array();
 			$cart = $document->getCart();
