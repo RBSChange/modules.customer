@@ -4,6 +4,7 @@
 		<property name="fullName" labeli18n="m.customer.bo.doceditor.property.full-name" />
 		<property name="codeReference" labeli18n="m.customer.bo.doceditor.property.code" />
 		<property name="creationdate" labeli18n="m.uixul.bo.doceditor.property.creationdate" />
+		<property name="anonymization" class="action" type="anonymize" labeli18n="m.customer.document.customer.anonymization" />
 	</section>
 	<section name="publication" linkedtab="publication" labeli18n="m.uixul.bo.doceditor.section.publication" image="{IconsBase}/small/status.png">
 		<property name="status" labeli18n="m.uixul.bo.doceditor.property.status" />
@@ -16,4 +17,22 @@
 	</section>
 	<section name="orders" linkedtab="orders" actiontexti18n="m.uixul.bo.doceditor.section.action.view" labeli18n="m.customer.bo.doceditor.section.orders" image="{IconsBase}/small/order.png">
 	</section>
+	<xul>
+		<javascript>
+			<constructor><![CDATA[
+				this.extendMethod("fireInitializeComplete", this.fireInitializeCompleteExtend);
+			]]></constructor>
+			<method name="fireInitializeCompleteExtend">
+				<parameter name="result" />
+				<body><![CDATA[
+					// Activate anonymization?
+					if (result.status == "OK" && 'canBeAnonymized' in result.contents.properties)
+					{
+						var row = document.getAnonymousElementByAttribute(this, 'propertyname', 'anonymization');
+						row.removeAttribute('disableaction');
+					}
+				]]></body>
+			</method>
+		</javascript>
+	</xul>
 </panel>
