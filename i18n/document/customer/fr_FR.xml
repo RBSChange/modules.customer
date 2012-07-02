@@ -13,4 +13,8 @@
   <key id="birthday">date de naissance</key>
   <key id="codereference">code référence</key>
   <key id="codereference-help">référence client</key>
+  <key id="anonymization">anonymisation</key>
+  <key id="anonymized">ce client a déjà été anonymisé</key>
+  <key id="has-not-finished-orders">ce client a des commandes en cours et ne peut donc pas être anonymisé</key>
+  <key id="can-be-anonymized">ce client peut être anonymisé</key>
 </i18n>
