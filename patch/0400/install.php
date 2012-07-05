@@ -23,6 +23,12 @@ class customer_patch_0400 extends change_Patch
 		$doc = customer_PreferencesService::getInstance()->createQuery()->findUnique();
 		$doc->setLabel('m.customer.bo.general.module-name');
 		$doc->save();
+		$doc = catalog_PreferencesService::getInstance()->createQuery()->findUnique();
+		$doc->setLabel('m.catalog.bo.general.module-name');
+		$doc->save();
+		$doc = order_PreferencesService::getInstance()->createQuery()->findUnique();
+		$doc->setLabel('m.order.bo.general.module-name');
+		$doc->save();
 	}
 	
 	/**

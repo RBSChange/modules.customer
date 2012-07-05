@@ -4,50 +4,31 @@
 	<binding fileName="modules/notification/persistentdocument/import/notification_binding.xml" />
 	<binding fileName="modules/customer/persistentdocument/import/customer_binding.xml" />
 	<binding fileName="modules/form/persistentdocument/import/form_binding.xml" />
-
 	<systemfolder module="list" relatedmodule="customer">
-		<dynamiclist id="l_bcountry" listid="modules_customer/billingcountry" 
-			description="Pays pour l'adresse de facturation (compte client)"
-			label="Pays pour l'adresse de facturation (compte client)" />	
-	
-		<dynamiclist id="l_scountry" listid="modules_customer/shippingcountry" 
-			description="Pays pour l'adresse de livraison (compte client)"
-			label="Pays pour l'adresse de livraison (compte client)" />
-		
-		<staticlist listid="modules_customer/dashboardshopstatisticscolums" 
-			label="Colonnes de statistiques"
-			description="Colones disponibles dnas le bloc du tableau de bord affichant les statistiques de clients d'un site web.">
-			<staticitem label="&amp;modules.customer.bo.blocks.dashboardgeneralstatistics.column-new;" value="new" />
-			<staticitem label="&amp;modules.customer.bo.blocks.dashboardgeneralstatistics.column-lastlogin;" value="lastlogin" />
-			<staticitem label="&amp;modules.customer.bo.blocks.dashboardgeneralstatistics.column-hasorder;" value="hasorder" />
+		<dynamiclist id="l_bcountry" listid="modules_customer/billingcountry" description="Pays pour l'adresse de facturation (compte client)" label="Pays pour l'adresse de facturation (compte client)" />
+		<dynamiclist id="l_scountry" listid="modules_customer/shippingcountry" description="Pays pour l'adresse de livraison (compte client)" label="Pays pour l'adresse de livraison (compte client)" />
+		<staticlist listid="modules_customer/dashboardshopstatisticscolums" label="Colonnes de statistiques" description="Colones disponibles dnas le bloc du tableau de bord affichant les statistiques de clients d'un site web.">
+			<staticitem label="m.customer.bo.blocks.dashboardgeneralstatistics.column-new" value="new" />
+			<staticitem label="m.customer.bo.blocks.dashboardgeneralstatistics.column-lastlogin" value="lastlogin" />
+			<staticitem label="m.customer.bo.blocks.dashboardgeneralstatistics.column-hasorder" value="hasorder" />
 		</staticlist>
-		
-		<staticlist listid="modules_customer/noordercustomertype" label="Type de commande non passé" >
-			<staticitem label="&amp;modules.customer.bo.lists.noordercustomertype.No-order;" value="noorder" />
-			<staticitem label="&amp;modules.customer.bo.lists.noordercustomertype.No-paid-order;" value="nopaidorder" />
+		<staticlist listid="modules_customer/noordercustomertype" label="Type de commande non passé">
+			<staticitem label="m.customer.bo.lists.noordercustomertype.no-order" value="noorder" />
+			<staticitem label="m.customer.bo.lists.noordercustomertype.no-paid-order" value="nopaidorder" />
 		</staticlist>
 	</systemfolder>
-		
 	<systemfolder module="form" relatedmodule="customer">
-		<form formid="modules_customer/contact" label="Formulaire de contact à propos d'un compte client" 
-			description="Ce formulaire est destiné à contacter le site à propos d'un compte client (problèmes de création de compte, de connexion, etc). Pour les messages spécifiques à une commande, un système de messagerie dédié est disponible à partir du compte client."
-			submitButton="Envoyer" confirmMessage="Nous avons bien enregistré votre demande."
-			markup="default" useBackLink="true" useCaptcha="true" >		
-			<fieldtext fieldName="email" label="Votre adresse e-mail" required="true" multiline="false"
-				cols="50" maxlength="255" validators="blank:false;maxSize:255;minSize:0;email:true" />
-			<fieldtext fieldName="login" label="Votre login" required="false" multiline="false"
-				cols="50" maxlength="255" validators="maxSize:255" />
-			<fieldtext fieldName="message" label="Votre message" required="true" multiline="true"
-				cols="50" rows="10" maxlength="8192" validators="blank:false;maxSize:8192" />				
+		<form formid="modules_customer/contact" label="Formulaire de contact à propos d'un compte client" description="Ce formulaire est destiné à contacter le site à propos d'un compte client (problèmes de création de compte, de connexion, etc). Pour les messages spécifiques à une commande, un système de messagerie dédié est disponible à partir du compte client." submitButton="Envoyer" confirmMessage="Nous avons bien enregistré votre demande." markup="default" useBackLink="true" useCaptcha="true">
+			<fieldtext fieldName="email" label="Votre adresse e-mail" required="true" multiline="false" cols="50" maxlength="255" validators="blank:false;maxSize:255;minSize:0;email:true" />
+			<fieldtext fieldName="login" label="Votre login" required="false" multiline="false" cols="50" maxlength="255" validators="maxSize:255" />
+			<fieldtext fieldName="message" label="Votre message" required="true" multiline="true" cols="50" rows="10" maxlength="8192" validators="blank:false;maxSize:8192" />
 		</form>
 	</systemfolder>
-	
 	<rootfolder module="customer">
-		<tarifcustomergroupfolder byLabel="m.customer.document.tarifcustomergroupfolder.document-name"/>
-		<voucherfolder byLabel="m.customer.document.voucherfolder.document-name"/>
+		<tarifcustomergroupfolder byLabel="m.customer.document.tarifcustomergroupfolder.document-name" />
+		<voucherfolder byLabel="m.customer.document.voucherfolder.document-name" />
 	</rootfolder>
-	
 	<rootfolder module="preferences">
-		<customerpreferences  />
-	</rootfolder>	
+		<customerpreferences/>
+	</rootfolder>
 </script>

@@ -5,64 +5,45 @@
 	<binding fileName="modules/users/persistentdocument/import/users_binding.xml" />
 	<binding fileName="modules/zone/persistentdocument/import/zone_binding.xml" />
 	<binding fileName="modules/customer/persistentdocument/import/customer_binding.xml" />
-
- 	<country byLabel="France" id="fr" />
-
-	<editablelist listid="modules_users/title" >	
-		<item byLabel="M" id="mr"/>
+	<country byLabel="France" id="fr" />
+	<editablelist listid="modules_users/title">
+		<item byLabel="M" id="mr" />
 	</editablelist>
-	
 	<website byTag="default_modules_website_default-website" id="defaultwebsite" />
-	
 	<group byWebsite-refid="defaultwebsite">
-		<user id="johndoe1" login="johndoe1"  email="john.doe1@rbs.fr" password="abcd123" label="John Doe1" >
+		<user id="johndoe1" login="johndoe1" email="john.doe1@rbs.fr" password="abcd123" label="John Doe1">
 			<usersprofile firstname="John" lastname="Doe1" titleid-refid="mr" registeredwebsiteid-refid="defaultwebsite" />
 		</user>
-
-		<user id="johndoe2" login="johndoe2" email="john.doe2@rbs.fr" password="abcd123" label="John Doe2" >
+		<user id="johndoe2" login="johndoe2" email="john.doe2@rbs.fr" password="abcd123" label="John Doe2">
 			<usersprofile firstname="John" lastname="Doe2" titleid-refid="mr" registeredwebsiteid-refid="defaultwebsite" />
 		</user>
-		<user id="johndoe3" login="johndoe3" email="john.doe3@rbs.fr" password="abcd123" label="John Doe3" >
+		<user id="johndoe3" login="johndoe3" email="john.doe3@rbs.fr" password="abcd123" label="John Doe3">
 			<usersprofile firstname="John" lastname="Doe3" titleid-refid="mr" registeredwebsiteid-refid="defaultwebsite" />
 		</user>
-		<user id="joedoe" login="joedoe" email="joe.doe@rbs.fr" password="abcd123" label="John Doe" >
+		<user id="joedoe" login="joedoe" email="joe.doe@rbs.fr" password="abcd123" label="John Doe">
 			<usersprofile firstname="Joe" lastname="Doe" titleid-refid="mr" registeredwebsiteid-refid="defaultwebsite" />
 		</user>
 	</group>
-
 	<rootfolder module="customer">
 		<tarifcustomergroupfolder byLabel="m.customer.document.tarifcustomergroupfolder.document-name">
 			<tarifcustomergroup byLabel="Premier groupe tarifaire d'exemple" description="Premier groupe tarifaire d'exemple" id="tarif1" />
 			<tarifcustomergroup byLabel="Second groupe tarifaire d'exemple" description="Second groupe tarifaire d'exemple" id="tarif2" />
 		</tarifcustomergroupfolder>
 	</rootfolder>
-
-	<address id="bill1" label="L'adresse de facturation de JohnDoe1" firstname="John" lastname="Doe1"
-		email="john.doe1@rbs.fr" addressLine1="10 rue de John Doe1" zipCode="67000" city="Strasbourg" country-refid="fr" />
-	<address id="ship1" label="L'adresse de livraison de JohnDoe1" firstname="John" lastname="Doe1"
-		email="john.doe1@rbs.fr" addressLine1="10 rue de John Doe1" zipCode="67000" city="Strasbourg" country-refid="fr" />
+	<address id="bill1" label="L'adresse de facturation de JohnDoe1" firstname="John" lastname="Doe1" email="john.doe1@rbs.fr" addressLine1="10 rue de John Doe1" zipCode="67000" city="Strasbourg" country-refid="fr" />
+	<address id="ship1" label="L'adresse de livraison de JohnDoe1" firstname="John" lastname="Doe1" email="john.doe1@rbs.fr" addressLine1="10 rue de John Doe1" zipCode="67000" city="Strasbourg" country-refid="fr" />
 	<customer id="c1" user-refid="johndoe1" address-refids="bill1,ship1" creationdate="2004-09-01 15:49:00" tarifGroup-refid="tarif1" />
-
-	<address id="bill2" label="L'adresse de facturation de JohnDoe2" firstname="John" lastname="Doe2"
-		email="john.doe2@rbs.fr" addressLine1="10 rue de John Doe2"	zipCode="67000" city="Strasbourg" country-refid="fr" />
-	<address id="ship2" label="L'adresse de livraison de JohnDoe2" firstname="John" lastname="Doe2"
-		email="john.doe2@rbs.fr" addressLine1="10 rue de John Doe2" zipCode="67000" city="Strasbourg" country-refid="fr" />
-	<customer id="c2" user-refid="johndoe2"	address-refids="bill2,ship2" creationdate="2005-08-01 15:49:00"  tarifGroup-refid="tarif1" />
-
-	<address id="bill3" label="L'adresse de facturation de JohnDoe3" firstname="John" lastname="Doe3"
-		email="john.doe3@rbs.fr" addressLine1="10 rue de John Doe3" zipCode="67000" city="Strasbourg" country-refid="fr" />
-	<address id="ship3" label="L'adresse de livraison de JohnDoe3" firstname="John3" lastname="Doe3"
-		email="john.doe3@rbs.fr" addressLine1="10 rue de John Doe3" zipCode="67000" city="Strasbourg" country-refid="fr" />
-	<customer id="c3" user-refid="johndoe3"	address-refids="bill3,ship3" tarifGroup-refid="tarif2" />
-
-	<address id="bill4" label="L'adresse de facturation de JoeDoe" firstname="Joe" lastname="Doe"
-		email="joe.doe@rbs.fr" addressLine1="10 rue de Joe Doe" zipCode="68000" city="Mulhouse" country-refid="fr" />
-	<address id="ship4" label="L'adresse de livraison de JoeDoe" firstname="Joe" lastname="Doe"
-		email="joe.doe@rbs.fr" addressLine1="10 rue de Joe Doe" zipCode="68000" city="Mulhouse" country-refid="fr" />
+	<address id="bill2" label="L'adresse de facturation de JohnDoe2" firstname="John" lastname="Doe2" email="john.doe2@rbs.fr" addressLine1="10 rue de John Doe2" zipCode="67000" city="Strasbourg" country-refid="fr" />
+	<address id="ship2" label="L'adresse de livraison de JohnDoe2" firstname="John" lastname="Doe2" email="john.doe2@rbs.fr" addressLine1="10 rue de John Doe2" zipCode="67000" city="Strasbourg" country-refid="fr" />
+	<customer id="c2" user-refid="johndoe2" address-refids="bill2,ship2" creationdate="2005-08-01 15:49:00" tarifGroup-refid="tarif1" />
+	<address id="bill3" label="L'adresse de facturation de JohnDoe3" firstname="John" lastname="Doe3" email="john.doe3@rbs.fr" addressLine1="10 rue de John Doe3" zipCode="67000" city="Strasbourg" country-refid="fr" />
+	<address id="ship3" label="L'adresse de livraison de JohnDoe3" firstname="John3" lastname="Doe3" email="john.doe3@rbs.fr" addressLine1="10 rue de John Doe3" zipCode="67000" city="Strasbourg" country-refid="fr" />
+	<customer id="c3" user-refid="johndoe3" address-refids="bill3,ship3" tarifGroup-refid="tarif2" />
+	<address id="bill4" label="L'adresse de facturation de JoeDoe" firstname="Joe" lastname="Doe" email="joe.doe@rbs.fr" addressLine1="10 rue de Joe Doe" zipCode="68000" city="Mulhouse" country-refid="fr" />
+	<address id="ship4" label="L'adresse de livraison de JoeDoe" firstname="Joe" lastname="Doe" email="joe.doe@rbs.fr" addressLine1="10 rue de Joe Doe" zipCode="68000" city="Mulhouse" country-refid="fr" />
 	<customer id="c4" user-refid="joedoe" address-refids="bill4,ship4" />
-
 	<rootfolder module="customer">
- 		<editablecustomergroup byLabel="Exemple de groupe client éditable" description="Clients importés dans le fichier d'exemple." members-refids="c1,c2,c3,c4" />
-		<dynamiccustomergroup byLabel="Clients incrits cette année" query='{"operator":"and","elements":[{"class":"customer_CreationDateFilter","parameters":{"count":[null,null,"1"],"unit":[null,null,"year"]}}]}' />
+		<editablecustomergroup byLabel="Exemple de groupe client éditable" description="Clients importés dans le fichier d'exemple." members-refids="c1,c2,c3,c4" />
+		<dynamiccustomergroup byLabel="Clients incrits cette année" query="{&quot;operator&quot;:&quot;and&quot;,&quot;elements&quot;:[{&quot;class&quot;:&quot;customer_CreationDateFilter&quot;,&quot;parameters&quot;:{&quot;count&quot;:[null,null,&quot;1&quot;],&quot;unit&quot;:[null,null,&quot;year&quot;]}}]}" />
 	</rootfolder>
 </script>

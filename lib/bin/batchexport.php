@@ -7,7 +7,7 @@ $tm = f_persistentdocument_TransactionManager::getInstance();
 
 $cs = customer_CustomerService::getInstance();
 $names = array_keys($cs->getExportFields());
-$fp = fopen($tmpFileName, 'a');	
+$fp = fopen($tmpFileName, 'a');
 try
 {
 	$tm->beginTransaction();

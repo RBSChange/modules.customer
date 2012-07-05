@@ -3,15 +3,12 @@
 	<binding fileName="modules/website/persistentdocument/import/website_binding.xml" />
 	<binding fileName="modules/users/persistentdocument/import/users_binding.xml" />
 	<binding fileName="modules/form/persistentdocument/import/form_binding.xml" />
-
 	<rootfolder module="users">
 		<frontendgroup id="customersGroup" byTag="default_modules_customer_customer-website-user-group" label="Utilisateurs disposant d'un compte client" />
 	</rootfolder>
-	
 	<systemfolder module="form" relatedmodule="customer">
 		<form byFormid="modules_customer/contact" id="contactForm" />
 	</systemfolder>
-	
 	<website byTag="default_modules_website_default-website">
 		<topic byLabel="Compte client">
 			<page label="Mon compte" isIndexPage="true" byTag="contextual_website_website_modules_customer_my-account">
@@ -43,7 +40,6 @@
 				<frontendpermission module="website" role="AuthenticatedFrontUser" group-refid="customersGroup" />
 			</permissions>
 		</topic>
-		
 		<topic byLabel="Outils">
 			<page label="Mot de passe perdu" byTag="contextual_website_website_modules_customer_password-lost">
 				<changecontent for="content-block">
@@ -51,7 +47,6 @@
 				</changecontent>
 			</page>
 		</topic>
-			
 		<topic byLabel="Commande">
 			<page label="Créer un compte client" byTag="contextual_website_website_modules_customer_new-account">
 				<changecontent for="content-block">
