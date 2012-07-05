@@ -11,7 +11,7 @@
 				<xul:scrollbox anonid="scrollctrl" flex="1" class="editordatacontainer" orient="vertical">
 					<xul:vbox anonid="orders" />
 					<xul:spacer flex="1" />
-				</xul:scrollbox>					
+				</xul:scrollbox>
 			</xul:vbox>
 		</content>
 		<implementation>
@@ -33,11 +33,11 @@
 						this.showErrorMessage(result.contents.errorMessage);
 					}
 					else
-					{									
+					{
 						var orders = result.contents;
 						if (orders.length == 0)
 						{
-							this.showWarningMessage("&modules.customer.bo.general.No-order-for-this-customer;");
+							this.showWarningMessage("${trans:m.customer.bo.general.no-order-for-this-customer,ucf,js}");
 						}
 						var order;
 						var section;

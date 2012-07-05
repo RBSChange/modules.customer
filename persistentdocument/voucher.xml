@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/schema/persistentdocument-4.0.xsd" model-version="1.0" extend="modules_customer/coupon">
 	<properties>
-		<property name="shop" type="Document" min-occurs="1" inverse="true" from-list="modules_catalog/shops" document-type="modules_catalog/shop" />
-		<property name="amount" type="Double" min-occurs="1" />
+		<property name="shop" type="Document" inverse="true" from-list="modules_catalog/shops" document-type="modules_catalog/shop" required="true" />
+		<property name="amount" type="Double" required="true" />
 		<property name="customerId" type="Integer" />
 		<property name="billingAreaId" type="Integer" from-list="modules_catalog/billingareabyshop" />
 	</properties>

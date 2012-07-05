@@ -12,7 +12,7 @@
 					if (this.childNodes.length < 1)
 					{
 						label = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'xul:label');
-						label.setAttribute('value', "&modules.customer.bo.general.No-order-for-this-customer;");
+						label.setAttribute('value', "${trans:m.customer.bo.general.no-order-for-this-customer,ucf,js}");
 						this.appendChild(label);
 					}
 					var i = 0;
@@ -79,7 +79,7 @@
 					if (this.childNodes.length < 1)
 					{
 						label = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'xul:label');
-						label.setAttribute('value', "&modules.customer.bo.general.No-cart-for-this-customer;");
+						label.setAttribute('value', "${trans:m.customer.bo.general.no-cart-for-this-customer,ucf,js}");
 						this.appendChild(label);
 					}
 					var i = 0;

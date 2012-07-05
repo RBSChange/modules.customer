@@ -33,7 +33,7 @@
 		<parameter name="listWidget" />
 		<body><![CDATA[
 			var id = listWidget.getSelectedIds()[0];
-			if (confirm("&modules.customer.bo.actions.Confirm-anonymize;"))
+			if (confirm("${trans:m.customer.bo.actions.confirm-anonymize,ucf,js}"))
 			{
 				wCore.executeJSON('customer', 'Anonymize', { cmpref: id }, null, true);
 				this.refreshMainViewDeck();
