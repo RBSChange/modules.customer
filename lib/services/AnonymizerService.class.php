@@ -33,7 +33,27 @@ class customer_AnonymizerService extends change_BaseService
 	 */
 	public function anonymizeCustomer($customer)
 	{
-		$user->getDocumentService()->anonymize($user);
+		$this->anonymizeUser($customer->getUser());
+		foreach ($customer->getAddressArray() as $address)
+		{
+			$this->anonymizeAddress($address);
+		}
+		foreach ($customer->getOrderArrayInverse() as $order)
+		{
+			$this->anonymizeAddress($order->getBillingAddress());
+			$this->anonymizeAddress($order->getShippingAddress());
+		}
+		
+		$customer->setLabel('Anonymous');
+		$customer->save();
+		
+		foreach ($customer->getEditablecustomergroupArrayInverse() as $group)
+		{
+			$group->removeMember($customer);
+			$group->save();
+		}
+		
+		$customer->getDocumentService()->file($customer->getId());
 	}
 	
 	/**
@@ -41,21 +61,7 @@ class customer_AnonymizerService extends change_BaseService
 	 */
 	protected function anonymizeUser($user)
 	{
-		$user->setFirstname('Anonymous');
-		$user->setLastname('Anonymous');
-		$address->setEmail(Framework::getConfigurationValue('modules/users/anonymousEmailAddress'));
-		$user->setLogin('anonymous-'.$user->getId());
-		$user->setPasswordmd5(md5(f_util_StringUtils::randomString()));
-		foreach ($user->getGroupsArray() as $group)
-		{
-			if (!($group instanceof users_persistentdocument_group))
-			{
-				$user->removeGroups($group);
-			}
-		}
-		$user->save();
-		
-		$user->getDocumentService()->file($user->getId());
+		$user->getDocumentService()->anonymize($user);
 	}
 	
 	/**
@@ -65,7 +71,7 @@ class customer_AnonymizerService extends change_BaseService
 	{
 		$address->setFirstname('Anonymous');
 		$address->setLastname('Anonymous');
-		$address->setEmail(Framework::getConfigurationValue('modules/customer/anonymousEmailAddress'));
+		$address->setEmail(Framework::getConfigurationValue('modules/users/anonymousEmailAddress'));
 		$address->setAddressLine1('Anonymous');
 		$address->setAddressLine2('Anonymous');
 		$address->setAddressLine3('Anonymous');
