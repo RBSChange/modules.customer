@@ -601,8 +601,9 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	 * @param customer_persistentdocument_customer $customer
 	 * @param string[] $propertiesNames
 	 * @param array $formProperties
+	 * @param integer $parentId
 	 */
-	public function addFormProperties($customer, $propertiesNames, &$formProperties)
+	public function addFormProperties($customer, $propertiesNames, &$formProperties, $parentId = null)
 	{
 		$user = $customer->getUser();
 		
