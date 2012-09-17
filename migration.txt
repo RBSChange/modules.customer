@@ -1,0 +1,11 @@
+Last merge with 3.6 : https://github.com/RBSChange/modules.customer/commit/aab6d934109e41fb4923b2c2f6e48aa4d96f196f
+
+removed function :
+customer_persistentdocument_customer / public function getCode
+customer_persistentdocument_customer / public function getNotActivatedReason
+customer_persistentdocument_customer / public function setNotActivatedReason
+
+removed class :
+customer_CreationDateComparisonCustomerFilter
+
+removed interface :

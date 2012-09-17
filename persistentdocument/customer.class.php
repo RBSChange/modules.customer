@@ -145,22 +145,4 @@ class customer_persistentdocument_customer extends customer_persistentdocument_c
 		$user = $this->getUser();
 		return $user !== null ? $user->getEmail() : null;
 	}
-	
-	// Deprecated.
-	
-	/**
-	 * @deprecated use getCodeReference
-	 */
-	public function getCode()
-	{
-		if (!$this->hasMeta('customerCode'))
-		{
-			return $this->getCodeReference();
-		}
-		$codeRef = $this->getMeta('customerCode');
-		$this->setMeta('customerCode', null);
-		$this->setCodeReference($codeRef);
-		$this->saveMeta();
-		return $codeRef;
-	}
 }

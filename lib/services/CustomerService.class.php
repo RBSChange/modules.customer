@@ -26,15 +26,6 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	{
 		return $this->getPersistentProvider()->createQuery('modules_customer/customer');
 	}
-
-	/**
-	 * @param f_persistentdocument_PersistentDocument $document
-	 * @return boolean true if the document is publishable, false if it is not.
-	 */
-	public function isPublishable($document)
-	{
-		return parent::isPublishable($document) && !$document->getNotActivatedReason();
-	}
 	
 	/**
 	 * @param customer_persistentdocument_customer $document
@@ -591,8 +582,9 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 	 * @param customer_persistentdocument_customer $customer
 	 * @param string[] $propertiesNames
 	 * @param array $formProperties
+	 * @param integer $parentId
 	 */
-	public function addFormProperties($customer, $propertiesNames, &$formProperties)
+	public function addFormProperties($customer, $propertiesNames, &$formProperties, $parentId = null)
 	{
 		$user = $customer->getUser();
 		

@@ -14,8 +14,6 @@
 		<property name="lastOrderId" type="Integer" />
 		<property name="birthday" type="DateTime" />
 		<property name="birthdayDayNumber" type="Integer" />
-		<!-- @deprecated (will be removed in 4.0) -->
-		<property name="notActivatedReason" type="Integer" />
 	</properties>
 	<statuses default="ACTIVE" />
 </document>

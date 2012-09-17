@@ -2,5 +2,4 @@
 <install type="modules" name="customer" version="4.0.0">
 	<package type="modules" name="catalog" />
 	<package type="modules" name="order" />
-	<package type="modules" name="zone" />
 </install>
