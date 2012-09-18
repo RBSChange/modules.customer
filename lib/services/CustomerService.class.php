@@ -453,7 +453,7 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 					$data['carts'][] = array(
 						'lineCount' => $cart->getCartLineCount(),
 						'totalTax' => $cart->getFormattedTotalTax(),
-						'totalAmount' => $cart->getFormattedTotalAmount()
+						'totalAmount' => $cart->formatPrice($cart->getTotalAmount())
 					);
 
 				}

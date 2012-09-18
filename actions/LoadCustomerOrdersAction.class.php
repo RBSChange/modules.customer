@@ -29,8 +29,8 @@ class customer_LoadCustomerOrdersAction extends change_JSONAction
 				$orderInfo['status'] = $order->getBoOrderStatusLabel();
 				
 				$pf = catalog_PriceFormatter::getInstance();	
-				$orderInfo['totalamountwithtax'] = $pf->applyFormat($order->getTotalAmountWithTax(), $order->getPriceFormat(), $order->getCurrencyCode());
-				$orderInfo['totalamountwithouttax'] = $pf->applyFormat($order->getTotalAmountWithoutTax(), $order->getPriceFormat(), $order->getCurrencyCode());
+				$orderInfo['totalamountwithtax'] = $order->formatPrice($order->getTotalAmountWithTax());
+				$orderInfo['totalamountwithouttax'] = $order->formatPrice($order->getTotalAmountWithoutTax());
 				$orderInfo['commentadmin'] = $order->getCommentadmin();			
 				$result[] = $orderInfo;
 			}
