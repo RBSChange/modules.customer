@@ -5,4 +5,5 @@
 	<key id="activateemailconfirmation-help">Si ce champ est positionné à ″oui″, les nouveaux clients devront confirmer leur addresse e-mail via un lien qui leur sera automatiquement envoyé par e-mail.</key>
 	<key id="activatetrust">Afficher la confiance d'un client</key>
 	<key id="activatetrust-help">Afficher la confiance d'un client</key>
+	<key id="edition-form-title">Préférences du module comptes clients</key>
 </i18n>
