@@ -6,5 +6,5 @@
 		<!-- @deprecated (will be removed in 4.0) -->
 		<property name="activateEmailConfirmation" type="Boolean" default-value="false" />
 	</properties>
-	<statuses default="PUBLICATED" />
+	<statuses default="PUBLISHED" />
 </document>

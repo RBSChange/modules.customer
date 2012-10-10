@@ -18,5 +18,5 @@
 		<property name="fax" type="String" />
 		<property name="mobilephone" type="String" />
 	</properties>
-	<statuses default="PUBLICATED" />
+	<statuses default="PUBLISHED" />
 </document>
