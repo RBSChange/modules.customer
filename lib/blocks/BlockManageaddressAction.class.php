@@ -12,7 +12,7 @@ class customer_BlockManageaddressAction extends website_BlockAction
 	 * @param customer_persistentdocument_address $address
 	 * @return string
 	 */
-	public function execute($request, $response, customer_persistentdocument_address $address)
+	public function execute($request, $response, customer_persistentdocument_address $address = null)
 	{
 		if ($this->isInBackofficeEdition())
 		{
