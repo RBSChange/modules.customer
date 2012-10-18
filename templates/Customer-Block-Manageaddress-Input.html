@@ -5,7 +5,7 @@
 		<legend tal:condition="not:address/isNew" class="h-2">${trans:m.customer.frontoffice.edit-existing-address,ucf}</legend>
 		<ul change:errors=""></ul>
 		<ol>
-			<li><input change:field="name label" labeli18n="m.customer.document.address.label"/></li>
+			<li><input change:field="name label" labeli18n="m.customer.document.address.label" required="false"/></li>
 			<li><input change:field="name titleid" /></li>
 			<li><input change:field="name firstname" /></li>
 			<li><input change:field="name lastname" /></li>
