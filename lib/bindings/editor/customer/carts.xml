@@ -108,13 +108,13 @@
 									}
 								}
 							}
-							while (row = section.childNodes[j+1])
+							while ((row = section.childNodes[j+1]) != null)
 							{
 								row.setAttribute('collapsed', 'true');
 								j++;
 							}
 						}
-						while (section = cartsNode.childNodes[i])
+						while ((section = cartsNode.childNodes[i]) != null)
 						{
 							section.setAttribute('collapsed', 'true');
 							i++;

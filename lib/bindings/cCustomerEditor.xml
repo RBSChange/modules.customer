@@ -48,7 +48,7 @@
 					{
 						this.childNodes[0].removeAttribute('collapsed');
 					}
-					while (section = this.childNodes[i+1])
+					while ((section = this.childNodes[i+1]) != null)
 					{
 						section.setAttribute('collapsed', 'true');
 						i++;
@@ -115,7 +115,7 @@
 					{
 						this.childNodes[0].removeAttribute('collapsed');
 					}
-					while (section = this.childNodes[i+1])
+					while ((section = this.childNodes[i+1]) != null)
 					{
 						section.setAttribute('collapsed', 'true');
 						i++;

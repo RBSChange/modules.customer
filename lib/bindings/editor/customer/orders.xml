@@ -76,7 +76,7 @@
 							// Comment admin.
 							section.appendChild(document.createTextNode(order['commentadmin']));
 						}
-						while (section = ordersNode.childNodes[i])
+						while ((section = ordersNode.childNodes[i]) != null)
 						{
 							section.setAttribute('collapsed', 'true');
 							i++;
