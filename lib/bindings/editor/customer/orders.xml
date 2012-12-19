@@ -24,7 +24,7 @@
 					};
 				]]></body>
 			</method>
-						
+			
 			<method name="fireInitializeComplete">
 				<parameter name="result" />
 				<body><![CDATA[
@@ -58,8 +58,7 @@
 								section.removeChild(section.firstChild);
 							}
 							
-							
-							section.setAttribute('customerid', this.documentEditor.documentid);							
+							section.setAttribute('customerid', this.documentEditor.documentid);
 							for (var name in order)
 							{
 								section.setAttribute(name, order[name]);
@@ -76,7 +75,7 @@
 							// Comment admin.
 							section.appendChild(document.createTextNode(order['commentadmin']));
 						}
-						while (section = ordersNode.childNodes[i])
+						while ((section = ordersNode.childNodes[i]) != null)
 						{
 							section.setAttribute('collapsed', 'true');
 							i++;

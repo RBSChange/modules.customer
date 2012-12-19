@@ -14,7 +14,7 @@
 				<xul:scrollbox anonid="scrollctrl" flex="1" class="editordatacontainer" orient="vertical">
 					<xul:vbox anonid="carts" />
 					<xul:spacer flex="1" />
-				</xul:scrollbox>					
+				</xul:scrollbox>
 			</xul:vbox>
 		</content>
 		<implementation>
@@ -36,12 +36,12 @@
 						this.showErrorMessage(result.contents.errorMessage);
 					}
 					else
-					{									
+					{
 						var carts = result.contents;
 						if (carts.length == 0)
 						{
 							this.showWarningMessage("${trans:m.customer.bo.general.no-cart-for-this-customer,js,ucf}");
-						}						
+						}
 						var cart;
 						var section;
 						var cartsNode = document.getAnonymousElementByAttribute(this, "anonid", 'carts');
@@ -108,13 +108,13 @@
 									}
 								}
 							}
-							while (row = section.childNodes[j+1])
+							while ((row = section.childNodes[j+1]) != null)
 							{
 								row.setAttribute('collapsed', 'true');
 								j++;
 							}
 						}
-						while (section = cartsNode.childNodes[i])
+						while ((section = cartsNode.childNodes[i]) != null)
 						{
 							section.setAttribute('collapsed', 'true');
 							i++;
