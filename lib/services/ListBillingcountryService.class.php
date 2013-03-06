@@ -21,7 +21,7 @@ class customer_ListBillingcountryService extends customer_ListBaseCountryService
 		}
 		return self::$instance;
 	}
-
+	
 	protected function __construct()
 	{
 		try 

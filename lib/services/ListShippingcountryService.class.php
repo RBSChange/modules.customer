@@ -9,7 +9,7 @@ class customer_ListShippingcountryService extends BaseService
 	 * @var customer_ListShippingcountryService
 	 */
 	private static $instance;
-
+	
 	/**
 	 * @return customer_ListShippingcountryService
 	 */
@@ -21,23 +21,26 @@ class customer_ListShippingcountryService extends BaseService
 		}
 		return self::$instance;
 	}
-
+	
 	/**
 	 * @see list_persistentdocument_dynamiclist::getItems()
 	 * @return list_Item[]
 	 */
-	public final function getItems()
+	public function getItems()
 	{
 		$results = array();
 		$shop = catalog_ShopService::getInstance()->getCurrentShop();
 		$countries = $this->getAvailableCountries($shop);
-		foreach ($countries as $country) 
+		foreach ($countries as $country)
 		{
 			$results[] = new list_Item($country->getLabel(), $country->getId());
 		}
 		return $results;
 	}
 	
+	/**
+	 * @var zone_persistentdocument_country[]
+	 */
 	protected $countries = array();
 	
 	/**
@@ -53,12 +56,12 @@ class customer_ListShippingcountryService extends BaseService
 				$list = array();
 				$reorder = false;
 				$countries = catalog_ShippingfilterService::getInstance()->getAvailableCountriesForShop($shop);
-				foreach ($countries as $country) 
+				foreach ($countries as $country)
 				{
 					$list[$country->getLabel()] = $country;
 				}
 				
-				foreach (catalog_TaxService::getInstance()->getAllZonesForBillingArea($billingArea) as $zone) 
+				foreach (catalog_TaxService::getInstance()->getAllZonesForBillingArea($billingArea) as $zone)
 				{
 					foreach (zone_CountryService::getInstance()->getCountries($zone) as $country)
 					{
@@ -69,13 +72,15 @@ class customer_ListShippingcountryService extends BaseService
 						}
 					}
 				}
-							
-				if ($reorder) {ksort($list);}			
+				
+				if ($reorder)
+				{
+					ksort($list);
+				}
 				$this->countries[$shop->getId()] = array_values($list);
 			}
 			return $this->countries[$shop->getId()];
 		}
 		return array();
 	}
-	
 }

@@ -13,7 +13,7 @@ abstract class customer_ListBaseCountryService extends BaseService
 	/**
 	 * @return array<list_Item>
 	 */
-	public final function getItems()
+	public function getItems()
 	{
 		if ($this->zone instanceof zone_persistentdocument_zone)
 		{
@@ -35,7 +35,7 @@ abstract class customer_ListBaseCountryService extends BaseService
 	 * @param String $value
 	 * @return list_Item
 	 */
-	public final function getItemByValue($value)
+	public function getItemByValue($value)
 	{
 		try 
 		{
@@ -52,7 +52,7 @@ abstract class customer_ListBaseCountryService extends BaseService
 	/**
 	 * @return String
 	 */
-	public final function getDefaultId()
+	public function getDefaultId()
 	{
 		$items = $this->getItems();
 		return f_util_ArrayUtils::firstElement($items)->getValue();
@@ -63,7 +63,7 @@ abstract class customer_ListBaseCountryService extends BaseService
 	 * @param zone_persistentdocument_zone $zone
 	 * @return customer_ListBaseCountryService
 	 */
-	protected final function setZone($zone)
+	protected function setZone($zone)
 	{
 		$this->zone = $zone;
 		return $this;
