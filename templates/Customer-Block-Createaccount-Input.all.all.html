@@ -7,14 +7,14 @@
 			<tal:block tal:condition="configuration/getConfirmEmail"> 
 				<li><input change:field="name emailconfirm; id customer_createaccount_emailconfirm; required true" autocorrect="off" autocapitalize="off" /></li>
 			</tal:block>
-			<li><input change:field="name customer.user.titleid" /></li>
-			<li><input change:field="name customer.user.firstname" /></li>
-			<li><input change:field="name customer.user.lastname" /></li>
-			<li><input change:datecombo="name customer.birthday" labeled="true" /></li>
 			<tal:block tal:condition="not: customerWrapper/getBeanId">
 				<li><input change:passwordinput="name password; required true" value="" labeled="true" /></li>
 				<li><input change:passwordinput="name passwordconfirm; required true" value="" labeled="true" /></li>
 			</tal:block>
+			<li><input change:field="name customer.user.titleid" /></li>
+			<li><input change:field="name customer.user.firstname" /></li>
+			<li><input change:field="name customer.user.lastname" /></li>
+			<li><input change:datecombo="name customer.birthday" labeled="true" /></li>
 		</ol>
 		<p class="buttons">
 			<input change:field="name beanId" hidden="true" />
