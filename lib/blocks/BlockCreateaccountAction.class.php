@@ -17,14 +17,15 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 		{
 			return website_BlockView::NONE;
 		}
-		elseif ($this->isInBackofficePreview()) 
+		elseif ($this->isInBackofficePreview())
 		{
 			return $this->getInputViewName();
 		}
 		$customer = customer_CustomerService::getInstance()->getCurrentCustomer();
 		if ($customer !== null)
 		{
-			HttpController::getInstance()->redirectToUrl(LinkHelper::getTagUrl('contextual_website_website_modules_customer_my-account'));
+			HttpController::getInstance()
+				->redirectToUrl(LinkHelper::getTagUrl('contextual_website_website_modules_customer_my-account'));
 		}
 
 		$user = users_UserService::getInstance()->getCurrentFrontEndUser();
@@ -37,6 +38,29 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 	}
 
 	/**
+	 * @return string[]|null
+	 */
+	public function getCustomerWrapperBeanInclude()
+	{
+		if (Framework::getConfigurationValue('modules/website/useBeanPopulateStrictMode') != 'false')
+		{
+			$include = array('customer.user.email', 'customer.user.titleid', 'customer.user.firstname', 'customer.user.lastname',
+				'customer.birthday');
+			if ($this->getConfiguration()->getConfirmEmail())
+			{
+				$include[] = 'emailconfirm';
+			}
+			if (users_UserService::getInstance()->getCurrentFrontEndUser() === null)
+			{
+				$include[] = 'password';
+				$include[] = 'passwordconfirm';
+			}
+			return $include;
+		}
+		return null;
+	}
+
+	/**
 	 * @param f_mvc_Request $request
 	 * @param customer_CustomerWrapperBean $customerWrapper
 	 * @return boolean
@@ -45,9 +69,10 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 	{
 		// Validation.
 		$validationRules = array_merge(
-			BeanUtils::getBeanValidationRules('customer_CustomerWrapperBean'), 
-			BeanUtils::getSubBeanValidationRules('customer_CustomerWrapperBean', 'customer', null, array('label', 'user')), 
-			BeanUtils::getSubBeanValidationRules('customer_CustomerWrapperBean', 'customer.user', null, array('label', 'login', 'passwordmd5', 'websiteid'))
+			BeanUtils::getBeanValidationRules('customer_CustomerWrapperBean'),
+			BeanUtils::getSubBeanValidationRules('customer_CustomerWrapperBean', 'customer', null, array('label', 'user')),
+			BeanUtils::getSubBeanValidationRules('customer_CustomerWrapperBean', 'customer.user', null,
+				array('label', 'login', 'passwordmd5', 'websiteid'))
 		);
 		if (!$customerWrapper->id)
 		{
@@ -68,10 +93,11 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 		$existingUser = users_UserService::getInstance()->getFrontendUserByLogin($login, $website->getId());
 		if ($existingUser !== null && $existingUser->getId() !== $user->getId())
 		{
-			$this->addError(LocaleService::getInstance()->transFO('m.customer.document.customerwrapperbean.invalid-login-error', array('ucf')));
+			$this->addError(LocaleService::getInstance()
+				->transFO('m.customer.document.customerwrapperbean.invalid-login-error', array('ucf')));
 			$isOk = false;
 		}
-		
+
 		return $isOk;
 	}
 
@@ -83,10 +109,10 @@ class customer_BlockCreateaccountAction extends website_BlockAction
 	 */
 	public function executeSave($request, $response, customer_CustomerWrapperBean $customerWrapper)
 	{
-		$customer = $customerWrapper->customer;		
-		$user = $customer->getUser();			
+		$customer = $customerWrapper->customer;
+		$user = $customer->getUser();
 		if ($user->isNew())
-		{				
+		{
 			customer_CustomerService::getInstance()->saveNewCustomer($customer, $customerWrapper->password);
 		}
 		else
