@@ -733,7 +733,40 @@ class customer_CustomerService extends f_persistentdocument_DocumentService
 		}
 		return $value;
 	}
-	
+
+	/**
+	 * @param order_persistentdocument_order $order
+	 * @param customer_persistentdocument_customer $customer
+	 * @return customer_persistentdocument_customer $customer
+	 * @throws Exception
+	 */
+	public function setLastOrderForCustomer($order, $customer)
+	{
+		if ($order == null || f_util_ObjectUtils::isEmpty($order))
+		{
+			throw new Exception('['.__METHOD__.'] Parameter order can\'t be empty nor null');
+		}
+		if ($customer == null || f_util_ObjectUtils::isEmpty($customer))
+		{
+			throw new Exception('['.__METHOD__.'] Parameter customer can\'t be empty nor null');
+		}
+
+		$tm = f_persistentdocument_TransactionManager::getInstance();
+		try
+		{
+			$tm->beginTransaction();
+			$customer->setLastOrderId($order->getId());
+			$customer->save();
+			$tm->commit();
+		}
+		catch (Exception $e)
+		{
+			$tm->rollBack($e);
+			throw $e;
+		}
+		return $customer;
+	}
+
 	// Deprecated.
 	
 	/**
